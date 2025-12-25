@@ -4,7 +4,7 @@ import UpgradeGuide from './UpgradeGuide';
 import Calculator from './Calculator';
 import OptionCompare from './OptionCompare';
 import {
-    codeColors, tierColors, squadOptions, classNames, classDescriptions,
+    codeColors, tierColors, rarityColors, classNames, classDescriptions,
     weaponNames
 } from '../utils/nikkeConstants';
 import { extractTagsFromSkill } from '../utils/tagExtractor';
@@ -192,13 +192,6 @@ export default function NikkeDetail({ nikke, onBack, onSaveNikke, highlightTags 
 
         return (
             <div className="space-y-4">
-                {/* 1. Names */}
-                <div className="bg-black/30 p-4 rounded-lg border border-gray-700">
-                    <h4 className="text-sm font-bold text-gray-400 mb-3">📛 이름</h4>
-                    <div className="flex flex-col gap-1">
-                        <span className="text-sm font-bold text-blue-400">📊 기본 능력치 & 오버로드 가이드는 [가이드] 탭을 확인해주세요.</span>
-                    </div>
-                </div>
 
                 {/* 2. Classification (분류) */}
                 <div className="bg-black/30 p-4 rounded-lg border border-gray-700">
@@ -209,6 +202,10 @@ export default function NikkeDetail({ nikke, onBack, onSaveNikke, highlightTags 
                                 <span className="text-xs text-gray-500">티어:</span>
                                 <span className={`px-2 py-0.5 rounded bg-black/50 border ${tierColor} font-bold text-sm`}>{currentData.tier}</span>
                             </div>
+                            <div className="flex items-center gap-2">
+                                <span className="text-xs text-gray-500">희귀도:</span>
+                                <span className={`px-2 py-0.5 rounded bg-black/50 border ${rarityColors[currentData.rarity || 'SSR'] || 'border-gray-700 text-gray-400'} font-bold text-sm`}>{currentData.rarity || 'SSR'}</span>
+                            </div>
                             {currentData.company && (
                                 <div className="flex items-center gap-2">
                                     <span className="text-xs text-gray-500">제조사:</span>
@@ -217,7 +214,7 @@ export default function NikkeDetail({ nikke, onBack, onSaveNikke, highlightTags 
                             )}
                             <div className="flex items-center gap-2">
                                 <span className="text-xs text-gray-500">스쿼드:</span>
-                                {currentData.squad && squadOptions.includes(currentData.squad) ? (
+                                {currentData.squad ? (
                                     <span className="px-2 py-0.5 bg-gray-800 text-gray-300 rounded text-sm">{currentData.squad}</span>
                                 ) : (
                                     <span className="px-2 py-0.5 bg-gray-800/50 text-gray-500 rounded text-sm italic">-</span>
@@ -242,14 +239,6 @@ export default function NikkeDetail({ nikke, onBack, onSaveNikke, highlightTags 
                             <div className="flex items-center gap-2">
                                 <span className="text-xs text-gray-500">무기 종류:</span>
                                 <span className="px-2 py-0.5 bg-gray-800 text-gray-300 rounded text-sm">{weaponNames[currentData.weapon] || currentData.weapon}</span>
-                            </div>
-                            <div className="flex items-center gap-2">
-                                <span className="text-xs text-gray-500">무기 이름:</span>
-                                {currentData.weapon_info?.weapon_name ? (
-                                    <span className="px-2 py-0.5 bg-gray-800 text-gray-300 rounded text-sm">{currentData.weapon_info.weapon_name}</span>
-                                ) : (
-                                    <span className="text-xs text-gray-500">-</span>
-                                )}
                             </div>
                         </div>
                     </div>
@@ -472,17 +461,6 @@ export default function NikkeDetail({ nikke, onBack, onSaveNikke, highlightTags 
         );
     };
 
-    const renderCubeDescTab = () => (
-        <div className="bg-black/30 p-4 rounded-lg border border-gray-700">
-            <h4 className="text-sm font-bold text-gray-400 mb-3">📝 설명 & 메모</h4>
-            {isEditMode ? (
-                <textarea value={editData.desc} onChange={e => handleFieldChange('desc', e.target.value)}
-                    className="w-full bg-gray-800 border border-gray-700 text-white px-3 py-2 rounded h-32 resize-none" />
-            ) : (
-                <p className="text-gray-300 leading-relaxed whitespace-pre-wrap">{currentData.desc || '설명 없음'}</p>
-            )}
-        </div>
-    );
 
     return (
         <div className="max-w-4xl mx-auto animate-fadeIn">
@@ -535,8 +513,6 @@ export default function NikkeDetail({ nikke, onBack, onSaveNikke, highlightTags 
                         {renderBasicTab()}
                         <hr className="border-gray-700" />
                         {renderSkillsTab()}
-                        <hr className="border-gray-700" />
-                        {renderCubeDescTab()}
                     </div>
                 )}
                 {activeTab === 'guide' && <UpgradeGuide nikke={currentData} isEditMode={isEditMode} onUpdate={handleFieldChange} onSkillUpdate={handleSkillsChange} />}

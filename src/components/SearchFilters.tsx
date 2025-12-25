@@ -1,4 +1,6 @@
-import { tierOptions, companyOptions, squadOptions, classOptions, codeOptions, burstOptions, weaponOptions, weaponNames, classNames } from '../utils/nikkeConstants';
+import { tierOptions, companyOptions, classOptions, codeOptions, burstOptions, weaponOptions, weaponNames, classNames } from '../utils/nikkeConstants';
+import { getSquadOptions } from '../utils/nikkeDataManager';
+import { useState, useEffect } from 'react';
 
 export interface SearchFiltersState {
     tier: string;
@@ -28,6 +30,25 @@ interface SearchFiltersProps {
 }
 
 export default function SearchFilters({ filters, onChange, isOpen, onToggle }: SearchFiltersProps) {
+    const [availableSquads, setAvailableSquads] = useState<string[]>([]);
+
+    // Refresh squads helper
+    const refreshSquads = () => {
+        setAvailableSquads(getSquadOptions());
+    };
+
+    // Load squads on mount
+    useEffect(() => {
+        refreshSquads();
+    }, []);
+
+    // Refresh when panel opens
+    useEffect(() => {
+        if (isOpen) {
+            refreshSquads();
+        }
+    }, [isOpen]);
+
     const handleChange = (field: keyof SearchFiltersState, value: string) => {
         onChange({ ...filters, [field]: value });
     };
@@ -39,8 +60,8 @@ export default function SearchFilters({ filters, onChange, isOpen, onToggle }: S
             <button
                 onClick={onToggle}
                 className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-colors ${isOpen || activeCount > 0
-                        ? 'bg-gray-800 text-white border border-gray-600'
-                        : 'bg-gray-900/50 text-gray-400 border border-gray-800 hover:bg-gray-800'
+                    ? 'bg-gray-800 text-white border border-gray-600'
+                    : 'bg-gray-900/50 text-gray-400 border border-gray-800 hover:bg-gray-800'
                     }`}
             >
                 <span>🌪️ 상세 필터</span>
@@ -89,7 +110,7 @@ export default function SearchFilters({ filters, onChange, isOpen, onToggle }: S
                             className="w-full bg-gray-800 text-white text-sm border border-gray-700 rounded px-2 py-1"
                         >
                             <option value="">전체</option>
-                            {squadOptions.map(o => <option key={o} value={o}>{o}</option>)}
+                            {availableSquads.map(o => <option key={o} value={o}>{o}</option>)}
                         </select>
                     </div>
 

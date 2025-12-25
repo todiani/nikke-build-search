@@ -6,6 +6,7 @@ export interface NikkeData {
   burst: "I" | "II" | "III";
   class: "Attacker" | "Supporter" | "Defender";
   weapon: "AR" | "SR" | "SG" | "SMG" | "RL" | "MG";
+  rarity?: "SSR" | "SR" | "R";
 
   // NEW: Company/Manufacturer
   company?: string;  // 엘리시온, 미시리스, 테트라, 필그림, 이상현상
@@ -37,6 +38,7 @@ export interface NikkeData {
 
   // Overload option recommendations
   valid_options?: string[];
+  neutral_options?: string[];
   invalid_options?: string[];
 
   // Rich Data

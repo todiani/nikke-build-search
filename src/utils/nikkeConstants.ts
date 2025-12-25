@@ -93,6 +93,16 @@ export const codeOptions = ['작열', '풍압', '철갑', '전격', '수냉'];
 // 티어 옵션
 export const tierOptions = ['SSS', 'SS', 'S', 'A', 'PvP', 'Unranked'];
 
+// 희귀도 옵션
+export const rarityOptions = ['SSR', 'SR', 'R'];
+
+// 희귀도 색상 매핑
+export const rarityColors: Record<string, string> = {
+    'SSR': 'bg-orange-500/20 text-orange-400 border-orange-500/50',
+    'SR': 'bg-purple-500/20 text-purple-400 border-purple-500/50',
+    'R': 'bg-blue-500/20 text-blue-400 border-blue-500/50'
+};
+
 // 버스트 옵션
 export const burstOptions = ['I', 'II', 'III'];
 

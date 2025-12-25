@@ -1,10 +1,11 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import type { NikkeData } from '../data/nikkes';
 import {
-    weaponNames, squadOptions, classNames, classDescriptions,
+    weaponNames, classNames, classDescriptions,
     codeColors, tierColors, companyOptions, codeOptions,
     tierOptions, burstOptions, weaponOptions, classOptions
 } from '../utils/nikkeConstants';
+import { getSquadOptions } from '../utils/nikkeDataManager';
 import { extractTagsFromSkill } from '../utils/tagExtractor';
 
 interface NikkeEditorProps {
@@ -16,6 +17,12 @@ interface NikkeEditorProps {
 export default function NikkeEditor({ nikke, onSave, onClose }: NikkeEditorProps) {
     const [editData, setEditData] = useState<NikkeData>({ ...nikke });
     const [activeSection, setActiveSection] = useState<'basic' | 'skills' | 'options'>('basic');
+    const [squads, setSquads] = useState<string[]>([]);
+
+    // Load squads on mount
+    useEffect(() => {
+        setSquads(getSquadOptions());
+    }, []);
 
     const handleChange = (field: keyof NikkeData, value: any) => {
         setEditData(prev => ({ ...prev, [field]: value }));
@@ -144,7 +151,7 @@ export default function NikkeEditor({ nikke, onSave, onClose }: NikkeEditorProps
                                         <select value={editData.squad || ''} onChange={e => handleChange('squad', e.target.value)}
                                             className="w-full bg-gray-800 border border-gray-700 text-white px-3 py-2 rounded">
                                             <option value="">선택</option>
-                                            {squadOptions.map(t => <option key={t} value={t}>{t}</option>)}
+                                            {squads.map(t => <option key={t} value={t}>{t}</option>)}
                                         </select>
                                     </div>
                                     <div>

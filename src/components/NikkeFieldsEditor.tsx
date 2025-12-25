@@ -1,8 +1,11 @@
 import type { NikkeData } from '../data/nikkes';
 import {
-    weaponNames, squadOptions, companyOptions, codeOptions,
-    tierOptions, burstOptions, weaponOptions
+    weaponNames, companyOptions, codeOptions,
+    tierOptions, rarityOptions, burstOptions, weaponOptions
 } from '../utils/nikkeConstants';
+import { getSquadOptions } from '../utils/nikkeDataManager';
+import { useState, useEffect } from 'react';
+import SquadManager from './SquadManager';
 
 interface NikkeFieldsEditorProps {
     data: NikkeData;
@@ -12,6 +15,41 @@ interface NikkeFieldsEditorProps {
 }
 
 export default function NikkeFieldsEditor({ data, onChange, onUsageStatChange, onBurstDetailChange }: NikkeFieldsEditorProps) {
+    const [squads, setSquads] = useState<string[]>([]);
+
+    // Load squads on mount and whenever they might have changed
+    useEffect(() => {
+        refreshSquads();
+    }, []);
+
+    const refreshSquads = () => {
+        setSquads(getSquadOptions());
+    };
+
+    const [isSquadManagerOpen, setIsSquadManagerOpen] = useState(false);
+    const [managerMode, setManagerMode] = useState<'list' | 'add' | 'edit' | 'delete'>('list');
+    const [managerTarget, setManagerTarget] = useState<string | undefined>(undefined);
+
+    // Refresh squads when SquadManager closes
+    useEffect(() => {
+        if (!isSquadManagerOpen) {
+            refreshSquads();
+        }
+    }, [isSquadManagerOpen]);
+
+    const handleOpenSquadManager = (mode: 'list' | 'add' | 'edit' | 'delete', target?: string) => {
+        setManagerMode(mode);
+        // If mode is edit or delete, we need a target. If target is base squad, fallback to list?
+        // SquadManager logic handles base squad safety (e.g. not deleting base).
+        if ((mode === 'edit' || mode === 'delete') && target) {
+            setManagerTarget(target);
+        } else {
+            setManagerTarget(undefined);
+            // If trying to edit/delete nothing/invalid, maybe default to list? 
+            // Current Add/List setup already handles this.
+        }
+        setIsSquadManagerOpen(true);
+    };
 
     return (
         <div className="space-y-6">
@@ -45,6 +83,13 @@ export default function NikkeFieldsEditor({ data, onChange, onUsageStatChange, o
                         </select>
                     </div>
                     <div>
+                        <label className="text-xs text-gray-500 block mb-1">희귀도</label>
+                        <select value={data.rarity || 'SSR'} onChange={e => onChange('rarity', e.target.value)}
+                            className="w-full bg-gray-800 border border-gray-700 text-white px-3 py-2 rounded">
+                            {rarityOptions.map(t => <option key={t} value={t}>{t}</option>)}
+                        </select>
+                    </div>
+                    <div>
                         <label className="text-xs text-gray-500 block mb-1">제조사</label>
                         <select value={data.company || ''} onChange={e => onChange('company', e.target.value)}
                             className="w-full bg-gray-800 border border-gray-700 text-white px-3 py-2 rounded">
@@ -53,12 +98,54 @@ export default function NikkeFieldsEditor({ data, onChange, onUsageStatChange, o
                         </select>
                     </div>
                     <div>
-                        <label className="text-xs text-gray-500 block mb-1">스쿼드</label>
+                        <div className="flex justify-between items-center mb-1">
+                            <label className="text-xs text-gray-500 block">스쿼드</label>
+                            <div className="flex gap-1">
+                                <button
+                                    type="button"
+                                    onClick={() => handleOpenSquadManager('add')}
+                                    title="스쿼드 추가"
+                                    className="text-[10px] bg-gray-700 hover:bg-gray-600 px-1 rounded text-gray-300"
+                                >
+                                    +
+                                </button>
+                                <button
+                                    type="button"
+                                    onClick={() => handleOpenSquadManager('edit', data.squad)}
+                                    title="수정"
+                                    className="text-[10px] bg-gray-700 hover:bg-gray-600 px-1 rounded text-gray-300"
+                                >
+                                    ✏️
+                                </button>
+                                <button
+                                    type="button"
+                                    onClick={() => handleOpenSquadManager('delete', data.squad)}
+                                    title="삭제 (관리)"
+                                    className="text-[10px] bg-red-900/50 hover:bg-red-800/50 px-1 rounded text-red-300"
+                                >
+                                    🗑️
+                                </button>
+                            </div>
+                        </div>
                         <select value={data.squad || ''} onChange={e => onChange('squad', e.target.value)}
                             className="w-full bg-gray-800 border border-gray-700 text-white px-3 py-2 rounded">
-                            <option value="">선택</option>
-                            {squadOptions.map(t => <option key={t} value={t}>{t}</option>)}
+                            <option value="">없음 (선택)</option>
+                            {squads.map(t => <option key={t} value={t}>{t}</option>)}
                         </select>
+
+                        {/* Squad Manager Modal */}
+                        <SquadManager
+                            isOpen={isSquadManagerOpen}
+                            onClose={() => setIsSquadManagerOpen(false)}
+                            onUpdate={refreshSquads}
+                            onSquadRename={(oldName, newName) => {
+                                if (data.squad === oldName) {
+                                    onChange('squad', newName); // Update the current Nikke's squad field
+                                }
+                            }}
+                            initialMode={managerMode}
+                            targetSquad={managerTarget}
+                        />
                     </div>
                     <div>
                         <label className="text-xs text-gray-500 block mb-1">속성</label>
@@ -90,11 +177,6 @@ export default function NikkeFieldsEditor({ data, onChange, onUsageStatChange, o
                             className="w-full bg-gray-800 border border-gray-700 text-white px-3 py-2 rounded">
                             {weaponOptions.map(t => <option key={t} value={t}>{weaponNames[t]}</option>)}
                         </select>
-                    </div>
-                    <div>
-                        <label className="text-xs text-gray-500 block mb-1">스킬 우선순위</label>
-                        <input type="text" value={data.skill_priority || ''} onChange={e => onChange('skill_priority', e.target.value)}
-                            placeholder="예: 7/7/7" className="w-full bg-gray-800 border border-gray-700 text-white px-3 py-2 rounded" />
                     </div>
                 </div>
             </div>
@@ -186,6 +268,6 @@ export default function NikkeFieldsEditor({ data, onChange, onUsageStatChange, o
                 </div>
             </div>
 
-        </div>
+        </div >
     );
 }

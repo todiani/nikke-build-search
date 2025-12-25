@@ -675,11 +675,26 @@ export default function DataManager({ isOpen, onClose, data, onUpdate }: DataMan
 
                 {/* Emergency Tips */}
                 <div className="p-4 border border-yellow-900/50 bg-yellow-900/10 rounded-lg">
-                    <h4 className="text-yellow-500 font-bold text-sm mb-2">⚠️ DB 오류 및 비상 대처 방법</h4>
-                    <ul className="text-xs text-gray-400 space-y-1 ml-4 list-disc">
+                    <h4 className="text-yellow-500 font-bold text-sm mb-2 font-black">⚠️ DB 오류 및 비상 대처 방법</h4>
+                    <ul className="text-xs text-gray-400 space-y-2 ml-4 list-disc">
                         <li>데이터가 유실된 경우 위 히스토리에서 가장 최근 백업을 찾아 <strong>'복구'</strong>를 누르세요.</li>
                         <li>JSON 내보내기 기능을 이용해 정기적으로 <strong>nikke_db.json</strong> 파일을 PC에 저장하는 것이 가장 안전합니다.</li>
-                        <li>앱 전체 초기화가 필요한 경우 'Raw JSON' 탭에서 데이터를 모두 비우고 'JSON 적용'을 누르세요.</li>
+                        <li>
+                            <div className="flex items-center justify-between">
+                                <span>캐시 꼬임이나 중목 현상이 지속될 경우 브라우저 데이터를 초기화하세요:</span>
+                                <button
+                                    onClick={() => {
+                                        if (window.confirm('브라우저 캐시를 초기화하시겠습니까?\n이름 검색 중복 및 데이터 꼬임 현상이 해결됩니다.\n(사용자가 편집한 내용은 사라질 수 있습니다)')) {
+                                            localStorage.removeItem('nikke_db_cache');
+                                            window.location.reload();
+                                        }
+                                    }}
+                                    className="px-2 py-1 bg-red-900 hover:bg-red-700 text-white rounded text-[10px] font-bold"
+                                >
+                                    캐시 강제 초기화 (새로고침)
+                                </button>
+                            </div>
+                        </li>
                     </ul>
                 </div>
             </div>

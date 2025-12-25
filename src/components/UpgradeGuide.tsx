@@ -90,7 +90,9 @@ export default function UpgradeGuide({ nikke, isEditMode = false, onUpdate, onSk
             });
         })();
 
-    const neutralOpts = Object.keys(OVERLOAD_DATA).filter(k => !validOpts.includes(k) && !invalidOpts.includes(k));
+    const neutralOpts = nikke.neutral_options?.length
+        ? nikke.neutral_options
+        : Object.keys(OVERLOAD_DATA).filter(k => !validOpts.includes(k) && !invalidOpts.includes(k));
 
     // === Visual Helpers ===
     const renderEmptyState = (text: string) => (
@@ -255,26 +257,35 @@ export default function UpgradeGuide({ nikke, isEditMode = false, onUpdate, onSk
                 <p className="text-xs text-gray-500 mb-4">해당 니케의 무기({nikke.weapon}) 및 스킬셋을 기반으로 한 추천도입니다.</p>
 
                 {isEditMode ? (
-                    <div className="space-y-3">
-                        <div>
-                            <label className="text-xs text-green-400 block mb-1">✅ 추천 (Valid)</label>
-                            <input
-                                type="text"
-                                value={nikke.valid_options?.join(', ') || ''}
-                                onChange={e => onUpdate?.('valid_options', e.target.value.split(',').map(s => s.trim()).filter(Boolean))}
-                                placeholder="공격력 증가, 우월코드 대미지 증가"
-                                className="w-full bg-gray-800 border border-green-700 text-white px-3 py-2 rounded"
-                            />
-                        </div>
-                        <div>
-                            <label className="text-xs text-red-400 block mb-1">❌ 비추천 (Invalid)</label>
-                            <input
-                                type="text"
-                                value={nikke.invalid_options?.join(', ') || ''}
-                                onChange={e => onUpdate?.('invalid_options', e.target.value.split(',').map(s => s.trim()).filter(Boolean))}
-                                placeholder="방어력 증가"
-                                className="w-full bg-gray-800 border border-red-700 text-white px-3 py-2 rounded"
-                            />
+                    <div className="space-y-4">
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div className="bg-green-900/10 border border-green-900/30 rounded p-3">
+                                <label className="text-xs text-green-400 block mb-1 font-bold">✅ 추천 (Valid)</label>
+                                <textarea
+                                    value={nikke.valid_options?.join(', ') || ''}
+                                    onChange={e => onUpdate?.('valid_options', e.target.value.split(',').map(s => s.trim()).filter(Boolean))}
+                                    placeholder="공격력 증가, 우월코드 대미지 증가"
+                                    className="w-full bg-gray-900 border border-green-700 text-white px-3 py-2 rounded h-32 resize-none text-sm leading-relaxed"
+                                />
+                            </div>
+                            <div className="bg-gray-800/30 border border-gray-700/30 rounded p-3">
+                                <label className="text-xs text-gray-400 block mb-1 font-bold">➖ 무난 (Normal)</label>
+                                <textarea
+                                    value={nikke.neutral_options?.join(', ') || ''}
+                                    onChange={e => onUpdate?.('neutral_options', e.target.value.split(',').map(s => s.trim()).filter(Boolean))}
+                                    placeholder="방어력 증가 등..."
+                                    className="w-full bg-gray-900 border border-gray-700 text-white px-3 py-2 rounded h-32 resize-none text-sm leading-relaxed"
+                                />
+                            </div>
+                            <div className="bg-red-900/10 border border-red-900/30 rounded p-3">
+                                <label className="text-xs text-red-400 block mb-1 font-bold">❌ 비추천 (Invalid)</label>
+                                <textarea
+                                    value={nikke.invalid_options?.join(', ') || ''}
+                                    onChange={e => onUpdate?.('invalid_options', e.target.value.split(',').map(s => s.trim()).filter(Boolean))}
+                                    placeholder="차지 속도 증가 (이 니케에게 불필요한 경우)"
+                                    className="w-full bg-gray-900 border border-red-700 text-white px-3 py-2 rounded h-32 resize-none text-sm leading-relaxed"
+                                />
+                            </div>
                         </div>
                     </div>
                 ) : (
@@ -286,34 +297,28 @@ export default function UpgradeGuide({ nikke, isEditMode = false, onUpdate, onSk
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                             <div className="bg-green-900/10 border border-green-900/30 rounded p-3">
                                 <div className="text-green-500 font-bold mb-2 flex items-center">✅ 추천 (Valid)</div>
-                                <div className="space-y-1">
-                                    {validOpts.length > 0 ? validOpts.map(o => (
-                                        <div key={o} className="text-sm text-gray-300 flex items-center">
-                                            <span className="w-1.5 h-1.5 bg-green-500 rounded-full mr-2"></span>{o}
-                                        </div>
-                                    )) : <div className="text-sm text-gray-600">(없음)</div>}
+                                <div className="space-y-1 text-sm text-gray-300 whitespace-pre-wrap leading-relaxed">
+                                    {validOpts.length > 0 ? (
+                                        validOpts.join('\n')
+                                    ) : <div className="text-gray-600">(없음)</div>}
                                 </div>
                             </div>
 
                             <div className="bg-gray-800/30 border border-gray-700/30 rounded p-3">
                                 <div className="text-gray-400 font-bold mb-2 flex items-center">➖ 무난 (Normal)</div>
-                                <div className="space-y-1">
-                                    {neutralOpts.length > 0 ? neutralOpts.map(o => (
-                                        <div key={o} className="text-sm text-gray-500 flex items-center">
-                                            <span className="w-1.5 h-1.5 bg-gray-500 rounded-full mr-2"></span>{o}
-                                        </div>
-                                    )) : <div className="text-sm text-gray-600">(없음)</div>}
+                                <div className="space-y-1 text-sm text-gray-500 whitespace-pre-wrap leading-relaxed">
+                                    {neutralOpts.length > 0 ? (
+                                        neutralOpts.join('\n')
+                                    ) : <div className="text-gray-600">(없음)</div>}
                                 </div>
                             </div>
 
                             <div className="bg-red-900/10 border border-red-900/30 rounded p-3">
                                 <div className="text-red-500 font-bold mb-2 flex items-center">❌ 비추천 (Invalid)</div>
-                                <div className="space-y-1">
-                                    {invalidOpts.length > 0 ? invalidOpts.map(o => (
-                                        <div key={o} className="text-sm text-gray-400 flex items-center">
-                                            <span className="w-1.5 h-1.5 bg-red-500 rounded-full mr-2"></span>{o}
-                                        </div>
-                                    )) : <div className="text-sm text-gray-600">(없음)</div>}
+                                <div className="space-y-1 text-sm text-gray-400 whitespace-pre-wrap leading-relaxed">
+                                    {invalidOpts.length > 0 ? (
+                                        invalidOpts.join('\n')
+                                    ) : <div className="text-gray-600">(없음)</div>}
                                 </div>
                             </div>
                         </div>
@@ -325,21 +330,16 @@ export default function UpgradeGuide({ nikke, isEditMode = false, onUpdate, onSk
             <div className="bg-black/30 p-5 rounded-lg border border-gray-800">
                 <h3 className="text-gray-300 font-bold mb-3 border-b border-gray-700/50 pb-2">🧊 추천 큐브</h3>
                 {isEditMode ? (
-                    <input
-                        type="text"
+                    <textarea
                         value={nikke.cube || ''}
                         onChange={e => onUpdate?.('cube', e.target.value)}
                         placeholder="예: 리질리언스, 바실리스크"
-                        className="w-full bg-gray-800 border border-blue-700 text-white px-3 py-2 rounded"
+                        className="w-full bg-gray-800 border border-blue-700 text-white px-3 py-2 rounded h-24 resize-none"
                     />
                 ) : (
                     isCubeEmpty ? renderEmptyState('추천 큐브 정보가 없습니다.') : (
-                        <div className="flex flex-wrap gap-2">
-                            {nikke.cube.split(',').map((c, i) => (
-                                <span key={i} className="px-3 py-1.5 bg-indigo-900/30 border border-indigo-700/50 text-indigo-300 rounded-lg text-sm">
-                                    {c.trim()}
-                                </span>
-                            ))}
+                        <div className="bg-indigo-900/10 border border-indigo-700/30 rounded-lg p-4 text-indigo-300 text-sm leading-relaxed whitespace-pre-wrap">
+                            {nikke.cube}
                         </div>
                     )
                 )}

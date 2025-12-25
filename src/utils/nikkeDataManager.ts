@@ -23,27 +23,27 @@ export const PVP_TIERS: Record<string, string> = {
 export const initializeNikkeData = (nikke: NikkeData): NikkeData => {
     const updated = { ...nikke };
 
-    // 1. Initialize Usage Stats if missing
+    // 1. Initialize Usage Stats if missing or incomplete
+    const pvpTier = PVP_TIERS[updated.name] || (updated.tier === 'PvP' ? 'SS' : 'B');
     if (!updated.usage_stats || updated.usage_stats.length === 0) {
-        const pvpTier = PVP_TIERS[updated.name] || (updated.tier === 'PvP' ? 'SS' : 'B');
-        const defaultStats = [
+        updated.usage_stats = [
             { name: '스테이지', stars: TIER_TO_STARS[updated.tier] || 3, desc: '일반 캠페인 및 타워' },
             { name: '이상개체요격전', stars: Math.max(0, (TIER_TO_STARS[updated.tier] || 3) - 1), desc: '특수 개체 보스 공략' },
             { name: '솔로레이드', stars: TIER_TO_STARS[updated.tier] || 3, desc: updated.code ? `${updated.code}코드 보스 특화` : '고득점 핵심 유닛' },
             { name: '유니온레이드', stars: Math.max(0, (TIER_TO_STARS[updated.tier] || 2) - 1), desc: updated.code ? `${updated.code}코드 보스` : '길드 레이드 활용' },
+            { name: '타워', stars: TIER_TO_STARS[updated.tier] || 3, desc: '적극 활용 가능' },
             { name: 'PVP', stars: TIER_TO_STARS[pvpTier] || 1, desc: pvpTier === 'SSS' ? '아레나 필수 공무원' : '아레나 활용 가능' }
         ];
-        updated.usage_stats = defaultStats;
     }
 
     // 2. Initialize Burst Details if missing
     if (!updated.burst_details || Object.keys(updated.burst_details).length === 0) {
+        // ... (Keep existing logic)
         const cleanName = updated.name.split('(')[0].trim();
         const burstData = BURST_DB[cleanName] || BURST_DB[updated.name];
         if (burstData) {
             updated.burst_details = burstData;
         } else {
-            // Generic fallback for unknown units (mainly non-RL/SR units)
             const stages: ("2RL" | "2_5RL" | "3RL" | "3_5RL" | "4RL")[] = ["2RL", "2_5RL", "3RL", "3_5RL", "4RL"];
             updated.burst_details = {};
             stages.forEach(s => {
@@ -54,3 +54,87 @@ export const initializeNikkeData = (nikke: NikkeData): NikkeData => {
 
     return updated;
 };
+
+// --- API BASED PERSISTENCE ---
+
+let cachedSquads: string[] = [];
+let cachedNikkes: NikkeData[] = [];
+
+// Load all data from server
+export const loadDB = async () => {
+    try {
+        const res = await fetch('http://localhost:3001/api/db');
+        if (res.ok) {
+            const json = await res.json();
+            cachedSquads = json.squads || [];
+            // initialize nikkes on load?
+            cachedNikkes = (json.nikkes || []).map(initializeNikkeData);
+            return { squads: cachedSquads, nikkes: cachedNikkes };
+        }
+    } catch (e) {
+        console.error("Failed to load DB", e);
+    }
+    return { squads: [], nikkes: [] };
+};
+
+// Save helper
+const saveDB = async () => {
+    try {
+        const payload = {
+            meta: { version: "1.0", last_updated: new Date().toISOString() },
+            squads: cachedSquads,
+            nikkes: cachedNikkes
+        };
+        await fetch('http://localhost:3001/api/db', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+        });
+        console.log("DB Saved Successfully");
+    } catch (e) {
+        console.error("Failed to save DB", e);
+    }
+};
+
+// --- Squad Management ---
+
+export const getSquadOptions = (): string[] => {
+    return cachedSquads;
+};
+
+// NOTE: Creating specific 'cache setter' to be used by App.tsx if needed
+export const setCachedData = (squads: string[], nikkes: NikkeData[]) => {
+    cachedSquads = squads;
+    cachedNikkes = nikkes;
+}
+
+export const addSquad = async (name: string): Promise<string[]> => {
+    if (!cachedSquads.includes(name)) {
+        cachedSquads = [...cachedSquads, name];
+        await saveDB();
+    }
+    return cachedSquads;
+};
+
+export const updateSquad = async (oldName: string, newName: string): Promise<string[]> => {
+    const idx = cachedSquads.indexOf(oldName);
+    if (idx !== -1 && !cachedSquads.includes(newName)) {
+        cachedSquads = [...cachedSquads];
+        cachedSquads[idx] = newName;
+        await saveDB();
+    }
+    return cachedSquads;
+};
+
+export const deleteSquad = async (name: string): Promise<string[]> => {
+    cachedSquads = cachedSquads.filter(s => s !== name);
+    await saveDB();
+    return cachedSquads;
+};
+
+// --- Nikke Management (for direct calls if needed) ---
+export const saveNikkes = async (nikkes: NikkeData[]) => {
+    cachedNikkes = nikkes;
+    await saveDB();
+}
+

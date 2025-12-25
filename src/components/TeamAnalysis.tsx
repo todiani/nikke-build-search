@@ -4,10 +4,12 @@ import { FUTURE_META_DATA, GUEST_NIKKES, type MetaTeam } from '../data/future_me
 import { SYNERGIES } from '../data/synergies';
 import { matchKorean } from '../utils/hangul';
 import { BURST_DB, type RLStage } from '../data/burst_db';
+import TowerTierList from './TowerTierList';
 
 interface TeamAnalysisProps {
     currentNikke?: NikkeData;
     allNikkes?: NikkeData[];
+    onSelectNikke?: (nikke: NikkeData) => void;
 }
 
 interface SavedTeam {
@@ -57,9 +59,9 @@ function NikkeSelector({ isOpen, onClose, onSelect, allNikkes }: {
                             <button
                                 key={nikke.id}
                                 onClick={() => { onSelect({ ...nikke, burst: displayBurst as any }); onClose(); }}
-                                className="bg-gray-800 hover:bg-gray-700 rounded p-2 flex flex-col items-center justify-center gap-1.5 border border-gray-700 hover:border-blue-500 transition-all min-h-[80px]"
+                                className="bg-gray-800 hover:bg-gray-700 rounded p-3 flex flex-col items-center justify-center gap-2 border border-gray-700 hover:border-blue-500 transition-all min-h-[90px]"
                             >
-                                <span className="text-sm font-bold text-gray-200 text-center leading-tight break-keep">{nikke.name}</span>
+                                <span className="text-base font-black text-white text-center leading-tight break-keep">{nikke.name}</span>
                                 <div className={`w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-bold text-white shadow-sm
                                     ${displayBurst === 'I' ? 'bg-pink-600' : displayBurst === 'II' ? 'bg-blue-600' : displayBurst === 'III' ? 'bg-red-600' : 'bg-red-500 border border-white'}`}>
                                     {displayBurst}
@@ -75,9 +77,9 @@ function NikkeSelector({ isOpen, onClose, onSelect, allNikkes }: {
                                 onSelect({ id: name, name, name_en: name, burst: data.burst, tier: 'Unranked', class: data.class as any, weapon: data.weapon as any, code: data.element } as NikkeData);
                                 onClose();
                             }}
-                            className="bg-purple-900/20 hover:bg-purple-900/40 rounded p-2 flex flex-col items-center justify-center gap-1.5 border border-purple-500/30 hover:border-purple-500 transition-all min-h-[80px]"
+                            className="bg-purple-900/20 hover:bg-purple-900/40 rounded p-3 flex flex-col items-center justify-center gap-2 border border-purple-500/30 hover:border-purple-500 transition-all min-h-[90px]"
                         >
-                            <span className="text-sm font-bold text-purple-200 text-center leading-tight break-keep">{name}</span>
+                            <span className="text-base font-black text-purple-100 text-center leading-tight break-keep">{name}</span>
                             <div className="w-6 h-6 rounded-full bg-purple-800 flex items-center justify-center text-[10px] font-bold text-purple-200">
                                 {data.burst}
                             </div>
@@ -89,7 +91,7 @@ function NikkeSelector({ isOpen, onClose, onSelect, allNikkes }: {
     );
 }
 
-export default function TeamAnalysis({ currentNikke, allNikkes = [] }: TeamAnalysisProps) {
+export default function TeamAnalysis({ currentNikke, allNikkes = [], onSelectNikke }: TeamAnalysisProps) {
     // State for the custom builder
     const [selectedTeam, setSelectedTeam] = useState<({ id: string; name: string; isGuest: boolean; burst?: string } | null)[]>(Array(5).fill(null));
 
@@ -298,7 +300,7 @@ export default function TeamAnalysis({ currentNikke, allNikkes = [] }: TeamAnaly
     };
 
     // Unified Filter / View Switching Logic
-    const [filterCategory, setFilterCategory] = useState<'All' | 'Stage' | 'Anomaly' | 'SoloRaid' | 'UnionRaid' | 'PVP'>('All');
+    const [filterCategory, setFilterCategory] = useState<'All' | 'Stage' | 'Anomaly' | 'SoloRaid' | 'UnionRaid' | 'PVP' | 'Tower'>('All');
 
     // Categorize teams accurately
     const categorizedTeams = useMemo(() => {
@@ -331,7 +333,8 @@ export default function TeamAnalysis({ currentNikke, allNikkes = [] }: TeamAnaly
         { id: 'Anomaly', label: '이상개체요격전', icon: '👹' },
         { id: 'SoloRaid', label: '솔로레이드', icon: '🏆' },
         { id: 'UnionRaid', label: '유니온레이드', icon: '⚔️' },
-        { id: 'PVP', label: 'PVP', icon: '🛡️' }
+        { id: 'PVP', label: 'PVP', icon: '🛡️' },
+        { id: 'Tower', label: '타워', icon: '🏢' }
     ] as const;
 
     return (
@@ -564,65 +567,69 @@ export default function TeamAnalysis({ currentNikke, allNikkes = [] }: TeamAnaly
                     </div>
                 </div>
 
-                {Object.entries(categorizedTeams)
-                    .filter(([category]) => filterCategory === 'All' || filterCategory === category)
-                    .map(([category, teams]) => {
-                        if (teams.length === 0) return null;
+                {filterCategory === 'Tower' ? (
+                    <TowerTierList allNikkes={allNikkes} onSelectNikke={onSelectNikke} />
+                ) : (
+                    Object.entries(categorizedTeams)
+                        .filter(([category]) => filterCategory === 'All' || filterCategory === category)
+                        .map(([category, teams]) => {
+                            if (teams.length === 0) return null;
 
-                        // Internal grouping for Anomaly by Boss
-                        const subGroups: Record<string, MetaTeam[]> = {};
-                        if (category === 'Anomaly') {
-                            teams.forEach(t => {
-                                const bossName = t.boss.split(' (')[0].replace(/ \d위.*/, '');
-                                if (!subGroups[bossName]) subGroups[bossName] = [];
-                                subGroups[bossName].push(t);
-                            });
-                        } else {
-                            subGroups[category] = teams;
-                        }
+                            // Internal grouping for Anomaly by Boss
+                            const subGroups: Record<string, MetaTeam[]> = {};
+                            if (category === 'Anomaly') {
+                                teams.forEach(t => {
+                                    const bossName = t.boss.split(' (')[0].replace(/ \d위.*/, '');
+                                    if (!subGroups[bossName]) subGroups[bossName] = [];
+                                    subGroups[bossName].push(t);
+                                });
+                            } else {
+                                subGroups[category] = teams;
+                            }
 
-                        return (
-                            <div key={category} className="space-y-6">
-                                {Object.entries(subGroups).map(([groupName, groupTeams]) => (
-                                    <div key={groupName} className="space-y-3">
-                                        <h4 className="text-sm font-bold text-gray-300 bg-gray-800/50 px-3 py-1.5 rounded-l border-l-4 border-blue-500 inline-block">
-                                            {category === 'PVP' ? '⚔️ Arena / PVP' :
-                                                category === 'SoloRaid' ? '👹 Solo Raid' :
-                                                    category === 'Anomaly' ? `👹 ${groupName}` : `🎯 ${groupName}`}
-                                        </h4>
-                                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
-                                            {groupTeams.map((team, idx) => (
-                                                <div key={idx} className="bg-gray-900 border border-gray-800 rounded-lg p-3 hover:border-blue-500/50 transition-all cursor-pointer group relative overflow-hidden"
-                                                    onClick={() => loadTeam(team.members)}>
-                                                    <div className="flex justify-between items-start mb-2">
-                                                        <div className="flex items-center gap-2">
-                                                            <span className={`text-[10px] font-bold px-1.5 py-0.5 rounded shadow-sm ${idx === 0 ? 'bg-yellow-600 text-white' : idx === 1 ? 'bg-gray-500 text-white' : 'bg-orange-700 text-white'}`}>
-                                                                {team.boss.includes('위') ? team.boss.match(/\d위/)![0] : `${idx + 1}위`}
+                            return (
+                                <div key={category} className="space-y-6">
+                                    {Object.entries(subGroups).map(([groupName, groupTeams]) => (
+                                        <div key={groupName} className="space-y-3">
+                                            <h4 className="text-sm font-bold text-gray-300 bg-gray-800/50 px-3 py-1.5 rounded-l border-l-4 border-blue-500 inline-block">
+                                                {category === 'PVP' ? '⚔️ Arena / PVP' :
+                                                    category === 'SoloRaid' ? '👹 Solo Raid' :
+                                                        category === 'Anomaly' ? `👹 ${groupName}` : `🎯 ${groupName}`}
+                                            </h4>
+                                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+                                                {groupTeams.map((team, idx) => (
+                                                    <div key={idx} className="bg-gray-900 border border-gray-800 rounded-lg p-3 hover:border-blue-500/50 transition-all cursor-pointer group relative overflow-hidden"
+                                                        onClick={() => loadTeam(team.members)}>
+                                                        <div className="flex justify-between items-start mb-2">
+                                                            <div className="flex items-center gap-2">
+                                                                <span className={`text-[10px] font-bold px-1.5 py-0.5 rounded shadow-sm ${idx === 0 ? 'bg-yellow-600 text-white' : idx === 1 ? 'bg-gray-500 text-white' : 'bg-orange-700 text-white'}`}>
+                                                                    {team.boss.includes('위') ? team.boss.match(/\d위/)![0] : `${idx + 1}위`}
+                                                                </span>
+                                                                <span className="text-sm font-bold text-gray-200">{team.boss.replace(/ \d위.*/, '')}</span>
+                                                            </div>
+                                                        </div>
+                                                        {team.description && <p className="text-[11px] text-gray-500 mb-2 italic">“{team.description}”</p>}
+                                                        <div className="flex flex-wrap gap-1">
+                                                            {team.members.map((m, mi) => (
+                                                                <span key={mi} className={`text-[10px] px-2 py-0.5 rounded bg-gray-800 border ${currentNikke && m.includes(currentNikke.name) ? 'border-yellow-500 text-yellow-500' : 'border-gray-700 text-gray-400'}`}>
+                                                                    {m}
+                                                                </span>
+                                                            ))}
+                                                        </div>
+                                                        <div className="mt-3 opacity-0 group-hover:opacity-100 transition-opacity flex justify-center border-t border-gray-800 pt-2">
+                                                            <span className="text-[11px] text-blue-400 font-bold flex items-center gap-1">
+                                                                <span>⚙️</span> 스쿼드 불러오기
                                                             </span>
-                                                            <span className="text-sm font-bold text-gray-200">{team.boss.replace(/ \d위.*/, '')}</span>
                                                         </div>
                                                     </div>
-                                                    {team.description && <p className="text-[11px] text-gray-500 mb-2 italic">“{team.description}”</p>}
-                                                    <div className="flex flex-wrap gap-1">
-                                                        {team.members.map((m, mi) => (
-                                                            <span key={mi} className={`text-[10px] px-2 py-0.5 rounded bg-gray-800 border ${currentNikke && m.includes(currentNikke.name) ? 'border-yellow-500 text-yellow-500' : 'border-gray-700 text-gray-400'}`}>
-                                                                {m}
-                                                            </span>
-                                                        ))}
-                                                    </div>
-                                                    <div className="mt-3 opacity-0 group-hover:opacity-100 transition-opacity flex justify-center border-t border-gray-800 pt-2">
-                                                        <span className="text-[11px] text-blue-400 font-bold flex items-center gap-1">
-                                                            <span>⚙️</span> 스쿼드 불러오기
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                            ))}
+                                                ))}
+                                            </div>
                                         </div>
-                                    </div>
-                                ))}
-                            </div>
-                        );
-                    })}
+                                    ))}
+                                </div>
+                            );
+                        })
+                )}
             </div>
         </div>
     );

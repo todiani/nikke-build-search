@@ -11,12 +11,20 @@ interface TagInfo {
 interface SmartTagSearchProps {
     allNikkes: NikkeData[];
     onSelectNikke: (nikke: NikkeData, tagInfo: TagInfo) => void;
+    onEditNikke?: (nikke: NikkeData) => void; // Added for direct editing
     tagData?: typeof TAG_DATA;
     selectedTags: TagInfo;
     onTagsChange: (tags: TagInfo) => void;
 }
 
-export default function SmartTagSearch({ allNikkes, onSelectNikke, tagData = TAG_DATA, selectedTags, onTagsChange }: SmartTagSearchProps) {
+export default function SmartTagSearch({
+    allNikkes,
+    onSelectNikke,
+    onEditNikke,
+    tagData = TAG_DATA,
+    selectedTags,
+    onTagsChange
+}: SmartTagSearchProps) {
     // Use controlled state from parent
     const selectedTagsAnd = selectedTags.and;
     const selectedTagsOr = selectedTags.or;
@@ -56,13 +64,28 @@ export default function SmartTagSearch({ allNikkes, onSelectNikke, tagData = TAG
             });
         }
 
-        // Also fallback to text search if no detailed tags (for legacy/merged-only items)
-        const text = JSON.stringify(nikke).toLowerCase();
+        // Precise matching for fallback (instead of full JSON.stringify)
+        const matchText = (tag: string) => {
+            const lowerTag = tag.toLowerCase();
+            // Check Name
+            if (nikke.name.toLowerCase().includes(lowerTag)) return true;
+            if (nikke.name_en?.toLowerCase().includes(lowerTag)) return true;
+            // Check Description
+            if (nikke.desc?.toLowerCase().includes(lowerTag)) return true;
+            // Check Skills Detail (Name & Desc)
+            if (nikke.skills_detail) {
+                return Object.values(nikke.skills_detail).some(s =>
+                    s.name?.toLowerCase().includes(lowerTag) ||
+                    s.desc?.toLowerCase().includes(lowerTag)
+                );
+            }
+            return false;
+        };
 
         // AND check
         for (const tag of selectedTagsAnd) {
-            if (nikkeTags.has(tag)) continue; // Perfect match
-            if (!text.includes(tag.toLowerCase())) return false; // Text fallback
+            if (nikkeTags.has(tag)) continue; // Tag match
+            if (!matchText(tag)) return false; // Text fallback
         }
 
         // OR check
@@ -70,7 +93,7 @@ export default function SmartTagSearch({ allNikkes, onSelectNikke, tagData = TAG
             let hit = false;
             for (const tag of selectedTagsOr) {
                 if (nikkeTags.has(tag)) { hit = true; break; }
-                if (text.includes(tag.toLowerCase())) { hit = true; break; }
+                if (matchText(tag)) { hit = true; break; }
             }
             if (!hit) return false;
         }
@@ -78,7 +101,7 @@ export default function SmartTagSearch({ allNikkes, onSelectNikke, tagData = TAG
         // NOT check
         for (const tag of selectedTagsNot) {
             if (nikkeTags.has(tag)) return false;
-            if (text.includes(tag.toLowerCase())) return false;
+            if (matchText(tag)) return false;
         }
         return true;
     };
@@ -87,7 +110,16 @@ export default function SmartTagSearch({ allNikkes, onSelectNikke, tagData = TAG
         if (selectedTagsAnd.length === 0 && selectedTagsOr.length === 0 && selectedTagsNot.length === 0) {
             return [];
         }
-        return allNikkes.filter(performFilter);
+        const filtered = allNikkes.filter(performFilter);
+
+        // Remove duplicates by ID to be safe
+        const uniqueMap = new Map<string, NikkeData>();
+        filtered.forEach(n => {
+            if (!uniqueMap.has(n.id)) {
+                uniqueMap.set(n.id, n);
+            }
+        });
+        return Array.from(uniqueMap.values());
     }, [allNikkes, selectedTagsAnd, selectedTagsOr, selectedTagsNot]);
 
     return (
@@ -181,17 +213,37 @@ export default function SmartTagSearch({ allNikkes, onSelectNikke, tagData = TAG
                     {results.length > 0 ? (
                         <div className="grid grid-cols-1 gap-3">
                             {results.map(nikke => (
-                                <button
+                                <div
                                     key={nikke.id}
-                                    onClick={() => onSelectNikke(nikke, { and: selectedTagsAnd, or: selectedTagsOr, not: selectedTagsNot })}
-                                    className="bg-gray-800 border border-gray-700 hover:border-nikke-red p-3 rounded-lg text-left flex justify-between items-center group"
+                                    className="bg-gray-800 border border-gray-700 hover:border-nikke-red p-3 rounded-lg flex justify-between items-center group relative overflow-hidden"
                                 >
-                                    <div>
-                                        <span className="text-white font-bold text-sm group-hover:text-nikke-red">{nikke.name}</span>
+                                    <button
+                                        onClick={() => onSelectNikke(nikke, { and: selectedTagsAnd, or: selectedTagsOr, not: selectedTagsNot })}
+                                        className="flex-1 text-left"
+                                    >
+                                        <div className="flex items-center gap-2">
+                                            <span className="text-white font-bold text-sm group-hover:text-nikke-red">{nikke.name}</span>
+                                            <span className="text-[9px] text-gray-600 bg-black/30 px-1 rounded font-mono">ID: {nikke.id}</span>
+                                        </div>
                                         <div className="text-xs text-gray-500 mt-1">{nikke.burst}버 · {nikke.weapon} · {nikke.class}</div>
+                                    </button>
+
+                                    <div className="flex items-center gap-2">
+                                        {onEditNikke && (
+                                            <button
+                                                onClick={(e) => {
+                                                    e.stopPropagation();
+                                                    onEditNikke(nikke);
+                                                }}
+                                                className="p-1.5 bg-gray-700 hover:bg-blue-900 text-gray-400 hover:text-white rounded transition-colors"
+                                                title="데이터 편집"
+                                            >
+                                                💾
+                                            </button>
+                                        )}
+                                        <span className="text-gray-600 group-hover:text-gray-300">→</span>
                                     </div>
-                                    <span className="text-gray-600 group-hover:text-gray-300">→</span>
-                                </button>
+                                </div>
                             ))}
                         </div>
                     ) : (

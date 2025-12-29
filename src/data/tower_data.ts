@@ -68,17 +68,27 @@ export const CORPORATE_TOWER_DATA: CorporateTower[] = [
         ]
     },
     {
-        name: "필그림",
+        name: "필그림/오버스펙",
         nikkes: [
-            { tier: "0", burst: "B1/B3", role: "버퍼/딜러", name: "라피(레드 후드)", alternatives: ["크라운", "리틀 머메이드"], note: "올라운더·핵심" },
-            { tier: "0", burst: "B2", role: "딜서포터", name: "크라운", alternatives: ["나유타", "리틀 머메이드"], note: "쿨감·버프·받댐증" },
+            { tier: "0", burst: "B1/B3", role: "버퍼/딜러", name: "라피 : 레드 후드", alternatives: ["크라운", "세이렌 : 리틀 머메이드"], note: "올라운더·핵심" },
+            { tier: "0", burst: "B2", role: "딜서포터", name: "크라운", alternatives: ["나유타", "세이렌 : 리틀 머메이드"], note: "쿨감·버프·받댐증" },
             { tier: "0", burst: "B3", role: "딜러", name: "모더니아", alternatives: ["홍련 : 흑영", "신데렐라"], note: "차지·작열·광역" },
-            { tier: "1", burst: "B1", role: "버퍼", name: "리틀 머메이드", alternatives: ["나유타", "노벨"], note: "받댐증·버프" },
-            { tier: "1", burst: "B2", role: "딜서포터", name: "나유타", alternatives: ["노벨", "리틀 머메이드"], note: "버충·디버프" },
-            { tier: "1", burst: "B3", role: "딜러", name: "홍련 : 흑영", alternatives: ["홍련", "하란"], note: "작열·풍압" },
-            { tier: "2", burst: "B1", role: "버퍼", name: "노벨", alternatives: ["리틀 머메이드", "나유타"], note: "보조 디버프" },
-            { tier: "2", burst: "B2", role: "딜서포터", name: "리틀 머메이드", alternatives: ["나유타", "노벨"], note: "보조 버프" },
-            { tier: "2", burst: "B3", role: "딜러", name: "신데렐라", alternatives: ["스노우 화이트", "이사벨"], note: "상황별 딜" }
+            { tier: "0", burst: "B3", role: "딜러", name: "신데렐라", alternatives: ["모더니아", "홍련 : 흑영"], note: "전격·광역·폭딜" },
+            { tier: "0", burst: "B3", role: "딜러", name: "홍련 : 흑영", alternatives: ["홍련", "신데렐라"], note: "풍압·지속딜" },
+            { tier: "0", burst: "B1", role: "힐러", name: "라푼젤", alternatives: ["도로시", "세이렌 : 리틀 머메이드"], note: "힐·부활·생존" },
+            { tier: "0", burst: "B1", role: "버퍼", name: "도로시", alternatives: ["세이렌 : 리틀 머메이드", "나유타"], note: "쿨감·받댐증" },
+            { tier: "1", burst: "B1", role: "버퍼", name: "세이렌 : 리틀 머메이드", alternatives: ["나유타", "노벨"], note: "받댐증·버프" },
+            { tier: "1", burst: "B2", role: "딜서포터", name: "나유타", alternatives: ["노벨", "세이렌 : 리틀 머메이드"], note: "버충·디버프" },
+            { tier: "1", burst: "B3", role: "딜러", name: "미하라 : 본딩 체인", alternatives: ["홍련", "하란"], note: "작열·지속딜" },
+            { tier: "1", burst: "B1/B2/B3", role: "딜러", name: "레드 후드", alternatives: ["라피 : 레드 후드", "맥스웰"], note: "철갑·올라운더" },
+            { tier: "1", burst: "B2", role: "딜러", name: "그레이브", alternatives: ["크라운", "나유타"], note: "작열·지속딜" },
+            { tier: "1", burst: "B3", role: "딜러", name: "홍련", alternatives: ["홍련 : 흑영", "신데렐라"], note: "전격·범용" },
+            { tier: "1", burst: "B3", role: "딜러", name: "스노우 화이트", alternatives: ["맥스웰", "신데렐라"], note: "철갑·한방딜" },
+            { tier: "1", burst: "B2", role: "디펜더", name: "노아", alternatives: ["크라운", "비스킷"], note: "무적·도발" },
+            { tier: "2", burst: "B2", role: "딜러", name: "니힐리스타", alternatives: ["그레이브", "이사벨"], note: "작열·광역" },
+            { tier: "2", burst: "B1", role: "디펜더", name: "라푼젤 : 퓨어 그레이스", alternatives: ["라푼젤", "도로시"], note: "철갑·생존" },
+            { tier: "2", burst: "B3", role: "딜러", name: "하란", alternatives: ["이사벨", "미하라 : 본딩 체인"], note: "풍압·광역" },
+            { tier: "2", burst: "B3", role: "딜러", name: "이사벨", alternatives: ["하란", "노벨"], note: "전격·버스트 단축" }
         ]
     }
 ];
@@ -88,60 +98,50 @@ export const ATTRIBUTE_TOWER_DATA: AttributeTower[] = [
         name: "전격",
         code: "Z.E.U.S",
         nikkes: [
-            { tier: "0", role: "1황 딜러", name: "신데렐라", alternatives: ["라피(레드 후드)", "클로드(메이든)"], note: "버스트·체력 비례 딜" },
-            { tier: "1", role: "버퍼", name: "에이다 웡", alternatives: ["아니스(수니스)", "메이든(클오든)"], note: "딜·버프 겸용" },
-            { tier: "2", role: "서브딜", name: "이사벨(+아르카나)", alternatives: ["홍련", "아인"], note: "스택형 폭딜" },
-            { tier: "3", role: "보조딜", name: "아니스(수니스)", alternatives: ["질 발렌타인", "루주"], note: "조건부 딜" },
-            { tier: "4", role: "빈자리", name: "질 발렌타인", alternatives: ["프리바티", "루드밀라"], note: "상황별 선택" },
-            { tier: "5", role: "대체용", name: "루주", alternatives: ["트리나", "나유타"], note: "보조 포지션" }
+            { tier: "0", role: "1황 딜러", name: "신데렐라", alternatives: ["라피 : 레드 후드", "메이든"], note: "버스트·체력 비례 딜" },
+            { tier: "1", role: "버퍼", name: "에이다 웡", alternatives: ["아니스 : 스파클링 서머", "메이든"], note: "딜·버프 겸용" },
+            { tier: "2", role: "서브딜", name: "이사벨", alternatives: ["홍련", "아인"], note: "스택형 폭딜" },
+            { tier: "3", role: "보조딜", name: "아니스 : 스파클링 서머", alternatives: ["질 발렌타인", "루주"], note: "조건부 딜" },
         ]
     },
     {
         name: "풍압",
-        code: "A.O.L.U.S",
+        code: "H.E.R.A",
         nikkes: [
-            { tier: "0", role: "1황 딜러", name: "홍련 : 흑영", alternatives: ["리버렐리오", "크라운"], note: "평타·풍압 코어" },
-            { tier: "1", role: "버퍼", name: "크라운", alternatives: ["나유타", "리틀 머메이드"], note: "쿨감·버프" },
-            { tier: "2", role: "서브딜", name: "리버렐리오", alternatives: ["홍련", "하란"], note: "함께 운용 권장" },
-            { tier: "3", role: "보조딜", name: "홍련", alternatives: ["앨리스", "모더니아"], note: "범용성 높음" },
-            { tier: "4", role: "빈자리", name: "하란", alternatives: ["드레이크", "프리바티"], note: "상황별 선택" },
-            { tier: "5", role: "대체용", name: "아스카", alternatives: ["아니스", "미하라"], note: "필요시만" }
-        ]
-    },
-    {
-        name: "작열",
-        code: "H.E.P.H.A",
-        nikkes: [
-            { tier: "0", role: "1황 딜러", name: "라피(레드 후드)", alternatives: ["미하라(본딩)", "홍련"], note: "1·3버 겸용" },
-            { tier: "1", role: "버퍼", name: "크라운", alternatives: ["나유타", "리틀 머메이드"], note: "작열 버프" },
-            { tier: "2", role: "서브딜", name: "미하라(본딩)", alternatives: ["드레이크(애장품)", "홍련"], note: "지속딜 특화" },
-            { tier: "3", role: "보조딜", name: "드레이크", alternatives: ["베스티(택업)", "메이든"], note: "애장품 강화" },
-            { tier: "4", role: "빈자리", name: "베스티(택업)", alternatives: ["앨리스", "모더니아"], note: "선택형" },
-            { tier: "5", role: "대체용", name: "메이든", alternatives: ["라플라스", "센티"], note: "상황별 선택" }
-        ]
-    },
-    {
-        name: "수냉",
-        code: "P.S.I.D",
-        nikkes: [
-            { tier: "0", role: "1황 딜러", name: "노이즈", alternatives: ["라푼젤", "헬름"], note: "힐·탱킹" },
-            { tier: "1", role: "버퍼", name: "헬름", alternatives: ["도로시(수로시)", "리타"], note: "수냉 버프" },
-            { tier: "2", role: "서브딜", name: "도로시(수로시)", alternatives: ["아인", "나가"], note: "버프·쿨감" },
-            { tier: "3", role: "보조딜", name: "아인", alternatives: ["미란다", "블랑"], note: "받피증" },
-            { tier: "4", role: "빈자리", name: "미란다", alternatives: ["누아르", "비스킷"], note: "탱킹 보조" },
-            { tier: "5", role: "대체용", name: "누아르", alternatives: ["폴리", "폴크방"], note: "필요시만" }
+            { tier: "0", role: "1황 딜러", name: "홍련 : 흑영", alternatives: ["D : 킬러 와이프", "바니 앨리스"], note: "풍압·지속딜" },
+            { tier: "1", role: "버퍼", name: "D : 킬러 와이프", alternatives: ["루주", "바니 앨리스"], note: "쿨감·공증" },
+            { tier: "2", role: "서브딜", name: "질 발렌타인", alternatives: ["블랑", "누아르"], note: "안정적 딜링" },
+            { tier: "3", role: "보조딜", name: "바니 앨리스", alternatives: ["자칼", "노이즈"], note: "공속·장탄" },
         ]
     },
     {
         name: "철갑",
-        code: "D.M.T.R",
+        code: "P.O.S.E.I.D.O.N",
         nikkes: [
-            { tier: "0", role: "1황 딜러", name: "앨리스", alternatives: ["모더니아", "라피(레드 후드)"], note: "차지·관통" },
-            { tier: "1", role: "버퍼", name: "리타", alternatives: ["도라", "볼륨"], note: "쿨감·공증" },
-            { tier: "2", role: "서브딜", name: "모더니아", alternatives: ["프리바티", "드레이크"], note: "범용 딜러" },
-            { tier: "3", role: "보조딜", name: "프리바티", alternatives: ["길로틴", "라플라스"], note: "기절·딜" },
-            { tier: "4", role: "빈자리", name: "길로틴", alternatives: ["메이든", "슈가"], note: "샷건·충격" },
-            { tier: "5", role: "대체용", name: "라플라스", alternatives: ["센티", "베스티"], note: "상황별 선택" }
+            { tier: "0", role: "1황 딜러", name: "라피 : 레드 후드", alternatives: ["스노우 화이트", "맥스웰"], note: "올라운더·폭딜" },
+            { tier: "1", role: "서포터", name: "나유타", alternatives: ["크라운", "리타"], note: "버충·받댐증" },
+            { tier: "2", role: "서브딜", name: "스노우 화이트", alternatives: ["맥스웰", "리타"], note: "철갑·한방딜" },
+            { tier: "3", role: "보조딜", name: "맥스웰", alternatives: ["리타", "아인"], note: "공증·관통" },
+        ]
+    },
+    {
+        name: "작열",
+        code: "A.R.E.S",
+        nikkes: [
+            { tier: "0", role: "1황 딜러", name: "모더니아", alternatives: ["미하라 : 본딩 체인", "앨리스"], note: "광역·작열 딜" },
+            { tier: "1", role: "서포터", name: "크라운", alternatives: ["나가", "티아"], note: "받댐증·버프" },
+            { tier: "2", role: "서브딜", name: "미하라 : 본딩 체인", alternatives: ["앨리스", "모더니아"], note: "지속 딜링" },
+            { tier: "3", role: "보조딜", name: "앨리스", alternatives: ["모더니아", "나가"], note: "차지·폭딜" },
+        ]
+    },
+    {
+        name: "수냉",
+        code: "A.P.H.R.O.D.I.T.E",
+        nikkes: [
+            { tier: "0", role: "1황 힐러", name: "라푼젤", alternatives: ["도로시", "세이렌 : 리틀 머메이드"], note: "힐·부활·생존" },
+            { tier: "1", role: "서포터", name: "도로시", alternatives: ["라푼젤", "수냉 보조"], note: "쿨감·받댐증" },
+            { tier: "2", role: "서브딜", name: "세이렌 : 리틀 머메이드", alternatives: ["프리바티", "아인"], note: "버프·받댐증" },
+            { tier: "3", role: "보조딜", name: "프리바티", alternatives: ["헬름", "길티"], note: "기절·공증" },
         ]
     }
 ];

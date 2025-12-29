@@ -1,11 +1,11 @@
 import type { NikkeData } from '../data/nikkes';
 import {
-    weaponNames, companyOptions, codeOptions,
-    tierOptions, rarityOptions, burstOptions, weaponOptions
+    weaponNames
 } from '../utils/nikkeConstants';
-import { getSquadOptions } from '../utils/nikkeDataManager';
+import { getBurstOptions, getClassOptions, getCodeOptions, getCompanyOptions, getRarityOptions, getSquadOptions, getTierOptions, getWeaponOptions } from '../utils/nikkeDataManager';
 import { useState, useEffect } from 'react';
 import SquadManager from './SquadManager';
+import NikkeBuildEditor from './NikkeBuildEditor';
 
 interface NikkeFieldsEditorProps {
     data: NikkeData;
@@ -16,15 +16,36 @@ interface NikkeFieldsEditorProps {
 
 export default function NikkeFieldsEditor({ data, onChange, onUsageStatChange, onBurstDetailChange }: NikkeFieldsEditorProps) {
     const [squads, setSquads] = useState<string[]>([]);
+    const [tiers, setTiers] = useState<string[]>([]);
+    const [rarities, setRarities] = useState<string[]>([]);
+    const [companies, setCompanies] = useState<string[]>([]);
+    const [codes, setCodes] = useState<string[]>([]);
+    const [classes, setClasses] = useState<string[]>([]);
+    const [bursts, setBursts] = useState<string[]>([]);
+    const [weapons, setWeapons] = useState<string[]>([]);
+
+    function refreshOptions() {
+        setSquads(getSquadOptions());
+        setTiers(getTierOptions());
+        setRarities(getRarityOptions());
+        setCompanies(getCompanyOptions());
+        setCodes(getCodeOptions());
+        setClasses(getClassOptions());
+        setBursts(getBurstOptions());
+        setWeapons(getWeaponOptions());
+    }
 
     // Load squads on mount and whenever they might have changed
     useEffect(() => {
-        refreshSquads();
-    }, []);
+        refreshOptions();
 
-    const refreshSquads = () => {
-        setSquads(getSquadOptions());
-    };
+        const handler = () => {
+            refreshOptions();
+        };
+
+        window.addEventListener('nikke-db-updated', handler);
+        return () => window.removeEventListener('nikke-db-updated', handler);
+    }, []);
 
     const [isSquadManagerOpen, setIsSquadManagerOpen] = useState(false);
     const [managerMode, setManagerMode] = useState<'list' | 'add' | 'edit' | 'delete'>('list');
@@ -33,7 +54,7 @@ export default function NikkeFieldsEditor({ data, onChange, onUsageStatChange, o
     // Refresh squads when SquadManager closes
     useEffect(() => {
         if (!isSquadManagerOpen) {
-            refreshSquads();
+            refreshOptions();
         }
     }, [isSquadManagerOpen]);
 
@@ -72,6 +93,16 @@ export default function NikkeFieldsEditor({ data, onChange, onUsageStatChange, o
                         <input type="text" value={data.extra_info || ''} onChange={e => onChange('extra_info', e.target.value)}
                             placeholder="니어 오토마타, 2주년 등" className="w-full bg-gray-800 border border-gray-700 text-white px-3 py-2 rounded" />
                     </div>
+                    <div className="col-span-2">
+                        <label className="text-xs text-gray-500 block mb-1">별명 / 별칭 (쉼표로 구분)</label>
+                        <input 
+                            type="text" 
+                            value={(data.aliases || []).join(', ')} 
+                            onChange={e => onChange('aliases', e.target.value.split(',').map(s => s.trim()).filter(Boolean))}
+                            placeholder="리크, 수니스, 흑련 등" 
+                            className="w-full bg-gray-800 border border-gray-700 text-white px-3 py-2 rounded" 
+                        />
+                    </div>
                 </div>
 
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
@@ -79,14 +110,14 @@ export default function NikkeFieldsEditor({ data, onChange, onUsageStatChange, o
                         <label className="text-xs text-gray-500 block mb-1">티어</label>
                         <select value={data.tier} onChange={e => onChange('tier', e.target.value)}
                             className="w-full bg-gray-800 border border-gray-700 text-white px-3 py-2 rounded">
-                            {tierOptions.map(t => <option key={t} value={t}>{t}</option>)}
+                            {tiers.map(t => <option key={t} value={t}>{t}</option>)}
                         </select>
                     </div>
                     <div>
                         <label className="text-xs text-gray-500 block mb-1">희귀도</label>
                         <select value={data.rarity || 'SSR'} onChange={e => onChange('rarity', e.target.value)}
                             className="w-full bg-gray-800 border border-gray-700 text-white px-3 py-2 rounded">
-                            {rarityOptions.map(t => <option key={t} value={t}>{t}</option>)}
+                            {rarities.map(t => <option key={t} value={t}>{t}</option>)}
                         </select>
                     </div>
                     <div>
@@ -94,7 +125,7 @@ export default function NikkeFieldsEditor({ data, onChange, onUsageStatChange, o
                         <select value={data.company || ''} onChange={e => onChange('company', e.target.value)}
                             className="w-full bg-gray-800 border border-gray-700 text-white px-3 py-2 rounded">
                             <option value="">선택</option>
-                            {companyOptions.map(t => <option key={t} value={t}>{t}</option>)}
+                            {companies.map(t => <option key={t} value={t}>{t}</option>)}
                         </select>
                     </div>
                     <div>
@@ -137,7 +168,7 @@ export default function NikkeFieldsEditor({ data, onChange, onUsageStatChange, o
                         <SquadManager
                             isOpen={isSquadManagerOpen}
                             onClose={() => setIsSquadManagerOpen(false)}
-                            onUpdate={refreshSquads}
+                            onUpdate={refreshOptions}
                             onSquadRename={(oldName, newName) => {
                                 if (data.squad === oldName) {
                                     onChange('squad', newName); // Update the current Nikke's squad field
@@ -152,30 +183,28 @@ export default function NikkeFieldsEditor({ data, onChange, onUsageStatChange, o
                         <select value={data.code || ''} onChange={e => onChange('code', e.target.value)}
                             className="w-full bg-gray-800 border border-gray-700 text-white px-3 py-2 rounded">
                             <option value="">선택</option>
-                            {codeOptions.map(t => <option key={t} value={t}>{t}</option>)}
+                            {codes.map(t => <option key={t} value={t}>{t}</option>)}
                         </select>
                     </div>
                     <div>
                         <label className="text-xs text-gray-500 block mb-1">클래스</label>
                         <select value={data.class} onChange={e => onChange('class', e.target.value)}
                             className="w-full bg-gray-800 border border-gray-700 text-white px-3 py-2 rounded">
-                            <option value="Attacker">화력형</option>
-                            <option value="Defender">방어형</option>
-                            <option value="Supporter">지원형</option>
+                            {classes.map(t => <option key={t} value={t}>{t}</option>)}
                         </select>
                     </div>
                     <div>
                         <label className="text-xs text-gray-500 block mb-1">버스트</label>
                         <select value={data.burst} onChange={e => onChange('burst', e.target.value)}
                             className="w-full bg-gray-800 border border-gray-700 text-white px-3 py-2 rounded">
-                            {burstOptions.map(t => <option key={t} value={t}>버스트 {t}</option>)}
+                            {bursts.map(t => <option key={t} value={t}>버스트 {t}</option>)}
                         </select>
                     </div>
                     <div>
                         <label className="text-xs text-gray-500 block mb-1">무기</label>
                         <select value={data.weapon} onChange={e => onChange('weapon', e.target.value)}
                             className="w-full bg-gray-800 border border-gray-700 text-white px-3 py-2 rounded">
-                            {weaponOptions.map(t => <option key={t} value={t}>{weaponNames[t]}</option>)}
+                            {weapons.map(t => <option key={t} value={t}>{weaponNames[t] || t}</option>)}
                         </select>
                     </div>
                 </div>
@@ -234,40 +263,8 @@ export default function NikkeFieldsEditor({ data, onChange, onUsageStatChange, o
                 </div>
             </div>
 
-            {/* 3. 버스트 수급량 상세 */}
-            <div className="bg-black/30 p-4 rounded-lg border border-gray-700">
-                <h4 className="text-sm font-bold text-gray-400 mb-3">⚡ RL 단계별 버스트 수급량 (정밀 데이터)</h4>
-                <div className="flex bg-black/40 rounded-lg overflow-hidden border border-gray-800">
-                    {(["2RL", "2_5RL", "3RL", "3_5RL", "4RL"] as const).map((stage, idx) => {
-                        const stageData = data.burst_details?.[stage] || { value: 0, hits: '', bonus: '' };
-                        const colors = {
-                            '2RL': 'text-green-400', '2_5RL': 'text-green-500',
-                            '3RL': 'text-white', '3_5RL': 'text-orange-400', '4RL': 'text-orange-500'
-                        }[stage];
-
-                        return (
-                            <div key={stage} className={`flex-1 flex flex-col items-center py-3 px-1 border-gray-800 ${idx !== 4 ? 'border-r' : ''}`}>
-                                <div className={`text-[10px] font-black mb-1 ${colors}`}>{stage.replace('_', '.')}</div>
-                                <div className="space-y-1.5 w-full px-1">
-                                    <div className="flex items-center gap-1">
-                                        <input type="number" step="0.1" value={stageData.value}
-                                            onChange={e => onBurstDetailChange(stage, 'value', e.target.value)}
-                                            className="w-full bg-gray-900 border border-gray-700 text-[10px] text-center rounded px-0.5 text-white" />
-                                        <span className="text-[9px] text-gray-600">%</span>
-                                    </div>
-                                    <input type="text" value={stageData.hits || ''} placeholder="hits"
-                                        onChange={e => onBurstDetailChange(stage, 'hits', e.target.value)}
-                                        className="w-full bg-gray-900 border border-gray-700 text-[9px] text-center rounded px-0.5 text-gray-400" />
-                                    <input type="text" value={stageData.bonus || ''} placeholder="bonus"
-                                        onChange={e => onBurstDetailChange(stage, 'bonus', e.target.value)}
-                                        className="w-full bg-gray-900 border border-gray-700 text-[9px] text-center rounded px-0.5 text-gray-400" />
-                                </div>
-                            </div>
-                        );
-                    })}
-                </div>
-            </div>
-
-        </div >
+            {/* 3. 빌드 정보 (새로 추가됨) */}
+            <NikkeBuildEditor data={data} onChange={onChange} />
+        </div>
     );
 }

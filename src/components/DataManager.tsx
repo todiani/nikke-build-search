@@ -1,9 +1,10 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import type { NikkeData } from '../data/nikkes';
 import { tierColors } from '../utils/nikkeConstants';
 import { extractTagsFromSkill } from '../utils/tagExtractor';
 import NikkeFieldsEditor from './NikkeFieldsEditor';
-import { initializeNikkeData } from '../utils/nikkeDataManager';
+import { initializeNikkeData, normalize } from '../utils/nikkeDataManager';
+import { matchKorean } from '../utils/hangul';
 import {
     getBackupSettings, saveBackupSettings, getBackupHistory,
     createBackup, deleteBackup, checkAndRunAutoBackup
@@ -17,6 +18,7 @@ interface DataManagerProps {
     onClose: () => void;
     data: NikkeData[];
     onUpdate: (newData: NikkeData[]) => void;
+    initialNikke?: NikkeData | null; // Added prop for direct entry
 }
 
 type ViewMode = 'list' | 'edit' | 'json' | 'backup';
@@ -54,7 +56,8 @@ const createNewNikke = (): NikkeData => {
     return initializeNikkeData(base);
 };
 
-export default function DataManager({ isOpen, onClose, data, onUpdate }: DataManagerProps) {
+export default function DataManager({ isOpen, onClose, data, onUpdate, initialNikke }: DataManagerProps) {
+    const searchInputRef = useRef<HTMLInputElement>(null);
     const [viewMode, setViewMode] = useState<ViewMode>('list');
     const [editTab, setEditTab] = useState<EditTab>('info');
     const [localData, setLocalData] = useState<NikkeData[]>([]);
@@ -65,11 +68,39 @@ export default function DataManager({ isOpen, onClose, data, onUpdate }: DataMan
     const [error, setError] = useState<string | null>(null);
     const [deleteConfirm, setDeleteConfirm] = useState<string | null>(null);
 
+    // Manual Link State
+    const [linkingGuestName, setLinkingGuestName] = useState<string | null>(null);
+    const [linkSearchTerm, setLinkSearchTerm] = useState('');
+
     useEffect(() => {
-        setLocalData([...data]);
-        setJsonText(JSON.stringify(data, null, 2));
-        checkAndRunAutoBackup(data);
-    }, [data]);
+        if (isOpen && viewMode === 'list' && searchInputRef.current) {
+            searchInputRef.current.focus();
+        }
+    }, [isOpen, viewMode]);
+
+    useEffect(() => {
+        const init = async () => {
+            setLocalData([...data]);
+            setJsonText(JSON.stringify(data, null, 2));
+            
+            // If initialNikke is provided, jump straight to edit mode
+            if (initialNikke) {
+                const existing = data.find(n => normalize(n.name) === normalize(initialNikke.name));
+                if (existing) {
+                    setSelectedNikke({ ...existing });
+                    setIsNewNikke(false);
+                } else {
+                    setSelectedNikke({ ...initialNikke });
+                    setIsNewNikke(true);
+                }
+                setViewMode('edit');
+                setEditTab('info');
+            }
+            
+            await checkAndRunAutoBackup(data);
+        };
+        init();
+    }, [data, initialNikke]);
 
     if (!isOpen) return null;
 
@@ -77,10 +108,30 @@ export default function DataManager({ isOpen, onClose, data, onUpdate }: DataMan
         n.name.toLowerCase().includes(searchFilter.toLowerCase()) ||
         n.name_en.toLowerCase().includes(searchFilter.toLowerCase())
     );
-
+  
     const tierColor = (tier: string) => tierColors[tier] || 'text-gray-400 border-gray-400';
 
     // === Handlers ===
+    const handleLinkAlias = (targetNikke: NikkeData) => {
+        if (!linkingGuestName) return;
+
+        const updatedData = localData.map(n => {
+            if (n.id === targetNikke.id) {
+                return {
+                    ...n,
+                    aliases: [...(n.aliases || []), linkingGuestName]
+                };
+            }
+            return n;
+        });
+
+        setLocalData(updatedData);
+        onUpdate(updatedData); // App.tsx handles API call
+        setLinkingGuestName(null);
+        setLinkSearchTerm('');
+        alert(`✓ '${linkingGuestName}'이(가) '${targetNikke.name}'의 별명으로 연결되었습니다.`);
+    };
+
     const handleSelectNikke = (nikke: NikkeData) => {
         setSelectedNikke({ ...nikke });
         setIsNewNikke(false);
@@ -178,7 +229,7 @@ export default function DataManager({ isOpen, onClose, data, onUpdate }: DataMan
         setSelectedNikke(prev => prev ? { ...prev, [field]: arr } : null);
     };
 
-    const handleSaveNikke = () => {
+    const handleSaveNikke = async () => {
         if (!selectedNikke || !selectedNikke.name.trim()) {
             alert("니케 이름을 입력해주세요.");
             return;
@@ -187,12 +238,10 @@ export default function DataManager({ isOpen, onClose, data, onUpdate }: DataMan
         // 저장 전에 각 스킬의 태그를 자동으로 추출
         const updatedNikke = { ...selectedNikke };
         if (updatedNikke.skills_detail) {
-            // skill1, skill2, burst에 대해 태그 자동 추출
             for (const skillKey of ['skill1', 'skill2', 'burst'] as const) {
                 const skill = updatedNikke.skills_detail[skillKey];
                 if (skill && skill.name && skill.desc) {
                     const autoTags = extractTagsFromSkill(skill.name, skill.desc);
-                    // 기존 태그와 자동 추출된 태그를 병합 (중복 제거)
                     const existingTags = skill.tags || [];
                     const mergedTags = Array.from(new Set([...existingTags, ...autoTags]));
                     updatedNikke.skills_detail[skillKey] = {
@@ -203,18 +252,26 @@ export default function DataManager({ isOpen, onClose, data, onUpdate }: DataMan
             }
         }
 
+        let newData: NikkeData[];
         if (isNewNikke) {
-            setLocalData(prev => [...prev, updatedNikke]);
+            newData = [...localData, updatedNikke];
         } else {
-            setLocalData(prev => prev.map(n => n.id === updatedNikke.id ? updatedNikke : n));
+            newData = localData.map(n => n.id === updatedNikke.id ? updatedNikke : n);
         }
+        
+        setLocalData(newData);
+        onUpdate(newData); // App.tsx handles API call
+        
         setViewMode('list');
         setSelectedNikke(null);
         setIsNewNikke(false);
     };
 
-    const handleDeleteNikke = (nikkeId: string) => {
-        setLocalData(prev => prev.filter(n => n.id !== nikkeId));
+    const handleDeleteNikke = async (nikkeId: string) => {
+        const newData = localData.filter(n => n.id !== nikkeId);
+        setLocalData(newData);
+        onUpdate(newData); // App.tsx handles API call
+        
         setDeleteConfirm(null);
         if (selectedNikke?.id === nikkeId) {
             setSelectedNikke(null);
@@ -224,8 +281,7 @@ export default function DataManager({ isOpen, onClose, data, onUpdate }: DataMan
 
     const handleApplyAll = () => {
         onUpdate(localData);
-        localStorage.setItem('nikke_db_cache', JSON.stringify(localData));
-        alert(`✓ 데이터가 적용되었습니다!\n\n${localData.length}명의 니케 정보가 저장됨\n\n영구 저장: 'JSON 내보내기'로 파일 저장`);
+        alert(`✓ 데이터가 적용되었습니다!\n\n${localData.length}명의 니케 정보가 저장됨\n\n로컬 서버 실행 중이면 nikke_db.json에 저장됩니다.`);
     };
 
     const handleJsonApply = () => {
@@ -250,11 +306,11 @@ export default function DataManager({ isOpen, onClose, data, onUpdate }: DataMan
         URL.revokeObjectURL(url);
     };
 
-    // === Render List View ===
     const renderListView = () => (
         <div className="flex-1 flex flex-col overflow-hidden">
             <div className="p-4 border-b border-gray-700 bg-gray-800/50 flex gap-2">
                 <input
+                    ref={searchInputRef}
                     type="text"
                     value={searchFilter}
                     onChange={e => setSearchFilter(e.target.value)}
@@ -272,28 +328,34 @@ export default function DataManager({ isOpen, onClose, data, onUpdate }: DataMan
                 {filteredData.length === 0 ? (
                     <div className="text-center text-gray-500 py-8">검색 결과가 없습니다</div>
                 ) : (
-                    filteredData.map(nikke => (
-                        <div key={nikke.id} className="flex items-center justify-between px-4 py-3 border-b border-gray-800 hover:bg-gray-800 transition-colors">
-                            <button onClick={() => handleSelectNikke(nikke)} className="flex-1 text-left flex items-center gap-2">
-                                <span className="text-white font-bold">{nikke.name}</span>
-                                {nikke.extra_info && (
-                                    <span className="text-[10px] px-1.5 py-0.5 bg-purple-900/50 text-purple-300 rounded">{nikke.extra_info}</span>
-                                )}
-                                <span className="text-gray-500 text-sm">{nikke.name_en}</span>
-                            </button>
-                            <div className="flex gap-2 items-center">
-                                <span className={`text-xs px-2 py-0.5 rounded border ${tierColor(nikke.tier)}`}>{nikke.tier}</span>
-                                {deleteConfirm === nikke.id ? (
-                                    <>
-                                        <button onClick={() => handleDeleteNikke(nikke.id)} className="text-xs px-2 py-1 bg-red-700 hover:bg-red-600 text-white rounded">삭제 확인</button>
-                                        <button onClick={() => setDeleteConfirm(null)} className="text-xs px-2 py-1 bg-gray-600 hover:bg-gray-500 text-white rounded">취소</button>
-                                    </>
-                                ) : (
-                                    <button onClick={() => setDeleteConfirm(nikke.id)} className="text-xs px-2 py-1 text-red-400 hover:text-red-300 hover:bg-red-900/30 rounded">🗑️</button>
-                                )}
+                    <div className="flex flex-col">
+                        {filteredData.map(nikke => (
+                            <div key={nikke.id} className="flex items-center justify-between px-4 py-3 border-b border-gray-800 hover:bg-gray-800 transition-colors">
+                                <button onClick={() => handleSelectNikke(nikke)} className="flex-1 text-left flex flex-col min-w-0">
+                                    <div className="flex items-baseline gap-2 flex-wrap">
+                                        <span className="text-white font-bold">{nikke.name}</span>
+                                        {nikke.name_en && (
+                                            <span className="text-xs text-blue-400/80 font-medium">{nikke.name_en}</span>
+                                        )}
+                                    </div>
+                                    {nikke.extra_info && (
+                                        <span className="text-[11px] text-gray-400 font-medium mt-0.5">{nikke.extra_info}</span>
+                                    )}
+                                </button>
+                                <div className="flex gap-2 items-center">
+                                    <span className={`text-xs px-2 py-0.5 rounded border ${tierColor(nikke.tier)}`}>{nikke.tier}</span>
+                                    {deleteConfirm === nikke.id ? (
+                                        <>
+                                            <button onClick={() => handleDeleteNikke(nikke.id)} className="text-xs px-2 py-1 bg-red-700 hover:bg-red-600 text-white rounded">삭제 확인</button>
+                                            <button onClick={() => setDeleteConfirm(null)} className="text-xs px-2 py-1 bg-gray-600 hover:bg-gray-500 text-white rounded">취소</button>
+                                        </>
+                                    ) : (
+                                        <button onClick={() => setDeleteConfirm(nikke.id)} className="text-xs px-2 py-1 text-red-400 hover:text-red-300 hover:bg-red-900/30 rounded">🗑️</button>
+                                    )}
+                                </div>
                             </div>
-                        </div>
-                    ))
+                        ))}
+                    </div>
                 )}
             </div>
         </div>
@@ -301,20 +363,17 @@ export default function DataManager({ isOpen, onClose, data, onUpdate }: DataMan
 
     // === Render Edit Tabs (Unified with NikkeDetail) ===
     const renderEditTabs = () => (
-        <div className="grid grid-cols-4 bg-gray-800/50 border-b border-gray-700 p-1 gap-1">
-            {[
+        <div className="grid grid-cols-4 bg-gray-900/80 border-x border-gray-700 p-1 gap-1">
+            {([
                 { key: 'info', label: '📋 정보' },
-                { key: 'guide', label: '🛠️ 가이드' },
-                { key: 'calc', label: '📊 계산기' },
-                { key: 'compare', label: '⚖️ 비교' }
-            ].map(tab => (
+                { key: 'guide', label: '🛠️ 가이드', color: 'bg-nikke-red' },
+                { key: 'calc', label: '📊 계산기', color: 'bg-blue-600' },
+                { key: 'compare', label: '⚖️ 비교', color: 'bg-purple-600' }
+            ] as { key: EditTab; label: string; color?: string }[]).map(tab => (
                 <button
                     key={tab.key}
                     onClick={() => setEditTab(tab.key as EditTab)}
-                    className={`py-2 text-sm font-bold rounded transition-all ${editTab === tab.key
-                        ? 'bg-nikke-red text-white shadow-lg'
-                        : 'text-gray-400 hover:text-white hover:bg-gray-700'
-                        }`}
+                    className={`py-2 text-sm font-bold rounded transition-all ${editTab === tab.key ? `${tab.color || 'bg-gray-700'} text-white` : 'text-gray-400 hover:text-white'}`}
                 >
                     {tab.label}
                 </button>
@@ -403,11 +462,11 @@ export default function DataManager({ isOpen, onClose, data, onUpdate }: DataMan
                                 <option value="액티브">액티브</option>
                             </select>
                         </div>
-                        {skillKey === 'burst' && (
-                            <div>
+                        {skill?.type === '액티브' && (
+                            <div className="animate-fadeIn">
                                 <label className="text-xs text-gray-500 block mb-1">재사용 시간 (초)</label>
                                 <input type="text" value={skill?.cooldown || ''} onChange={e => handleSkillDetailChange(skillKey, 'cooldown', e.target.value)}
-                                    placeholder="예: 20.00초" className="w-full bg-gray-800 border border-gray-700 text-white px-3 py-2 rounded" />
+                                    placeholder="예: 20.00초" className="w-full bg-gray-800 border border-gray-700 text-white px-3 py-2 rounded focus:border-blue-500 outline-none" />
                             </div>
                         )}
                         <div>
@@ -493,8 +552,7 @@ export default function DataManager({ isOpen, onClose, data, onUpdate }: DataMan
 
         return (
             <div className="flex-1 flex flex-col overflow-hidden">
-                {/* Header */}
-                <div className="p-4 border-b border-gray-700 bg-gradient-to-r from-gray-800 to-gray-900 flex items-center justify-between">
+                <div className="bg-gradient-to-r from-gray-800 to-gray-900 rounded-t-xl p-4 border border-gray-700 border-b-0 flex items-center justify-between">
                     <div className="flex items-center gap-3">
                         <button onClick={() => { setViewMode('list'); setSelectedNikke(null); setIsNewNikke(false); }}
                             className="text-gray-400 hover:text-white text-sm">
@@ -515,11 +573,9 @@ export default function DataManager({ isOpen, onClose, data, onUpdate }: DataMan
                     </div>
                 </div>
 
-                {/* Tabs */}
                 {renderEditTabs()}
 
-                {/* Content */}
-                <div className="flex-1 overflow-y-auto p-4">
+                <div className="flex-1 overflow-y-auto bg-gray-900/50 p-4 border border-gray-700 border-t-0 rounded-b-xl">
                     {editTab === 'info' && (
                         <div className="space-y-6">
                             {renderBasicTab()}
@@ -596,7 +652,7 @@ export default function DataManager({ isOpen, onClose, data, onUpdate }: DataMan
                             <label className="text-xs text-gray-500 block mb-1">자동 백업 주기</label>
                             <select
                                 value={settings.intervalDays}
-                                onChange={e => saveBackupSettings({ ...settings, intervalDays: Number(e.target.value) })}
+                                onChange={async (e) => await saveBackupSettings({ ...settings, intervalDays: Number(e.target.value) })}
                                 className="w-full bg-gray-800 border border-gray-700 text-white px-3 py-2 rounded text-sm"
                             >
                                 <option value={0}>사용 안함</option>
@@ -608,8 +664,8 @@ export default function DataManager({ isOpen, onClose, data, onUpdate }: DataMan
                         </div>
                         <div className="pt-5">
                             <button
-                                onClick={() => {
-                                    createBackup(localData, 'manual');
+                                onClick={async () => {
+                                    await createBackup(localData, 'manual');
                                     alert('수동 백업이 생성되었습니다.');
                                 }}
                                 className="px-4 py-2 bg-blue-700 hover:bg-blue-600 text-white rounded font-bold text-sm"
@@ -657,9 +713,9 @@ export default function DataManager({ isOpen, onClose, data, onUpdate }: DataMan
                                             복구(로드)
                                         </button>
                                         <button
-                                            onClick={() => {
+                                            onClick={async () => {
                                                 if (window.confirm('이 백업을 삭제하시겠습니까?')) {
-                                                    deleteBackup(item.id);
+                                                    await deleteBackup(item.id);
                                                 }
                                             }}
                                             className="px-3 py-1 bg-red-900/30 hover:bg-red-900 text-red-400 rounded text-xs"
@@ -678,23 +734,7 @@ export default function DataManager({ isOpen, onClose, data, onUpdate }: DataMan
                     <h4 className="text-yellow-500 font-bold text-sm mb-2 font-black">⚠️ DB 오류 및 비상 대처 방법</h4>
                     <ul className="text-xs text-gray-400 space-y-2 ml-4 list-disc">
                         <li>데이터가 유실된 경우 위 히스토리에서 가장 최근 백업을 찾아 <strong>'복구'</strong>를 누르세요.</li>
-                        <li>JSON 내보내기 기능을 이용해 정기적으로 <strong>nikke_db.json</strong> 파일을 PC에 저장하는 것이 가장 안전합니다.</li>
-                        <li>
-                            <div className="flex items-center justify-between">
-                                <span>캐시 꼬임이나 중목 현상이 지속될 경우 브라우저 데이터를 초기화하세요:</span>
-                                <button
-                                    onClick={() => {
-                                        if (window.confirm('브라우저 캐시를 초기화하시겠습니까?\n이름 검색 중복 및 데이터 꼬임 현상이 해결됩니다.\n(사용자가 편집한 내용은 사라질 수 있습니다)')) {
-                                            localStorage.removeItem('nikke_db_cache');
-                                            window.location.reload();
-                                        }
-                                    }}
-                                    className="px-2 py-1 bg-red-900 hover:bg-red-700 text-white rounded text-[10px] font-bold"
-                                >
-                                    캐시 강제 초기화 (새로고침)
-                                </button>
-                            </div>
-                        </li>
+                        <li>로컬 서버가 실행 중인지 확인하세요. 미실행 시 저장이 반영되지 않을 수 있습니다.</li>
                     </ul>
                 </div>
             </div>
@@ -749,6 +789,81 @@ export default function DataManager({ isOpen, onClose, data, onUpdate }: DataMan
                             className="px-6 py-2 bg-nikke-red hover:bg-red-700 text-white font-bold rounded shadow-lg shadow-red-900/20">
                             ✓ 전체 적용 ({localData.length}명)
                         </button>
+                    </div>
+                )}
+
+                {/* Manual Link Selector Modal */}
+                {linkingGuestName && (
+                    <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-[60] p-4 backdrop-blur-md animate-fadeIn">
+                        <div className="bg-gray-900 border border-gray-700 rounded-2xl w-full max-w-md shadow-2xl flex flex-col max-h-[80vh]">
+                            <div className="p-5 border-b border-gray-800 flex justify-between items-center bg-gray-900/50 rounded-t-2xl">
+                                <div>
+                                    <h3 className="text-lg font-bold text-white flex items-center gap-2">
+                                        <span className="text-blue-400">🔗</span> 별명 연결
+                                    </h3>
+                                    <p className="text-xs text-gray-400 mt-1">
+                                        <span className="text-red-400 font-bold">'{linkingGuestName}'</span>을(를) 어느 니케와 연결할까요?
+                                    </p>
+                                </div>
+                                <button onClick={() => setLinkingGuestName(null)} className="text-gray-500 hover:text-white p-2 transition-colors">✕</button>
+                            </div>
+                            
+                            <div className="p-4 bg-gray-950/50">
+                                <input
+                                    type="text"
+                                    autoFocus
+                                    placeholder="니케 이름 검색..."
+                                    value={linkSearchTerm}
+                                    onChange={e => setLinkSearchTerm(e.target.value)}
+                                    className="w-full bg-gray-900 border border-gray-700 text-white px-4 py-3 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all"
+                                />
+                            </div>
+
+                            <div className="flex-1 overflow-y-auto p-2 space-y-1 custom-scrollbar">
+                                {localData
+                                    .filter(n => 
+                                        !linkSearchTerm || 
+                                        matchKorean(n.name, linkSearchTerm) || 
+                                        matchKorean(n.name_en, linkSearchTerm) ||
+                                        n.name.toLowerCase().includes(linkSearchTerm.toLowerCase())
+                                    )
+                                    .slice(0, 50)
+                                    .map(n => (
+                                        <button
+                                            key={n.id}
+                                            onClick={() => handleLinkAlias(n)}
+                                            className="w-full flex items-center gap-3 p-3 rounded-xl hover:bg-white/10 text-left transition-all group"
+                                        >
+                                            <div className={`w-10 h-10 rounded-lg bg-gray-800 flex items-center justify-center text-xs font-bold border border-gray-700 group-hover:border-blue-500 transition-colors
+                                                ${n.burst === 'I' ? 'text-blue-400' : n.burst === 'II' ? 'text-orange-400' : 'text-red-400'}`}>
+                                                {n.burst}
+                                            </div>
+                                            <div>
+                                                <div className="text-sm font-bold text-white group-hover:text-blue-400 transition-colors">{n.name}</div>
+                                                <div className="text-[10px] text-gray-500">{n.name_en}</div>
+                                            </div>
+                                            <div className="ml-auto opacity-0 group-hover:opacity-100 transition-opacity">
+                                                <span className="text-xs text-blue-400 font-bold">선택 ↵</span>
+                                            </div>
+                                        </button>
+                                    ))
+                                }
+                                {localData.filter(n => !linkSearchTerm || matchKorean(n.name, linkSearchTerm)).length === 0 && (
+                                    <div className="p-8 text-center text-gray-500 text-sm">
+                                        검색 결과가 없습니다.
+                                    </div>
+                                )}
+                            </div>
+
+                            <div className="p-4 bg-gray-900/80 border-t border-gray-800 text-center">
+                                <button
+                                    onClick={() => setLinkingGuestName(null)}
+                                    className="px-6 py-2 rounded-xl text-gray-400 hover:text-white hover:bg-gray-800 transition-all text-sm"
+                                >
+                                    취소
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 )}
             </div>

@@ -36,30 +36,64 @@ const defaultPartOptions: AllPartOptions = {
 };
 
 // Storage key prefix
-const BACKUP_HISTORY_KEY = 'nikke_db_backup_history';
-
 export default function Calculator({ nikke, onDataUpdate }: CalculatorProps) {
-    // Determine initial stats/options from nikke object or defaults
-    const [stats, setStats] = useState(nikke.calc_data?.stats || defaultStats);
-    const [partOptions, setPartOptions] = useState<AllPartOptions>(nikke.calc_data?.partOptions || defaultPartOptions);
+    // Determine initial stats/options from nikke object (build) or defaults
+    const getInitialStats = (n: NikkeData) => {
+        const build = n.build;
+        if (!build) return defaultStats;
+        return {
+            hp: build.stats.hp || 0,
+            atk: build.stats.atk || 0,
+            def: build.stats.def || 0,
+            s1: build.skills.skill1 || 1,
+            s2: build.skills.skill2 || 1,
+            burst: build.skills.burst || 1,
+            cubeLvl: build.cube_level || 1,
+            colGrade: build.collection.grade || "None",
+            colSkill1: build.collection.skill1 || 1,
+            colSkill2: build.collection.skill2 || 1
+        };
+    };
+
+    const getInitialPartOptions = (n: NikkeData): AllPartOptions => {
+        const build = n.build;
+        if (!build || !build.overload) return defaultPartOptions;
+        
+        const mapPart = (part: any) => ({
+            option1: { type: part.option1?.type || "옵션없음", stage: part.option1?.stage || 0 },
+            option2: { type: part.option2?.type || "옵션없음", stage: part.option2?.stage || 0 },
+            option3: { type: part.option3?.type || "옵션없음", stage: part.option3?.stage || 0 },
+        });
+
+        return {
+            helmet: mapPart(build.overload.helmet),
+            armor: mapPart(build.overload.armor),
+            gloves: mapPart(build.overload.gloves),
+            boots: mapPart(build.overload.boots),
+        };
+    };
+
+    const [stats, setStats] = useState(getInitialStats(nikke));
+    const [partOptions, setPartOptions] = useState<AllPartOptions>(getInitialPartOptions(nikke));
     const [result, setResult] = useState<CalcResult | null>(null);
 
     // Sync state when nikke changes
     useEffect(() => {
-        if (nikke.calc_data) {
-            setStats(nikke.calc_data.stats || defaultStats);
-            setPartOptions(nikke.calc_data.partOptions || defaultPartOptions);
-        } else {
-            setStats(defaultStats);
-            setPartOptions(defaultPartOptions);
-        }
+        setStats(getInitialStats(nikke));
+        setPartOptions(getInitialPartOptions(nikke));
     }, [nikke.id]);
-
 
     // Save data whenever it changes
     useEffect(() => {
         if (onDataUpdate) {
-            onDataUpdate({ stats, partOptions });
+            const build = {
+                stats: { hp: stats.hp, atk: stats.atk, def: stats.def },
+                skills: { skill1: stats.s1, skill2: stats.s2, burst: stats.burst },
+                cube_level: stats.cubeLvl,
+                collection: { grade: stats.colGrade, skill1: stats.colSkill1, skill2: stats.colSkill2 },
+                overload: partOptions
+            };
+            onDataUpdate(build);
         }
     }, [stats, partOptions]);
 
@@ -78,7 +112,7 @@ export default function Calculator({ nikke, onDataUpdate }: CalculatorProps) {
     }, [stats, partOptions, nikke]);
 
     const handleStatChange = (key: keyof typeof stats, val: string | number) => {
-        setStats(prev => ({ ...prev, [key]: typeof val === 'string' && key === 'colGrade' ? val : Number(val) || 0 }));
+        setStats((prev: typeof stats) => ({ ...prev, [key]: typeof val === 'string' && key === 'colGrade' ? val : Number(val) || 0 }));
     };
 
     const handleOptionChange = (part: keyof typeof PART_NAMES, optKey: 'option1' | 'option2' | 'option3', field: 'type' | 'stage', val: string | number) => {

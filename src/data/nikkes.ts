@@ -1,12 +1,23 @@
+export interface OverloadOption {
+  type: string;
+  stage: number;
+}
+
+export interface PartOptions {
+  option1: OverloadOption;
+  option2: OverloadOption;
+  option3: OverloadOption;
+}
+
 export interface NikkeData {
   id: string;
   name: string;
   name_en: string;
-  tier: "SSS" | "SS" | "S" | "A" | "PvP" | "Unranked";
-  burst: "I" | "II" | "III";
-  class: "Attacker" | "Supporter" | "Defender";
-  weapon: "AR" | "SR" | "SG" | "SMG" | "RL" | "MG";
-  rarity?: "SSR" | "SR" | "R";
+  tier: string;
+  burst: string;
+  class: string;
+  weapon: string;
+  rarity?: string;
 
   // NEW: Company/Manufacturer
   company?: string;  // 엘리시온, 미시리스, 테트라, 필그림, 이상현상
@@ -35,6 +46,9 @@ export interface NikkeData {
 
   // Extra info extracted from parentheses in name
   extra_info?: string;
+
+  // Manual aliases/nicknames for matching
+  aliases?: string[];
 
   // Overload option recommendations
   valid_options?: string[];
@@ -69,7 +83,21 @@ export interface NikkeData {
   // Persisted Calculator and Comparison Data
   calc_data?: any;
   compare_data?: any;
+
+  // New: Separated Build Data
+  build?: {
+    stats: { hp: number; atk: number; def: number };
+    skills: { skill1: number; skill2: number; burst: number };
+    cube_level: number;
+    collection: { grade: string; skill1: number; skill2: number };
+    overload: {
+      helmet: PartOptions;
+      armor: PartOptions;
+      gloves: PartOptions;
+      boots: PartOptions;
+    };
+  };
 }
 
 // Data is now loaded successfully from public/data/nikke_db.json
-export const nikkes: NikkeData[] = []; 
+export const nikkes: NikkeData[] = [];

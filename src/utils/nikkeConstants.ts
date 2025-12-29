@@ -65,6 +65,49 @@ export const classDescriptions: Record<string, string> = {
     'Supporter': '지원형(버프/힐)'
 };
 
+// 코드 색상 매핑 (텍스트용)
+export const codeTextColors: Record<string, string> = {
+    '작열': 'text-orange-500',
+    '풍압': 'text-green-500',
+    '철갑': 'text-amber-700',
+    '전격': 'text-yellow-400',
+    '수냉': 'text-blue-400'
+};
+
+// 버스트 색상 매핑
+export const burstColors: Record<string, string> = {
+    'I': 'text-pink-500',
+    'II': 'text-blue-500',
+    'III': 'text-red-500',
+    'A': 'text-purple-500'
+};
+
+// 클래스 색상 매핑
+export const classColors: Record<string, string> = {
+    'Attacker': 'text-red-400',
+    'Supporter': 'text-green-400',
+    'Defender': 'text-blue-400'
+};
+
+// 제조사 색상 매핑
+export const companyColors: Record<string, string> = {
+    '엘리시온': 'text-green-600',
+    '미실리스': 'text-blue-600',
+    '테트라': 'text-pink-600',
+    '필그림': 'text-yellow-600',
+    '어브노멀': 'text-purple-600'
+};
+
+// 무기 색상 매핑
+export const weaponColors: Record<string, string> = {
+    'AR': 'text-amber-400',
+    'SR': 'text-red-400',
+    'SG': 'text-blue-400',
+    'SMG': 'text-green-400',
+    'RL': 'text-purple-400',
+    'MG': 'text-orange-400'
+};
+
 // 코드 색상 매핑
 export const codeColors: Record<string, string> = {
     '작열': 'bg-orange-900/50 text-orange-300 border-orange-700',

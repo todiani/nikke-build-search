@@ -1,6 +1,7 @@
 import { useMemo } from 'react';
 import type { NikkeData } from '../data/nikkes';
 import { TAG_DATA } from '../data/tags';
+import { searchNikkesByTags } from '../utils/nikkeDataManager';
 
 interface TagInfo {
     and: string[];
@@ -25,22 +26,17 @@ export default function SmartTagSearch({
     selectedTags,
     onTagsChange
 }: SmartTagSearchProps) {
-    // Use controlled state from parent
-    const selectedTagsAnd = selectedTags.and;
-    const selectedTagsOr = selectedTags.or;
-    const selectedTagsNot = selectedTags.not;
-
     const handleTagClick = (tag: string, type: 'AND' | 'OR' | 'NOT') => {
         // Remove from all lists first
-        const newAnd = selectedTagsAnd.filter(t => t !== tag);
-        const newOr = selectedTagsOr.filter(t => t !== tag);
-        const newNot = selectedTagsNot.filter(t => t !== tag);
+        const newAnd = selectedTags.and.filter(t => t !== tag);
+        const newOr = selectedTags.or.filter(t => t !== tag);
+        const newNot = selectedTags.not.filter(t => t !== tag);
 
-        if (type === 'AND' && !selectedTagsAnd.includes(tag)) {
+        if (type === 'AND' && !selectedTags.and.includes(tag)) {
             newAnd.push(tag);
-        } else if (type === 'OR' && !selectedTagsOr.includes(tag)) {
+        } else if (type === 'OR' && !selectedTags.or.includes(tag)) {
             newOr.push(tag);
-        } else if (type === 'NOT' && !selectedTagsNot.includes(tag)) {
+        } else if (type === 'NOT' && !selectedTags.not.includes(tag)) {
             newNot.push(tag);
         }
 
@@ -51,66 +47,14 @@ export default function SmartTagSearch({
         onTagsChange({ and: [], or: [], not: [] });
     };
 
-    const performFilter = (nikke: NikkeData) => {
-        // Collect all tags from the Nikke's skills
-        const nikkeTags = new Set<string>();
-        if (nikke.skills_detail) {
-            ['skill1', 'skill2', 'burst'].forEach(s => {
-                // @ts-ignore - dynamic access
-                const skill = nikke.skills_detail[s];
-                if (skill && skill.tags) {
-                    skill.tags.forEach((t: string) => nikkeTags.add(t));
-                }
-            });
-        }
-
-        // Precise matching for fallback (instead of full JSON.stringify)
-        const matchText = (tag: string) => {
-            const lowerTag = tag.toLowerCase();
-            // Check Name
-            if (nikke.name.toLowerCase().includes(lowerTag)) return true;
-            if (nikke.name_en?.toLowerCase().includes(lowerTag)) return true;
-            // Check Description
-            if (nikke.desc?.toLowerCase().includes(lowerTag)) return true;
-            // Check Skills Detail (Name & Desc)
-            if (nikke.skills_detail) {
-                return Object.values(nikke.skills_detail).some(s =>
-                    s.name?.toLowerCase().includes(lowerTag) ||
-                    s.desc?.toLowerCase().includes(lowerTag)
-                );
-            }
-            return false;
-        };
-
-        // AND check
-        for (const tag of selectedTagsAnd) {
-            if (nikkeTags.has(tag)) continue; // Tag match
-            if (!matchText(tag)) return false; // Text fallback
-        }
-
-        // OR check
-        if (selectedTagsOr.length > 0) {
-            let hit = false;
-            for (const tag of selectedTagsOr) {
-                if (nikkeTags.has(tag)) { hit = true; break; }
-                if (matchText(tag)) { hit = true; break; }
-            }
-            if (!hit) return false;
-        }
-
-        // NOT check
-        for (const tag of selectedTagsNot) {
-            if (nikkeTags.has(tag)) return false;
-            if (matchText(tag)) return false;
-        }
-        return true;
-    };
-
     const results = useMemo(() => {
-        if (selectedTagsAnd.length === 0 && selectedTagsOr.length === 0 && selectedTagsNot.length === 0) {
-            return [];
+        const start = performance.now();
+        const filtered = searchNikkesByTags(allNikkes, selectedTags);
+        const end = performance.now();
+        
+        if (selectedTags.and.length > 0 || selectedTags.or.length > 0 || selectedTags.not.length > 0) {
+            console.log(`[Performance] Tag search took ${(end - start).toFixed(2)}ms for ${filtered.length} results`);
         }
-        const filtered = allNikkes.filter(performFilter);
 
         // Remove duplicates by ID to be safe
         const uniqueMap = new Map<string, NikkeData>();
@@ -120,7 +64,7 @@ export default function SmartTagSearch({
             }
         });
         return Array.from(uniqueMap.values());
-    }, [allNikkes, selectedTagsAnd, selectedTagsOr, selectedTagsNot]);
+    }, [allNikkes, selectedTags]);
 
     return (
         <div className="flex flex-col lg:flex-row gap-6 h-[calc(100vh-200px)] animate-fadeIn">
@@ -134,19 +78,19 @@ export default function SmartTagSearch({
                 </div>
 
                 {/* Selected Tags Summary */}
-                {(selectedTagsAnd.length > 0 || selectedTagsOr.length > 0 || selectedTagsNot.length > 0) && (
+                {(selectedTags.and.length > 0 || selectedTags.or.length > 0 || selectedTags.not.length > 0) && (
                     <div className="px-4 py-3 bg-gray-800 border-b border-gray-700 flex flex-wrap gap-2">
-                        {selectedTagsAnd.map(t => (
+                        {selectedTags.and.map(t => (
                             <span key={t} onClick={() => handleTagClick(t, 'AND')} className="cursor-pointer px-2 py-1 rounded bg-green-900 border border-green-600 text-green-200 text-xs flex items-center hover:bg-green-800">
                                 <span className="mr-1 font-bold">AND</span> {t} <span className="ml-2 opacity-50">✕</span>
                             </span>
                         ))}
-                        {selectedTagsOr.map(t => (
+                        {selectedTags.or.map(t => (
                             <span key={t} onClick={() => handleTagClick(t, 'OR')} className="cursor-pointer px-2 py-1 rounded bg-red-900 border border-red-600 text-red-200 text-xs flex items-center hover:bg-red-800">
                                 <span className="mr-1 font-bold">OR</span> {t} <span className="ml-2 opacity-50">✕</span>
                             </span>
                         ))}
-                        {selectedTagsNot.map(t => (
+                        {selectedTags.not.map(t => (
                             <span key={t} onClick={() => handleTagClick(t, 'NOT')} className="cursor-pointer px-2 py-1 rounded bg-gray-600 border border-gray-500 text-white text-xs flex items-center hover:bg-gray-500">
                                 <span className="mr-1 font-bold">NOT</span> {t} <span className="ml-2 opacity-50">✕</span>
                             </span>
@@ -168,9 +112,9 @@ export default function SmartTagSearch({
                             <div className="grid grid-cols-2 gap-2">
                                 {group.tags.map(tag => {
                                     let status: 'none' | 'and' | 'or' | 'not' = 'none';
-                                    if (selectedTagsAnd.includes(tag)) status = 'and';
-                                    else if (selectedTagsOr.includes(tag)) status = 'or';
-                                    else if (selectedTagsNot.includes(tag)) status = 'not';
+                                    if (selectedTags.and.includes(tag)) status = 'and';
+                                    else if (selectedTags.or.includes(tag)) status = 'or';
+                                    else if (selectedTags.not.includes(tag)) status = 'not';
 
                                     let btnClass = "text-xs py-2 px-3 rounded text-left transition-colors border ";
                                     if (status === 'and') btnClass += "bg-green-900/80 border-green-600 text-green-100 font-bold";
@@ -218,7 +162,7 @@ export default function SmartTagSearch({
                                     className="bg-gray-800 border border-gray-700 hover:border-nikke-red p-3 rounded-lg flex justify-between items-center group relative overflow-hidden"
                                 >
                                     <button
-                                        onClick={() => onSelectNikke(nikke, { and: selectedTagsAnd, or: selectedTagsOr, not: selectedTagsNot })}
+                                        onClick={() => onSelectNikke(nikke, selectedTags)}
                                         className="flex-1 text-left"
                                     >
                                         <div className="flex items-center gap-2">

@@ -252,44 +252,12 @@ export default function UpgradeGuide({ nikke, isEditMode = false, onUpdate, onSk
             </div>
 
             {/* 2. Overload Options Analysis */}
-            <div className="bg-black/30 p-5 rounded-lg border border-gray-800">
-                <h3 className="text-gray-300 font-bold mb-3 border-b border-gray-700/50 pb-2">⚙️ 오버로드 옵션 분석</h3>
-                <p className="text-xs text-gray-500 mb-4">해당 니케의 무기({nikke.weapon}) 및 스킬셋을 기반으로 한 추천도입니다.</p>
+            {!isEditMode && (
+                <div className="bg-black/30 p-5 rounded-lg border border-gray-800">
+                    <h3 className="text-gray-300 font-bold mb-3 border-b border-gray-700/50 pb-2">⚙️ 오버로드 옵션 분석</h3>
+                    <p className="text-xs text-gray-500 mb-4">해당 니케의 무기({nikke.weapon}) 및 스킬셋을 기반으로 한 추천도입니다.</p>
 
-                {isEditMode ? (
-                    <div className="space-y-4">
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                            <div className="bg-green-900/10 border border-green-900/30 rounded p-3">
-                                <label className="text-xs text-green-400 block mb-1 font-bold">✅ 추천 (Valid)</label>
-                                <textarea
-                                    value={nikke.valid_options?.join(', ') || ''}
-                                    onChange={e => onUpdate?.('valid_options', e.target.value.split(',').map(s => s.trim()).filter(Boolean))}
-                                    placeholder="공격력 증가, 우월코드 대미지 증가"
-                                    className="w-full bg-gray-900 border border-green-700 text-white px-3 py-2 rounded h-32 resize-none text-sm leading-relaxed"
-                                />
-                            </div>
-                            <div className="bg-gray-800/30 border border-gray-700/30 rounded p-3">
-                                <label className="text-xs text-gray-400 block mb-1 font-bold">➖ 무난 (Normal)</label>
-                                <textarea
-                                    value={nikke.neutral_options?.join(', ') || ''}
-                                    onChange={e => onUpdate?.('neutral_options', e.target.value.split(',').map(s => s.trim()).filter(Boolean))}
-                                    placeholder="방어력 증가 등..."
-                                    className="w-full bg-gray-900 border border-gray-700 text-white px-3 py-2 rounded h-32 resize-none text-sm leading-relaxed"
-                                />
-                            </div>
-                            <div className="bg-red-900/10 border border-red-900/30 rounded p-3">
-                                <label className="text-xs text-red-400 block mb-1 font-bold">❌ 비추천 (Invalid)</label>
-                                <textarea
-                                    value={nikke.invalid_options?.join(', ') || ''}
-                                    onChange={e => onUpdate?.('invalid_options', e.target.value.split(',').map(s => s.trim()).filter(Boolean))}
-                                    placeholder="차지 속도 증가 (이 니케에게 불필요한 경우)"
-                                    className="w-full bg-gray-900 border border-red-700 text-white px-3 py-2 rounded h-32 resize-none text-sm leading-relaxed"
-                                />
-                            </div>
-                        </div>
-                    </div>
-                ) : (
-                    isOverloadEmpty ? (
+                    {isOverloadEmpty ? (
                         <div className="bg-gray-800/30 border border-gray-700/30 rounded p-6 text-center">
                             {renderEmptyState('오버로드 옵션 추천 정보가 업데이트 되지 않았습니다.')}
                         </div>
@@ -322,9 +290,9 @@ export default function UpgradeGuide({ nikke, isEditMode = false, onUpdate, onSk
                                 </div>
                             </div>
                         </div>
-                    )
-                )}
-            </div>
+                    )}
+                </div>
+            )}
 
             {/* 3. Cube */}
             <div className="bg-black/30 p-5 rounded-lg border border-gray-800">
@@ -332,7 +300,7 @@ export default function UpgradeGuide({ nikke, isEditMode = false, onUpdate, onSk
                 {isEditMode ? (
                     <textarea
                         value={nikke.cube || ''}
-                        onChange={e => onUpdate?.('cube', e.target.value)}
+                        onChange={e => onUpdate?.('cube', e.target.value.normalize('NFKC').normalize('NFC'))}
                         placeholder="예: 리질리언스, 바실리스크"
                         className="w-full bg-gray-800 border border-blue-700 text-white px-3 py-2 rounded h-24 resize-none"
                     />

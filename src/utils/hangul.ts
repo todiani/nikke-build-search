@@ -2,6 +2,19 @@ export const CHOSUNG = [
     'ㄱ', 'ㄲ', 'ㄴ', 'ㄷ', 'ㄸ', 'ㄹ', 'ㅁ', 'ㅂ', 'ㅃ', 'ㅅ', 'ㅆ', 'ㅇ', 'ㅈ', 'ㅉ', 'ㅊ', 'ㅋ', 'ㅌ', 'ㅍ', 'ㅎ'
 ];
 
+const CHOSUNG_LEADING = [
+    'ᄀ', 'ᄁ', 'ᄂ', 'ᄃ', 'ᄄ', 'ᄅ', 'ᄆ', 'ᄇ', 'ᄈ', 'ᄉ', 'ᄊ', 'ᄋ', 'ᄌ', 'ᄍ', 'ᄎ', 'ᄏ', 'ᄐ', 'ᄑ', 'ᄒ'
+];
+
+const normalizeForMatch = (s: string) => s.normalize('NFKC').normalize('NFC').replace(/\s+/g, '');
+
+const toCompatChosung = (c: string) => {
+    if (CHOSUNG.includes(c)) return c;
+    const idx = CHOSUNG_LEADING.indexOf(c);
+    if (idx >= 0) return CHOSUNG[idx];
+    return c;
+};
+
 export function getChosung(char: string): string {
     const code = char.charCodeAt(0);
     // Check if it's a Hangul Syllable
@@ -27,8 +40,8 @@ export function getChosungString(text: string): string {
 export function matchKorean(text: string, query: string): boolean {
     if (!query) return true;
 
-    const t = text.replace(/\s+/g, '');
-    const q = query.replace(/\s+/g, '');
+    const t = normalizeForMatch(text);
+    const q = normalizeForMatch(query);
 
     if (q.length === 0) return false;
 
@@ -46,11 +59,11 @@ export function matchKorean(text: string, query: string): boolean {
             // Check if Query Char is a Hangul Jamo (Chosung)
             // Hangul Compatibility Jamo range: 0x3131 (ㄱ) ~ 0x314E (ㅎ) seems to be the CHOSUNG array usually.
             // Let's rely on checking if it matches one of our CHOSUNG chars.
-            const isQJamo = CHOSUNG.includes(qc);
+            const isQJamo = CHOSUNG.includes(qc) || CHOSUNG_LEADING.includes(qc);
 
             if (isQJamo) {
                 // Fuzzy match: Text's Chosung == Query Jamo
-                if (getChosung(tc) !== qc) {
+                if (toCompatChosung(getChosung(tc)) !== toCompatChosung(qc)) {
                     match = false;
                     break;
                 }

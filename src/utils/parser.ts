@@ -59,7 +59,7 @@ export function parseNikkeData(rawData: string): NikkeData[] {
                 }
             }
 
-            const cleanOptions = optionsStr.replace(/"/g, '').split(/[\/\n]/).map(s => s.trim()).filter(s => s);
+            const cleanOptions = optionsStr.replace(/"/g, '').split(/[/\n]/).map(s => s.trim()).filter(s => s);
             let priority = "버스트 > 1스 = 2스";
             const prioMatch = descStr.match(/스킬 우선순위[:\s]+([^(\n|")]*)/);
             if (prioMatch) priority = prioMatch[1].trim();

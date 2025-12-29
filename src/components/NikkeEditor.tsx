@@ -2,10 +2,9 @@ import { useState, useEffect } from 'react';
 import type { NikkeData } from '../data/nikkes';
 import {
     weaponNames, classNames, classDescriptions,
-    codeColors, tierColors, companyOptions, codeOptions,
-    tierOptions, burstOptions, weaponOptions, classOptions
+    burstColors, codeTextColors, classColors, companyColors, weaponColors
 } from '../utils/nikkeConstants';
-import { getSquadOptions } from '../utils/nikkeDataManager';
+import { getBurstOptions, getClassOptions, getCodeOptions, getCompanyOptions, getRarityOptions, getSquadOptions, getTierOptions, getWeaponOptions } from '../utils/nikkeDataManager';
 import { extractTagsFromSkill } from '../utils/tagExtractor';
 
 interface NikkeEditorProps {
@@ -18,10 +17,35 @@ export default function NikkeEditor({ nikke, onSave, onClose }: NikkeEditorProps
     const [editData, setEditData] = useState<NikkeData>({ ...nikke });
     const [activeSection, setActiveSection] = useState<'basic' | 'skills' | 'options'>('basic');
     const [squads, setSquads] = useState<string[]>([]);
+    const [tiers, setTiers] = useState<string[]>([]);
+    const [companies, setCompanies] = useState<string[]>([]);
+    const [codes, setCodes] = useState<string[]>([]);
+    const [classes, setClasses] = useState<string[]>([]);
+    const [bursts, setBursts] = useState<string[]>([]);
+    const [weapons, setWeapons] = useState<string[]>([]);
+    const [rarities, setRarities] = useState<string[]>([]);
 
-    // Load squads on mount
-    useEffect(() => {
+    const refreshOptions = () => {
         setSquads(getSquadOptions());
+        setTiers(getTierOptions());
+        setCompanies(getCompanyOptions());
+        setCodes(getCodeOptions());
+        setClasses(getClassOptions());
+        setBursts(getBurstOptions());
+        setWeapons(getWeaponOptions());
+        setRarities(getRarityOptions());
+    };
+
+    // Load options on mount + realtime refresh
+    useEffect(() => {
+        refreshOptions();
+
+        const handler = () => {
+            refreshOptions();
+        };
+
+        window.addEventListener('nikke-db-updated', handler);
+        return () => window.removeEventListener('nikke-db-updated', handler);
     }, []);
 
     const handleChange = (field: keyof NikkeData, value: any) => {
@@ -85,11 +109,43 @@ export default function NikkeEditor({ nikke, onSave, onClose }: NikkeEditorProps
     return (
         <div className="fixed inset-0 bg-black/90 flex items-center justify-center z-50 p-4 backdrop-blur-sm animate-fadeIn">
             <div className="bg-gray-900 border border-gray-700 rounded-xl w-full max-w-3xl max-h-[90vh] flex flex-col shadow-2xl">
-                <div className="p-4 border-b border-gray-700 flex justify-between items-center bg-gray-800 rounded-t-xl">
-                    <h2 className="text-xl font-bold text-white flex items-center">
-                        <span className="mr-2">✏️</span> 니케 데이터 편집: {nikke.name}
-                    </h2>
-                    <button onClick={onClose} className="text-gray-400 hover:text-white px-2 text-xl">✕</button>
+                <div className="p-4 border-b border-gray-700 bg-gray-800 rounded-t-xl">
+                    <div className="flex justify-between items-start">
+                        <div className="flex flex-col">
+                            <div className="flex items-baseline gap-2 flex-wrap">
+                                <h2 className="text-xl font-black text-white flex items-center">
+                                    <span className="mr-2">✏️</span> {editData.name}
+                                </h2>
+                                {editData.name_en && (
+                                    <span className="text-sm text-blue-400 font-bold">
+                                        {editData.name_en}
+                                    </span>
+                                )}
+                            </div>
+                            {editData.extra_info && (
+                                <span className="text-xs text-orange-400 font-bold mt-0.5">
+                                    {editData.extra_info}
+                                </span>
+                            )}
+                            <div className="space-y-1 mt-2">
+                                <div className="flex flex-wrap gap-x-2 gap-y-1 text-[11px] font-bold">
+                                    <span className={companyColors[editData.company || ''] || 'text-gray-500'}>{editData.company || '제조사 미정'}</span>
+                                    <span className="text-gray-600">|</span>
+                                    <span className="text-gray-400">{editData.squad || '스쿼드 미정'}</span>
+                                </div>
+                                <div className="flex flex-wrap gap-x-2 text-[12px] font-black items-center mt-1 pt-1.5 border-t border-gray-700/50">
+                                    <span className={burstColors[editData.burst] || 'text-gray-400'}>{editData.burst}버</span>
+                                    <span className="text-gray-500">·</span>
+                                    <span className={codeTextColors[editData.code || ''] || 'text-gray-400'}>{editData.code}</span>
+                                    <span className="text-gray-500">·</span>
+                                    <span className={classColors[editData.class] || 'text-gray-400'}>{classNames[editData.class] || editData.class}</span>
+                                    <span className="text-gray-500">·</span>
+                                    <span className={weaponColors[editData.weapon] || 'text-amber-400'}>{weaponNames[editData.weapon] || editData.weapon}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <button onClick={onClose} className="text-gray-400 hover:text-white px-2 text-xl">✕</button>
+                    </div>
                 </div>
 
                 {/* Section Tabs */}
@@ -127,6 +183,16 @@ export default function NikkeEditor({ nikke, onSave, onClose }: NikkeEditorProps
                                         className="w-full bg-gray-800 border border-gray-700 text-white px-3 py-2 rounded"
                                     />
                                 </div>
+                                <div className="col-span-2">
+                                    <label className="text-xs text-gray-400 block mb-1">추가 정보 (예: 킬러 와이프)</label>
+                                    <input
+                                        type="text"
+                                        value={editData.extra_info || ''}
+                                        onChange={e => handleChange('extra_info', e.target.value)}
+                                        className="w-full bg-gray-800 border border-gray-700 text-white px-3 py-2 rounded"
+                                        placeholder="( ) 안에 들어갈 별칭 등"
+                                    />
+                                </div>
                             </div>
                             <div className="bg-black/30 p-4 rounded-lg border border-gray-700">
                                 <h4 className="text-sm font-bold text-gray-400 mb-3">📊 분류</h4>
@@ -135,7 +201,15 @@ export default function NikkeEditor({ nikke, onSave, onClose }: NikkeEditorProps
                                         <label className="text-xs text-gray-500 block mb-1">티어</label>
                                         <select value={editData.tier} onChange={e => handleChange('tier', e.target.value)}
                                             className="w-full bg-gray-800 border border-gray-700 text-white px-3 py-2 rounded">
-                                            {tierOptions.map(t => <option key={t} value={t}>{t}</option>)}
+                                            {tiers.map(t => <option key={t} value={t}>{t}</option>)}
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label className="text-xs text-gray-500 block mb-1">희귀도</label>
+                                        <select value={editData.rarity || ''} onChange={e => handleChange('rarity', e.target.value)}
+                                            className="w-full bg-gray-800 border border-gray-700 text-white px-3 py-2 rounded">
+                                            <option value="">선택</option>
+                                            {rarities.map(t => <option key={t} value={t}>{t}</option>)}
                                         </select>
                                     </div>
                                     <div>
@@ -143,7 +217,7 @@ export default function NikkeEditor({ nikke, onSave, onClose }: NikkeEditorProps
                                         <select value={editData.company || ''} onChange={e => handleChange('company', e.target.value)}
                                             className="w-full bg-gray-800 border border-gray-700 text-white px-3 py-2 rounded">
                                             <option value="">선택</option>
-                                            {companyOptions.map(t => <option key={t} value={t}>{t}</option>)}
+                                            {companies.map(t => <option key={t} value={t}>{t}</option>)}
                                         </select>
                                     </div>
                                     <div>
@@ -158,9 +232,11 @@ export default function NikkeEditor({ nikke, onSave, onClose }: NikkeEditorProps
                                         <label className="text-xs text-gray-500 block mb-1">클래스</label>
                                         <select value={editData.class} onChange={e => handleChange('class', e.target.value)}
                                             className="w-full bg-gray-800 border border-gray-700 text-white px-3 py-2 rounded">
-                                            <option value="Attacker">화력형(공격)</option>
-                                            <option value="Defender">방어형(탱킹)</option>
-                                            <option value="Supporter">지원형(버프/힐)</option>
+                                            {classes.map(t => (
+                                                <option key={t} value={t}>
+                                                    {classDescriptions[t] || classNames[t] || t}
+                                                </option>
+                                            ))}
                                         </select>
                                     </div>
                                     <div>
@@ -168,21 +244,21 @@ export default function NikkeEditor({ nikke, onSave, onClose }: NikkeEditorProps
                                         <select value={editData.code || ''} onChange={e => handleChange('code', e.target.value)}
                                             className="w-full bg-gray-800 border border-gray-700 text-white px-3 py-2 rounded">
                                             <option value="">선택</option>
-                                            {codeOptions.map(t => <option key={t} value={t}>{t}</option>)}
+                                            {codes.map(t => <option key={t} value={t}>{t}</option>)}
                                         </select>
                                     </div>
                                     <div>
                                         <label className="text-xs text-gray-500 block mb-1">버스트</label>
                                         <select value={editData.burst} onChange={e => handleChange('burst', e.target.value)}
                                             className="w-full bg-gray-800 border border-gray-700 text-white px-3 py-2 rounded">
-                                            {burstOptions.map(t => <option key={t} value={t}>버스트 {t}</option>)}
+                                            {bursts.map(t => <option key={t} value={t}>버스트 {t}</option>)}
                                         </select>
                                     </div>
                                     <div>
                                         <label className="text-xs text-gray-500 block mb-1">무기 종류</label>
                                         <select value={editData.weapon} onChange={e => handleChange('weapon', e.target.value)}
                                             className="w-full bg-gray-800 border border-gray-700 text-white px-3 py-2 rounded">
-                                            {weaponOptions.map(t => <option key={t} value={t}>{weaponNames[t]}</option>)}
+                                            {weapons.map(t => <option key={t} value={t}>{weaponNames[t] || t}</option>)}
                                         </select>
                                     </div>
                                     <div>
@@ -296,7 +372,7 @@ export default function NikkeEditor({ nikke, onSave, onClose }: NikkeEditorProps
                                                     <option value="액티브">액티브</option>
                                                 </select>
                                             </div>
-                                            {skillKey === 'burst' && (
+                                            {skill?.type === '액티브' && (
                                                 <div>
                                                     <label className="text-xs text-gray-400 block mb-1">재사용 시간 (초)</label>
                                                     <input type="text" value={skill?.cooldown || ''}

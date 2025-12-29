@@ -3,9 +3,10 @@ import type { NikkeData } from '../data/nikkes';
 import UpgradeGuide from './UpgradeGuide';
 import Calculator from './Calculator';
 import OptionCompare from './OptionCompare';
+import { OVERLOAD_DATA } from '../data/game_constants';
 import {
     codeColors, tierColors, rarityColors, classNames, classDescriptions,
-    weaponNames
+    weaponNames, codeTextColors, burstColors, classColors, companyColors, weaponColors
 } from '../utils/nikkeConstants';
 import { extractTagsFromSkill } from '../utils/tagExtractor';
 import { TAG_DATA } from '../data/tags';
@@ -244,6 +245,8 @@ export default function NikkeDetail({ nikke, onBack, onSaveNikke, highlightTags 
                     </div>
                 </div>
 
+
+
                 {/* 3. 주요 사용 콘텐츠 (통일된 UI 디자인) */}
                 <div className="bg-black/30 p-6 rounded-lg border border-gray-700 mt-6 shadow-xl">
                     <h3 className="text-xl font-bold text-white mb-4 flex items-center">
@@ -287,33 +290,6 @@ export default function NikkeDetail({ nikke, onBack, onSaveNikke, highlightTags 
                                 ))}
                             </tbody>
                         </table>
-                    </div>
-                </div>
-
-                {/* 4. Burst RL Details (버스트 수급량 상세) */}
-                <div className="bg-black/30 p-4 rounded-lg border border-gray-700">
-                    <h4 className="text-sm font-bold text-gray-400 mb-4 flex justify-between items-center">
-                        <span>⚡ RL 단계별 버스트 수급량 (정밀 데이터)</span>
-                    </h4>
-
-                    <div className="flex bg-black/40 rounded-lg overflow-hidden border border-gray-800">
-                        {(["2RL", "2_5RL", "3RL", "3_5RL", "4RL"] as const).map((stage, idx) => {
-                            const data = currentData.burst_details?.[stage] || { value: 0, hits: '', bonus: '' };
-                            const colors = {
-                                '2RL': 'text-green-400', '2_5RL': 'text-green-500',
-                                '3RL': 'text-white', '3_5RL': 'text-orange-400', '4RL': 'text-orange-500'
-                            }[stage];
-
-                            return (
-                                <div key={stage} className={`flex-1 flex flex-col items-center py-3 px-1 border-gray-800 ${idx !== 4 ? 'border-r' : ''}`}>
-                                    <div className={`text-xs font-black mb-1 ${colors}`}>{stage.replace('_', '.')}</div>
-                                    <div className="w-8 h-[1px] bg-gray-700 mb-2" />
-                                    <div className={`text-sm font-mono font-bold ${colors}`}>{data.value > 0 ? `${data.value}%` : '-'}</div>
-                                    <div className="text-[10px] text-gray-500">{data.hits || '-'}</div>
-                                    <div className={`text-[9px] text-gray-400 leading-none mt-1`}>{data.bonus || '-'}</div>
-                                </div>
-                            );
-                        })}
                     </div>
                 </div>
             </div>
@@ -370,7 +346,7 @@ export default function NikkeDetail({ nikke, onBack, onSaveNikke, highlightTags 
                         <div className="space-y-3">
                             <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
                                 <div className="bg-gray-800/50 p-3 rounded text-center">
-                                    <div className="text-xs text-gray-500 mb-1">무기</div>
+                                    <div className="text-xs text-gray-500 mb-1">무기 이름</div>
                                     <div className="text-sm text-white font-bold">{weaponInfo?.weapon_name || weaponNames[currentData.weapon] || currentData.weapon}</div>
                                 </div>
                                 <div className="bg-gray-800/50 p-3 rounded text-center">
@@ -378,7 +354,7 @@ export default function NikkeDetail({ nikke, onBack, onSaveNikke, highlightTags 
                                     <div className="text-sm text-white font-bold">{weaponInfo?.max_ammo || '-'}</div>
                                 </div>
                                 <div className="bg-gray-800/50 p-3 rounded text-center">
-                                    <div className="text-xs text-gray-500 mb-1">재장전 시간</div>
+                                    <div className="text-xs text-gray-500 mb-1">재장전 시간 (초)</div>
                                     <div className="text-sm text-white font-bold">{weaponInfo?.reload_time ? `${weaponInfo.reload_time}초` : '-'}</div>
                                 </div>
                                 <div className="bg-gray-800/50 p-3 rounded text-center">
@@ -386,7 +362,12 @@ export default function NikkeDetail({ nikke, onBack, onSaveNikke, highlightTags 
                                     <div className="text-sm text-white font-bold">{weaponInfo?.control_type || '-'}</div>
                                 </div>
                             </div>
-                            {normal?.desc && <div className="text-sm text-gray-300 leading-relaxed whitespace-pre-wrap">{highlightText(normal.desc)}</div>}
+                            <div className="mt-4">
+                                <div className="text-xs text-gray-500 mb-2">일반 공격 설명</div>
+                                <div className="text-sm text-gray-300 leading-relaxed whitespace-pre-wrap p-3 bg-gray-800/30 rounded border border-gray-800/50">
+                                    {normal?.desc ? highlightText(normal.desc) : <span className="text-gray-600 italic">설명 정보가 없습니다.</span>}
+                                </div>
+                            </div>
                         </div>
                     )}
                 </div>
@@ -407,7 +388,7 @@ export default function NikkeDetail({ nikke, onBack, onSaveNikke, highlightTags 
                                 <option value="패시브">패시브</option>
                                 <option value="액티브">액티브</option>
                             </select>
-                            {skillKey === 'burst' && (
+                            {skill?.type === '액티브' && (
                                 <input type="text" value={skill?.cooldown || ''} onChange={e => handleSkillDetailChange(skillKey, 'cooldown', e.target.value)}
                                     placeholder="예: 20.00초" className="w-full bg-gray-800 border border-gray-700 text-white px-3 py-2 rounded" />
                             )}
@@ -480,16 +461,37 @@ export default function NikkeDetail({ nikke, onBack, onSaveNikke, highlightTags 
                 </div>
             </div>
 
-            <div className="bg-gradient-to-r from-gray-800 to-gray-900 rounded-t-xl p-4 border border-gray-700 border-b-0">
+            <div className="bg-gradient-to-r from-gray-800 to-gray-900 rounded-t-xl p-6 border border-gray-700 border-b-0">
                 <div className="flex justify-between items-start">
-                    <div>
-                        <div className="flex items-center gap-2">
-                            <h2 className="text-2xl font-bold text-white">{currentData.name}</h2>
-                            {currentData.extra_info && <span className="text-xs px-2 py-0.5 bg-purple-900/50 text-purple-300 rounded">{currentData.extra_info}</span>}
+                    <div className="flex flex-col">
+                        <div className="flex items-baseline gap-2 flex-wrap">
+                            <h2 className="text-3xl font-bold text-white">{currentData.name}</h2>
+                            {currentData.name_en && (
+                                <span className="text-sm text-blue-400 font-bold">
+                                    {currentData.name_en}
+                                </span>
+                            )}
                         </div>
-                        <span className="text-sm text-gray-500">{currentData.name_en}</span>
+                        {currentData.extra_info && (
+                            <span className="text-sm text-orange-400 font-bold mt-1">
+                                {currentData.extra_info}
+                            </span>
+                        )}
+                        <div className="flex flex-wrap gap-x-3 gap-y-1 mt-3 text-xs font-bold items-center">
+                            <span className={companyColors[currentData.company || ''] || 'text-gray-500'}>{currentData.company || '제조사 미정'}</span>
+                            <span className="text-gray-600">|</span>
+                            <span className="text-gray-400">{currentData.squad || '스쿼드 미정'}</span>
+                            <span className="text-gray-600">·</span>
+                            <span className={burstColors[currentData.burst] || 'text-gray-400'}>{currentData.burst}버</span>
+                            <span className="text-gray-600">·</span>
+                            <span className={codeTextColors[currentData.code || ''] || 'text-gray-400'}>{currentData.code}</span>
+                            <span className="text-gray-600">·</span>
+                            <span className={classColors[currentData.class] || 'text-gray-400'}>{classNames[currentData.class] || currentData.class}</span>
+                            <span className="text-gray-600">·</span>
+                            <span className={weaponColors[currentData.weapon] || 'text-amber-400'}>{weaponNames[currentData.weapon] || currentData.weapon}</span>
+                        </div>
                     </div>
-                    <div className={`px-3 py-1 rounded bg-black/50 border ${tierColor} font-bold`}>{currentData.tier}</div>
+                    <div className={`px-4 py-2 rounded bg-black/50 border ${tierColor} font-black text-xl`}>{currentData.tier}</div>
                 </div>
             </div>
 
@@ -519,7 +521,7 @@ export default function NikkeDetail({ nikke, onBack, onSaveNikke, highlightTags 
                 {activeTab === 'calc' && (
                     <Calculator
                         nikke={editData}
-                        onDataUpdate={(calc_data) => setEditData(prev => ({ ...prev, calc_data }))}
+                        onDataUpdate={(build) => setEditData(prev => ({ ...prev, build }))}
                     />
                 )}
                 {activeTab === 'compare' && (

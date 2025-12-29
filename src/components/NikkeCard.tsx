@@ -1,11 +1,12 @@
 import type { NikkeData } from '../data/nikkes';
+import { 
+    codeTextColors, burstColors, classColors, companyColors, classNames, weaponNames, weaponColors 
+} from '../utils/nikkeConstants';
 
 interface NikkeCardProps {
     nikke: NikkeData;
     highlightTags?: string[];
 }
-
-type ViewTab = 'basic' | 'skills' | 'options';
 
 export default function NikkeCard({ nikke, highlightTags = [] }: NikkeCardProps) {
     const tierColor = {
@@ -81,28 +82,37 @@ export default function NikkeCard({ nikke, highlightTags = [] }: NikkeCardProps)
             {/* Header */}
             <div className="p-4 bg-gradient-to-r from-gray-800 to-gray-900 border-b border-gray-700">
                 <div className="flex justify-between items-start">
-                    <div>
-                        <div className="flex items-center gap-2">
-                            <h3 className="text-2xl font-bold text-white">{nikke.name}</h3>
-                            {nikke.extra_info && (
-                                <span className="text-xs px-2 py-0.5 bg-purple-900/50 text-purple-300 rounded border border-purple-700/50">
-                                    {nikke.extra_info}
+                    <div className="flex flex-col min-w-0 flex-1">
+                        <div className="flex items-baseline gap-2 flex-wrap">
+                            <h3 className="text-2xl font-bold text-white truncate">{nikke.name}</h3>
+                            {nikke.name_en && (
+                                <span className="text-sm text-blue-400 font-bold truncate">
+                                    {nikke.name_en}
                                 </span>
                             )}
                         </div>
-                        <span className="text-sm text-gray-500">{nikke.name_en}</span>
+                        {nikke.extra_info && (
+                            <span className="text-[13px] text-orange-400 font-bold mt-1">
+                                {nikke.extra_info}
+                            </span>
+                        )}
                     </div>
-                    <div className={`px-3 py-1 rounded bg-black/50 border ${tierColor} font-bold`}>
+                    <div className={`px-3 py-1 rounded bg-black/50 border ${tierColor} font-bold ml-2 shrink-0`}>
                         {nikke.tier}
                     </div>
                 </div>
-                <div className="flex gap-2 mt-3">
-                    <span className="bg-gray-800 px-2 py-1 rounded text-xs text-gray-300 border border-gray-700">버스트 {nikke.burst}</span>
-                    <span className="bg-gray-800 px-2 py-1 rounded text-xs text-gray-300 border border-gray-700">{nikke.class}</span>
-                    <span className="bg-gray-800 px-2 py-1 rounded text-xs text-gray-300 border border-gray-700">{nikke.weapon}</span>
-                    {nikke.cube && (
-                        <span className="bg-blue-900/50 px-2 py-1 rounded text-xs text-blue-300 border border-blue-700/50">🧊 {nikke.cube}</span>
-                    )}
+                <div className="flex flex-wrap gap-x-2 gap-y-1 mt-3 text-xs font-bold items-center">
+                    <span className={companyColors[nikke.company || ''] || 'text-gray-500'}>{nikke.company || '제조사 미정'}</span>
+                    <span className="text-gray-600">|</span>
+                    <span className="text-gray-400">{nikke.squad || '스쿼드 미정'}</span>
+                    <span className="text-gray-600">·</span>
+                    <span className={burstColors[nikke.burst] || 'text-gray-400'}>{nikke.burst}버</span>
+                    <span className="text-gray-600">·</span>
+                    <span className={codeTextColors[nikke.code || ''] || 'text-gray-400'}>{nikke.code}</span>
+                    <span className="text-gray-600">·</span>
+                    <span className={classColors[nikke.class] || 'text-gray-400'}>{classNames[nikke.class] || nikke.class}</span>
+                    <span className="text-gray-600">·</span>
+                    <span className={weaponColors[nikke.weapon] || 'text-amber-400'}>{weaponNames[nikke.weapon] || nikke.weapon}</span>
                 </div>
             </div>
 

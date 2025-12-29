@@ -1,16 +1,24 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { TAG_DATA } from '../data/tags';
 
 interface TagEditorProps {
     isOpen: boolean;
     onClose: () => void;
-    onSave: (newTagData: typeof TAG_DATA) => void;
+    onSave: (newTagData: typeof TAG_DATA) => Promise<void>;
+    currentTagData: typeof TAG_DATA;
 }
 
-export default function TagEditor({ isOpen, onClose, onSave }: TagEditorProps) {
-    const [tagData, setTagData] = useState<typeof TAG_DATA>(JSON.parse(JSON.stringify(TAG_DATA)));
-    const [selectedGroup, setSelectedGroup] = useState<string>(Object.keys(TAG_DATA.tag_groups)[0]);
+export default function TagEditor({ isOpen, onClose, onSave, currentTagData }: TagEditorProps) {
+    const [tagData, setTagData] = useState<typeof TAG_DATA>(currentTagData);
+    const [selectedGroup, setSelectedGroup] = useState<string>(Object.keys(currentTagData.tag_groups)[0]);
     const [newTagName, setNewTagName] = useState('');
+    const [isSaving, setIsSaving] = useState(false);
+
+    useEffect(() => {
+        if (isOpen) {
+            setTagData(JSON.parse(JSON.stringify(currentTagData)));
+        }
+    }, [isOpen, currentTagData]);
 
     if (!isOpen) return null;
 
@@ -18,6 +26,11 @@ export default function TagEditor({ isOpen, onClose, onSave }: TagEditorProps) {
 
     const handleAddTag = () => {
         if (!newTagName.trim()) return;
+        if (currentGroup.tags.includes(newTagName.trim())) {
+            alert("이미 존재하는 태그입니다.");
+            return;
+        }
+        
         setTagData(prev => ({
             ...prev,
             tag_groups: {
@@ -44,9 +57,17 @@ export default function TagEditor({ isOpen, onClose, onSave }: TagEditorProps) {
         }));
     };
 
-    const handleSave = () => {
-        onSave(tagData);
-        onClose();
+    const handleSave = async () => {
+        try {
+            setIsSaving(true);
+            await onSave(tagData);
+            onClose();
+        } catch (error) {
+            console.error("Save failed:", error);
+            alert("저장 중 오류가 발생했습니다.");
+        } finally {
+            setIsSaving(false);
+        }
     };
 
     const handleExport = () => {
@@ -149,9 +170,17 @@ export default function TagEditor({ isOpen, onClose, onSave }: TagEditorProps) {
                     </button>
                     <button
                         onClick={handleSave}
-                        className="px-6 py-2 bg-nikke-red hover:bg-red-700 text-white font-bold rounded shadow-lg shadow-red-900/20 transition-all hover:scale-105"
+                        disabled={isSaving}
+                        className={`px-6 py-2 bg-nikke-red hover:bg-red-700 text-white font-bold rounded shadow-lg shadow-red-900/20 transition-all hover:scale-105 flex items-center gap-2 ${isSaving ? 'opacity-70 cursor-not-allowed' : ''}`}
                     >
-                        적용하기
+                        {isSaving ? (
+                            <>
+                                <span className="animate-spin text-lg">⏳</span>
+                                저장 중...
+                            </>
+                        ) : (
+                            '적용하기'
+                        )}
                     </button>
                 </div>
             </div>

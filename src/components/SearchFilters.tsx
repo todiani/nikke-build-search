@@ -1,6 +1,5 @@
-import { tierOptions, companyOptions, classOptions, codeOptions, burstOptions, weaponOptions, weaponNames, classNames } from '../utils/nikkeConstants';
-import { getSquadOptions } from '../utils/nikkeDataManager';
-import { useState, useEffect } from 'react';
+import { weaponNames, classNames } from '../utils/nikkeConstants';
+import { getUsedMasterOptions } from '../utils/nikkeDataManager';
 
 export interface SearchFiltersState {
     tier: string;
@@ -30,24 +29,15 @@ interface SearchFiltersProps {
 }
 
 export default function SearchFilters({ filters, onChange, isOpen, onToggle }: SearchFiltersProps) {
-    const [availableSquads, setAvailableSquads] = useState<string[]>([]);
-
-    // Refresh squads helper
-    const refreshSquads = () => {
-        setAvailableSquads(getSquadOptions());
+    const options = {
+        tiers: getUsedMasterOptions('tiers'),
+        companies: getUsedMasterOptions('companies'),
+        squads: getUsedMasterOptions('squads'),
+        classes: getUsedMasterOptions('classes'),
+        codes: getUsedMasterOptions('codes'),
+        bursts: getUsedMasterOptions('bursts'),
+        weapons: getUsedMasterOptions('weapons'),
     };
-
-    // Load squads on mount
-    useEffect(() => {
-        refreshSquads();
-    }, []);
-
-    // Refresh when panel opens
-    useEffect(() => {
-        if (isOpen) {
-            refreshSquads();
-        }
-    }, [isOpen]);
 
     const handleChange = (field: keyof SearchFiltersState, value: string) => {
         onChange({ ...filters, [field]: value });
@@ -84,7 +74,7 @@ export default function SearchFilters({ filters, onChange, isOpen, onToggle }: S
                             className="w-full bg-gray-800 text-white text-sm border border-gray-700 rounded px-2 py-1"
                         >
                             <option value="">전체</option>
-                            {tierOptions.map(o => <option key={o} value={o}>{o}</option>)}
+                            {options.tiers.map(o => <option key={o} value={o}>{o}</option>)}
                         </select>
                     </div>
 
@@ -97,7 +87,7 @@ export default function SearchFilters({ filters, onChange, isOpen, onToggle }: S
                             className="w-full bg-gray-800 text-white text-sm border border-gray-700 rounded px-2 py-1"
                         >
                             <option value="">전체</option>
-                            {companyOptions.map(o => <option key={o} value={o}>{o}</option>)}
+                            {options.companies.map(o => <option key={o} value={o}>{o}</option>)}
                         </select>
                     </div>
 
@@ -110,7 +100,7 @@ export default function SearchFilters({ filters, onChange, isOpen, onToggle }: S
                             className="w-full bg-gray-800 text-white text-sm border border-gray-700 rounded px-2 py-1"
                         >
                             <option value="">전체</option>
-                            {availableSquads.map(o => <option key={o} value={o}>{o}</option>)}
+                            {options.squads.map(o => <option key={o} value={o}>{o}</option>)}
                         </select>
                     </div>
 
@@ -123,7 +113,7 @@ export default function SearchFilters({ filters, onChange, isOpen, onToggle }: S
                             className="w-full bg-gray-800 text-white text-sm border border-gray-700 rounded px-2 py-1"
                         >
                             <option value="">전체</option>
-                            {classOptions.map(o => <option key={o} value={o}>{classNames[o] || o}</option>)}
+                            {options.classes.map(o => <option key={o} value={o}>{classNames[o] || o}</option>)}
                         </select>
                     </div>
 
@@ -136,7 +126,7 @@ export default function SearchFilters({ filters, onChange, isOpen, onToggle }: S
                             className="w-full bg-gray-800 text-white text-sm border border-gray-700 rounded px-2 py-1"
                         >
                             <option value="">전체</option>
-                            {codeOptions.map(o => <option key={o} value={o}>{o}</option>)}
+                            {options.codes.map(o => <option key={o} value={o}>{o}</option>)}
                         </select>
                     </div>
 
@@ -149,7 +139,7 @@ export default function SearchFilters({ filters, onChange, isOpen, onToggle }: S
                             className="w-full bg-gray-800 text-white text-sm border border-gray-700 rounded px-2 py-1"
                         >
                             <option value="">전체</option>
-                            {burstOptions.map(o => <option key={o} value={o}>{o}버스트</option>)}
+                            {options.bursts.map(o => <option key={o} value={o}>{o}버스트</option>)}
                         </select>
                     </div>
 
@@ -162,7 +152,7 @@ export default function SearchFilters({ filters, onChange, isOpen, onToggle }: S
                             className="w-full bg-gray-800 text-white text-sm border border-gray-700 rounded px-2 py-1"
                         >
                             <option value="">전체</option>
-                            {weaponOptions.map(o => <option key={o} value={o}>{weaponNames[o] || o}</option>)}
+                            {options.weapons.map(o => <option key={o} value={o}>{weaponNames[o] || o}</option>)}
                         </select>
                     </div>
                 </div>

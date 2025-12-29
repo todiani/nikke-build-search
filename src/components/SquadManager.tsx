@@ -1,6 +1,5 @@
 
 import { useState, useEffect, useRef } from 'react';
-import { squadOptions as baseSquadOptions } from '../utils/nikkeConstants';
 import { getSquadOptions, addSquad, updateSquad, deleteSquad } from '../utils/nikkeDataManager';
 
 interface SquadManagerProps {
@@ -13,7 +12,7 @@ interface SquadManagerProps {
 }
 
 export default function SquadManager({ isOpen, onClose, onUpdate, onSquadRename, initialMode = 'list', targetSquad }: SquadManagerProps) {
-    const [customSquads, setCustomSquads] = useState<string[]>([]);
+    const [squads, setSquads] = useState<string[]>([]);
     const [newSquadName, setNewSquadName] = useState('');
     const [editingSquad, setEditingSquad] = useState<string | null>(null);
     const [editName, setEditName] = useState('');
@@ -21,43 +20,53 @@ export default function SquadManager({ isOpen, onClose, onUpdate, onSquadRename,
     // Refs for auto-focus
     const addInputRef = useRef<HTMLInputElement>(null);
 
+    function loadSquads() {
+        const allSquads = getSquadOptions();
+        setSquads(allSquads);
+    }
+
+    function handleEditStart(squad: string) {
+        setEditingSquad(squad);
+        setEditName(squad);
+    }
+
+    async function handleDelete(squad: string) {
+        if (window.confirm(`'${squad}' 스쿼드를 삭제하시겠습니까 ?\n이 스쿼드를 사용하는 니케의 정보는 유지되지만 스쿼드 이름은 더 이상 목록에 표시되지 않을 수 있습니다.`)) {
+            await deleteSquad(squad);
+            loadSquads();
+            onUpdate();
+        }
+    }
+
     useEffect(() => {
         if (isOpen) {
             loadSquads();
+
+            const handler = () => {
+                loadSquads();
+            };
+            window.addEventListener('nikke-db-updated', handler);
+
             // Handle initial modes
             if (initialMode === 'add') {
                 setTimeout(() => addInputRef.current?.focus(), 100);
             } else if (initialMode === 'edit' && targetSquad) {
-                // Force edit start even if it's base squad (it will be added to view in loadSquads if we logic it right, 
-                // but handleEditStart sets state directly so it's fine).
                 handleEditStart(targetSquad);
             } else if (initialMode === 'delete' && targetSquad) {
-                // Determine if it is a custom squad to avoid deleting base squads
                 const all = getSquadOptions();
-                if (!baseSquadOptions.includes(targetSquad) && all.includes(targetSquad)) {
-                    // Small timeout to allow modal to render first
+                if (all.includes(targetSquad)) {
                     setTimeout(() => handleDelete(targetSquad), 100);
                 }
             }
-        } else {
-            // Reset states on close
-            setNewSquadName('');
-            setEditingSquad(null);
-            setEditName('');
+
+            return () => window.removeEventListener('nikke-db-updated', handler);
         }
+
+        // Reset states on close
+        setNewSquadName('');
+        setEditingSquad(null);
+        setEditName('');
     }, [isOpen, initialMode, targetSquad]);
-
-    const loadSquads = () => {
-        const allSquads = getSquadOptions();
-        let custom = allSquads.filter(s => !baseSquadOptions.includes(s));
-
-        // If we are editing a base squad, we need to show it in the list so the edit input appears
-        if (targetSquad && baseSquadOptions.includes(targetSquad) && initialMode === 'edit') {
-            // Prepend it for visibility
-            custom = [targetSquad, ...custom];
-        }
-        setCustomSquads(custom);
-    };
 
     const handleAdd = async () => {
         if (!newSquadName.trim()) return;
@@ -67,23 +76,12 @@ export default function SquadManager({ isOpen, onClose, onUpdate, onSquadRename,
         onUpdate();
     };
 
-    const handleEditStart = (squad: string) => {
-        setEditingSquad(squad);
-        setEditName(squad);
-    };
-
     const handleEditSave = async () => {
         if (!editingSquad || !editName.trim()) return;
 
         const newName = editName.trim();
         if (editingSquad !== newName) {
-            if (baseSquadOptions.includes(editingSquad)) {
-                // Editing a base squad -> Create new custom squad
-                await addSquad(newName);
-            } else {
-                // Editing a custom squad -> Rename
-                await updateSquad(editingSquad, newName);
-            }
+            await updateSquad(editingSquad, newName);
 
             loadSquads();
             onUpdate();
@@ -95,14 +93,6 @@ export default function SquadManager({ isOpen, onClose, onUpdate, onSquadRename,
         // If we were editing a base squad and saved, close the modal maybe? Or just stop editing.
         // If we close, it feels like "Done".
         if (initialMode === 'edit') onClose();
-    };
-
-    const handleDelete = async (squad: string) => {
-        if (window.confirm(`'${squad}' 스쿼드를 삭제하시겠습니까 ?\n이 스쿼드를 사용하는 니케의 정보는 유지되지만 스쿼드 이름은 더 이상 목록에 표시되지 않을 수 있습니다.`)) {
-            await deleteSquad(squad);
-            loadSquads();
-            onUpdate();
-        }
     };
 
     if (!isOpen) return null;
@@ -143,12 +133,12 @@ export default function SquadManager({ isOpen, onClose, onUpdate, onSquadRename,
 
                 {/* List */}
                 <div className="flex-1 overflow-y-auto p-2 space-y-1">
-                    {customSquads.length === 0 ? (
+                    {squads.length === 0 ? (
                         <div className="text-center py-8 text-gray-500 text-sm">
-                            추가된 커스텀 스쿼드가 없습니다.
+                            등록된 스쿼드가 없습니다.
                         </div>
                     ) : (
-                        customSquads.map(squad => (
+                        squads.map(squad => (
                             <div key={squad} className="flex items-center justify-between p-3 bg-gray-800/50 border border-gray-700/50 rounded hover:bg-gray-800 transition-colors">
                                 {editingSquad === squad ? (
                                     <div className="flex items-center gap-2 flex-1 mr-2">
@@ -186,16 +176,10 @@ export default function SquadManager({ isOpen, onClose, onUpdate, onSquadRename,
                             </div>
                         ))
                     )}
-
-                    {/* Divider for Base Squads */}
-                    {customSquads.length > 0 && <div className="border-t border-gray-700 my-2 pt-2 text-center text-xs text-gray-500">기본 스쿼드 (수정 불가)</div>}
-
-                    {/* Optional: Show Base Squads just for reference? User might want to search to see if it exists */}
-                    {/* Let's show them collapsed or just a few? No, user only needs to manage custom ones. */}
                 </div>
 
                 <div className="p-3 border-t border-gray-700 bg-gray-800 text-xs text-gray-500 text-center">
-                    커스텀 스쿼드는 브라우저(로컬)에 저장됩니다.
+                    스쿼드 변경사항은 DB에 저장되며, 저장 즉시 화면에 반영됩니다.
                 </div>
             </div>
         </div>

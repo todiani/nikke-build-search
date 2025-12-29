@@ -1,0 +1,14183 @@
+export interface OverloadOption {
+    type: string;
+    stage: number;
+}
+
+export interface PartOptions {
+    option1: OverloadOption;
+    option2: OverloadOption;
+    option3: OverloadOption;
+}
+
+export interface NikkeBuild {
+    stats: {
+        hp: number;
+        atk: number;
+        def: number;
+    };
+    skills: {
+        skill1: number;
+        skill2: number;
+        burst: number;
+    };
+    cube_level: number;
+    collection: {
+        grade: string; // None, R, SR, SSR
+        skill1: number;
+        skill2: number;
+    };
+    overload: {
+        helmet: PartOptions;
+        armor: PartOptions;
+        gloves: PartOptions;
+        boots: PartOptions;
+    };
+}
+
+export let NIKKE_BUILDS_DB: Record<string, NikkeBuild> = {
+    "2B": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "A2": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "D": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "D : 킬러 와이프": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "K": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "N102": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "iDoll 썬": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "iDoll 오션": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "iDoll 플라워": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "그레이브": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "길로틴": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "길로틴 : 윈터 슬레이어": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "길티": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "나가": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "나유타": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "네로": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "네베": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "네온": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "네온: 블루 오션": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "노벨": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "노아": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "노이즈": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "누아르": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "니힐리스타": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "델타": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "델타 : 닌자 시프": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "도라": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "도로시": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "도로시 : 세렌디피티": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "드레이크": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "디젤": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "디젤: 윈터 스위츠": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "라이": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "라푼젤": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "라푼젤 : 퓨어 그레이스": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "라플라스": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "라피": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "라피 : 레드 후드": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "람": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "레드 후드": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "레오나": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "레이": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "레이븐": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "렘": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "로산나": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "로산나 : 시크 오션": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "루드밀라": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "루드밀라 : 윈터 오너": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "루마니": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "루주": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "루피": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "루피 : 윈터 쇼퍼": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "리버렐리오": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "리타": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "세이렌 : 리틀 머메이드": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "릴리": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "마나": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "마르차나": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "마리": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "마스트": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "마스트 : 로망틱 메이드": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "마키나미 마리 일러스트리어스": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "마키마": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "맥스웰": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "메어리": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "메어리 : 베이 갓데스": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "메이든": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "메이든 : 아이스 로즈": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "모더니아": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "모리": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "목단": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "미란다": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "미사토": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "미카": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "미카 : 스노우 버디": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "미하라": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "미하라 : 본딩 체인": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "밀크": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "밀크 : 블루밍 바니": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "바스트": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "바이퍼": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "배이": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "베스티": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "베스티 : 택티컬 업": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "베이": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "벨로타": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "볼륨": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "불랑": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "브래디": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "브리드": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "블랑": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "비스킷": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "사쿠라": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "사쿠라 : 블룸 인 서머": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "센티": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "소다": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "소다 : 트윙클링 바니": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "소라": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "솔린": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "솔린 : 프로스트 티켓": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "솔저 E.G": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "솔저 F.A": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "솔저 O.W": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "슈가": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "스노우 화이트": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "스노우 화이트: 이노센트 데이즈": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "시그널": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "시키나미 아스카 랑그레이": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "시키나미 아스카 랑그레이 : WILLE": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "신": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "신데렐라": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "아니스": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "아니스 : 스파클링 서머": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "아르카나": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "아리아": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "아스카": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "아스카 : WILLE": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "아야나미 레이": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "아인": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "애드미": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "애피넬": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "앤 : 미라클 페어리": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "앨리스": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "앨리스 : 원더랜드 바니": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "앵커": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "앵커 : 이노센트 메이드": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "얀": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "에밀리아": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "에이다": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "에이다 웡": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "에이드": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "에이드 : 에이전트 바니": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "에테르": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "에피넬": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "엑시아": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "엠마": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "엠마 : 택티컬 업": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "유니": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "율리아": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "율하": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "은화": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "은화 : 택티컬 업": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "이브": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "이사벨": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "일레그": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "일레그 : 붐 앤 쇼크": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "자칼": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "질": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "질 발렌타인": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "차임": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "츠바이": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "코코아": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "퀀시": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "퀀시 : 이스케이프 퀸": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "크라운": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "크러스트": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "크로우": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "클레어": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "클레이": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "키리": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "킬로": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "토브": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "트로니": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "트리나": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "티아": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "파스칼": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "파워": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "팬텀": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "페퍼": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "폴리": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "폴크방": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "프로덕트 08": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "프로덕트 12": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "프로덕트 23": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "프리바티": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "프리바티 : 언카인드 메이드": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "프림": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "플로라": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "하란": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "헬름": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "헬름 : 아쿠아마린": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "홍련": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "홍련 : 흑영": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "히메노": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "브리드 : 사일런트 트랙": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    },
+    "퀸시": {
+        "stats": {
+            "hp": 0,
+            "atk": 0,
+            "def": 0
+        },
+        "skills": {
+            "skill1": 1,
+            "skill2": 1,
+            "burst": 1
+        },
+        "cube_level": 1,
+        "collection": {
+            "grade": "None",
+            "skill1": 1,
+            "skill2": 1
+        },
+        "overload": {
+            "helmet": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "armor": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "gloves": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            },
+            "boots": {
+                "option1": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option2": {
+                    "type": "None",
+                    "stage": 0
+                },
+                "option3": {
+                    "type": "None",
+                    "stage": 0
+                }
+            }
+        }
+    }
+};
+
+export const setNikkeBuildsDB = (data: Record<string, NikkeBuild>) => {
+    NIKKE_BUILDS_DB = data;
+};
+
+export const getNikkeBuild = (name: string): NikkeBuild | null => {
+    const cleanName = name.split('(')[0].trim();
+    return NIKKE_BUILDS_DB[cleanName] || NIKKE_BUILDS_DB[name] || null;
+};

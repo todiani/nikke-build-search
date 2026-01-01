@@ -1,24 +1,40 @@
 import type { NikkeData, PartOptions } from '../data/nikkes';
-import { BURST_DB, setBurstDB } from '../data/burst_db';
+import { BURST_DB, setBurstDB, getBurstDB } from '../data/burst_db';
 import { NIKKE_BUILDS_DB, getNikkeBuild, setNikkeBuildsDB } from '../data/nikke_builds_db';
 import { TAG_DATA } from '../data/tags';
 
 // --- Tier to Stars Mapping ---
-export const TIER_TO_STARS: Record<string, number> = {
-    'SSS': 5, 'SS': 4, 'S': 3, 'A': 2, 'B': 1, 'C': 0, 'Unranked': 1, 'PvP': 4
+const TIER_TO_STARS: Record<string, number> = {
+    'SSS': 5,
+    'SS': 4,
+    'S': 3,
+    'A': 2,
+    'B': 1,
+    'C': 0,
+    'Unranked': 1,
+    'PvP': 4
 };
 
 // --- String Normalization ---
 export const normalize = (s: string) => s.replace(/\s+/g, '').toLowerCase();
 
 // --- PVP Tier Lookup ---
-export const PVP_TIERS: Record<string, string> = {
-    '자칼': 'SSS', '비스킷': 'SSS', '노아': 'SSS', '홍련': 'SSS', '에밀리아': 'SSS', '베스티: 텍티컬업': 'SSS', '헬름(애장품)': 'SSS',
-    '노이즈': 'SS', '목단': 'SS', '레드후드': 'SS', '레드 후드': 'SS', '슈가': 'SS', '로산나': 'SS', '루마니': 'SS', '아니스': 'SS', '센티': 'SS', '앤: 미라클페어리': 'SS', '블랑': 'SS', '베이': 'SS', '아니스: 스파클링 서머': 'SS', '신데렐라': 'SS', '아인': 'SS', '소다: 바니': 'SS', '리틀머메이드': 'SS', '트리나': 'SS', '에이다': 'SS', '드레이크': 'SS', '솔린: 프로스트 티켓': 'SS',
-    '티아': 'S', '페퍼': 'S', '바이퍼': 'S', '마키마': 'S', '마리': 'S', '네로': 'S', '앵커: 이노센트메이드': 'S', '누아르': 'S', '레이(가칭)': 'S', '프리바티: 메이드': 'S', 'A2': 'S', '2B': 'S', '라피: 레드후드': 'S', '사쿠라: 블룸 인 서머': 'S', '킬로': 'S', '키리': 'S', '라푼젤': 'S', '메이든: 아이즈로즈': 'S', '미하라: 본딩체인': 'S', '메이든': 'S', '퀀시: 이스케이프 퀸': 'S', '홍련: 흑영': 'S', '나유타': 'S',
-    '리타': 'A', '엠마': 'A', '루드밀라': 'A', '미카: 스노우버디': 'A', '파스칼': 'A', '크라운': 'A', '그레이브': 'A', '폴크방': 'A', '폴리': 'A', '프리바티': 'A', '스노우화이트': 'A', '아스카': 'A', '하란': 'A', '사쿠라': 'A', '파워': 'A', '레이': 'A', '마나': 'A', '에이드: 바니': 'A',
-    '도로시': 'B', '앵커': 'B', '미카': 'B', '메어리': 'B', '메어리: 베이갓데스': 'B', '토브': 'B', '츠바이': 'B', '디젤': 'B', '길티': 'B', '마르차나': 'B', '나가': 'B', '로산나: 시크오션': 'B', '브리드': 'B', '라플라스': 'B', '맥스웰': 'B', '모더니아': 'B', '팬텀': 'B', '베스티': 'B', '렘': 'B', '니힐리스타': 'B',
-    '앨리스: 바니': 'C', '코코아': 'C', 'D: 킬러와이프': 'C', '엑시아': 'C', '프림': 'C', '미란다': 'C', '루주': 'C', 'N102': 'C', '라푼젤: 퓨어그레이스': 'C', '얀': 'C', '라이': 'C', '애드미': 'C', '클레이': 'C', '일레그': 'C', '플로라': 'C', '마스트': 'C', '퀀시': 'C', '유니': 'C', '길로틴': 'C', '스노우화이트: 이노센트데이즈': 'C', '이사벨': 'C', '율리아': 'C', '미하라': 'C', '트로니': 'C', '율하': 'C', '볼륨': 'C', '노벨': 'C', '크로우': 'C', '벨로타': 'C', '에이드': 'C', '신': 'C', '앨리스': 'C', '델타_닌자': 'C', '질': 'C', '마스트: 로망틱메이드': 'C'
+const PVP_TIERS: Record<string, string> = {
+    "자칼": "SSS",
+    "비스킷": "SSS",
+    "노아": "SSS",
+    "홍련": "SSS",
+    "에밀리아": "SSS",
+    "라푼젤": "SS",
+    "로잔나 : 시크 플라워": "SS",
+    "레드 후드": "SS",
+    "아니스 : 스파클링 서머": "SS",
+    "누아르": "S",
+    "블랑": "S",
+    "앨리스": "S",
+    "페퍼": "A",
+    "드레이크": "A",
+    "센티": "A"
 };
 
 /**
@@ -38,23 +54,23 @@ export interface MetaTeam {
 }
 
 // --- 최신 분야별 티어 데이터 (Perplexity 검색 결과 기반 2025 메타) ---
-export const LATEST_TIERS: Record<string, Record<string, number>> = {
+const LATEST_TIERS: Record<string, Record<string, number>> = {
     '스테이지': {
-        '라피 : 레드 후드': 5, '리틀 머메이드': 5, '크라운': 5, '나유타': 5, '홍련 : 흑영': 5, '신데렐라': 5, '리버렐리오': 5,
+        '라피 : 레드 후드': 5, '스노우 화이트 : 헤비암즈': 5, '리틀 머메이드': 5, '크라운': 5, '나유타': 5, '홍련 : 흑영': 5, '신데렐라': 5, '리버렐리오': 5,
         '미하라 : 본딩 체인': 5, '모더니아': 5, '리타': 5, '나가': 5, '티아': 5, '블랑': 5, '누아르': 5,
         '그레이브': 4, '마리': 4, '루주': 4, '토브': 4, 'D : 킬러 와이프': 4, '미란다': 4,
         '앨리스': 4, '도로시': 4, '라푼젤': 4, '홍련': 4, '헬름': 4,
         '에이다': 3, '센티': 3, '길티': 3, '노벨': 3, '아니스 : 스파클링 서머': 3, '프리바티': 3
     },
     '솔로레이드': {
-        '크라운': 5, '홍련 : 흑영': 5, '리버렐리오': 5, '라피 : 레드 후드': 5, '리틀 머메이드': 5, '신데렐라': 5, '나유타': 5,
+        '크라운': 5, '홍련 : 흑영': 5, '리버렐리오': 5, '라피 : 레드 후드': 5, '스노우 화이트 : 헤비암즈': 5, '리틀 머메이드': 5, '신데렐라': 5, '나유타': 5,
         '앨리스': 5, '맥스웰': 5, '백설공주': 5, '아니스 : 스파클링 서머': 5, '리타': 5, '도로시': 5, '루주': 5, '모더니아': 5,
         '토브': 4, 'D : 킬러 와이프': 4, '미란다': 4, '그레이브': 4, '마리': 4, '드레이크': 4, '헬름': 4,
         '에이다': 4, '센티': 4, '길티': 4, '누아르': 4, '블랑': 4, '나가': 4, '티아': 4,
         '아니스 : 스파클': 3, '프리바티': 3, '마키마': 3, '파워': 3, '루피': 3, '엠마': 3, '자칼': 3
     },
     '유니온레이드': {
-        '크라운': 5, '홍련 : 흑영': 5, '리버렐리오': 5, '라피 : 레드 후드': 5, '리틀 머메이드': 5, '신데렐라': 5, '나유타': 5,
+        '크라운': 5, '홍련 : 흑영': 5, '리버렐리오': 5, '라피 : 레드 후드': 5, '스노우 화이트 : 헤비암즈': 5, '리틀 머메이드': 5, '신데렐라': 5, '나유타': 5,
         '미하라 : 본딩 체인': 5, '헬름': 5, '루주': 5, '모더니아': 5,
         '리타': 4, '토브': 4, 'D : 킬러 와이프': 4, '미란다': 4, '그레이브': 4, '마리': 4, '앨리스': 4, '드레이크': 4,
         '에이다': 4, '센티': 4, '길티': 4, '누아르': 4,
@@ -66,14 +82,14 @@ export const LATEST_TIERS: Record<string, Record<string, number>> = {
         '리타': 3, '도로시': 3, '라푼젤': 3, '모더니아': 3, '폴크방': 3, '레오나': 3, '에이드': 3, '일레그': 3
     },
     '이상개체요격전': {
-        '홍련 : 흑영': 5, '크라운': 5, '리버렐리오': 5, '리틀 머메이드': 5, '라피 : 레드 후드': 5, '신데렐라': 5, '나유타': 5,
+        '홍련 : 흑영': 5, '크라운': 5, '리버렐리오': 5, '리틀 머메이드': 5, '라피 : 레드 후드': 5, '스노우 화이트 : 헤비암즈': 5, '신데렐라': 5, '나유타': 5,
         '미하라 : 본딩 체인': 5, '헬름': 5, '모더니아': 5,
         '리타': 4, '루주': 4, '토브': 4, 'D : 킬러 와이프': 4, '미란다': 4, '그레이브': 4, '앨리스': 4, '에이다': 4, '센티': 4,
         '드레이크': 3, '아스카': 3, '이브': 3, '레이븐': 3, '누아르': 3, '블랑': 3, '프리바티': 3, '마키마': 3
     },
     '기업타워': {
         // 필그림
-        '라피 : 레드 후드': 5, '신데렐라': 5, '나유타': 5, '크라운': 5, '모더니아': 5, '홍련 : 흑영': 5, '리틀 머메이드': 5, '리버렐리오': 5,
+        '라피 : 레드 후드': 5, '신데렐라': 5, '나유타': 5, '크라운': 5, '모더니아': 5, '홍련 : 흑영': 5, '리틀 머메이드': 5, '리버렐리오': 5, '스노우 화이트 : 헤비암즈': 5,
         '도로시': 4, '라푼젤': 4, '홍련': 4, '그레이브': 4, '스노우 화이트': 4,
         '노아': 3, '하란': 3, '이사벨': 3, '스노우 화이트 : 이노센트 데이즈': 3,
         
@@ -93,7 +109,7 @@ export const LATEST_TIERS: Record<string, Record<string, number>> = {
         '은화': 3, '브리드': 3, '솔린': 3, '엠마': 3, '네온': 3
     },
     '트라이브타워': {
-        '라피 : 레드 후드': 5, '크라운': 5, '모더니아': 5, '홍련 : 흑영': 5, '신데렐라': 5, '리타': 5, '앨리스': 5, '블랑': 5, '누아르': 5, '나가': 5, '티아': 5,
+        '라피 : 레드 후드': 5, '스노우 화이트 : 헤비암즈': 5, '크라운': 5, '모더니아': 5, '홍련 : 흑영': 5, '신데렐라': 5, '리타': 5, '앨리스': 5, '블랑': 5, '누아르': 5, '나가': 5, '티아': 5,
         '도로시': 4, '라푼젤': 4, '센티': 4, '아인': 4, '루주': 4, 'D : 킬러 와이프': 4, '맥스웰': 4, '일레그': 4,
         '드레이크': 3, '라플라스': 3, '헬름': 3, '프리바티': 3, '노이즈': 3, '볼륨': 3, '비스킷': 3
     }
@@ -102,31 +118,36 @@ export const LATEST_TIERS: Record<string, Record<string, number>> = {
 export const initializeNikkeData = (nikke: NikkeData): NikkeData => {
     const updated = { ...nikke };
 
+    // Use DB values if available, otherwise fallback to constants
+    const tierToStars = (cachedMasters.tier_to_stars && Object.keys(cachedMasters.tier_to_stars).length > 0) 
+        ? cachedMasters.tier_to_stars 
+        : TIER_TO_STARS;
+    
+    const pvpRankings = (cachedMasters.pvp_rankings && Object.keys(cachedMasters.pvp_rankings).length > 0)
+        ? cachedMasters.pvp_rankings
+        : PVP_TIERS;
+    
+    const latestTiers = (cachedMasters.latest_tiers && Object.keys(cachedMasters.latest_tiers).length > 0)
+        ? cachedMasters.latest_tiers
+        : LATEST_TIERS;
+
     // 1. Initialize Usage Stats if missing or incomplete
     if (!updated.usage_stats || updated.usage_stats.length === 0) {
-        const pvpTier = PVP_TIERS[updated.name] || (updated.tier === 'PvP' ? 'SS' : 'B');
+        const pvpTier = pvpRankings[updated.name] || (updated.tier === 'PvP' ? 'SS' : 'B');
         updated.usage_stats = [
-            { name: '스테이지', stars: TIER_TO_STARS[updated.tier] || 3, desc: '일반 캠페인 및 타워' },
-            { name: '이상개체요격전', stars: Math.max(0, (TIER_TO_STARS[updated.tier] || 3) - 1), desc: '특수 개체 보스 공략' },
-            { name: '솔로레이드', stars: TIER_TO_STARS[updated.tier] || 3, desc: updated.code ? `${updated.code}코드 보스 특화` : '고득점 핵심 유닛' },
-            { name: '유니온레이드', stars: Math.max(0, (TIER_TO_STARS[updated.tier] || 2) - 1), desc: updated.code ? `${updated.code}코드 보스` : '길드 레이드 활용' },
-            { name: '타워', stars: TIER_TO_STARS[updated.tier] || 3, desc: '적극 활용 가능' },
-            { name: 'PVP', stars: TIER_TO_STARS[pvpTier] || 1, desc: pvpTier === 'SSS' ? '아레나 필수 공무원' : '아레나 활용 가능' }
+            { name: '스테이지', stars: tierToStars[updated.tier] ?? 3, desc: '일반 캠페인 및 타워' },
+            { name: '이상개체요격전', stars: Math.max(0, (tierToStars[updated.tier] ?? 3) - 1), desc: '특수 개체 보스 공략' },
+            { name: '솔로레이드', stars: tierToStars[updated.tier] ?? 3, desc: updated.code ? `${updated.code}코드 보스 특화` : '고득점 핵심 유닛' },
+            { name: '유니온레이드', stars: Math.max(0, (tierToStars[updated.tier] ?? 2) - 1), desc: updated.code ? `${updated.code}코드 보스` : '길드 레이드 활용' },
+            { name: '기업타워', stars: tierToStars[updated.tier] ?? 3, desc: '적극 활용 가능' },
+            { name: '트라이브타워', stars: tierToStars[updated.tier] ?? 3, desc: '적극 활용 가능' },
+            { name: 'PVP', stars: tierToStars[pvpTier] ?? 1, desc: pvpTier === 'SSS' ? '아레나 필수 공무원' : '아레나 활용 가능' }
         ];
     }
 
-    // 분야별 최신 티어 정보 업데이트
-    const categories = Object.keys(LATEST_TIERS);
+    //분야별 최신 티어 정보 업데이트
+    const categories = Object.keys(latestTiers);
     
-    // Ensure usage_stats exists
-    if (!updated.usage_stats) {
-        updated.usage_stats = categories.map(cat => ({
-            name: cat,
-            stars: 0,
-            desc: ""
-        }));
-    }
-
     // Add missing categories to usage_stats
     categories.forEach(cat => {
         if (!updated.usage_stats?.find(s => s.name === cat)) {
@@ -138,14 +159,23 @@ export const initializeNikkeData = (nikke: NikkeData): NikkeData => {
         }
     });
 
-    // Update stars based on LATEST_TIERS
-    updated.usage_stats = updated.usage_stats.map(stat => {
-        const latestCategory = LATEST_TIERS[stat.name];
+    // Update stars based on latestTiers
+    updated.usage_stats = updated.usage_stats?.map(stat => {
+        const latestCategory = latestTiers[stat.name];
         if (latestCategory && latestCategory[updated.name] !== undefined) {
             return { ...stat, stars: latestCategory[updated.name] };
         }
         return stat;
     });
+
+    // pvpRankings를 활용한 추가 보정 (PVP 별점)
+    const pvpTierValue = pvpRankings[updated.name];
+    if (pvpTierValue) {
+        const pvpStat = updated.usage_stats?.find(s => s.name === 'PVP');
+        if (pvpStat) {
+            pvpStat.stars = tierToStars[pvpTierValue] || pvpStat.stars;
+        }
+    }
 
     // 2. Initialize Burst Details if missing
     if (!updated.burst_details || Object.keys(updated.burst_details).length === 0) {
@@ -334,6 +364,23 @@ export interface MasterData {
     classes: string[];
     rarities: string[];
     squads: string[];
+    weapon_names?: Record<string, string>;
+    class_names?: Record<string, string>;
+    class_descriptions?: Record<string, string>;
+    tier_to_stars?: Record<string, number>;
+    usage_categories?: string[];
+    pvp_rankings?: Record<string, string>;
+    latest_tiers?: Record<string, Record<string, number>>;
+    colors?: {
+        code_text: Record<string, string>;
+        burst: Record<string, string>;
+        class: Record<string, string>;
+        company: Record<string, string>;
+        weapon: Record<string, string>;
+        code: Record<string, string>;
+        tier: Record<string, string>;
+        rarity: Record<string, string>;
+    };
 }
 
 let cachedMasters: MasterData = {
@@ -345,6 +392,23 @@ let cachedMasters: MasterData = {
     classes: [],
     rarities: [],
     squads: [],
+    weapon_names: {},
+    class_names: {},
+    class_descriptions: {},
+    tier_to_stars: {},
+    usage_categories: [],
+    pvp_rankings: {},
+    latest_tiers: LATEST_TIERS, // Initialize with default 2025 meta tiers
+    colors: {
+        code_text: {},
+        burst: {},
+        class: {},
+        company: {},
+        weapon: {},
+        code: {},
+        tier: {},
+        rarity: {}
+    }
 };
 
 const uniq = (arr: (string | undefined | null)[]) =>
@@ -403,6 +467,7 @@ const buildMastersFromData = (nikkes: NikkeData[], squads: string[]): MasterData
         classes,
         rarities,
         squads: mergedSquads,
+        latest_tiers: LATEST_TIERS // Default fallback
     };
 };
 
@@ -418,12 +483,50 @@ const syncMastersFromCachedNikkes = () => {
         classes: sortWithPreferredOrder(uniq([...(cachedMasters.classes || []), ...(rebuilt.classes || [])]), ['Attacker', 'Supporter', 'Defender']),
         rarities: sortWithPreferredOrder(uniq([...(cachedMasters.rarities || []), ...(rebuilt.rarities || [])]), ['SSR', 'SR', 'R']),
         squads: sortWithPreferredOrder(uniq([...(cachedMasters.squads || []), ...(rebuilt.squads || [])]), []),
+        // Preserve the static mappings loaded from JSON
+        weapon_names: cachedMasters.weapon_names || {},
+        class_names: cachedMasters.class_names || {},
+        class_descriptions: cachedMasters.class_descriptions || {},
+        tier_to_stars: cachedMasters.tier_to_stars || {},
+        usage_categories: cachedMasters.usage_categories || [],
+        pvp_rankings: cachedMasters.pvp_rankings || {},
+        latest_tiers: cachedMasters.latest_tiers || {},
+        colors: cachedMasters.colors || {
+            code_text: {},
+            burst: {},
+            class: {},
+            company: {},
+            weapon: {},
+            code: {},
+            tier: {},
+            rarity: {}
+        }
     };
     cachedSquads = cachedMasters.squads;
 };
 
+export const getMasters = () => cachedMasters;
+
+let isDBLoaded = false;
+
 // Load all data from server
-export const loadDB = async () => {
+export const loadDB = async (forceReload = false) => {
+    // Return cached data if already loaded to avoid race conditions and redundant fetches
+    if (!forceReload && isDBLoaded && cachedNikkes.length > 0) {
+        const burstData = getBurstDB();
+        return { 
+            squads: cachedSquads, 
+            nikkes: cachedNikkes, 
+            meta_teams: cachedMetaTeams,
+            tower_squads: cachedTowerSquads,
+            saved_teams: cachedSavedTeams,
+            backup_settings: cachedBackupSettings,
+            backup_history: cachedBackupHistory,
+            tags: cachedTags,
+            burst_db: burstData
+        };
+    }
+
     try {
         // Load main DB, builds, and burst data in parallel
         const [dbRes, buildsRes, burstRes] = await Promise.all([
@@ -442,28 +545,40 @@ export const loadDB = async () => {
             }
 
             // Update Burst DB if loaded
+            let burstData = null;
             if (burstRes.ok) {
-                const burstData = await burstRes.json();
+                burstData = await burstRes.json();
                 setBurstDB(burstData);
             }
 
             cachedSquads = json.squads || [];
             
-            // We'll pass the loaded builds to initializeNikkeData if needed, 
-            // but currently initializeNikkeData uses the imported NIKKE_BUILDS_DB.
-            // Let's update the cache so getNikkeBuild uses the latest data.
-            // NOTE: Since NIKKE_BUILDS_DB is a constant, we might need a way to override it.
+            // Populate masters first so initializeNikkeData can use them
+            // Ensure latest_tiers is merged with default LATEST_TIERS if missing or incomplete
+            const loadedMasters = json.masters || {};
+            cachedMasters = {
+                ...buildMastersFromData([], cachedSquads), // Base with all required fields
+                ...loadedMasters, // Overwrite with loaded data
+                latest_tiers: {
+                    ...LATEST_TIERS, // Default 2025 tiers
+                    ...(loadedMasters.latest_tiers || {}) // Merge with loaded tiers
+                }
+            };
             
             cachedNikkes = (json.nikkes || []).map(initializeNikkeData);
-                    cachedMetaTeams = json.meta_teams || [];
-                    cachedTowerSquads = json.tower_squads || {};
-                    cachedSavedTeams = json.saved_teams || [];
-                    cachedBackupSettings = json.backup_settings || null;
-                    cachedBackupHistory = json.backup_history || [];
-                    cachedTags = json.tags || TAG_DATA;
-                    buildTagIndex(cachedNikkes, cachedTags);
-                    cachedMasters = json.masters || buildMastersFromData(cachedNikkes, cachedSquads);
-                    syncMastersFromCachedNikkes();
+            cachedMetaTeams = json.meta_teams || [];
+            cachedTowerSquads = json.tower_squads || {};
+            cachedSavedTeams = json.saved_teams || [];
+            cachedBackupSettings = json.backup_settings || null;
+            cachedBackupHistory = json.backup_history || [];
+            cachedTags = json.tags || TAG_DATA;
+            buildTagIndex(cachedNikkes, cachedTags);
+            
+            // Sync again after loading nikkes to ensure all dynamic masters are updated
+            syncMastersFromCachedNikkes();
+
+            isDBLoaded = true;
+
                     return { 
                         squads: cachedSquads, 
                         nikkes: cachedNikkes, 
@@ -472,18 +587,38 @@ export const loadDB = async () => {
                         saved_teams: cachedSavedTeams,
                         backup_settings: cachedBackupSettings,
                         backup_history: cachedBackupHistory,
-                        tags: cachedTags
+                        tags: cachedTags,
+                        burst_db: burstData
                     };
         }
     } catch (e) {
         console.error("Failed to load DB", e);
+        return null; // Return null on failure
     }
-    return { squads: [], nikkes: [], meta_teams: [], tower_squads: {} };
 };
 
 // Save helper
 const saveDB = async () => {
     try {
+        // --- SAFETY CHECK ---
+        // 1. If DB hasn't been loaded yet, we should NOT save.
+        if (!isDBLoaded) {
+            console.warn("[Safety] Attempted to save DB before it was loaded. Aborting to prevent data loss.");
+            return;
+        }
+
+        // 2. If cachedNikkes is empty, it's highly likely a load failure or race condition.
+        if (cachedNikkes.length === 0) {
+            console.warn("[Safety] Attempted to save DB with 0 nikkes. Aborting to prevent data loss.");
+            return;
+        }
+
+        // 3. Additional safety: If critical collections are empty but we expect them not to be,
+        // we might want to log a warning or abort. But since users can delete all, we just log.
+        if (cachedMetaTeams.length === 0) console.log("[Info] Saving with empty meta_teams");
+        if (Object.keys(cachedTowerSquads).length === 0) console.log("[Info] Saving with empty tower_squads");
+        if (cachedSavedTeams.length === 0) console.log("[Info] Saving with empty saved_teams");
+
         // 1. Separate Build and Burst Data from Nikke Data
         const builds: Record<string, any> = {};
         const bursts: Record<string, any> = {};
@@ -614,6 +749,20 @@ export const getWeaponOptions = () => getMasterOptions('weapons');
 export const getClassOptions = () => getMasterOptions('classes');
 export const getRarityOptions = () => getMasterOptions('rarities');
 
+export const getWeaponNameMap = () => cachedMasters.weapon_names || {};
+export const getClassNameMap = () => cachedMasters.class_names || {};
+export const getClassDescriptionMap = () => cachedMasters.class_descriptions || {};
+export const getColorMap = () => cachedMasters.colors || {
+    code_text: {},
+    burst: {},
+    class: {},
+    company: {},
+    weapon: {},
+    code: {},
+    tier: {},
+    rarity: {}
+};
+
 // --- Squad Management ---
 
 export const getSquadOptions = (): string[] => {
@@ -624,7 +773,7 @@ export const getSquadOptions = (): string[] => {
 export const setCachedData = (squads: string[], nikkes: NikkeData[]) => {
     cachedSquads = squads;
     cachedNikkes = nikkes;
-    cachedMasters = buildMastersFromData(cachedNikkes, cachedSquads);
+    // Don't overwrite cachedMasters entirely to preserve latest_tiers etc.
     syncMastersFromCachedNikkes();
 }
 

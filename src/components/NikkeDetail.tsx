@@ -3,14 +3,13 @@ import type { NikkeData } from '../data/nikkes';
 import UpgradeGuide from './UpgradeGuide';
 import Calculator from './Calculator';
 import OptionCompare from './OptionCompare';
-import { OVERLOAD_DATA } from '../data/game_constants';
-import {
-    codeColors, tierColors, rarityColors, classNames, classDescriptions,
-    weaponNames, codeTextColors, burstColors, classColors, companyColors, weaponColors
-} from '../utils/nikkeConstants';
+import { getMasters } from '../utils/nikkeDataManager';
 import { extractTagsFromSkill } from '../utils/tagExtractor';
 import { TAG_DATA } from '../data/tags';
 import NikkeFieldsEditor from './NikkeFieldsEditor';
+import NikkeSkillsEditor from './NikkeSkillsEditor';
+import NikkeOptionsEditor from './NikkeOptionsEditor';
+
 interface TagInfo {
     and: string[];
     or: string[];
@@ -27,17 +26,44 @@ interface NikkeDetailProps {
 type ViewTab = 'info' | 'guide' | 'calc' | 'compare' | 'team';
 
 export default function NikkeDetail({ nikke, onBack, onSaveNikke, highlightTags = { and: [], or: [], not: [] } }: NikkeDetailProps) {
-    const [activeTab, setActiveTab] = useState<ViewTab>('info');
+    const [activeTab, setActiveTab] = useState<ViewTab>(nikke.isGuest ? 'info' : 'info');
     const [isEditMode, setIsEditMode] = useState(false);
     const [editData, setEditData] = useState<NikkeData>(nikke);
+    const [isLinking, setIsLinking] = useState(false);
+
+    const masters = getMasters();
+    const colors = masters.colors || {};
 
     // Reset edit data when nikke changes
     useEffect(() => {
         setEditData(nikke);
         setIsEditMode(false);
+        setIsLinking(false);
     }, [nikke]);
 
-    const tierColor = tierColors[nikke.tier] || 'text-gray-400 border-gray-400';
+    const tierColor = colors.tier?.[nikke.tier] || 'text-gray-400 border-gray-400';
+
+    // === Guest Management Handlers ===
+    const handleGuestNameChange = (newName: string) => {
+        if (!onSaveNikke) return;
+        const updated = { ...nikke, name: newName };
+        onSaveNikke(updated);
+    };
+
+    const handleLinkToDB = (dbNikke: NikkeData) => {
+        if (!onSaveNikke) return;
+        // This is a special signal to the parent to replace this guest with a DB nikke
+        const updated = { ...dbNikke, _originalGuestName: nikke.name, isGuest: false };
+        onSaveNikke(updated as any);
+        setIsLinking(false);
+    };
+
+    const handleDeleteGuest = () => {
+        if (!onSaveNikke || !window.confirm(`'${nikke.name}' 게스트 니케를 삭제하시겠습니까?`)) return;
+        const updated = { ...nikke, _deleteGuest: true };
+        onSaveNikke(updated as any);
+        onBack();
+    };
 
     // === Edit Handlers ===
     const handleFieldChange = (field: keyof NikkeData, value: any) => {
@@ -102,6 +128,11 @@ export default function NikkeDetail({ nikke, onBack, onSaveNikke, highlightTags 
                 }
             }
         }));
+    };
+
+    const handleArrayFieldChange = (field: 'options' | 'valid_options' | 'invalid_options', value: string) => {
+        const arr = value.split(',').map(t => t.trim()).filter(Boolean);
+        setEditData(prev => ({ ...prev, [field]: arr }));
     };
 
     const handleSave = () => {
@@ -193,8 +224,6 @@ export default function NikkeDetail({ nikke, onBack, onSaveNikke, highlightTags 
 
         return (
             <div className="space-y-4">
-
-                {/* 2. Classification (분류) */}
                 <div className="bg-black/30 p-4 rounded-lg border border-gray-700">
                     <h4 className="text-sm font-bold text-gray-400 mb-3">📊 분류</h4>
                     <div className="space-y-4">
@@ -205,7 +234,7 @@ export default function NikkeDetail({ nikke, onBack, onSaveNikke, highlightTags 
                             </div>
                             <div className="flex items-center gap-2">
                                 <span className="text-xs text-gray-500">희귀도:</span>
-                                <span className={`px-2 py-0.5 rounded bg-black/50 border ${rarityColors[currentData.rarity || 'SSR'] || 'border-gray-700 text-gray-400'} font-bold text-sm`}>{currentData.rarity || 'SSR'}</span>
+                                <span className={`px-2 py-0.5 rounded bg-black/50 border ${(colors as any).rarity?.[currentData.rarity || 'SSR'] || 'border-gray-700 text-gray-400'} font-bold text-sm`}>{currentData.rarity || 'SSR'}</span>
                             </div>
                             {currentData.company && (
                                 <div className="flex items-center gap-2">
@@ -224,13 +253,13 @@ export default function NikkeDetail({ nikke, onBack, onSaveNikke, highlightTags 
                             <div className="flex items-center gap-2">
                                 <span className="text-xs text-gray-500">클래스:</span>
                                 <span className="px-2 py-0.5 bg-gray-800 text-gray-300 rounded text-sm">
-                                    {classDescriptions[currentData.class] || classNames[currentData.class] || currentData.class}
+                                    {masters.class_descriptions?.[currentData.class] || (masters as any).class_names?.[currentData.class] || currentData.class}
                                 </span>
                             </div>
                             {currentData.code && (
                                 <div className="flex items-center gap-2">
                                     <span className="text-xs text-gray-500">속성:</span>
-                                    <span className={`px-2 py-0.5 rounded text-sm border ${codeColors[currentData.code] || 'bg-gray-800 text-gray-300 border-gray-700'}`}>{currentData.code}</span>
+                                    <span className={`px-2 py-0.5 rounded text-sm border ${(colors as any).code?.[currentData.code] || 'bg-gray-800 text-gray-300 border-gray-700'}`}>{currentData.code}</span>
                                 </div>
                             )}
                             <div className="flex items-center gap-2">
@@ -239,15 +268,12 @@ export default function NikkeDetail({ nikke, onBack, onSaveNikke, highlightTags 
                             </div>
                             <div className="flex items-center gap-2">
                                 <span className="text-xs text-gray-500">무기 종류:</span>
-                                <span className="px-2 py-0.5 bg-gray-800 text-gray-300 rounded text-sm">{weaponNames[currentData.weapon] || currentData.weapon}</span>
+                                <span className="px-2 py-0.5 bg-gray-800 text-gray-300 rounded text-sm">{masters.weapon_names?.[currentData.weapon] || currentData.weapon}</span>
                             </div>
                         </div>
                     </div>
                 </div>
 
-
-
-                {/* 3. 주요 사용 콘텐츠 (통일된 UI 디자인) */}
                 <div className="bg-black/30 p-6 rounded-lg border border-gray-700 mt-6 shadow-xl">
                     <h3 className="text-xl font-bold text-white mb-4 flex items-center">
                         <span className="w-1 h-6 bg-nikke-red mr-3 inline-block rounded-full"></span>
@@ -297,79 +323,49 @@ export default function NikkeDetail({ nikke, onBack, onSaveNikke, highlightTags 
     };
 
     const renderSkillsTab = () => {
+        if (isEditMode) {
+            return (
+                <NikkeSkillsEditor
+                    data={editData}
+                    onSkillDetailChange={handleSkillDetailChange}
+                    onSkillTagsChange={handleSkillTagsChange}
+                    handleFieldChange={handleFieldChange}
+                />
+            );
+        }
+
         const renderNormalAttackSection = () => {
             const normal = currentData.skills_detail?.normal;
             const weaponInfo = currentData.weapon_info;
             return (
                 <div className="p-4 rounded-lg border border-gray-700 border-l-4 border-l-gray-500 bg-gray-900/10">
                     <h4 className="text-sm font-bold text-white mb-3">일반 공격</h4>
-                    {isEditMode ? (
-                        <div className="space-y-3">
-                            <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-                                <div>
-                                    <label className="text-xs text-gray-500 block mb-1">무기 이름</label>
-                                    <input type="text" value={weaponInfo?.weapon_name || ''}
-                                        onChange={e => handleFieldChange('weapon_info', { ...weaponInfo, weapon_name: e.target.value })}
-                                        className="w-full bg-gray-800 border border-gray-700 text-white px-3 py-2 rounded" />
-                                </div>
-                                <div>
-                                    <label className="text-xs text-gray-500 block mb-1">최대 장탄 수</label>
-                                    <input type="number" value={weaponInfo?.max_ammo || ''}
-                                        onChange={e => handleFieldChange('weapon_info', { ...weaponInfo, max_ammo: parseInt(e.target.value) || 0 })}
-                                        className="w-full bg-gray-800 border border-gray-700 text-white px-3 py-2 rounded" />
-                                </div>
-                                <div>
-                                    <label className="text-xs text-gray-500 block mb-1">재장전 시간 (초)</label>
-                                    <input type="number" step="0.01" value={weaponInfo?.reload_time || ''}
-                                        onChange={e => handleFieldChange('weapon_info', { ...weaponInfo, reload_time: parseFloat(e.target.value) || 0 })}
-                                        className="w-full bg-gray-800 border border-gray-700 text-white px-3 py-2 rounded" />
-                                </div>
-                                <div>
-                                    <label className="text-xs text-gray-500 block mb-1">조작 타입</label>
-                                    <select value={weaponInfo?.control_type || ''}
-                                        onChange={e => handleFieldChange('weapon_info', { ...weaponInfo, control_type: e.target.value })}
-                                        className="w-full bg-gray-800 border border-gray-700 text-white px-3 py-2 rounded">
-                                        <option value="">선택</option>
-                                        <option value="일반형">일반형</option>
-                                        <option value="차지형">차지형</option>
-                                        <option value="점사형">점사형</option>
-                                    </select>
-                                </div>
+                    <div className="space-y-3">
+                        <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                            <div className="bg-gray-800/50 p-3 rounded text-center">
+                                <div className="text-xs text-gray-500 mb-1">무기 이름</div>
+                                <div className="text-sm text-white font-bold">{weaponInfo?.weapon_name || masters.weapon_names?.[currentData.weapon] || currentData.weapon}</div>
                             </div>
-                            <div>
-                                <label className="text-xs text-gray-500 block mb-1">일반 공격 설명</label>
-                                <textarea value={normal?.desc || ''} onChange={e => handleSkillDetailChange('normal', 'desc', e.target.value)}
-                                    className="w-full bg-gray-800 border border-gray-700 text-white px-3 py-2 rounded h-32 resize-none" />
+                            <div className="bg-gray-800/50 p-3 rounded text-center">
+                                <div className="text-xs text-gray-500 mb-1">최대 장탄 수</div>
+                                <div className="text-sm text-white font-bold">{weaponInfo?.max_ammo || '-'}</div>
+                            </div>
+                            <div className="bg-gray-800/50 p-3 rounded text-center">
+                                <div className="text-xs text-gray-500 mb-1">재장전 시간 (초)</div>
+                                <div className="text-sm text-white font-bold">{weaponInfo?.reload_time ? `${weaponInfo.reload_time}초` : '-'}</div>
+                            </div>
+                            <div className="bg-gray-800/50 p-3 rounded text-center">
+                                <div className="text-xs text-gray-500 mb-1">조작 타입</div>
+                                <div className="text-sm text-white font-bold">{weaponInfo?.control_type || '-'}</div>
                             </div>
                         </div>
-                    ) : (
-                        <div className="space-y-3">
-                            <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-                                <div className="bg-gray-800/50 p-3 rounded text-center">
-                                    <div className="text-xs text-gray-500 mb-1">무기 이름</div>
-                                    <div className="text-sm text-white font-bold">{weaponInfo?.weapon_name || weaponNames[currentData.weapon] || currentData.weapon}</div>
-                                </div>
-                                <div className="bg-gray-800/50 p-3 rounded text-center">
-                                    <div className="text-xs text-gray-500 mb-1">최대 장탄 수</div>
-                                    <div className="text-sm text-white font-bold">{weaponInfo?.max_ammo || '-'}</div>
-                                </div>
-                                <div className="bg-gray-800/50 p-3 rounded text-center">
-                                    <div className="text-xs text-gray-500 mb-1">재장전 시간 (초)</div>
-                                    <div className="text-sm text-white font-bold">{weaponInfo?.reload_time ? `${weaponInfo.reload_time}초` : '-'}</div>
-                                </div>
-                                <div className="bg-gray-800/50 p-3 rounded text-center">
-                                    <div className="text-xs text-gray-500 mb-1">조작 타입</div>
-                                    <div className="text-sm text-white font-bold">{weaponInfo?.control_type || '-'}</div>
-                                </div>
-                            </div>
-                            <div className="mt-4">
-                                <div className="text-xs text-gray-500 mb-2">일반 공격 설명</div>
-                                <div className="text-sm text-gray-300 leading-relaxed whitespace-pre-wrap p-3 bg-gray-800/30 rounded border border-gray-800/50">
-                                    {normal?.desc ? highlightText(normal.desc) : <span className="text-gray-600 italic">설명 정보가 없습니다.</span>}
-                                </div>
+                        <div className="mt-4">
+                            <div className="text-xs text-gray-500 mb-2">일반 공격 설명</div>
+                            <div className="text-sm text-gray-300 leading-relaxed whitespace-pre-wrap p-3 bg-gray-800/30 rounded border border-gray-800/50">
+                                {normal?.desc ? highlightText(normal.desc) : <span className="text-gray-600 italic">설명 정보가 없습니다.</span>}
                             </div>
                         </div>
-                    )}
+                    </div>
                 </div>
             );
         };
@@ -378,48 +374,27 @@ export default function NikkeDetail({ nikke, onBack, onSaveNikke, highlightTags 
             const skill = currentData.skills_detail?.[skillKey];
             return (
                 <div className={`p-4 rounded-lg border border-gray-700 border-l-4 ${borderColor} ${bgColor}`}>
-                    <h4 className="text-sm font-bold text-white mb-3">{label}</h4>
-                    {isEditMode ? (
-                        <div className="space-y-3">
-                            <input type="text" value={skill?.name || ''} onChange={e => handleSkillDetailChange(skillKey, 'name', e.target.value)}
-                                placeholder="스킬 이름..." className="w-full bg-gray-800 border border-gray-700 text-white px-3 py-2 rounded" />
-                            <select value={skill?.type || (skillKey === 'burst' ? '액티브' : '패시브')} onChange={e => handleSkillDetailChange(skillKey, 'type', e.target.value)}
-                                className="w-full bg-gray-800 border border-gray-700 text-white px-3 py-2 rounded">
-                                <option value="패시브">패시브</option>
-                                <option value="액티브">액티브</option>
-                            </select>
-                            {skill?.type === '액티브' && (
-                                <input type="text" value={skill?.cooldown || ''} onChange={e => handleSkillDetailChange(skillKey, 'cooldown', e.target.value)}
-                                    placeholder="예: 20.00초" className="w-full bg-gray-800 border border-gray-700 text-white px-3 py-2 rounded" />
-                            )}
-                            <textarea value={skill?.desc || ''} onChange={e => handleSkillDetailChange(skillKey, 'desc', e.target.value)}
-                                placeholder="스킬 효과 설명..." className="w-full bg-gray-800 border border-gray-700 text-white px-3 py-2 rounded h-24 resize-none" />
-                            <input type="text" value={skill?.tags?.join(', ') || ''} onChange={e => handleSkillTagsChange(skillKey, e.target.value)}
-                                placeholder="테그 (쉼표 구분)" className="w-full bg-gray-800 border border-gray-700 text-white px-3 py-2 rounded" />
-                        </div>
-                    ) : (
-                        <div className="space-y-2">
-                            <div className="flex items-center justify-between">
-                                <div className="text-sm font-bold text-white">{skill?.name || '정보 없음'}</div>
-                                <div className="flex gap-2">
-                                    <span className={`text-[10px] px-1.5 py-0.5 rounded border ${(skill?.type || (skillKey === 'burst' ? '액티브' : '패시브')) === '패시브' ? 'bg-blue-900/30 text-blue-300 border-blue-800' : 'bg-red-900/30 text-red-300 border-red-800'}`}>
-                                        {skill?.type || (skillKey === 'burst' ? '액티브' : '패시브')}
-                                    </span>
-                                    {skillKey === 'burst' && <span className="text-[10px] px-1.5 py-0.5 bg-gray-800 text-gray-400 rounded border border-gray-700">⌛ {skill?.cooldown || '20.00초'}</span>}
-                                </div>
+                    <div className="space-y-2">
+                        <div className="flex items-center justify-between">
+                            <div className="text-sm font-bold text-white">{skill?.name || '정보 없음'}</div>
+                            <div className="flex gap-2">
+                                <span className={`text-[10px] px-1.5 py-0.5 rounded border ${(skill?.type || (skillKey === 'burst' ? '액티브' : '패시브')) === '패시브' ? 'bg-blue-900/30 text-blue-300 border-blue-800' : 'bg-red-900/30 text-red-300 border-red-800'}`}>
+                                    {skill?.type || (skillKey === 'burst' ? '액티브' : '패시브')}
+                                </span>
+                                {skillKey === 'burst' && <span className="text-[10px] px-1.5 py-0.5 bg-gray-800 text-gray-400 rounded border border-gray-700">⌛ {skill?.cooldown || '20.00초'}</span>}
                             </div>
-                            {skill?.desc ? <p className="text-sm text-gray-300 leading-relaxed whitespace-pre-wrap">{highlightText(skill.desc)}</p> : <p className="text-sm text-gray-500 italic">설명 없음</p>}
-                            {skill?.tags && skill.tags.length > 0 && (
-                                <div className="flex flex-wrap gap-1 mt-2">
-                                    {skill.tags.map((tag: string, i: number) => {
-                                        const tagType = getTagType(tag);
-                                        const colorClasses = getTagColor(tagType);
-                                        return <span key={i} className={`text-[10px] px-2 py-0.5 rounded ${colorClasses}`}>{tag}</span>;
-                                    })}
-                                </div>
-                            )}
                         </div>
-                    )}
+                        {skill?.desc ? <p className="text-sm text-gray-300 leading-relaxed whitespace-pre-wrap">{highlightText(skill.desc)}</p> : <p className="text-sm text-gray-500 italic">설명 없음</p>}
+                        {skill?.tags && skill.tags.length > 0 && (
+                            <div className="flex flex-wrap gap-1 mt-2">
+                                {skill.tags.map((tag: string, i: number) => {
+                                    const tagType = getTagType(tag);
+                                    const colorClasses = getTagColor(tagType);
+                                    return <span key={i} className={`text-[10px] px-2 py-0.5 rounded ${colorClasses}`}>{tag}</span>;
+                                })}
+                            </div>
+                        )}
+                    </div>
                 </div>
             );
         };
@@ -444,22 +419,114 @@ export default function NikkeDetail({ nikke, onBack, onSaveNikke, highlightTags 
 
 
     return (
-        <div className="max-w-4xl mx-auto animate-fadeIn">
-            <div className="flex justify-between items-center mb-4">
-                <button onClick={onBack} className="flex items-center text-gray-400 hover:text-white transition-colors group">
-                    <span className="mr-2 group-hover:-translate-x-1 transition-transform">←</span> 돌아가기
-                </button>
-                <div className="flex items-center gap-2">
-                    {isEditMode ? (
-                        <>
-                            <button onClick={handleCancelEdit} className="px-3 py-1.5 text-sm bg-gray-700 text-gray-300 rounded">취소</button>
-                            <button onClick={handleSave} className="px-4 py-1.5 text-sm bg-nikke-red text-white rounded font-bold">✓ 저장</button>
-                        </>
-                    ) : (
-                        onSaveNikke && <button onClick={() => setIsEditMode(true)} className="px-3 py-1.5 text-sm bg-gray-800 text-gray-300 rounded border border-gray-700 flex items-center gap-2"><span>✏️</span> 편집 모드</button>
-                    )}
+        <div className="fixed inset-0 z-[200] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-fadeIn">
+            <div className="bg-[#0b0d11] w-full max-w-6xl max-h-[95vh] rounded-3xl border border-gray-800 shadow-2xl overflow-hidden flex flex-col">
+                {/* Header with Back Button */}
+                <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-gray-900/50 p-6 border-b border-gray-800 backdrop-blur-sm shrink-0">
+                    <div className="flex items-center gap-4">
+                        <button
+                            onClick={onBack}
+                            className="p-3 bg-gray-800 hover:bg-gray-700 text-white rounded-xl transition-all shadow-lg active:scale-95"
+                        >
+                            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                            </svg>
+                        </button>
+                        <div>
+                            <div className="flex items-center gap-3">
+                                <h2 className="text-3xl font-black text-white tracking-tight">{nikke.name}</h2>
+                                {nikke.isGuest && (
+                                    <span className="px-2 py-1 bg-red-900/50 text-red-400 text-xs font-bold rounded border border-red-800">미등록 게스트</span>
+                                )}
+                            </div>
+                            {nikke.name_en && <p className="text-blue-400 font-bold text-sm tracking-wide">{nikke.name_en}</p>}
+                        </div>
+                    </div>
+
+                    <div className="flex gap-2">
+                        {nikke.isGuest ? (
+                            <div className="flex gap-2">
+                                <button
+                                    onClick={() => {
+                                        const newName = prompt('새로운 이름을 입력하세요:', nikke.name);
+                                        if (newName && newName.trim()) handleGuestNameChange(newName.trim());
+                                    }}
+                                    className="px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white rounded-xl text-sm font-bold shadow-lg transition-all flex items-center gap-2"
+                                >
+                                    <span>✏️</span> 이름 수정
+                                </button>
+                                <button
+                                    onClick={() => setIsLinking(true)}
+                                    className="px-4 py-2 bg-green-600 hover:bg-green-500 text-white rounded-xl text-sm font-bold shadow-lg transition-all flex items-center gap-2"
+                                >
+                                    <span>🔗</span> DB 동기화
+                                </button>
+                                <button
+                                    onClick={handleDeleteGuest}
+                                    className="px-4 py-2 bg-red-600 hover:bg-red-500 text-white rounded-xl text-sm font-bold shadow-lg transition-all flex items-center gap-2"
+                                >
+                                    <span>🗑️</span> 삭제
+                                </button>
+                            </div>
+                        ) : (
+                            onSaveNikke && (
+                                <button
+                                    onClick={() => isEditMode ? handleSave() : setIsEditMode(true)}
+                                    className={`px-6 py-2 rounded-xl text-sm font-bold shadow-lg transition-all flex items-center gap-2 ${isEditMode ? 'bg-green-600 hover:bg-green-500 text-white' : 'bg-blue-600 hover:bg-blue-500 text-white'}`}
+                                >
+                                    {isEditMode ? (
+                                        <><span className="text-lg">💾</span> 저장하기</>
+                                    ) : (
+                                        <><span className="text-lg">📝</span> 정보 수정</>
+                                    )}
+                                </button>
+                            )
+                        )}
+                        {isEditMode && (
+                            <button
+                                onClick={handleCancelEdit}
+                                className="px-6 py-2 bg-gray-700 hover:bg-gray-600 text-gray-300 rounded-xl text-sm font-bold shadow-lg transition-all"
+                            >
+                                취소
+                            </button>
+                        )}
+                    </div>
                 </div>
-            </div>
+
+                <div className="flex-1 overflow-y-auto p-6 custom-scrollbar">
+                    <div className="space-y-6">
+
+            {/* DB Linking Overlay */}
+            {isLinking && (
+                <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-md p-4">
+                    <div className="bg-gray-900 border border-green-600/50 rounded-2xl w-full max-w-4xl max-h-[90vh] flex flex-col shadow-2xl overflow-hidden">
+                        <div className="p-6 border-b border-gray-800 flex justify-between items-center bg-green-900/10">
+                            <div>
+                                <h3 className="text-xl font-bold text-white flex items-center gap-2">
+                                    <span className="text-green-500">🔗</span> DB 니케와 연결
+                                </h3>
+                                <p className="text-sm text-gray-400 mt-1">게스트 니케 '{nikke.name}'을(를) DB에 등록된 니케로 교체합니다.</p>
+                            </div>
+                            <button onClick={() => setIsLinking(false)} className="text-gray-400 hover:text-white text-xl">✕</button>
+                        </div>
+                        
+                        <div className="p-6 flex-1 overflow-y-auto custom-scrollbar">
+                            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                                {masters.all_nikkes?.map((n: NikkeData) => (
+                                    <div 
+                                        key={n.id}
+                                        onClick={() => handleLinkToDB(n)}
+                                        className="cursor-pointer bg-gray-800/50 border border-gray-700 p-4 rounded-xl hover:border-green-500 hover:bg-green-900/20 transition-all group"
+                                    >
+                                        <div className="font-bold text-white group-hover:text-green-400">{n.name}</div>
+                                        <div className="text-xs text-gray-500 mt-1">{n.company} · {n.burst}버</div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )}
 
             <div className="bg-gradient-to-r from-gray-800 to-gray-900 rounded-t-xl p-6 border border-gray-700 border-b-0">
                 <div className="flex justify-between items-start">
@@ -478,17 +545,17 @@ export default function NikkeDetail({ nikke, onBack, onSaveNikke, highlightTags 
                             </span>
                         )}
                         <div className="flex flex-wrap gap-x-3 gap-y-1 mt-3 text-xs font-bold items-center">
-                            <span className={companyColors[currentData.company || ''] || 'text-gray-500'}>{currentData.company || '제조사 미정'}</span>
+                            <span className={(colors as any).company?.[currentData.company || ''] || 'text-gray-500'}>{currentData.company || '제조사 미정'}</span>
                             <span className="text-gray-600">|</span>
-                            <span className="text-gray-400">{currentData.squad || '스쿼드 미정'}</span>
+                            <span className="text-cyan-400">{currentData.squad || '스쿼드 미정'}</span>
                             <span className="text-gray-600">·</span>
-                            <span className={burstColors[currentData.burst] || 'text-gray-400'}>{currentData.burst}버</span>
+                            <span className={(colors as any).burst?.[currentData.burst] || 'text-gray-400'}>{currentData.burst}버</span>
                             <span className="text-gray-600">·</span>
-                            <span className={codeTextColors[currentData.code || ''] || 'text-gray-400'}>{currentData.code}</span>
+                            <span className={(colors as any).code_text?.[currentData.code || ''] || 'text-gray-400'}>{currentData.code}</span>
                             <span className="text-gray-600">·</span>
-                            <span className={classColors[currentData.class] || 'text-gray-400'}>{classNames[currentData.class] || currentData.class}</span>
+                            <span className={(colors as any).class?.[currentData.class] || 'text-gray-400'}>{(masters as any).class_names?.[currentData.class] || currentData.class}</span>
                             <span className="text-gray-600">·</span>
-                            <span className={weaponColors[currentData.weapon] || 'text-amber-400'}>{weaponNames[currentData.weapon] || currentData.weapon}</span>
+                            <span className={(colors as any).weapon?.[currentData.weapon] || 'text-amber-400'}>{(masters as any).weapon_names?.[currentData.weapon] || currentData.weapon}</span>
                         </div>
                     </div>
                     <div className={`px-4 py-2 rounded bg-black/50 border ${tierColor} font-black text-xl`}>{currentData.tier}</div>
@@ -514,6 +581,11 @@ export default function NikkeDetail({ nikke, onBack, onSaveNikke, highlightTags 
                     <div className="space-y-6">
                         {renderBasicTab()}
                         <hr className="border-gray-700" />
+                        <NikkeOptionsEditor
+                            data={currentData}
+                            onArrayFieldChange={handleArrayFieldChange}
+                        />
+                        <hr className="border-gray-700" />
                         {renderSkillsTab()}
                     </div>
                 )}
@@ -530,7 +602,10 @@ export default function NikkeDetail({ nikke, onBack, onSaveNikke, highlightTags 
                         onDataUpdate={(compare_data) => setEditData(prev => ({ ...prev, compare_data }))}
                     />
                 )}
+                </div>
             </div>
         </div>
+    </div>
+</div>
     );
 }

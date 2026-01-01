@@ -1,8 +1,5 @@
 import type { NikkeData } from '../data/nikkes';
-import {
-    weaponNames
-} from '../utils/nikkeConstants';
-import { getBurstOptions, getClassOptions, getCodeOptions, getCompanyOptions, getRarityOptions, getSquadOptions, getTierOptions, getWeaponOptions } from '../utils/nikkeDataManager';
+import { getBurstOptions, getClassOptions, getCodeOptions, getCompanyOptions, getMasters, getRarityOptions, getSquadOptions, getTierOptions, getWeaponOptions } from '../utils/nikkeDataManager';
 import { useState, useEffect } from 'react';
 import SquadManager from './SquadManager';
 import NikkeBuildEditor from './NikkeBuildEditor';
@@ -204,7 +201,7 @@ export default function NikkeFieldsEditor({ data, onChange, onUsageStatChange, o
                         <label className="text-xs text-gray-500 block mb-1">무기</label>
                         <select value={data.weapon} onChange={e => onChange('weapon', e.target.value)}
                             className="w-full bg-gray-800 border border-gray-700 text-white px-3 py-2 rounded">
-                            {weapons.map(t => <option key={t} value={t}>{weaponNames[t] || t}</option>)}
+                            {weapons.map(t => <option key={t} value={t}>{getMasters().weapon_names?.[t] || t}</option>)}
                         </select>
                     </div>
                 </div>

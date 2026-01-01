@@ -18,6 +18,7 @@ export interface NikkeData {
   class: string;
   weapon: string;
   rarity?: string;
+  thumbnail?: string; // 니케 썸네일 이미지 경로
 
   // NEW: Company/Manufacturer
   company?: string;  // 엘리시온, 미시리스, 테트라, 필그림, 이상현상

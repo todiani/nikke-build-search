@@ -7,7 +7,7 @@ export interface TotemNikke {
 export const TOTEM_NIKKES: TotemNikke[] = [
     { name: '크라운', reason: '상시 공증/받댐증/유틸 (현 메타 최고 토템)' },
     { name: '나유타', reason: '2버 딜포터, 평타 딜 기여 높음' },
-    { name: '세이렌', alias: ['리틀 머메이드'], reason: '상시 받댐증 + 버스트 충전 (1버 최상위)' },
+    { name: '리틀 머메이드', reason: '상시 받댐증 + 버스트 충전 (1버 최상위)' },
     { name: '리타', reason: '쿨감/공증, 버스트 없이도 상시 버퍼 우수' },
     { name: '루주', reason: '쿨감/공증 세트, 스킬만으로 가치 높음' },
     { name: '토브', reason: '1버 쿨감/속도, 샷건덱 토템' },

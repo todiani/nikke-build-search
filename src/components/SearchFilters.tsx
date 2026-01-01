@@ -1,5 +1,4 @@
-import { weaponNames, classNames } from '../utils/nikkeConstants';
-import { getUsedMasterOptions } from '../utils/nikkeDataManager';
+import { getUsedMasterOptions, getMasters } from '../utils/nikkeDataManager';
 
 export interface SearchFiltersState {
     tier: string;
@@ -29,6 +28,7 @@ interface SearchFiltersProps {
 }
 
 export default function SearchFilters({ filters, onChange, isOpen, onToggle }: SearchFiltersProps) {
+    const masters = getMasters();
     const options = {
         tiers: getUsedMasterOptions('tiers'),
         companies: getUsedMasterOptions('companies'),
@@ -113,7 +113,7 @@ export default function SearchFilters({ filters, onChange, isOpen, onToggle }: S
                             className="w-full bg-gray-800 text-white text-sm border border-gray-700 rounded px-2 py-1"
                         >
                             <option value="">전체</option>
-                            {options.classes.map(o => <option key={o} value={o}>{classNames[o] || o}</option>)}
+                            {options.classes.map(o => <option key={o} value={o}>{masters.class_names?.[o] || o}</option>)}
                         </select>
                     </div>
 
@@ -152,7 +152,7 @@ export default function SearchFilters({ filters, onChange, isOpen, onToggle }: S
                             className="w-full bg-gray-800 text-white text-sm border border-gray-700 rounded px-2 py-1"
                         >
                             <option value="">전체</option>
-                            {options.weapons.map(o => <option key={o} value={o}>{weaponNames[o] || o}</option>)}
+                            {options.weapons.map(o => <option key={o} value={o}>{masters.weapon_names?.[o] || o}</option>)}
                         </select>
                     </div>
                 </div>

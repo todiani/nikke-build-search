@@ -1,9 +1,10 @@
 import { useState, useEffect, useRef } from 'react';
 import type { NikkeData } from '../data/nikkes';
-import { tierColors } from '../utils/nikkeConstants';
 import { extractTagsFromSkill } from '../utils/tagExtractor';
 import NikkeFieldsEditor from './NikkeFieldsEditor';
-import { initializeNikkeData, normalize } from '../utils/nikkeDataManager';
+import NikkeSkillsEditor from './NikkeSkillsEditor';
+import NikkeOptionsEditor from './NikkeOptionsEditor';
+import { initializeNikkeData, normalize, getMasters } from '../utils/nikkeDataManager';
 import { matchKorean } from '../utils/hangul';
 import {
     getBackupSettings, saveBackupSettings, getBackupHistory,
@@ -82,7 +83,7 @@ export default function DataManager({ isOpen, onClose, data, onUpdate, initialNi
         const init = async () => {
             setLocalData([...data]);
             setJsonText(JSON.stringify(data, null, 2));
-            
+
             // If initialNikke is provided, jump straight to edit mode
             if (initialNikke) {
                 const existing = data.find(n => normalize(n.name) === normalize(initialNikke.name));
@@ -96,7 +97,7 @@ export default function DataManager({ isOpen, onClose, data, onUpdate, initialNi
                 setViewMode('edit');
                 setEditTab('info');
             }
-            
+
             await checkAndRunAutoBackup(data);
         };
         init();
@@ -108,8 +109,11 @@ export default function DataManager({ isOpen, onClose, data, onUpdate, initialNi
         n.name.toLowerCase().includes(searchFilter.toLowerCase()) ||
         n.name_en.toLowerCase().includes(searchFilter.toLowerCase())
     );
-  
-    const tierColor = (tier: string) => tierColors[tier] || 'text-gray-400 border-gray-400';
+
+    const masters = getMasters();
+    const colors = masters.colors || {} as any;
+
+    const tierColor = (tier: string) => (colors.tier?.[tier]) || 'text-gray-400 border-gray-400';
 
     // === Handlers ===
     const handleLinkAlias = (targetNikke: NikkeData) => {
@@ -258,10 +262,10 @@ export default function DataManager({ isOpen, onClose, data, onUpdate, initialNi
         } else {
             newData = localData.map(n => n.id === updatedNikke.id ? updatedNikke : n);
         }
-        
+
         setLocalData(newData);
         onUpdate(newData); // App.tsx handles API call
-        
+
         setViewMode('list');
         setSelectedNikke(null);
         setIsNewNikke(false);
@@ -271,7 +275,7 @@ export default function DataManager({ isOpen, onClose, data, onUpdate, initialNi
         const newData = localData.filter(n => n.id !== nikkeId);
         setLocalData(newData);
         onUpdate(newData); // App.tsx handles API call
-        
+
         setDeleteConfirm(null);
         if (selectedNikke?.id === nikkeId) {
             setSelectedNikke(null);
@@ -395,144 +399,26 @@ export default function DataManager({ isOpen, onClose, data, onUpdate, initialNi
     };
 
     const renderSkillsTab = () => {
-        const renderNormalAttackSection = () => {
-            const normal = selectedNikke?.skills_detail?.normal;
-            const weaponInfo = selectedNikke?.weapon_info;
-            return (
-                <div className="p-4 rounded-lg border border-gray-700 border-l-4 border-l-gray-500 bg-gray-900/10">
-                    <h4 className="text-sm font-bold text-white mb-3">일반 공격</h4>
-                    <div className="space-y-3">
-                        <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-                            <div>
-                                <label className="text-xs text-gray-500 block mb-1">무기 이름</label>
-                                <input type="text" value={weaponInfo?.weapon_name || ''}
-                                    onChange={e => handleFieldChange('weapon_info', { ...weaponInfo, weapon_name: e.target.value })}
-                                    placeholder="예: 머신건" className="w-full bg-gray-800 border border-gray-700 text-white px-3 py-2 rounded" />
-                            </div>
-                            <div>
-                                <label className="text-xs text-gray-500 block mb-1">최대 장탄 수</label>
-                                <input type="number" value={weaponInfo?.max_ammo || ''}
-                                    onChange={e => handleFieldChange('weapon_info', { ...weaponInfo, max_ammo: parseInt(e.target.value) || 0 })}
-                                    placeholder="300" className="w-full bg-gray-800 border border-gray-700 text-white px-3 py-2 rounded" />
-                            </div>
-                            <div>
-                                <label className="text-xs text-gray-500 block mb-1">재장전 시간 (초)</label>
-                                <input type="number" step="0.01" value={weaponInfo?.reload_time || ''}
-                                    onChange={e => handleFieldChange('weapon_info', { ...weaponInfo, reload_time: parseFloat(e.target.value) || 0 })}
-                                    placeholder="2.50" className="w-full bg-gray-800 border border-gray-700 text-white px-3 py-2 rounded" />
-                            </div>
-                            <div>
-                                <label className="text-xs text-gray-500 block mb-1">조작 타입</label>
-                                <select value={weaponInfo?.control_type || ''}
-                                    onChange={e => handleFieldChange('weapon_info', { ...weaponInfo, control_type: e.target.value })}
-                                    className="w-full bg-gray-800 border border-gray-700 text-white px-3 py-2 rounded">
-                                    <option value="">선택</option>
-                                    <option value="일반형">일반형</option>
-                                    <option value="차지형">차지형</option>
-                                    <option value="점사형">점사형</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div>
-                            <label className="text-xs text-gray-500 block mb-1">일반 공격 설명</label>
-                            <textarea value={normal?.desc || ''} onChange={e => handleSkillDetailChange('normal', 'desc', e.target.value)}
-                                placeholder="대상에게 [공격력 5.57% 대미지]..." className="w-full bg-gray-800 border border-gray-700 text-white px-3 py-2 rounded h-24 resize-none" />
-                        </div>
-                    </div>
-                </div>
-            );
-        };
-
-        const renderSkillSection = (skillKey: 'skill1' | 'skill2' | 'burst', label: string, borderColor: string, bgColor: string) => {
-            const skill = selectedNikke?.skills_detail?.[skillKey];
-            return (
-                <div className={`p-4 rounded-lg border border-gray-700 border-l-4 ${borderColor} ${bgColor}`}>
-                    <h4 className="text-sm font-bold text-white mb-3">{label}</h4>
-                    <div className="space-y-3">
-                        <div>
-                            <label className="text-xs text-gray-500 block mb-1">스킬명</label>
-                            <input type="text" value={skill?.name || ''} onChange={e => handleSkillDetailChange(skillKey, 'name', e.target.value)}
-                                placeholder="스킬 이름..." className="w-full bg-gray-800 border border-gray-700 text-white px-3 py-2 rounded" />
-                        </div>
-                        <div>
-                            <label className="text-xs text-gray-500 block mb-1">스킬 타입</label>
-                            <select value={skill?.type || '패시브'} onChange={e => handleSkillDetailChange(skillKey, 'type', e.target.value)}
-                                className="w-full bg-gray-800 border border-gray-700 text-white px-3 py-2 rounded">
-                                <option value="패시브">패시브</option>
-                                <option value="액티브">액티브</option>
-                            </select>
-                        </div>
-                        {skill?.type === '액티브' && (
-                            <div className="animate-fadeIn">
-                                <label className="text-xs text-gray-500 block mb-1">재사용 시간 (초)</label>
-                                <input type="text" value={skill?.cooldown || ''} onChange={e => handleSkillDetailChange(skillKey, 'cooldown', e.target.value)}
-                                    placeholder="예: 20.00초" className="w-full bg-gray-800 border border-gray-700 text-white px-3 py-2 rounded focus:border-blue-500 outline-none" />
-                            </div>
-                        )}
-                        <div>
-                            <label className="text-xs text-gray-500 block mb-1">스킬 설명</label>
-                            <textarea value={skill?.desc || ''} onChange={e => handleSkillDetailChange(skillKey, 'desc', e.target.value)}
-                                placeholder="스킬 효과 설명..." className="w-full bg-gray-800 border border-gray-700 text-white px-3 py-2 rounded h-24 resize-none" />
-                        </div>
-                        <div>
-                            <label className="text-xs text-gray-500 block mb-1">태그 (쉼표 구분, 저장 시 자동 추출)</label>
-                            <input type="text" value={skill?.tags?.join(', ') || ''} onChange={e => handleSkillTagsChange(skillKey, e.target.value)}
-                                placeholder="공격력 증가, 버프, 아군" className="w-full bg-gray-800 border border-gray-700 text-white px-3 py-2 rounded" />
-                            {skill?.tags && skill.tags.length > 0 && (
-                                <div className="flex flex-wrap gap-1 mt-2">
-                                    {skill.tags.map((tag, i) => <span key={i} className="text-[10px] px-2 py-0.5 bg-gray-700 text-gray-300 rounded">{tag}</span>)}
-                                </div>
-                            )}
-                        </div>
-                    </div>
-                </div>
-            );
-        };
-
+        if (!selectedNikke) return null;
         return (
-            <div className="space-y-4">
-                {renderNormalAttackSection()}
-                {renderSkillSection('skill1', '1스킬 (Skill 1)', 'border-l-green-600', 'bg-green-900/10')}
-                {renderSkillSection('skill2', '2스킬 (Skill 2)', 'border-l-blue-600', 'bg-blue-900/10')}
-                {renderSkillSection('burst', '버스트 (Burst)', 'border-l-purple-600', 'bg-purple-900/10')}
-            </div>
+            <NikkeSkillsEditor
+                data={selectedNikke}
+                onSkillDetailChange={handleSkillDetailChange}
+                onSkillTagsChange={handleSkillTagsChange}
+                handleFieldChange={handleFieldChange}
+            />
         );
     };
 
-    const renderOptionsTab = () => (
-        <div className="space-y-4">
-            <div className="bg-black/30 p-4 rounded-lg border border-gray-700">
-                <h4 className="text-sm font-bold text-green-400 mb-3">✓ 추천 옵션 (Valid)</h4>
-                <input type="text" value={selectedNikke?.valid_options?.join(', ') || ''} onChange={e => handleArrayFieldChange('valid_options', e.target.value)}
-                    placeholder="공격력 증가, 우월코드 대미지 증가, 차지 속도 증가"
-                    className="w-full bg-gray-800 border border-green-700 text-white px-3 py-2 rounded" />
-                {selectedNikke?.valid_options && selectedNikke.valid_options.length > 0 && (
-                    <div className="flex flex-wrap gap-1 mt-2">
-                        {selectedNikke.valid_options.map((opt, i) => <span key={i} className="text-xs px-2 py-0.5 bg-green-900/50 text-green-300 rounded">{opt}</span>)}
-                    </div>
-                )}
-            </div>
-
-            <div className="bg-black/30 p-4 rounded-lg border border-gray-700">
-                <h4 className="text-sm font-bold text-red-400 mb-3">✗ 비추천 옵션 (Invalid)</h4>
-                <input type="text" value={selectedNikke?.invalid_options?.join(', ') || ''} onChange={e => handleArrayFieldChange('invalid_options', e.target.value)}
-                    placeholder="방어력 증가, 차지 속도 증가 (MG의 경우)"
-                    className="w-full bg-gray-800 border border-red-700 text-white px-3 py-2 rounded" />
-                {selectedNikke?.invalid_options && selectedNikke.invalid_options.length > 0 && (
-                    <div className="flex flex-wrap gap-1 mt-2">
-                        {selectedNikke.invalid_options.map((opt, i) => <span key={i} className="text-xs px-2 py-0.5 bg-red-900/50 text-red-300 rounded">{opt}</span>)}
-                    </div>
-                )}
-            </div>
-
-            <div className="bg-black/30 p-4 rounded-lg border border-gray-700">
-                <h4 className="text-sm font-bold text-gray-400 mb-3">📋 간략 추천 (레거시)</h4>
-                <input type="text" value={selectedNikke?.options?.join(', ') || ''} onChange={e => handleArrayFieldChange('options', e.target.value)}
-                    placeholder="공격력, 우월코드, 장탄"
-                    className="w-full bg-gray-800 border border-gray-700 text-white px-3 py-2 rounded" />
-            </div>
-        </div>
-    );
+    const renderOptionsTab = () => {
+        if (!selectedNikke) return null;
+        return (
+            <NikkeOptionsEditor
+                data={selectedNikke}
+                onArrayFieldChange={handleArrayFieldChange}
+            />
+        );
+    };
 
     const renderGuideTab = () => {
         if (!selectedNikke) return null;
@@ -579,10 +465,10 @@ export default function DataManager({ isOpen, onClose, data, onUpdate, initialNi
                     {editTab === 'info' && (
                         <div className="space-y-6">
                             {renderBasicTab()}
-                            <hr className="border-gray-700" />
-                            {renderSkillsTab()}
-                            <hr className="border-gray-700" />
+                            <hr className="border-gray-700 mt-6" />
                             {renderOptionsTab()}
+                            <hr className="border-gray-700 my-6" />
+                            {renderSkillsTab()}
                         </div>
                     )}
                     {editTab === 'guide' && renderGuideTab()}
@@ -807,7 +693,7 @@ export default function DataManager({ isOpen, onClose, data, onUpdate, initialNi
                                 </div>
                                 <button onClick={() => setLinkingGuestName(null)} className="text-gray-500 hover:text-white p-2 transition-colors">✕</button>
                             </div>
-                            
+
                             <div className="p-4 bg-gray-950/50">
                                 <input
                                     type="text"
@@ -821,9 +707,9 @@ export default function DataManager({ isOpen, onClose, data, onUpdate, initialNi
 
                             <div className="flex-1 overflow-y-auto p-2 space-y-1 custom-scrollbar">
                                 {localData
-                                    .filter(n => 
-                                        !linkSearchTerm || 
-                                        matchKorean(n.name, linkSearchTerm) || 
+                                    .filter(n =>
+                                        !linkSearchTerm ||
+                                        matchKorean(n.name, linkSearchTerm) ||
                                         matchKorean(n.name_en, linkSearchTerm) ||
                                         n.name.toLowerCase().includes(linkSearchTerm.toLowerCase())
                                     )

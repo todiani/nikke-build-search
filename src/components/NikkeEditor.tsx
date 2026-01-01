@@ -1,10 +1,6 @@
 import { useState, useEffect } from 'react';
 import type { NikkeData } from '../data/nikkes';
-import {
-    weaponNames, classNames, classDescriptions,
-    burstColors, codeTextColors, classColors, companyColors, weaponColors
-} from '../utils/nikkeConstants';
-import { getBurstOptions, getClassOptions, getCodeOptions, getCompanyOptions, getRarityOptions, getSquadOptions, getTierOptions, getWeaponOptions } from '../utils/nikkeDataManager';
+import { getBurstOptions, getClassOptions, getCodeOptions, getCompanyOptions, getRarityOptions, getSquadOptions, getTierOptions, getWeaponOptions, getMasters } from '../utils/nikkeDataManager';
 import { extractTagsFromSkill } from '../utils/tagExtractor';
 
 interface NikkeEditorProps {
@@ -14,6 +10,8 @@ interface NikkeEditorProps {
 }
 
 export default function NikkeEditor({ nikke, onSave, onClose }: NikkeEditorProps) {
+    const masters = getMasters();
+    const colors = masters.colors || {};
     const [editData, setEditData] = useState<NikkeData>({ ...nikke });
     const [activeSection, setActiveSection] = useState<'basic' | 'skills' | 'options'>('basic');
     const [squads, setSquads] = useState<string[]>([]);
@@ -129,18 +127,18 @@ export default function NikkeEditor({ nikke, onSave, onClose }: NikkeEditorProps
                             )}
                             <div className="space-y-1 mt-2">
                                 <div className="flex flex-wrap gap-x-2 gap-y-1 text-[11px] font-bold">
-                                    <span className={companyColors[editData.company || ''] || 'text-gray-500'}>{editData.company || '제조사 미정'}</span>
+                                    <span className={colors.company?.[editData.company || ''] || 'text-gray-500'}>{editData.company || '제조사 미정'}</span>
                                     <span className="text-gray-600">|</span>
                                     <span className="text-gray-400">{editData.squad || '스쿼드 미정'}</span>
                                 </div>
                                 <div className="flex flex-wrap gap-x-2 text-[12px] font-black items-center mt-1 pt-1.5 border-t border-gray-700/50">
-                                    <span className={burstColors[editData.burst] || 'text-gray-400'}>{editData.burst}버</span>
+                                    <span className={colors.burst?.[editData.burst] || 'text-gray-400'}>{editData.burst}버</span>
                                     <span className="text-gray-500">·</span>
-                                    <span className={codeTextColors[editData.code || ''] || 'text-gray-400'}>{editData.code}</span>
+                                    <span className={colors.code_text?.[editData.code || ''] || 'text-gray-400'}>{editData.code}</span>
                                     <span className="text-gray-500">·</span>
-                                    <span className={classColors[editData.class] || 'text-gray-400'}>{classNames[editData.class] || editData.class}</span>
+                                    <span className={colors.class?.[editData.class] || 'text-gray-400'}>{masters.class_names?.[editData.class] || editData.class}</span>
                                     <span className="text-gray-500">·</span>
-                                    <span className={weaponColors[editData.weapon] || 'text-amber-400'}>{weaponNames[editData.weapon] || editData.weapon}</span>
+                                    <span className={colors.weapon?.[editData.weapon] || 'text-amber-400'}>{masters.weapon_names?.[editData.weapon] || editData.weapon}</span>
                                 </div>
                             </div>
                         </div>
@@ -234,7 +232,7 @@ export default function NikkeEditor({ nikke, onSave, onClose }: NikkeEditorProps
                                             className="w-full bg-gray-800 border border-gray-700 text-white px-3 py-2 rounded">
                                             {classes.map(t => (
                                                 <option key={t} value={t}>
-                                                    {classDescriptions[t] || classNames[t] || t}
+                                                    {masters.class_descriptions?.[t] || masters.class_names?.[t] || t}
                                                 </option>
                                             ))}
                                         </select>
@@ -258,7 +256,7 @@ export default function NikkeEditor({ nikke, onSave, onClose }: NikkeEditorProps
                                         <label className="text-xs text-gray-500 block mb-1">무기 종류</label>
                                         <select value={editData.weapon} onChange={e => handleChange('weapon', e.target.value)}
                                             className="w-full bg-gray-800 border border-gray-700 text-white px-3 py-2 rounded">
-                                            {weapons.map(t => <option key={t} value={t}>{weaponNames[t] || t}</option>)}
+                                            {weapons.map(t => <option key={t} value={t}>{masters.weapon_names?.[t] || t}</option>)}
                                         </select>
                                     </div>
                                     <div>

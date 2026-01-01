@@ -70,15 +70,15 @@ export const CORPORATE_TOWER_DATA: CorporateTower[] = [
     {
         name: "필그림/오버스펙",
         nikkes: [
-            { tier: "0", burst: "B1/B3", role: "버퍼/딜러", name: "라피 : 레드 후드", alternatives: ["크라운", "세이렌 : 리틀 머메이드"], note: "올라운더·핵심" },
-            { tier: "0", burst: "B2", role: "딜서포터", name: "크라운", alternatives: ["나유타", "세이렌 : 리틀 머메이드"], note: "쿨감·버프·받댐증" },
+            { tier: "0", burst: "B1/B3", role: "버퍼/딜러", name: "라피 : 레드 후드", alternatives: ["크라운", "리틀 머메이드"], note: "올라운더·핵심" },
+            { tier: "0", burst: "B2", role: "딜서포터", name: "크라운", alternatives: ["나유타", "리틀 머메이드"], note: "쿨감·버프·받댐증" },
             { tier: "0", burst: "B3", role: "딜러", name: "모더니아", alternatives: ["홍련 : 흑영", "신데렐라"], note: "차지·작열·광역" },
             { tier: "0", burst: "B3", role: "딜러", name: "신데렐라", alternatives: ["모더니아", "홍련 : 흑영"], note: "전격·광역·폭딜" },
             { tier: "0", burst: "B3", role: "딜러", name: "홍련 : 흑영", alternatives: ["홍련", "신데렐라"], note: "풍압·지속딜" },
-            { tier: "0", burst: "B1", role: "힐러", name: "라푼젤", alternatives: ["도로시", "세이렌 : 리틀 머메이드"], note: "힐·부활·생존" },
-            { tier: "0", burst: "B1", role: "버퍼", name: "도로시", alternatives: ["세이렌 : 리틀 머메이드", "나유타"], note: "쿨감·받댐증" },
-            { tier: "1", burst: "B1", role: "버퍼", name: "세이렌 : 리틀 머메이드", alternatives: ["나유타", "노벨"], note: "받댐증·버프" },
-            { tier: "1", burst: "B2", role: "딜서포터", name: "나유타", alternatives: ["노벨", "세이렌 : 리틀 머메이드"], note: "버충·디버프" },
+            { tier: "0", burst: "B1", role: "힐러", name: "라푼젤", alternatives: ["도로시", "리틀 머메이드"], note: "힐·부활·생존" },
+            { tier: "0", burst: "B1", role: "버퍼", name: "도로시", alternatives: ["리틀 머메이드", "나유타"], note: "쿨감·받댐증" },
+            { tier: "1", burst: "B1", role: "버퍼", name: "리틀 머메이드", alternatives: ["나유타", "노벨"], note: "받댐증·버프" },
+            { tier: "1", burst: "B2", role: "딜서포터", name: "나유타", alternatives: ["노벨", "리틀 머메이드"], note: "버충·디버프" },
             { tier: "1", burst: "B3", role: "딜러", name: "미하라 : 본딩 체인", alternatives: ["홍련", "하란"], note: "작열·지속딜" },
             { tier: "1", burst: "B1/B2/B3", role: "딜러", name: "레드 후드", alternatives: ["라피 : 레드 후드", "맥스웰"], note: "철갑·올라운더" },
             { tier: "1", burst: "B2", role: "딜러", name: "그레이브", alternatives: ["크라운", "나유타"], note: "작열·지속딜" },
@@ -138,9 +138,9 @@ export const ATTRIBUTE_TOWER_DATA: AttributeTower[] = [
         name: "수냉",
         code: "A.P.H.R.O.D.I.T.E",
         nikkes: [
-            { tier: "0", role: "1황 힐러", name: "라푼젤", alternatives: ["도로시", "세이렌 : 리틀 머메이드"], note: "힐·부활·생존" },
+            { tier: "0", role: "1황 힐러", name: "라푼젤", alternatives: ["도로시", "리틀 머메이드"], note: "힐·부활·생존" },
             { tier: "1", role: "서포터", name: "도로시", alternatives: ["라푼젤", "수냉 보조"], note: "쿨감·받댐증" },
-            { tier: "2", role: "서브딜", name: "세이렌 : 리틀 머메이드", alternatives: ["프리바티", "아인"], note: "버프·받댐증" },
+            { tier: "2", role: "서브딜", name: "리틀 머메이드", alternatives: ["프리바티", "아인"], note: "버프·받댐증" },
             { tier: "3", role: "보조딜", name: "프리바티", alternatives: ["헬름", "길티"], note: "기절·공증" },
         ]
     }

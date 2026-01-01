@@ -11,12 +11,12 @@ import MasterDataManager from './components/MasterDataManager';
 import type { NikkeData } from './data/nikkes';
 import { matchKorean } from './utils/hangul';
 import { TAG_DATA } from './data/tags';
-import { loadDB, saveNikkes, saveTags, normalize, LATEST_TIERS } from './utils/nikkeDataManager';
-
-import { codeTextColors, burstColors, classColors, companyColors, classNames } from './utils/nikkeConstants';
+import { BURST_DB, setBurstDB } from './data/burst_db';
+import { loadDB, saveNikkes, saveTags, normalize, getMasters, saveTowerSquads, saveMetaTeams, saveSavedTeams } from './utils/nikkeDataManager';
 
 function App() {
   const [allNikkes, setAllNikkes] = useState<NikkeData[]>([]);
+  const [burstDBState, setBurstDBState] = useState(BURST_DB);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedNikke, setSelectedNikke] = useState<NikkeData | null>(null);
   const [filters, setFilters] = useState(initialFilters);
@@ -32,11 +32,18 @@ function App() {
 
   const reloadDB = async () => {
     console.log('[DEBUG] Starting data load...');
-    const { nikkes, squads, tags } = await loadDB();
+    const data = await loadDB(true); // Force reload from server
+    if (!data) return;
+    
+    const { nikkes, squads, tags, burst_db } = data;
     console.log(`[DEBUG] Loaded ${nikkes.length} nikkes and ${squads.length} squads from DB`);
+    
     setAllNikkes(nikkes);
     if (tags) {
       setCustomTagData(tags);
+    }
+    if (burst_db) {
+      setBurstDBState({ ...burst_db });
     }
     setSelectedNikke(prev => {
       if (!prev) return null;
@@ -108,7 +115,8 @@ function App() {
   });
 
   // Filters and Searching Logic
-  const [activeTab, setActiveTab] = useState('list');
+  // Unused state can be removed if strictly necessary, but keeping for now as they might be part of ongoing features.
+  // const [activeTab, setActiveTab] = useState('list');
 
   console.log('[DEBUG] Filtering:', {
     allNikkes: allNikkes.length,
@@ -129,6 +137,7 @@ function App() {
   };
 
   const handleSelectNikke = (nikke: NikkeData) => {
+    console.log('[DEBUG] handleSelectNikke called with:', { id: nikke.id, name: nikke.name });
     setSelectedNikke(nikke);
   };
 
@@ -136,6 +145,9 @@ function App() {
     setSelectedNikke(nikke);
     setActiveSearchTags(tagInfo);
   };
+
+  const masters = getMasters();
+  const colors = (masters.colors || {}) as any;
 
   return (
     <div className="min-h-screen p-8 pb-20 relative">
@@ -175,11 +187,11 @@ function App() {
 
       {isTagEditorOpen && (
         <TagEditor
-        isOpen={isTagEditorOpen}
-        onClose={() => setIsTagEditorOpen(false)}
-        onSave={handleTagDataSave}
-        currentTagData={customTagData}
-      />
+          isOpen={isTagEditorOpen}
+          onClose={() => setIsTagEditorOpen(false)}
+          onSave={handleTagDataSave}
+          currentTagData={customTagData}
+        />
       )}
 
       {isMasterDataManagerOpen && (
@@ -214,31 +226,28 @@ function App() {
         <div className="flex justify-center gap-4 p-1 bg-gray-900/80 border border-gray-700 rounded-xl backdrop-blur-md">
           <button
             onClick={() => setSearchMode('name')}
-            className={`flex-1 py-3 px-6 rounded-lg text-sm font-bold transition-all duration-300 flex items-center justify-center gap-2 ${
-              searchMode === 'name' 
-              ? 'bg-nikke-red text-white shadow-lg shadow-nikke-red/20' 
+            className={`flex-1 py-3 px-6 rounded-lg text-sm font-bold transition-all duration-300 flex items-center justify-center gap-2 ${searchMode === 'name'
+              ? 'bg-nikke-red text-white shadow-lg shadow-nikke-red/20'
               : 'text-gray-500 hover:text-gray-300 hover:bg-gray-800'
-            }`}
+              }`}
           >
             <span>🔍</span> 이름 검색
           </button>
           <button
             onClick={() => setSearchMode('tag')}
-            className={`flex-1 py-3 px-6 rounded-lg text-sm font-bold transition-all duration-300 flex items-center justify-center gap-2 ${
-              searchMode === 'tag' 
-              ? 'bg-nikke-accent text-white shadow-lg shadow-nikke-accent/20' 
+            className={`flex-1 py-3 px-6 rounded-lg text-sm font-bold transition-all duration-300 flex items-center justify-center gap-2 ${searchMode === 'tag'
+              ? 'bg-nikke-accent text-white shadow-lg shadow-nikke-accent/20'
               : 'text-gray-500 hover:text-gray-300 hover:bg-gray-800'
-            }`}
+              }`}
           >
             <span>🏷️</span> 스마트 태그
           </button>
           <button
             onClick={() => setSearchMode('team')}
-            className={`flex-1 py-3 px-6 rounded-lg text-sm font-bold transition-all duration-300 flex items-center justify-center gap-2 ${
-              searchMode === 'team' 
-              ? 'bg-blue-600 text-white shadow-lg shadow-blue-600/20' 
+            className={`flex-1 py-3 px-6 rounded-lg text-sm font-bold transition-all duration-300 flex items-center justify-center gap-2 ${searchMode === 'team'
+              ? 'bg-blue-600 text-white shadow-lg shadow-blue-600/20'
               : 'text-gray-500 hover:text-gray-300 hover:bg-gray-800'
-            }`}
+              }`}
           >
             <span>📊</span> 조합 분석
           </button>
@@ -247,8 +256,8 @@ function App() {
 
       <main className="max-w-[1600px] mx-auto px-4 pb-12 min-h-[600px]">
         {selectedNikke ? (
-          <NikkeDetail 
-            nikke={selectedNikke} 
+          <NikkeDetail
+            nikke={selectedNikke}
             onBack={() => setSelectedNikke(null)}
             onSaveNikke={handleNikkeSave}
             highlightTags={activeSearchTags}
@@ -257,37 +266,37 @@ function App() {
           <>
             {searchMode === 'name' && (
               <div className="animate-fadeIn">
-                <SearchBar 
-                  value={searchTerm} 
-                  onChange={handleSearchChange} 
+                <SearchBar
+                  value={searchTerm}
+                  onChange={handleSearchChange}
                   focusTrigger={searchMode}
                 />
-                
+
                 <div className="mb-8">
                   <div className="flex justify-between items-center mb-4">
                     <h2 className="text-xl font-bold text-white flex items-center gap-2">
                       <span className="w-1.5 h-6 bg-nikke-red rounded-full"></span>
                       상세 필터
                     </h2>
-                    <button 
+                    <button
                       onClick={() => setFilters(initialFilters)}
                       className="text-sm text-gray-500 hover:text-nikke-red transition-colors"
                     >
                       필터 초기화
                     </button>
                   </div>
-                  <SearchFilters 
-                    filters={filters} 
-                    onChange={setFilters} 
-                    isOpen={isFilterOpen} 
-                    onToggle={() => setIsFilterOpen(!isFilterOpen)} 
+                  <SearchFilters
+                    filters={filters}
+                    onChange={setFilters}
+                    isOpen={isFilterOpen}
+                    onToggle={() => setIsFilterOpen(!isFilterOpen)}
                   />
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 3xl:grid-cols-8 gap-4">
                   {filteredNikkes.length > 0 ? (
                     filteredNikkes.map(nikke => (
-                      <div 
+                      <div
                         key={nikke.id}
                         onClick={() => handleSelectNikke(nikke)}
                         className="cursor-pointer transform hover:-translate-y-1 transition-all duration-300"
@@ -295,45 +304,44 @@ function App() {
                         <div className="bg-gray-800/50 border border-gray-700 rounded-xl p-4 hover:border-nikke-red group h-full flex flex-col justify-between">
                           <div className="flex justify-between items-start mb-2">
                             <div className="flex flex-col">
-                                <div className="flex items-baseline gap-1.5 flex-wrap">
-                                    <h3 className="font-bold text-white group-hover:text-nikke-red text-[13px]">
-                                        {nikke.name}
-                                    </h3>
-                                    {nikke.name_en && (
-                                        <span className="text-[10px] text-blue-400/80 font-medium">
-                                            {nikke.name_en}
-                                        </span>
-                                    )}
-                                </div>
-                                {nikke.extra_info && (
-                                    <span className="text-[11px] text-gray-400 font-medium mt-0.5">
-                                        {nikke.extra_info}
-                                    </span>
+                              <div className="flex items-baseline gap-1.5 flex-wrap">
+                                <h3 className="font-bold text-white group-hover:text-nikke-red text-[13px]">
+                                  {nikke.name}
+                                </h3>
+                                {nikke.name_en && (
+                                  <span className="text-[10px] text-blue-400/80 font-medium">
+                                    {nikke.name_en}
+                                  </span>
                                 )}
+                              </div>
+                              {nikke.extra_info && (
+                                <span className="text-[11px] text-gray-400 font-medium mt-0.5">
+                                  {nikke.extra_info}
+                                </span>
+                              )}
                             </div>
-                            <span className={`text-[12px] font-black ${
-                              nikke.tier === 'SSS' ? 'text-red-500' :
+                            <span className={`text-[12px] font-black ${nikke.tier === 'SSS' ? 'text-red-500' :
                               nikke.tier === 'SS' ? 'text-orange-400' :
-                              nikke.tier === 'S' ? 'text-yellow-400' :
-                              nikke.tier === 'A' ? 'text-blue-400' :
-                              'text-gray-400'
-                            }`}>{nikke.tier}</span>
+                                nikke.tier === 'S' ? 'text-yellow-400' :
+                                  nikke.tier === 'A' ? 'text-blue-400' :
+                                    'text-gray-400'
+                              }`}>{nikke.tier}</span>
                           </div>
-                          
+
                           <div className="space-y-1 mt-2">
-                              <div className="flex flex-wrap gap-x-2 gap-y-1 text-[10px] font-bold">
-                                  <span className={companyColors[nikke.company || ''] || 'text-gray-500'}>{nikke.company || '제조사 미정'}</span>
-                                  <span className="text-cyan-500">{nikke.squad || '스쿼드 미정'}</span>
-                              </div>
-                              <div className="flex flex-wrap gap-x-1.5 text-[11px] font-black items-center">
-                                  <span className={burstColors[nikke.burst] || 'text-gray-400'}>{nikke.burst}버</span>
-                                  <span className="text-gray-600">·</span>
-                                  <span className={codeTextColors[nikke.code || ''] || 'text-gray-400'}>{nikke.code}</span>
-                                  <span className="text-gray-600">·</span>
-                                  <span className={classColors[nikke.class] || 'text-gray-400'}>{classNames[nikke.class] || nikke.class}</span>
-                                  <span className="text-gray-600">·</span>
-                                  <span className="text-white">{nikke.weapon}</span>
-                              </div>
+                            <div className="flex flex-wrap gap-x-2 gap-y-1 text-[10px] font-bold">
+                              <span className={colors.company?.[nikke.company || ''] || 'text-gray-500'}>{nikke.company || '제조사 미정'}</span>
+                              <span className="text-cyan-500">{nikke.squad || '스쿼드 미정'}</span>
+                            </div>
+                            <div className="flex flex-wrap gap-x-1.5 text-[11px] font-black items-center">
+                              <span className={colors.burst?.[nikke.burst] || 'text-gray-400'}>{nikke.burst}버</span>
+                              <span className="text-gray-600">·</span>
+                              <span className={colors.code_text?.[nikke.code || ''] || 'text-gray-400'}>{nikke.code}</span>
+                              <span className="text-gray-600">·</span>
+                              <span className={colors.class?.[nikke.class] || 'text-gray-400'}>{masters.class_names?.[nikke.class] || nikke.class}</span>
+                              <span className="text-gray-600">·</span>
+                              <span className="text-white">{masters.weapon_names?.[nikke.weapon] || nikke.weapon}</span>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -349,7 +357,7 @@ function App() {
             )}
 
             {searchMode === 'tag' && (
-              <SmartTagSearch 
+              <SmartTagSearch
                 allNikkes={allNikkes}
                 onSelectNikke={handleSelectNikkeWithTags}
                 onEditNikke={handleOpenDataManagerWithNikke}
@@ -360,12 +368,14 @@ function App() {
             )}
 
             {searchMode === 'team' && (
-              <TeamAnalysis 
-                currentNikke={selectedNikke || undefined} 
+              <TeamAnalysis
+                currentNikke={selectedNikke || undefined}
                 allNikkes={allNikkes}
                 onSelectNikke={handleSelectNikke}
                 onOpenDataManager={handleOpenDataManagerWithNikke}
                 onSaveNikke={handleNikkeSave}
+                burstDB={burstDBState}
+                onReloadDB={reloadDB}
               />
             )}
           </>

@@ -10,46 +10,9 @@ export const weaponNames: Record<string, string> = {
     'MG': '머신건(MG)'
 };
 
-// 스쿼드 옵션 (기업별 정리)
-export const squadOptions = [
-    // 엘리시온
-    '앱솔루트 (Absolute)',
-    '인피니티 레일',
-    'A.C.P.U.',
-    '이지스',
-    '트라이앵글',
-    '세리핌',
-    '프로토콜',
-    '스카우팅',
-    '익스터너',
-    '마스터 핸드',
-    '달란트',
-    '라이프 토닉',
-    '리콜 릴리즈',
-    'M.M.R',
-    '리틀 캐논',
-    '리플레이스',
-    // 미실리스
-    '마이티 툴즈',
-    '워드레스 (Wardress)',
-    '리얼 카인드니스',
-    '엑소틱 (Exotic)',
-    '마티스',
-    // 테트라
-    '카페 스위티',
-    '777',
-    '언더월드 퀸',
-    '메이드 포 유',
-    '프리마 돈나',
-    '탈란툼',
-    // 필그림
-    '갓데스',
-    '인헤리트',
-    '파이오니어',
-    // 기타
-    '카운터스',
-    '언리미티드'
-];
+// squadOptions는 이제 public/data/nikke_db.json의 masters.squads에서 관리됩니다.
+// export const squadOptions = [...]; // 삭제됨
+
 
 // 클래스 이름 매핑
 export const classNames: Record<string, string> = {
@@ -108,14 +71,8 @@ export const weaponColors: Record<string, string> = {
     'MG': 'text-orange-400'
 };
 
-// 코드 색상 매핑
-export const codeColors: Record<string, string> = {
-    '작열': 'bg-orange-900/50 text-orange-300 border-orange-700',
-    '풍압': 'bg-green-900/50 text-green-300 border-green-700',
-    '철갑': 'bg-yellow-900/50 text-yellow-300 border-yellow-700',
-    '전격': 'bg-blue-900/50 text-blue-300 border-blue-700',
-    '수냉': 'bg-cyan-900/50 text-cyan-300 border-cyan-700'
-};
+// codeColors 등 색상 데이터는 이제 public/data/nikke_db.json의 masters.colors에서 관리됩니다.
+// export const codeColors: Record<string, string> = {...}; // 삭제됨
 
 // 티어 색상 매핑
 export const tierColors: Record<string, string> = {

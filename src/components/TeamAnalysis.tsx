@@ -1,16 +1,21 @@
 import { useState, useMemo, useEffect } from 'react';
 import type { NikkeData } from '../data/nikkes';
-import type { MetaTeam } from '../utils/nikkeDataManager';
+import { BURST_DB as BURSTDB, type RLStage } from '../data/burst_db';
 import { SYNERGIES } from '../data/synergies';
 import { matchKorean } from '../utils/hangul';
-import { BURST_DB as BURSTDB, type RLStage } from '../data/burst_db';
 import TowerTierList from './TowerTierList';
-import { loadDB, saveTowerSquads, saveMetaTeams, saveSavedTeams, LATEST_TIERS, normalize } from '../utils/nikkeDataManager';
+import { loadDB, saveTowerSquads, saveMetaTeams, saveSavedTeams, normalize, getMasters } from '../utils/nikkeDataManager';
+import type { MetaCategory, MetaTeam } from '../utils/nikkeDataManager';
 import SearchBar from './SearchBar';
 import SearchFilters, { initialFilters, type SearchFiltersState } from './SearchFilters';
-import NikkeDetail from './NikkeDetail';
 
-import { codeTextColors, burstColors, classColors, companyColors, classNames, weaponColors } from '../utils/nikkeConstants';
+interface SavedTeam {
+    id: number;
+    name: string;
+    category: string;
+    members: (string | { id: string; name: string; isGuest?: boolean })[];
+    date: string;
+}
 
 interface TeamAnalysisProps {
     currentNikke?: NikkeData;
@@ -18,18 +23,23 @@ interface TeamAnalysisProps {
     onSelectNikke?: (nikke: NikkeData) => void;
     onOpenDataManager?: (nikke: NikkeData) => void;
     onSaveNikke?: (nikke: NikkeData) => Promise<void>;
+    burstDB?: any;
+    onReloadDB?: () => Promise<void>;
 }
 
 // 니케 카드 디자인 통일 (CategoryNikkeItem)
 function CategoryNikkeItem({ nikke, categoryId, onSelect }: { nikke: NikkeData, categoryId: string, onSelect?: (n: NikkeData) => void }) {
+    const masters = getMasters();
+    const colors = (masters.colors || {}) as any;
+
     // 티어 정보 가져오기 (LATEST_TIERS 기반)
     const stars = getNikkeStarsForCategory(nikke, categoryId);
-    
+
     // 티어 표시 변환 (별 -> 문자)
     const displayTier = stars === 5 ? 'SSS' : stars === 4 ? 'SS' : stars === 3 ? 'S' : stars === 2 ? 'A' : 'B';
 
     return (
-        <div 
+        <div
             onClick={() => onSelect?.(nikke)}
             className="cursor-pointer transform hover:-translate-y-1 transition-all duration-300"
         >
@@ -52,30 +62,29 @@ function CategoryNikkeItem({ nikke, categoryId, onSelect }: { nikke: NikkeData, 
                             </span>
                         )}
                     </div>
-                    <span className={`text-[12px] font-black ${
-                        displayTier === 'SSS' ? 'text-red-500' :
+                    <span className={`text-[12px] font-black ${displayTier === 'SSS' ? 'text-red-500' :
                         displayTier === 'SS' ? 'text-orange-400' :
-                        displayTier === 'S' ? 'text-yellow-400' :
-                        displayTier === 'A' ? 'text-blue-400' :
-                        'text-gray-400'
-                    }`}>{displayTier}</span>
+                            displayTier === 'S' ? 'text-yellow-400' :
+                                displayTier === 'A' ? 'text-blue-400' :
+                                    'text-gray-400'
+                        }`}>{displayTier}</span>
                 </div>
-                
+
                 <div className="space-y-1 mt-2">
                     <div className="flex flex-wrap gap-x-2 gap-y-1 text-[10px] font-bold">
-                        <span className={companyColors[nikke.company || ''] || 'text-gray-500'}>{nikke.company || '제조사 미정'}</span>
+                        <span className={colors.company?.[nikke.company || ''] || 'text-gray-500'}>{nikke.company || '제조사 미정'}</span>
                         <span className="text-gray-600">|</span>
                         <span className="text-cyan-400">{nikke.squad || '스쿼드 미정'}</span>
                     </div>
                     <div className="flex flex-wrap gap-x-1.5 text-[11px] font-black items-center mt-1 pt-1 border-t border-gray-700/50">
-                    <span className={burstColors[nikke.burst] || 'text-gray-400'}>{nikke.burst}버</span>
-                    <span className="text-gray-600">·</span>
-                    <span className={codeTextColors[nikke.code || ''] || 'text-gray-400'}>{nikke.code}</span>
-                    <span className="text-gray-600">·</span>
-                    <span className={classColors[nikke.class] || 'text-gray-400'}>{classNames[nikke.class] || nikke.class}</span>
-                    <span className="text-gray-600">·</span>
-                    <span className={weaponColors[nikke.weapon] || 'text-amber-400'}>{nikke.weapon}</span>
-                </div>
+                        <span className={colors.burst?.[nikke.burst] || 'text-gray-400'}>{nikke.burst}버</span>
+                        <span className="text-gray-600">·</span>
+                        <span className={colors.code_text?.[nikke.code || ''] || 'text-gray-400'}>{nikke.code}</span>
+                        <span className="text-gray-600">·</span>
+                        <span className={colors.class?.[nikke.class] || 'text-gray-400'}>{masters.class_names?.[nikke.class] || nikke.class}</span>
+                        <span className="text-gray-600">·</span>
+                        <span className={colors.weapon?.[nikke.weapon] || 'text-amber-400'}>{masters.weapon_names?.[nikke.weapon] || nikke.weapon}</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -93,23 +102,27 @@ const getNikkeStarsForCategory = (nikke: NikkeData, categoryId: string) => {
         'Tower': '기업타워'
     };
     const categoryKey = mapping[categoryId] || categoryId;
-    const categoryTiers = LATEST_TIERS[categoryKey] || {};
-    
+
+    const masters = getMasters();
+    const latestTiers = masters.latest_tiers || {};
+
+    const categoryTiers = latestTiers[categoryKey] || {};
+
     // 이름 매칭 (정확히 일치하거나 normalize해서 일치하는지 확인)
     if (categoryTiers[nikke.name]) return categoryTiers[nikke.name];
-    
+
     const searchName = normalize(nikke.name);
     for (const [name, stars] of Object.entries(categoryTiers)) {
         if (normalize(name) === searchName) return (stars as number);
     }
-    
+
     return 0;
 };
 
 // 니케 선택 모달 컴포넌트
-function NikkeSelector({ isOpen, onClose, onSelect, allNikkes }: { 
-    isOpen: boolean; 
-    onClose: () => void; 
+function NikkeSelector({ isOpen, onClose, onSelect, allNikkes }: {
+    isOpen: boolean;
+    onClose: () => void;
     onSelect: (nikke: NikkeData) => void;
     allNikkes: NikkeData[];
 }) {
@@ -148,15 +161,15 @@ function NikkeSelector({ isOpen, onClose, onSelect, allNikkes }: {
                     <div className="flex flex-col gap-4">
                         <div className="flex flex-col md:flex-row gap-4">
                             <div className="flex-1">
-                                <SearchBar 
-                                    value={searchTerm} 
+                                <SearchBar
+                                    value={searchTerm}
                                     onChange={setSearchTerm}
                                     autoFocus={true}
                                 />
                             </div>
                             <div className="flex items-start">
-                                <SearchFilters 
-                                    filters={filters} 
+                                <SearchFilters
+                                    filters={filters}
                                     onChange={setFilters}
                                     isOpen={isFilterOpen}
                                     onToggle={() => setIsFilterOpen(!isFilterOpen)}
@@ -169,9 +182,9 @@ function NikkeSelector({ isOpen, onClose, onSelect, allNikkes }: {
                 <div className="flex-1 overflow-y-auto p-8 custom-scrollbar">
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
                         {filteredNikkes.map(nikke => (
-                            <CategoryNikkeItem 
-                                key={nikke.id} 
-                                nikke={nikke} 
+                            <CategoryNikkeItem
+                                key={nikke.id}
+                                nikke={nikke}
                                 categoryId="Stage"
                                 onSelect={onSelect}
                             />
@@ -187,12 +200,21 @@ function NikkeSelector({ isOpen, onClose, onSelect, allNikkes }: {
     );
 }
 
-export default function TeamAnalysis({ currentNikke, allNikkes = [], onSelectNikke, onOpenDataManager, onSaveNikke }: TeamAnalysisProps) {
+export default function TeamAnalysis({ allNikkes = [], onSelectNikke, burstDB, onReloadDB }: TeamAnalysisProps) {
+    const masters = getMasters();
+    const colors = (masters.colors || {}) as any;
+
+    // UI 컬러 매핑 변수 정의 (기존 코드에서 참조하는 변수들)
+    const companyColors = colors.company || {};
+    const burstColors = colors.burst || {};
+    const codeTextColors = colors.code_text || {};
+    const classColors = colors.class || {};
+    const weaponColors = colors.weapon || {};
+    const classNames = masters.class_names || {};
+
     // 검색 및 필터 상태 추가
     const [searchTerm, setSearchTerm] = useState('');
     const [filters, setFilters] = useState<SearchFiltersState>(initialFilters);
-    const [isFilterOpen, setIsFilterOpen] = useState(false);
-
     // 필터링 로직
     const filteredNikkes = useMemo(() => {
         return allNikkes.filter(nikke => {
@@ -222,7 +244,7 @@ export default function TeamAnalysis({ currentNikke, allNikkes = [], onSelectNik
 
     // State for Simulation Settings
     const [simSettings, setSimSettings] = useState({
-        level: 360, 
+        level: 360,
         core: 0,
         equipTier: 3
     });
@@ -231,17 +253,25 @@ export default function TeamAnalysis({ currentNikke, allNikkes = [], onSelectNik
     const [savedTeams, setSavedTeams] = useState<SavedTeam[]>([]);
     const [metaTeams, setMetaTeams] = useState<MetaTeam[]>([]);
     const [towerSquads, setTowerSquads] = useState<Record<string, string[][]>>({});
+    const [isDataLoaded, setIsDataLoaded] = useState(false); // Add safety flag
 
     // Burst DB Editor States
     const [showBurstEditor, setShowBurstEditor] = useState(false);
-    const [localBurstDB, setLocalBurstDB] = useState(BURSTDB);
+    const [localBurstDB, setLocalBurstDB] = useState(burstDB || BURSTDB);
 
     // Sync with global BURST_DB when it updates
     useEffect(() => {
-        if (showBurstEditor) {
-            setLocalBurstDB(BURSTDB);
+        if (burstDB) {
+            setLocalBurstDB(burstDB);
         }
-    }, [showBurstEditor]);
+    }, [burstDB]);
+
+    // Also sync when editor opens
+    useEffect(() => {
+        if (showBurstEditor && burstDB) {
+            setLocalBurstDB(burstDB);
+        }
+    }, [showBurstEditor, burstDB]);
     const [editorSearchTerm, setEditorSearchTerm] = useState('');
 
     // Automatically sync all Nikkes into localBurstDB
@@ -286,6 +316,9 @@ export default function TeamAnalysis({ currentNikke, allNikkes = [], onSelectNik
             });
             if (response.ok) {
                 setLocalBurstDB(newData);
+                if (onReloadDB) {
+                    await onReloadDB();
+                }
                 alert("버스트 DB가 저장되었습니다.");
             } else {
                 alert("저장 실패");
@@ -308,10 +341,16 @@ export default function TeamAnalysis({ currentNikke, allNikkes = [], onSelectNik
     // Load Data from LocalStorage/DB
     useEffect(() => {
         const init = async () => {
-            const { meta_teams, tower_squads, saved_teams } = await loadDB();
-            if (saved_teams && saved_teams.length > 0) setSavedTeams(saved_teams);
-            if (meta_teams && meta_teams.length > 0) setMetaTeams(meta_teams);
+            const data = await loadDB();
+            if (!data) {
+                console.error('[Error] Failed to load DB data in TeamAnalysis');
+                return;
+            }
+            const { meta_teams, tower_squads, saved_teams } = data;
+            if (saved_teams) setSavedTeams(saved_teams);
+            if (meta_teams) setMetaTeams(meta_teams);
             if (tower_squads) setTowerSquads(tower_squads);
+            setIsDataLoaded(true); // Data is now safe to save
         };
         init();
     }, []);
@@ -323,11 +362,19 @@ export default function TeamAnalysis({ currentNikke, allNikkes = [], onSelectNik
     };
 
     const updateMetaTeams = async (newTeams: MetaTeam[]) => {
+        if (!isDataLoaded) {
+            console.warn("[Safety] Blocked meta_teams save: Data not yet loaded.");
+            return;
+        }
         setMetaTeams(newTeams);
         await saveMetaTeams(newTeams);
     };
 
     const updateSavedTeams = async (newTeams: SavedTeam[]) => {
+        if (!isDataLoaded) {
+            console.warn("[Safety] Blocked saved_teams save: Data not yet loaded.");
+            return;
+        }
         setSavedTeams(newTeams);
         await saveSavedTeams(newTeams);
     };
@@ -361,56 +408,65 @@ export default function TeamAnalysis({ currentNikke, allNikkes = [], onSelectNik
 
         const name = typeof nameOrObj === 'string' ? nameOrObj : nameOrObj.name;
         const id = typeof nameOrObj === 'string' ? null : nameOrObj.id;
-        
+
         // Robust normalization: Remove spaces, special characters, and content in parentheses
         const robustNormalize = (s: string) => s.split('(')[0].replace(/[^\w가-힣]/g, '').toLowerCase();
         const searchName = robustNormalize(name);
 
         // 1. Find in allNikkes (User's DB)
         let found = id ? allNikkes.find(n => n.id === id) : null;
-        
+
         if (!found) {
             found = allNikkes.find(n => {
                 const dbName = robustNormalize(n.name);
                 const dbNameEn = n.name_en ? robustNormalize(n.name_en) : '';
                 const dbAliases = n.aliases?.map(a => robustNormalize(a)) || [];
-                
+
                 return dbName === searchName || dbNameEn === searchName || dbAliases.includes(searchName);
             });
         }
 
         if (found) {
             return {
+                ...found,
                 burst: (found.name.includes('레드후드') || found.name.includes('레드 후드')) ? 'A' : found.burst,
                 element: found.code,
-                code: found.code,
-                weapon: found.weapon,
-                class: found.class,
-                name: found.name,
-                name_en: found.name_en,
-                extra_info: found.extra_info,
-                thumbnail: found.thumbnail,
-                company: found.company,
-                squad: found.squad,
                 isGuest: false
             };
         }
 
-        // Fallback for Nikkes not yet perfectly matched but treated as in DB
-        return { 
-            burst: name.includes('레드후드') ? 'A' : '?', 
-            element: '?', 
-            code: '?',
-            weapon: '?', 
-            class: '?', 
-            name, 
+        // Fallback for Nikkes not yet perfectly matched - provide enough data for NikkeDetail
+        return {
+            id: `guest-${name}`,
+            name: name,
             name_en: undefined,
-            extra_info: undefined,
-            thumbnail: undefined,
+            extra_info: '미등록 게스트 니케',
+            tier: '?',
             company: '?',
             squad: '?',
-            isGuest: false 
-        };
+            code: '?',
+            element: '?',
+            burst: name.includes('레드후드') ? 'A' : '?',
+            weapon: '?',
+            class: '?',
+            rarity: 'SSR',
+            thumbnail: undefined,
+            desc: '이 니케는 DB에 등록되어 있지 않은 게스트 니케입니다. DB 동기화 기능을 통해 정식 니케와 연결할 수 있습니다.',
+            isGuest: true,
+            usage_stats: [],
+            skills: { min: '', efficient: '', max: '' },
+            skills_detail: {
+                normal: { name: '일반 공격', desc: '정보 없음', tags: [] },
+                skill1: { name: '스킬 1', desc: '정보 없음', tags: [] },
+                skill2: { name: '스킬 2', desc: '정보 없음', tags: [] },
+                burst: { name: '버스트 스킬', desc: '정보 없음', tags: [] }
+            },
+            options: [],
+            valid_options: [],
+            invalid_options: [],
+            burst_details: {},
+            weapon_info: { weapon_name: '' }
+        } as unknown as NikkeData;
     };
 
     // Calculate Synergy
@@ -438,7 +494,7 @@ export default function TeamAnalysis({ currentNikke, allNikkes = [], onSelectNik
         // 2. Cooldown Check (Heuristic)
         const b1Count = bursts.filter(b => b === 'I').length;
         // Known 20s B1s
-        const has20sB1 = teamNames.some(n => ['리타', '도로시', '세이렌', '동디', '티아', '볼륨', '페퍼', '루주', 'D: 킬러 와이프', '레드 후드', '라피'].some(k => n.includes(k)));
+        const has20sB1 = teamNames.some(n => ['리타', '도로시', '리틀 머메이드', '동디', '티아', '볼륨', '페퍼', '루주', 'D: 킬러 와이프', '레드 후드', '라피'].some(k => n.includes(k)));
         if (hasB1 && b1Count < 2 && !has20sB1) { messages.push("ℹ️ 1버스트 쿨타임 주의"); score -= 10; }
         else if (hasB1) score += 10;
 
@@ -543,14 +599,10 @@ export default function TeamAnalysis({ currentNikke, allNikkes = [], onSelectNik
         setSelectedTeam(newTeam);
     };
 
-    // Unified Filter / View Switching Logic
     const [filterCategory, setFilterCategory] = useState<'All' | 'Stage' | 'Anomaly' | 'SoloRaid' | 'UnionRaid' | 'PVP' | 'Tower'>('All');
     const [hideMissingTeams, setHideMissingTeams] = useState(false);
     const [editingMetaIdx, setEditingMetaIdx] = useState<number | null>(null);
     const [tempMetaTeam, setTempMetaTeam] = useState<MetaTeam | null>(null);
-    const [isBulkMetaEditOpen, setIsBulkMetaEditOpen] = useState(false);
-    const [bulkMetaJson, setBulkMetaJson] = useState('');
-    const [bulkMetaError, setBulkMetaError] = useState<string | null>(null);
     const [linkingGuestName, setLinkingGuestName] = useState<string | null>(null);
     const [isAutoMapConfirmOpen, setIsAutoMapConfirmOpen] = useState(false);
     const [autoMapResults, setAutoMapResults] = useState<{ guest: string; match: NikkeData }[]>([]);
@@ -558,38 +610,13 @@ export default function TeamAnalysis({ currentNikke, allNikkes = [], onSelectNik
     const [selectedAnomalyBoss, setSelectedAnomalyBoss] = useState<string>('전체');
 
     const ANOMALY_BOSSES = [
-        '전체', 
-        '크라켄 (풍압)', 
-        '인디빌리아 (전격)', 
-        '미러 컨테이너 (수냉)', 
-        '울트라 (전격)', 
+        '전체',
+        '크라켄 (풍압)',
+        '인디빌리아 (전격)',
+        '미러 컨테이너 (수냉)',
+        '울트라 (전격)',
         '하베스터 (작열)'
     ];
-
-    const openBulkMetaEdit = () => {
-        setBulkMetaJson(JSON.stringify(metaTeams, null, 2));
-        setIsBulkMetaEditOpen(true);
-        setBulkMetaError(null);
-    };
-
-    const handleSaveBulkMeta = async () => {
-        try {
-            const parsed = JSON.parse(bulkMetaJson);
-            if (!Array.isArray(parsed)) throw new Error("배열 형태여야 합니다.");
-            
-            parsed.forEach((t: any, i: number) => {
-                if (!t.boss || !Array.isArray(t.members)) {
-                    throw new Error(`${i+1}번째 조합의 형식이 올바르지 않습니다. (boss, members 필수)`);
-                }
-            });
-
-            await updateMetaTeams(parsed);
-            setIsBulkMetaEditOpen(false);
-            setBulkMetaError(null);
-        } catch (e: any) {
-            setBulkMetaError(e.message);
-        }
-    };
 
     const handleLinkAlias = async (guestName: string, nikke: NikkeData) => {
         const updatedTeams = metaTeams.map(team => ({
@@ -726,8 +753,17 @@ export default function TeamAnalysis({ currentNikke, allNikkes = [], onSelectNik
             }
         });
 
+        // 4. 이상 개체 요격전 내부 필터링 적용 (최종 카테고리화 이후 진행)
+        if (selectedAnomalyBoss !== '전체') {
+            const bossKeywords = normalize(selectedAnomalyBoss.split(' (')[0]);
+            groups['Anomaly'] = groups['Anomaly'].filter(t =>
+                normalize(t.boss).includes(bossKeywords) ||
+                (t.description && normalize(t.description).includes(bossKeywords))
+            );
+        }
+
         return groups;
-    }, [metaTeams, allNikkes, hideMissingTeams, searchTerm, filters]);
+    }, [metaTeams, allNikkes, hideMissingTeams, searchTerm, filters, selectedAnomalyBoss]);
 
     const tierOrder: Record<string, number> = { 'SSS': 0, 'SS': 1, 'S': 2, 'PvP': 3, 'A': 4, 'B': 5, 'C': 6, 'D': 7, '?': 99 };
     const getNikkeTier = (name: string) => {
@@ -856,20 +892,20 @@ export default function TeamAnalysis({ currentNikke, allNikkes = [], onSelectNik
                             <span>🔍</span> 검색 결과
                             <span className="text-sm font-normal text-gray-500 ml-2">총 {filteredNikkes.length}명</span>
                         </h3>
-                        <button 
+                        <button
                             onClick={() => { setSearchTerm(''); setFilters(initialFilters); }}
                             className="text-xs text-gray-500 hover:text-white transition-colors"
                         >
                             필터 초기화
                         </button>
                     </div>
-                    
+
                     {filteredNikkes.length > 0 ? (
                         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-8 3xl:grid-cols-10 gap-4">
                             {filteredNikkes.map(nikke => (
-                                <CategoryNikkeItem 
-                                    key={nikke.id} 
-                                    nikke={nikke} 
+                                <CategoryNikkeItem
+                                    key={nikke.id}
+                                    nikke={nikke}
                                     categoryId="Stage" // 검색 결과에서는 기본 티어 표시
                                     onSelect={onSelectNikke}
                                 />
@@ -920,11 +956,11 @@ export default function TeamAnalysis({ currentNikke, allNikkes = [], onSelectNik
                             <div
                                 key={idx}
                                 className="flex-1 aspect-[3/4.5] bg-nikke-card border border-gray-800 hover:border-nikke-red rounded-xl cursor-pointer flex flex-col items-center justify-center relative group transition-all duration-300 overflow-hidden shadow-lg hover:shadow-nikke-red/20"
-                                onClick={() => { 
-                                    setActiveSlot(idx); 
+                                onClick={() => {
+                                    setActiveSlot(idx);
                                     setMetaSlotIdx(null);
                                     setOnTowerNikkeSelect(null);
-                                    setSelectorOpen(true); 
+                                    setSelectorOpen(true);
                                 }}
                             >
                                 {member ? (
@@ -962,9 +998,9 @@ export default function TeamAnalysis({ currentNikke, allNikkes = [], onSelectNik
                                                 )}
                                                 <div className="space-y-0.5 mt-1 w-full border-t border-gray-700/50 pt-1">
                                                     <div className="flex flex-wrap gap-x-1 justify-center text-[8px] font-bold">
-                                                        <span className={companyColors[info?.company || ''] || 'text-gray-500'}>{info?.company}</span>
+                                                        <span className={companyColors[info?.company || ''] || 'text-gray-500'}>{info?.company || '제조사 미정'}</span>
                                                         <span className="text-gray-600">|</span>
-                                                        <span className="text-cyan-400 truncate max-w-[50px]">{info?.squad}</span>
+                                                        <span className="text-cyan-400 truncate max-w-[50px]">{info?.squad || '스쿼드 미정'}</span>
                                                     </div>
                                                     <div className="flex flex-wrap gap-x-0.5 text-[8px] font-black items-center justify-center w-full">
                                                         <span className={burstColors[info?.burst || ''] || 'text-gray-400'}>{info?.burst}버</span>
@@ -1030,13 +1066,12 @@ export default function TeamAnalysis({ currentNikke, allNikkes = [], onSelectNik
                     <h3 className="text-sm font-bold text-gray-400 mb-6 flex items-center justify-between">
                         <div className="flex items-center gap-2">
                             <span className="text-orange-500">⚡</span> 버스트 수급량 정밀 시뮬레이션
-                            <div className={`ml-2 text-[10px] font-bold px-2 py-0.5 rounded-full ${
-                                getBurstGrade(burstAnalysis["2RL"].value) === 'S' ? 'bg-red-500/20 text-red-400' :
+                            <div className={`ml-2 text-[10px] font-bold px-2 py-0.5 rounded-full ${getBurstGrade(burstAnalysis["2RL"].value) === 'S' ? 'bg-red-500/20 text-red-400' :
                                 getBurstGrade(burstAnalysis["2RL"].value) === 'A' ? 'bg-orange-500/20 text-orange-400' :
-                                getBurstGrade(burstAnalysis["2RL"].value) === 'B' ? 'bg-yellow-500/20 text-yellow-400' :
-                                getBurstGrade(burstAnalysis["2RL"].value) === 'C' ? 'bg-blue-500/20 text-blue-400' :
-                                'bg-gray-500/20 text-gray-400'
-                            }`}>
+                                    getBurstGrade(burstAnalysis["2RL"].value) === 'B' ? 'bg-yellow-500/20 text-yellow-400' :
+                                        getBurstGrade(burstAnalysis["2RL"].value) === 'C' ? 'bg-blue-500/20 text-blue-400' :
+                                            'bg-gray-500/20 text-gray-400'
+                                }`}>
                                 등급: {getBurstGrade(burstAnalysis["2RL"].value)}
                             </div>
                         </div>
@@ -1059,7 +1094,7 @@ export default function TeamAnalysis({ currentNikke, allNikkes = [], onSelectNik
 
                             return (
                                 <div key={stage} className={`flex-1 flex flex-col items-center py-4 relative
-                                    ${idx !== 4 ? 'border-r border-gray-800' : ''} 
+                                    ${idx !== 4 ? 'border-r border-gray-800' : ''}
                                     ${isReady && stage.includes('2') ? 'ring-1 ring-inset ring-green-500/20' : ''}`}>
 
                                     {/* Header Row */}
@@ -1108,11 +1143,11 @@ export default function TeamAnalysis({ currentNikke, allNikkes = [], onSelectNik
                                 <div className="text-[15px] font-black mb-0.5 truncate text-white">{st.name}</div>
                                 <div className="text-[10px] text-gray-500 mb-2 font-bold">{st.date}</div>
                                 <div className="flex gap-1 mb-2.5">
-                                    {st.members.slice(0, 5).map((m, i) => (
+                                    {(st.members as any[]).slice(0, 5).map((m: any, i: number) => (
                                         <div key={i} className={`w-3.5 h-3.5 rounded-full shadow-inner ${m ? 'bg-blue-600 border border-blue-400/30' : 'bg-gray-700 border border-gray-600'}`} />
                                     ))}
                                 </div>
-                                <button onClick={() => loadTeam(st.members.map(m => m?.name || ''))} className="w-full text-[12px] font-bold bg-gray-700 hover:bg-gray-600 py-1.5 rounded-md">불러오기</button>
+                                <button onClick={() => loadTeam((st.members as any[]).map((m: any) => typeof m === 'string' ? m : m.name))} className="w-full text-[12px] font-bold bg-gray-700 hover:bg-gray-600 py-1.5 rounded-md">불러오기</button>
                                 <div className="absolute top-2 right-2 flex gap-1.5">
                                     <button onClick={() => handleEditSquadName(st.id)} className="text-gray-500 hover:text-blue-400 opacity-0 group-hover:opacity-100">✏️</button>
                                     <button onClick={() => handleDeleteSquad(st.id)} className="text-gray-500 hover:text-red-400 opacity-0 group-hover:opacity-100">✕</button>
@@ -1130,39 +1165,62 @@ export default function TeamAnalysis({ currentNikke, allNikkes = [], onSelectNik
                         <h3 className="text-3xl font-bold text-blue-400">
                             🏆 2025 메타 & 추천 조합
                         </h3>
-                        <div className="flex gap-2">
-                            {metaTeams.some(t => t.members.some(m => getNikkeInfo(m)?.isGuest)) && (
-                                <button 
-                                    onClick={handleAutoMapMeta}
-                                    className="text-xl bg-red-600 text-white px-6 py-3 rounded-2xl hover:bg-red-500 shadow-lg shadow-red-900/20 flex items-center gap-2 font-black border-2 border-white/20"
-                                    title="미등록 니케를 DB 이름으로 일괄 변환"
-                                >
-                                    <span>🚀</span> 게스트 니케 DB 일괄 전환
-                                </button>
-                            )}
-                        </div>
                     </div>
-                    {/* Category Tabs */}
-                    <div className="flex gap-1 overflow-x-auto pb-1 no-scrollbar items-center">
-                        {categories.map(cat => (
+                </div>
+
+                {/* Category Navigation */}
+                <div className="bg-gray-900/20 rounded-3xl p-6 border border-gray-800/50 space-y-4">
+                    <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-3">
+                        {categories.filter(c => c.id !== 'All').map(cat => (
                             <button
                                 key={cat.id}
                                 onClick={() => setFilterCategory(cat.id)}
-                                className={`px-5 py-2.5 rounded-xl text-base font-black whitespace-nowrap flex items-center gap-2
-                                    ${filterCategory === cat.id ? 'bg-blue-600 text-white shadow-lg shadow-blue-900/20' : 'bg-gray-800 text-gray-400 hover:bg-gray-700'}`}
+                                className={`px-4 py-4 rounded-2xl text-sm font-black flex flex-col items-center justify-center gap-2 transition-all duration-300 border-2
+                                    ${filterCategory === cat.id
+                                        ? 'bg-blue-600 text-white border-blue-400 shadow-xl shadow-blue-900/40'
+                                        : 'bg-gray-800/30 text-gray-400 border-gray-800/50 hover:bg-gray-800 hover:text-gray-200 hover:border-gray-700'}`}
                             >
-                                <span>{cat.icon}</span>
-                                {cat.label}
+                                <span className="text-2xl mb-1">{cat.icon}</span>
+                                <span className="text-center leading-tight break-keep">{cat.label}</span>
                             </button>
                         ))}
+                    </div>
+
+                    <button
+                        onClick={() => setFilterCategory('All')}
+                        className={`w-full py-4 rounded-2xl text-base font-black flex items-center justify-center gap-3 transition-all duration-300 border-2
+                            ${filterCategory === 'All'
+                                ? 'bg-gradient-to-r from-blue-700 to-blue-600 text-white border-blue-500 shadow-xl shadow-blue-900/40'
+                                : 'bg-gray-800/20 text-gray-500 border-gray-800/50 hover:bg-gray-800 hover:text-gray-300 hover:border-gray-700'}`}
+                    >
+                        <span className="text-xl">🌟</span>
+                        전체 카테고리 추천 조합 보기
+                    </button>
+
+                    {/* Filter Toggle */}
+                    <div className="flex justify-end pt-2">
+                        <label className="flex items-center gap-2 cursor-pointer group">
+                            <div className="relative">
+                                <input
+                                    type="checkbox"
+                                    checked={hideMissingTeams}
+                                    onChange={(e) => setHideMissingTeams(e.target.checked)}
+                                    className="sr-only p-2"
+                                />
+                                <div className={`w-10 h-6 rounded-full transition-colors duration-300 ${hideMissingTeams ? 'bg-blue-600' : 'bg-gray-700'}`}>
+                                    <div className={`absolute left-1 top-1 w-4 h-4 bg-white rounded-full transition-transform duration-300 ${hideMissingTeams ? 'translate-x-4' : 'translate-x-0'}`} />
+                                </div>
+                            </div>
+                            <span className="text-sm font-bold text-gray-400 group-hover:text-blue-400 transition-colors">데이터 미보유 니케 포함 조합 제외</span>
+                        </label>
                     </div>
                 </div>
 
                 {/* 분야별 메타 조합 및 티어리스트 표시 */}
                 {filterCategory === 'Tower' ? (
-                    <TowerTierList 
-                        allNikkes={allNikkes} 
-                        onSelectNikke={onSelectNikke} 
+                    <TowerTierList
+                        allNikkes={allNikkes}
+                        onSelectNikke={onSelectNikke}
                         towerSquads={towerSquads}
                         onSaveSquads={handleSaveTowerSquads}
                         openNikkeSelector={openTowerNikkeSelector}
@@ -1177,16 +1235,12 @@ export default function TeamAnalysis({ currentNikke, allNikkes = [], onSelectNik
                                 const category = cat.id;
                                 let teams = categorizedTeams[category] || [];
 
-                                // Apply Anomaly Boss Filter
-                                if (category === 'Anomaly' && selectedAnomalyBoss !== '전체') {
-                                    teams = teams.filter(t => t.boss.includes(selectedAnomalyBoss));
-                                }
-
                                 // Internal grouping for Anomaly by Boss
                                 const subGroups: Record<string, MetaTeam[]> = {};
                                 if (category === 'Anomaly') {
                                     teams.forEach(t => {
-                                        const bossName = t.boss.split(' (')[0].replace(/ \d위.*/, '');
+                                        // "크라켄 (약점: 풍압) 1위" -> "크라켄"
+                                        const bossName = t.boss.split(' (')[0].trim();
                                         if (!subGroups[bossName]) subGroups[bossName] = [];
                                         subGroups[bossName].push(t);
                                     });
@@ -1205,7 +1259,47 @@ export default function TeamAnalysis({ currentNikke, allNikkes = [], onSelectNik
                                             </h4>
                                         </div>
 
-                                        {/* 1. 공략 조합 섹션 (최상단) */}
+                                        {/* 1. 보스 선택 및 조합 추가 (통합 섹션) - Anomaly 카테고리인 경우 최상단으로 이동 */}
+                                        {category === 'Anomaly' && (
+                                            <div className="flex flex-col gap-6 bg-gray-900/30 rounded-3xl p-6 border border-gray-800/50 shadow-2xl mb-8">
+                                                <div className="flex flex-col gap-3">
+                                                    <span className="text-xs font-black text-gray-500 uppercase tracking-[0.2em] ml-1">Boss Selection</span>
+                                                    <div className="flex flex-wrap justify-center gap-2.5">
+                                                        {ANOMALY_BOSSES.map(boss => (
+                                                            <button
+                                                                key={boss}
+                                                                onClick={() => setSelectedAnomalyBoss(boss)}
+                                                                className={`px-5 py-2.5 rounded-xl text-xs font-black transition-all duration-300 border ${selectedAnomalyBoss === boss
+                                                                    ? 'bg-gradient-to-br from-red-600 to-red-800 text-white border-red-500 shadow-[0_0_20px_rgba(220,38,38,0.3)] scale-105'
+                                                                    : 'bg-gray-800/50 text-gray-400 border-gray-700 hover:bg-gray-700 hover:text-gray-200 hover:border-gray-600'
+                                                                    }`}
+                                                            >
+                                                                {boss}
+                                                            </button>
+                                                        ))}
+                                                    </div>
+                                                </div>
+
+                                                <div className="flex justify-center pt-2 border-t border-gray-800/50">
+                                                    {editingMetaIdx === null && (
+                                                        <button
+                                                            onClick={() => handleAddMetaTeam('Anomaly')}
+                                                            className="group relative px-8 py-3 bg-blue-600 hover:bg-blue-500 text-white rounded-2xl text-sm font-black transition-all flex items-center gap-3 shadow-[0_0_25px_rgba(37,99,235,0.2)] overflow-hidden"
+                                                        >
+                                                            <div className="absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
+                                                            <span className="text-lg">➕</span> 이상 개체 요격전 (특특요) 조합 추가
+                                                        </button>
+                                                    )}
+                                                    {editingMetaIdx !== null && (
+                                                        <div className="bg-blue-900/20 px-6 py-2.5 rounded-xl border border-blue-800/50 text-blue-400 text-sm font-bold flex items-center gap-2">
+                                                            <span className="animate-spin text-base">🔄</span> 조합 편집 진행 중...
+                                                        </div>
+                                                    )}
+                                                </div>
+                                            </div>
+                                        )}
+
+                                        {/* 2. 공략 조합 섹션 */}
                                         <div className="space-y-6">
                                             {Object.entries(subGroups).map(([groupName, groupTeams]) => {
                                                 // Sort teams by member tiers
@@ -1228,10 +1322,10 @@ export default function TeamAnalysis({ currentNikke, allNikkes = [], onSelectNik
                                                                 {groupName} 공략 조합
                                                             </h5>
                                                         )}
-                                                        <div className="grid grid-cols-1 2xl:grid-cols-2 gap-4">
+                                                        <div className="grid grid-cols-1 gap-4">
                                                             {sortedTeams.map((team, idx) => {
-                                                                const originalIdx = metaTeams.findIndex(t => 
-                                                                    t.boss === team.boss && 
+                                                                const originalIdx = metaTeams.findIndex(t =>
+                                                                    t.boss === team.boss &&
                                                                     JSON.stringify(t.members) === JSON.stringify(team.members)
                                                                 );
 
@@ -1243,11 +1337,11 @@ export default function TeamAnalysis({ currentNikke, allNikkes = [], onSelectNik
                                                                                 <button onClick={handleCancelMetaEdit} className="text-gray-500 hover:text-white">✕</button>
                                                                             </div>
                                                                             <div className="space-y-4">
-                                                                                <input 
+                                                                                <input
                                                                                     type="text"
                                                                                     autoFocus
                                                                                     value={tempMetaTeam.boss}
-                                                                                    onChange={e => setTempMetaTeam({...tempMetaTeam, boss: e.target.value})}
+                                                                                    onChange={e => setTempMetaTeam({ ...tempMetaTeam, boss: e.target.value })}
                                                                                     placeholder="보스 또는 조합 명칭"
                                                                                     className="w-full bg-gray-800 border border-gray-700 rounded-xl px-4 py-3 text-white focus:border-blue-500 outline-none"
                                                                                 />
@@ -1256,7 +1350,7 @@ export default function TeamAnalysis({ currentNikke, allNikkes = [], onSelectNik
                                                                                         const mName = typeof m === 'string' ? m : m.name;
                                                                                         const info = getNikkeInfo(mName);
                                                                                         return (
-                                                                                            <div 
+                                                                                            <div
                                                                                                 key={mi}
                                                                                                 onClick={() => handleMetaSlotClick(mi)}
                                                                                                 className="group relative aspect-[3/4.5] bg-nikke-card border border-gray-800 hover:border-nikke-red rounded-xl overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-nikke-red/20 cursor-pointer"
@@ -1284,26 +1378,26 @@ export default function TeamAnalysis({ currentNikke, allNikkes = [], onSelectNik
                                                                                                                     )}
                                                                                                                 </div>
                                                                                                                 {info?.extra_info && (
-                                                                                      <span className="text-[9px] text-orange-400 font-bold truncate drop-shadow-md mt-0.5 leading-tight">
-                                                                                          {info.extra_info}
-                                                                                      </span>
-                                                                                  )}
-                                                                                  <div className="space-y-0.5 mt-1 w-full border-t border-gray-700/50 pt-1">
-                                                                                      <div className="flex flex-wrap gap-x-1 justify-center text-[7px] font-bold">
-                                                                                          <span className={companyColors[info?.company || ''] || 'text-gray-500'}>{info?.company}</span>
-                                                                                          <span className="text-gray-600">|</span>
-                                                                                          <span className="text-cyan-400 truncate max-w-[40px]">{info?.squad}</span>
-                                                                                      </div>
-                                                                                      <div className="flex flex-wrap gap-x-0.5 text-[7px] font-black items-center justify-center w-full">
-                                                                                          <span className={burstColors[info?.burst || ''] || 'text-gray-400'}>{info?.burst}버</span>
-                                                                                          <span className="text-gray-500">·</span>
-                                                                                          <span className={codeTextColors[info?.code || ''] || 'text-gray-400'}>{info?.code}</span>
-                                                                                          <span className="text-gray-500">·</span>
-                                                                                          <span className={classColors[info?.class || ''] || 'text-gray-400'}>{classNames[info?.class || ''] || info?.class}</span>
-                                                                  <span className="text-gray-500">·</span>
-                                                                  <span className={weaponColors[info?.weapon || ''] || 'text-amber-400'}>{info?.weapon}</span>
-                                                              </div>
-                                                                                  </div>
+                                                                                                                    <span className="text-[9px] text-orange-400 font-bold truncate drop-shadow-md mt-0.5 leading-tight">
+                                                                                                                        {info.extra_info}
+                                                                                                                    </span>
+                                                                                                                )}
+                                                                                                                <div className="space-y-0.5 mt-1 w-full border-t border-gray-700/50 pt-1">
+                                                                                                                    <div className="flex flex-wrap gap-x-1 justify-center text-[7px] font-bold">
+                                                                                                                        <span className={companyColors[info?.company || ''] || 'text-gray-500'}>{info?.company || '제조사 미정'}</span>
+                                                                                                                        <span className="text-gray-600">|</span>
+                                                                                                                        <span className="text-cyan-400 truncate max-w-[40px]">{info?.squad || '스쿼드 미정'}</span>
+                                                                                                                    </div>
+                                                                                                                    <div className="flex flex-wrap gap-x-0.5 text-[7px] font-black items-center justify-center w-full">
+                                                                                                                        <span className={burstColors[info?.burst || ''] || 'text-gray-400'}>{info?.burst}버</span>
+                                                                                                                        <span className="text-gray-500">·</span>
+                                                                                                                        <span className={codeTextColors[info?.code || ''] || 'text-gray-400'}>{info?.code}</span>
+                                                                                                                        <span className="text-gray-500">·</span>
+                                                                                                                        <span className={classColors[info?.class || ''] || 'text-gray-400'}>{classNames[info?.class || ''] || info?.class}</span>
+                                                                                                                        <span className="text-gray-500">·</span>
+                                                                                                                        <span className={weaponColors[info?.weapon || ''] || 'text-amber-400'}>{info?.weapon}</span>
+                                                                                                                    </div>
+                                                                                                                </div>
                                                                                                             </div>
                                                                                                         </div>
                                                                                                     </>
@@ -1318,9 +1412,9 @@ export default function TeamAnalysis({ currentNikke, allNikkes = [], onSelectNik
                                                                                         );
                                                                                     })}
                                                                                 </div>
-                                                                                <textarea 
+                                                                                <textarea
                                                                                     value={tempMetaTeam.description}
-                                                                                    onChange={e => setTempMetaTeam({...tempMetaTeam, description: e.target.value})}
+                                                                                    onChange={e => setTempMetaTeam({ ...tempMetaTeam, description: e.target.value })}
                                                                                     placeholder="설명 (선택 사항)"
                                                                                     className="w-full bg-gray-800 border border-gray-700 rounded-xl px-4 py-3 text-white h-24 resize-none focus:border-blue-500 outline-none"
                                                                                 />
@@ -1336,14 +1430,13 @@ export default function TeamAnalysis({ currentNikke, allNikkes = [], onSelectNik
                                                                 return (
                                                                     <div key={idx} className="bg-gray-900/40 border border-gray-800 hover:border-blue-500/50 hover:bg-gray-800/60 cursor-pointer group relative flex flex-col gap-4 p-5 rounded-2xl shadow-lg transition-all duration-300"
                                                                         onClick={() => loadTeam(team.members.map(m => typeof m === 'string' ? m : m.name))}>
-                                                                        
+
                                                                         <div className="flex justify-between items-center">
                                                                             <div className="flex items-center gap-4">
-                                                                                <div className={`flex items-center justify-center w-8 h-8 rounded-xl shadow-lg shrink-0 ${
-                                                                                    idx === 0 ? 'bg-gradient-to-br from-yellow-400 to-yellow-600' : 
-                                                                                    idx === 1 ? 'bg-gradient-to-br from-gray-300 to-gray-500' : 
-                                                                                    'bg-gradient-to-br from-orange-500 to-orange-800'
-                                                                                }`}>
+                                                                                <div className={`flex items-center justify-center w-8 h-8 rounded-xl shadow-lg shrink-0 ${idx === 0 ? 'bg-gradient-to-br from-yellow-400 to-yellow-600' :
+                                                                                    idx === 1 ? 'bg-gradient-to-br from-gray-300 to-gray-500' :
+                                                                                        'bg-gradient-to-br from-orange-500 to-orange-800'
+                                                                                    }`}>
                                                                                     <span className="text-sm font-black text-white italic">{idx + 1}</span>
                                                                                 </div>
                                                                                 <div className="flex flex-col">
@@ -1366,13 +1459,13 @@ export default function TeamAnalysis({ currentNikke, allNikkes = [], onSelectNik
                                                                             </div>
 
                                                                             <div className="flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity shrink-0">
-                                                                                <button 
+                                                                                <button
                                                                                     onClick={(e) => { e.stopPropagation(); handleEditMetaTeam(originalIdx); }}
                                                                                     className="p-1.5 bg-gray-700 hover:bg-blue-600 text-white rounded text-[10px]"
                                                                                 >
                                                                                     ✏️
                                                                                 </button>
-                                                                                <button 
+                                                                                <button
                                                                                     onClick={(e) => { e.stopPropagation(); handleDeleteMetaTeam(originalIdx); }}
                                                                                     className="p-1.5 bg-gray-700 hover:bg-red-600 text-white rounded text-[10px]"
                                                                                 >
@@ -1389,48 +1482,57 @@ export default function TeamAnalysis({ currentNikke, allNikkes = [], onSelectNik
 
                                                                                 return (
                                                                                     <div key={mi} className="group/nikke relative">
-                                                                                        <div className="bg-gray-800/40 border border-gray-700/50 rounded-xl p-2 hover:border-nikke-red group transition-all duration-300 h-full shadow-sm">
+                                                                                        <div 
+                                                                                            onClick={(e) => {
+                                                                                                e.stopPropagation();
+                                                                                                if (info) {
+                                                                                                    console.log('Selecting Nikke from Meta Team:', info.name);
+                                                                                                    onSelectNikke?.(info);
+                                                                                                } else {
+                                                                                                    console.warn('Nikke info not found for:', mName);
+                                                                                                }
+                                                                                            }}
+                                                                                            className="bg-gray-800/40 border border-gray-700/50 rounded-xl p-2 hover:border-nikke-red group transition-all duration-300 h-full shadow-sm cursor-pointer"
+                                                                                        >
                                                                                             <div className="flex justify-between items-start">
                                                                                                 <div className="flex flex-col min-w-0 flex-1">
                                                                                                     <div className="flex items-baseline gap-1.5 flex-wrap">
-                                                                                                        <h3 className="font-black text-white group-hover/nikke:text-nikke-red text-[10px] truncate">
+                                                                                                        <h3 className="font-black text-white group-hover/nikke:text-nikke-red text-base truncate">
                                                                                                             {info?.name}
                                                                                                         </h3>
                                                                                                         {info?.name_en && (
-                                                                                                            <span className="text-[8px] text-blue-400 font-bold truncate">
+                                                                                                            <span className="text-xs text-blue-400 font-bold truncate">
                                                                                                                 {info.name_en}
                                                                                                             </span>
                                                                                                         )}
                                                                                                     </div>
                                                                                                     {info?.extra_info && (
-                                                                                                        <span className="text-[9px] text-orange-400 font-bold truncate leading-tight mt-0.5">
+                                                                                                        <span className="text-xs text-orange-400 font-bold truncate leading-tight mt-0.5">
                                                                                                             {info.extra_info}
                                                                                                         </span>
                                                                                                     )}
-                                                                                                    {/* 제조사 & 스쿼드 추가 */}
-                                                                                                    <div className="flex flex-wrap gap-x-1 text-[7px] font-bold mt-1.5 opacity-80">
-                                                                                                        <span className={companyColors[info?.company || ''] || 'text-gray-500'}>{info?.company}</span>
+                                                                                                    <div className="flex flex-wrap gap-x-1 text-xs font-bold mt-1.5 opacity-80">
+                                                                                                        <span className={companyColors[info?.company || ''] || 'text-gray-500'}>{info?.company || '제조사 미정'}</span>
                                                                                                         <span className="text-gray-600">|</span>
-                                                                                                        <span className="text-cyan-400 truncate max-w-[40px]">{info?.squad}</span>
+                                                                                                        <span className="text-cyan-400 truncate max-w-[40px]">{info?.squad || '스쿼드 미정'}</span>
                                                                                                     </div>
                                                                                                 </div>
-                                                                                                <span className={`text-[9px] font-black ml-1 shrink-0 ${
-                                                                                                    nikkeTier === 'SSS' ? 'text-red-500' :
+                                                                                                <span className={`text-[11px] font-black ml-1 shrink-0 ${nikkeTier === 'SSS' ? 'text-red-500' :
                                                                                                     nikkeTier === 'SS' ? 'text-orange-400' :
-                                                                                                    nikkeTier === 'S' ? 'text-yellow-400' :
-                                                                                                    nikkeTier === 'A' ? 'text-blue-400' :
-                                                                                                    'text-gray-400'
-                                                                                                }`}>{nikkeTier}</span>
+                                                                                                        nikkeTier === 'S' ? 'text-yellow-400' :
+                                                                                                            nikkeTier === 'A' ? 'text-blue-400' :
+                                                                                                                'text-gray-400'
+                                                                                                    }`}>{nikkeTier}</span>
                                                                                             </div>
-                                                                                            <div className="flex flex-wrap gap-x-1 text-[8px] font-black items-center mt-1.5 pt-1.5 border-t border-gray-700/50">
+                                                                                            <div className="flex flex-wrap gap-x-1.5 text-xs font-black items-center mt-1.5 pt-1.5 border-t border-gray-700/50">
                                                                                                 <span className={burstColors[info?.burst || ''] || 'text-gray-400'}>{info?.burst}버</span>
                                                                                                 <span className="text-gray-500">·</span>
                                                                                                 <span className={codeTextColors[info?.code || ''] || 'text-gray-400'}>{info?.code}</span>
                                                                                                 <span className="text-gray-500">·</span>
                                                                                                 <span className={classColors[info?.class || ''] || 'text-gray-400'}>{classNames[info?.class || ''] || info?.class}</span>
-                                                                 <span className="text-gray-500">·</span>
-                                                                 <span className={weaponColors[info?.weapon || ''] || 'text-amber-400'}>{info?.weapon}</span>
-                                                             </div>
+                                                                                                <span className="text-gray-500">·</span>
+                                                                                                <span className={weaponColors[info?.weapon || ''] || 'text-amber-400'}>{info?.weapon}</span>
+                                                                                            </div>
                                                                                         </div>
                                                                                     </div>
                                                                                 );
@@ -1438,146 +1540,87 @@ export default function TeamAnalysis({ currentNikke, allNikkes = [], onSelectNik
                                                                         </div>
                                                                     </div>
                                                                 );
-                                                             })}
+                                                            })}
                                                         </div>
                                                     </div>
                                                 );
                                             })}
                                         </div>
 
-                                        {/* 2. 보스 선택 및 조합 추가 (통합 섹션) */}
-                                        <div className="flex flex-col gap-4 bg-gray-900/20 rounded-2xl p-4 border border-gray-800/50">
-                                            {category === 'Anomaly' && (
-                                                <div className="flex flex-wrap justify-center gap-2">
-                                                    {ANOMALY_BOSSES.map(boss => (
-                                                        <button
-                                                            key={boss}
-                                                            onClick={() => setSelectedAnomalyBoss(boss)}
-                                                            className={`px-4 py-2 rounded-lg text-xs font-black transition-all border ${
-                                                                selectedAnomalyBoss === boss
-                                                                    ? 'bg-red-600 text-white border-red-500 shadow-lg shadow-red-900/20'
-                                                                    : 'bg-gray-800 text-gray-400 border-gray-700 hover:bg-gray-700 hover:text-gray-200'
-                                                            }`}
-                                                        >
-                                                            {boss}
-                                                        </button>
-                                                    ))}
+
+                                        {/* 3. 새로운 조합 추가 레이어 */}
+                                        {editingMetaIdx === -1 && tempMetaTeam && (tempMetaTeam.category === category) && (
+                                            <div className="bg-blue-900/10 border-2 border-dashed border-blue-500/50 rounded-2xl p-6 animate-fadeIn flex flex-col gap-4 mt-6">
+                                                <div className="flex justify-between items-center">
+                                                    <span className="text-lg font-bold text-blue-400 flex items-center gap-2">
+                                                        <span>➕</span> 새로운 {cat.label} 조합 추가
+                                                    </span>
+                                                    <button onClick={handleCancelMetaEdit} className="text-gray-500 hover:text-white">✕</button>
                                                 </div>
-                                            )}
-
-                                            <div className="flex justify-center">
-                                                {editingMetaIdx === null && (
-                                                    <button 
-                                                        onClick={() => handleAddMetaTeam(category as MetaCategory)}
-                                                        className="px-6 py-2.5 bg-blue-600 hover:bg-blue-500 text-white rounded-lg text-sm font-black transition-all flex items-center gap-2 shadow-lg shadow-blue-900/20"
-                                                    >
-                                                        <span>➕</span> {cat.label} 조합 추가
-                                                    </button>
-                                                )}
-                                                {editingMetaIdx !== null && (
-                                                    <div className="text-blue-400 text-sm font-bold flex items-center gap-2">
-                                                        <span className="animate-spin text-base">🔄</span> 조합 편집 중...
-                                                    </div>
-                                                )}
-                                            </div>
-                                        </div>
-
-                                            {/* Inline Add Layer */}
-                                            {editingMetaIdx === -1 && tempMetaTeam && (tempMetaTeam.category === category) && (
-                                                <div className="bg-blue-900/10 border-2 border-dashed border-blue-500/50 rounded-2xl p-6 animate-fadeIn flex flex-col gap-4">
-                                                    <div className="flex justify-between items-center">
-                                                        <span className="text-lg font-bold text-blue-400 flex items-center gap-2">
-                                                            <span>➕</span> 새로운 {cat.label} 조합 추가
-                                                        </span>
-                                                        <button onClick={handleCancelMetaEdit} className="text-gray-500 hover:text-white">✕</button>
-                                                    </div>
-                                                    <div className="space-y-4">
-                                                        <input 
-                                                            type="text"
-                                                            autoFocus
-                                                            value={tempMetaTeam.boss}
-                                                            onChange={e => setTempMetaTeam({...tempMetaTeam, boss: e.target.value})}
-                                                            placeholder="보스 이름 또는 조합 명칭 (예: 크라켄 풍압 1위)"
-                                                            className="w-full bg-gray-900 border border-gray-700 rounded-xl px-4 py-3 text-white focus:border-blue-500 outline-none shadow-inner"
-                                                        />
-                                                        <div className="grid grid-cols-5 gap-3">
-                                                            {tempMetaTeam.members.map((m, mi) => {
-                                                                const mName = typeof m === 'string' ? m : m.name;
-                                                                const info = getNikkeInfo(mName);
-                                                                return (
-                                                                    <div 
-                                                                        key={mi}
-                                                                        onClick={() => handleMetaSlotClick(mi)}
-                                                                        className="aspect-[3/4.5] rounded-xl border-2 border-dashed border-gray-700 bg-gray-800 flex items-center justify-center cursor-pointer hover:border-blue-500 overflow-hidden relative group/slot"
-                                                                    >
-                                                                        {mName ? (
-                                                                            <>
-                                                                                <img src={info?.thumbnail} className="w-full h-full object-cover opacity-80" />
-                                                                                <div className={`absolute top-1.5 left-1.5 px-1.5 py-0.5 rounded text-[10px] font-black z-10 shadow-md
-                                                                                    ${info?.burst === 'I' ? 'bg-pink-600' : info?.burst === 'II' ? 'bg-blue-600' : 'bg-red-600'}`}>
-                                                                                    B{info?.burst === 'I' ? '1' : info?.burst === 'II' ? '2' : info?.burst === 'III' ? '3' : info?.burst || '?'}
+                                                <div className="space-y-4">
+                                                    <input
+                                                        type="text"
+                                                        autoFocus
+                                                        value={tempMetaTeam.boss}
+                                                        onChange={e => setTempMetaTeam({ ...tempMetaTeam, boss: e.target.value })}
+                                                        placeholder="보스 이름 또는 조합 명칭 (예: 크라켄 풍압 1위)"
+                                                        className="w-full bg-gray-900 border border-gray-700 rounded-xl px-4 py-3 text-white focus:border-blue-500 outline-none shadow-inner"
+                                                    />
+                                                    <div className="grid grid-cols-5 gap-3">
+                                                        {tempMetaTeam.members.map((m, mi) => {
+                                                            const mName = typeof m === 'string' ? m : m.name;
+                                                            const info = getNikkeInfo(mName);
+                                                            return (
+                                                                <div
+                                                                    key={mi}
+                                                                    onClick={() => handleMetaSlotClick(mi)}
+                                                                    className="aspect-[3/4.5] rounded-xl border-2 border-dashed border-gray-700 bg-gray-800 flex items-center justify-center cursor-pointer hover:border-blue-500 overflow-hidden relative group/slot"
+                                                                >
+                                                                    {mName ? (
+                                                                        <>
+                                                                            <img src={info?.thumbnail} className="w-full h-full object-cover transition-transform duration-500 group-hover/slot:scale-110" />
+                                                                            <div className={`absolute top-1 left-1 px-1.5 py-0.5 rounded text-[9px] font-black z-10 shadow-lg border border-white/10
+                                                                                ${info?.burst === 'I' ? 'bg-pink-600' : info?.burst === 'II' ? 'bg-blue-600' : info?.burst === 'III' ? 'bg-red-600' : 'bg-red-500'}`}>
+                                                                                B{info?.burst === 'I' ? '1' : info?.burst === 'II' ? '2' : info?.burst === 'III' ? '3' : info?.burst}
+                                                                            </div>
+                                                                            <div className="absolute bottom-0 left-0 right-0 p-1 z-10 flex flex-col items-center bg-black/60 backdrop-blur-sm">
+                                                                                <div className="flex flex-col items-center w-full">
+                                                                                    <div className="flex items-baseline gap-1 justify-center w-full">
+                                                                                        <span className="text-[10px] font-black text-white truncate">
+                                                                                            {info?.name}
+                                                                                        </span>
+                                                                                    </div>
+                                                                                    <div className="flex flex-wrap gap-x-1 justify-center text-[7px] font-bold mt-0.5">
+                                                                                        <span className={companyColors[info?.company || ''] || 'text-gray-500'}>{info?.company || '제조사 미정'}</span>
+                                                                                        <span className="text-gray-600">|</span>
+                                                                                        <span className="text-cyan-400 truncate max-w-[40px]">{info?.squad || '스쿼드 미정'}</span>
+                                                                                    </div>
                                                                                 </div>
-                                                                                {/* 이름 표시 오버레이 추가 */}
-                                                                                <div className="absolute bottom-0 left-0 right-0 bg-black/80 py-1 px-1">
-                                                    <div className="flex flex-col items-center">
-                                                        <div className="flex items-baseline gap-1 justify-center w-full">
-                                                            <span className="text-[11px] font-black text-white truncate">
-                                                                {info?.name}
-                                                            </span>
-                                                            {info?.name_en && (
-                                                                <span className="text-[8px] text-blue-400 font-bold truncate">
-                                                                    {info.name_en}
-                                                                </span>
-                                                            )}
-                                                        </div>
-                                                        {info?.extra_info && (
-                                                            <span className="text-[9px] text-orange-400 font-bold truncate leading-tight mt-0.5">
-                                                                {info.extra_info}
-                                                            </span>
-                                                        )}
-                                                        <div className="space-y-0.5 mt-1 w-full border-t border-gray-700/50 pt-1">
-                                                            <div className="flex flex-wrap gap-x-0.5 justify-center text-[6px] font-bold">
-                                                                <span className={companyColors[info?.company || ''] || 'text-gray-500'}>{info?.company}</span>
-                                                                <span className="text-gray-600">|</span>
-                                                                <span className="text-cyan-400 truncate max-w-[30px]">{info?.squad}</span>
-                                                            </div>
-                                                            <div className="flex flex-wrap gap-x-0.5 text-[6px] font-black items-center justify-center w-full">
-                                                                <span className={burstColors[info?.burst || ''] || 'text-gray-400'}>{info?.burst}버</span>
-                                                                <span className="text-gray-500">·</span>
-                                                                <span className={codeTextColors[info?.code || ''] || 'text-gray-400'}>{info?.code}</span>
-                                                                <span className="text-gray-500">·</span>
-                                                                <span className={classColors[info?.class || ''] || 'text-gray-400'}>{classNames[info?.class || ''] || info?.class}</span>
-                                                                 <span className="text-gray-500">·</span>
-                                                                 <span className={weaponColors[info?.weapon || ''] || 'text-amber-400'}>{info?.weapon}</span>
-                                                             </div>
-                                                        </div>
+                                                                            </div>
+                                                                        </>
+                                                                    ) : (
+                                                                        <span className="text-gray-600 text-2xl group-hover/slot:text-blue-400">+</span>
+                                                                    )}
+                                                                </div>
+                                                            );
+                                                        })}
+                                                    </div>
+                                                    <textarea
+                                                        value={tempMetaTeam.description}
+                                                        onChange={e => setTempMetaTeam({ ...tempMetaTeam, description: e.target.value })}
+                                                        placeholder="조합에 대한 간단한 설명을 입력하세요..."
+                                                        className="w-full bg-gray-900 border border-gray-700 rounded-xl px-4 py-3 text-white h-24 resize-none focus:border-blue-500 outline-none shadow-inner"
+                                                    />
+                                                    <div className="flex gap-3">
+                                                        <button onClick={handleCancelMetaEdit} className="flex-1 py-3 bg-gray-800 text-gray-400 rounded-xl font-bold hover:bg-gray-700 transition-all">취소</button>
+                                                        <button onClick={handleSaveMeta} className="flex-1 py-3 bg-blue-600 text-white rounded-xl font-bold hover:bg-blue-500 shadow-lg shadow-blue-900/20 transition-all">조합 저장하기</button>
                                                     </div>
                                                 </div>
-                                                                            </>
-                                                                        ) : (
-                                                                            <span className="text-gray-600 text-2xl">+</span>
-                                                                        )}
-                                                                    </div>
-                                                                );
-                                                            })}
-                                                        </div>
-                                                        <textarea 
-                                                            value={tempMetaTeam.description}
-                                                            onChange={e => setTempMetaTeam({...tempMetaTeam, description: e.target.value})}
-                                                            placeholder="조합에 대한 간단한 설명을 입력하세요..."
-                                                            className="w-full bg-gray-900 border border-gray-700 rounded-xl px-4 py-3 text-white h-24 resize-none focus:border-blue-500 outline-none shadow-inner"
-                                                        />
-                                                        <div className="flex gap-3">
-                                                            <button onClick={handleCancelMetaEdit} className="flex-1 py-3 bg-gray-800 text-gray-400 rounded-xl font-bold hover:bg-gray-700 transition-all">취소</button>
-                                                            <button onClick={handleSaveMeta} className="flex-1 py-3 bg-blue-600 text-white rounded-xl font-bold hover:bg-blue-500 shadow-lg shadow-blue-900/20 transition-all">조합 저장하기</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            )}
-                                        
+                                            </div>
+                                        )}
 
                                         {/* 4. 티어리스트 섹션 (최하단) */}
-                                        <div className="bg-gray-900/40 rounded-3xl p-8 border border-gray-800 shadow-inner">
+                                        <div className="bg-gray-900/40 rounded-3xl p-8 border border-gray-800 shadow-inner mt-8">
                                             <div className="flex justify-between items-center mb-8">
                                                 <div className="flex items-center gap-3">
                                                     <h5 className="text-2xl font-black text-white flex items-center gap-3">
@@ -1586,7 +1629,7 @@ export default function TeamAnalysis({ currentNikke, allNikkes = [], onSelectNik
                                                     <span className="text-xs bg-blue-900/30 px-3 py-1 rounded-full text-blue-400 font-bold border border-blue-800/50">성능 종합</span>
                                                 </div>
                                             </div>
-                                            
+
                                             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
                                                 {allNikkes
                                                     ?.filter(n => getNikkeStarsForCategory(n, cat.id) > 0)
@@ -1597,10 +1640,10 @@ export default function TeamAnalysis({ currentNikke, allNikkes = [], onSelectNik
                                                         return a.name.localeCompare(b.name, 'ko');
                                                     })
                                                     .map(n => (
-                                                        <CategoryNikkeItem 
-                                                            key={n.id} 
-                                                            nikke={n} 
-                                                            categoryId={cat.id} 
+                                                        <CategoryNikkeItem
+                                                            key={n.id}
+                                                            nikke={n}
+                                                            categoryId={cat.id}
                                                             onSelect={onSelectNikke}
                                                         />
                                                     ))
@@ -1615,6 +1658,21 @@ export default function TeamAnalysis({ currentNikke, allNikkes = [], onSelectNik
                                     </div>
                                 );
                             })}
+                        {filterCategory === 'All' && (
+                            <div className="pt-12 border-t border-gray-800">
+                                <div className="flex items-center gap-3 mb-8">
+                                    <span className="text-3xl">🏢</span>
+                                    <h3 className="text-2xl font-black text-white">기업별 / 트라이브 타워 조합 및 가이드</h3>
+                                </div>
+                                <TowerTierList
+                                    allNikkes={allNikkes}
+                                    onSelectNikke={onSelectNikke}
+                                    towerSquads={towerSquads}
+                                    onSaveSquads={handleSaveTowerSquads}
+                                    openNikkeSelector={openTowerNikkeSelector}
+                                />
+                            </div>
+                        )}
                     </div>
                 )}
             </div>
@@ -1632,179 +1690,195 @@ export default function TeamAnalysis({ currentNikke, allNikkes = [], onSelectNik
             />
 
             {/* Auto Map Confirm Modal */}
-            {isAutoMapConfirmOpen && (
-                <div className="fixed inset-0 z-[1000] flex items-center justify-center bg-black/80 backdrop-blur-md p-4 animate-fadeIn">
-                    <div className="bg-gray-900 border border-blue-600/50 rounded-2xl w-full max-w-2xl shadow-2xl overflow-hidden">
-                        <div className="p-6 border-b border-gray-800 flex justify-between items-center bg-blue-900/10">
-                            <div>
-                                <h3 className="text-xl font-bold text-white flex items-center gap-2">
-                                    <span className="text-blue-500">🚀</span> 자동 변환 확인
-                                </h3>
-                                <p className="text-sm text-gray-400 mt-1">DB에서 일치하는 니케 {autoMapResults.length}명을 찾았습니다.</p>
-                            </div>
-                            <button onClick={() => setIsAutoMapConfirmOpen(false)} className="text-gray-400 hover:text-white text-xl">✕</button>
-                        </div>
-                        <div className="p-6 max-h-[50vh] overflow-y-auto custom-scrollbar space-y-3">
-                            {autoMapResults.map((res, i) => (
-                                <div key={i} className="flex items-center justify-between bg-black/40 p-4 rounded-xl border border-gray-800">
-                                    <div className="flex items-center gap-4">
-                                        <div className="flex flex-col">
-                                            <span className="text-xs text-gray-500 uppercase font-bold tracking-wider">기존 이름</span>
-                                            <span className="text-lg text-red-400 font-bold">{res.guest}</span>
-                                        </div>
-                                        <span className="text-gray-600 text-2xl">→</span>
-                                        <div className="flex flex-col">
-                                            <span className="text-xs text-gray-500 uppercase font-bold tracking-wider">DB 니케</span>
-                                            <span className="text-lg text-blue-400 font-bold">{res.match.name}{res.match.extra_info ? ` (${res.match.extra_info})` : ''}</span>
-                                        </div>
-                                    </div>
-                                    <div className="text-right">
-                                        <span className={`text-[10px] px-2 py-0.5 rounded border border-gray-700 text-gray-500`}>
-                                            {res.match.id}
-                                        </span>
-                                    </div>
+            {
+                isAutoMapConfirmOpen && (
+                    <div className="fixed inset-0 z-[1000] flex items-center justify-center bg-black/80 backdrop-blur-md p-4 animate-fadeIn">
+                        <div className="bg-gray-900 border border-blue-600/50 rounded-2xl w-full max-w-2xl shadow-2xl overflow-hidden">
+                            <div className="p-6 border-b border-gray-800 flex justify-between items-center bg-blue-900/10">
+                                <div>
+                                    <h3 className="text-xl font-bold text-white flex items-center gap-2">
+                                        <span className="text-blue-500">🚀</span> 자동 변환 확인
+                                    </h3>
+                                    <p className="text-sm text-gray-400 mt-1">DB에서 일치하는 니케 {autoMapResults.length}명을 찾았습니다.</p>
                                 </div>
-                            ))}
-                        </div>
-                        <div className="p-6 bg-gray-950/50 flex gap-3">
-                            <button 
-                                onClick={() => setIsAutoMapConfirmOpen(false)}
-                                className="flex-1 px-4 py-3 rounded-xl bg-gray-800 text-gray-300 font-bold hover:bg-gray-700 transition-all"
-                            >
-                                취소
-                            </button>
-                            <button 
-                                onClick={applyAutoMap}
-                                className="flex-[2] px-4 py-3 rounded-xl bg-blue-600 text-white font-bold hover:bg-blue-500 shadow-lg shadow-blue-900/20 transition-all"
-                            >
-                                변환 실행하기
-                            </button>
+                                <button onClick={() => setIsAutoMapConfirmOpen(false)} className="text-gray-400 hover:text-white text-xl">✕</button>
+                            </div>
+                            <div className="p-6 max-h-[50vh] overflow-y-auto custom-scrollbar space-y-3">
+                                {autoMapResults.map((res, i) => (
+                                    <div key={i} className="flex items-center justify-between bg-black/40 p-4 rounded-xl border border-gray-800">
+                                        <div className="flex items-center gap-4">
+                                            <div className="flex flex-col">
+                                                <span className="text-xs text-gray-500 uppercase font-bold tracking-wider">기존 이름</span>
+                                                <span className="text-lg text-red-400 font-bold">{res.guest}</span>
+                                            </div>
+                                            <span className="text-gray-600 text-2xl">→</span>
+                                            <div className="flex flex-col">
+                                                <span className="text-xs text-gray-500 uppercase font-bold tracking-wider">DB 니케</span>
+                                                <span className="text-lg text-blue-400 font-bold">{res.match.name}{res.match.extra_info ? ` (${res.match.extra_info})` : ''}</span>
+                                            </div>
+                                        </div>
+                                        <div className="text-right">
+                                            <span className={`text-[10px] px-2 py-0.5 rounded border border-gray-700 text-gray-500`}>
+                                                {res.match.id}
+                                            </span>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                            <div className="p-6 bg-gray-950/50 flex gap-3">
+                                <button
+                                    onClick={() => setIsAutoMapConfirmOpen(false)}
+                                    className="flex-1 px-4 py-3 rounded-xl bg-gray-800 text-gray-300 font-bold hover:bg-gray-700 transition-all"
+                                >
+                                    취소
+                                </button>
+                                <button
+                                    onClick={applyAutoMap}
+                                    className="flex-[2] px-4 py-3 rounded-xl bg-blue-600 text-white font-bold hover:bg-blue-500 shadow-lg shadow-blue-900/20 transition-all"
+                                >
+                                    변환 실행하기
+                                </button>
+                            </div>
                         </div>
                     </div>
-                </div>
-            )}
+                )
+            }
 
             {/* Burst DB Editor Modal */}
-            {showBurstEditor && (
-                <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-sm p-4">
-                    <div className="bg-gray-900 border border-gray-700 rounded-2xl w-full max-w-4xl h-[80vh] flex flex-col shadow-2xl overflow-hidden">
-                        <div className="p-4 border-b border-gray-800 flex justify-between items-center bg-gray-900/50">
-                            <div className="flex-1">
-                                <h2 className="text-xl font-black text-white flex items-center gap-2">
-                                    <span className="text-amber-500">⚡</span> 버스트 수급량 DB 관리
-                                </h2>
-                                <p className="text-xs text-gray-500 mt-1">니케별 버스트 수급량(value)을 직접 수정하고 DB에 반영합니다.</p>
-                            </div>
-                            <div className="flex-1 max-w-xs mx-4">
-                                <div className="relative">
-                                    <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500">🔍</span>
-                                    <input 
-                                        type="text"
-                                        placeholder="니케 이름 검색..."
-                                        value={editorSearchTerm}
-                                        onChange={(e) => setEditorSearchTerm(e.target.value)}
-                                        className="w-full bg-gray-800 border border-gray-700 rounded-lg pl-10 pr-4 py-2 text-sm text-white focus:border-amber-500 outline-none transition-all"
-                                    />
+            {
+                showBurstEditor && (
+                    <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-sm p-4">
+                        <div className="bg-gray-900 border border-gray-700 rounded-2xl w-full max-w-4xl h-[80vh] flex flex-col shadow-2xl overflow-hidden">
+                            <div className="p-4 border-b border-gray-800 flex justify-between items-center bg-gray-900/50">
+                                <div className="flex-1">
+                                    <h2 className="text-xl font-black text-white flex items-center gap-2">
+                                        <span className="text-amber-500">⚡</span> 버스트 수급량 DB 관리
+                                    </h2>
+                                    <p className="text-xs text-gray-500 mt-1">니케별 버스트 수급량(value)을 직접 수정하고 DB에 반영합니다.</p>
                                 </div>
+                                <div className="flex-1 max-w-xs mx-4">
+                                    <div className="relative">
+                                        <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500">🔍</span>
+                                        <input
+                                            type="text"
+                                            placeholder="니케 이름 검색..."
+                                            value={editorSearchTerm}
+                                            onChange={(e) => setEditorSearchTerm(e.target.value)}
+                                            className="w-full bg-gray-800 border border-gray-700 rounded-lg pl-10 pr-4 py-2 text-sm text-white focus:border-amber-500 outline-none transition-all"
+                                        />
+                                    </div>
+                                </div>
+                                <button onClick={() => setShowBurstEditor(false)} className="text-gray-400 hover:text-white text-2xl">✕</button>
                             </div>
-                            <button onClick={() => setShowBurstEditor(false)} className="text-gray-400 hover:text-white text-2xl">✕</button>
-                        </div>
-                        
-                        <div className="flex-1 overflow-y-auto p-4 custom-scrollbar bg-black/20">
-                            <table className="w-full text-left border-collapse">
-                                <thead className="sticky top-0 bg-gray-900 z-10">
-                                    <tr className="text-[10px] font-black text-gray-500 uppercase tracking-wider border-b border-gray-800">
-                                        <th className="py-3 px-4 min-w-[120px]">니케 이름</th>
-                                        {(["2RL", "2_5RL", "3RL", "3_5RL", "4RL"] as RLStage[]).map(s => (
-                                            <th key={s} className="py-3 px-2 text-center border-l border-gray-800/50">
-                                                <div className="text-amber-500 mb-1">{s.replace('_', '.')}</div>
-                                                <div className="flex gap-1 justify-center font-normal text-[9px] text-gray-600">
-                                                    <span className="w-14">Value</span>
-                                                    <span className="w-16">Hits</span>
-                                                    <span className="w-16">Bonus</span>
-                                                </div>
-                                            </th>
-                                        ))}
-                                    </tr>
-                                </thead>
-                                <tbody className="text-sm font-medium">
-                                    {filteredEditorNikkes.length > 0 ? (
-                                        filteredEditorNikkes.map(([name, stages]) => (
-                                            <tr key={name} className="border-b border-gray-800/50 hover:bg-gray-800/30 transition-colors">
-                                                <td className="py-3 px-4 font-bold text-gray-300 text-xs">{name}</td>
-                                                {(["2RL", "2_5RL", "3RL", "3_5RL", "4RL"] as RLStage[]).map(s => (
-                                                    <td key={s} className="py-2 px-1 text-center border-l border-gray-800/30">
-                                                        <div className="flex flex-col gap-1 items-center">
-                                                            <input
-                                                                type="number"
-                                                                step="0.1"
-                                                                value={stages[s].value}
-                                                                onChange={(e) => {
-                                                                    const newVal = parseFloat(e.target.value) || 0;
-                                                                    const nextDB = { ...localBurstDB };
-                                                                    nextDB[name] = { ...nextDB[name], [s]: { ...nextDB[name][s], value: newVal } };
-                                                                    setLocalBurstDB(nextDB);
-                                                                }}
-                                                                className="w-14 bg-gray-800 border border-gray-700 rounded px-1 py-0.5 text-center text-[11px] text-amber-400 font-mono focus:border-amber-500 outline-none transition-all"
-                                                                placeholder="Val"
-                                                                title="Value"
-                                                            />
-                                                            <input
-                                                                type="text"
-                                                                value={stages[s].hits || "0-0"}
-                                                                onChange={(e) => {
-                                                                    const nextDB = { ...localBurstDB };
-                                                                    nextDB[name] = { ...nextDB[name], [s]: { ...nextDB[name][s], hits: e.target.value } };
-                                                                    setLocalBurstDB(nextDB);
-                                                                }}
-                                                                className="w-16 bg-gray-800 border border-gray-700 rounded px-1 py-0.5 text-center text-[10px] text-blue-400 font-mono focus:border-blue-500 outline-none transition-all"
-                                                                placeholder="Hits"
-                                                                title="Hits (e.g. 2-4)"
-                                                            />
-                                                            <input
-                                                                type="text"
-                                                                value={stages[s].bonus || "0%-0%"}
-                                                                onChange={(e) => {
-                                                                    const nextDB = { ...localBurstDB };
-                                                                    nextDB[name] = { ...nextDB[name], [s]: { ...nextDB[name][s], bonus: e.target.value } };
-                                                                    setLocalBurstDB(nextDB);
-                                                                }}
-                                                                className="w-16 bg-gray-800 border border-gray-700 rounded px-1 py-0.5 text-center text-[10px] text-green-400 font-mono focus:border-green-500 outline-none transition-all"
-                                                                placeholder="Bonus"
-                                                                title="Bonus (e.g. 0%-5%)"
-                                                            />
+
+                            <div className="flex-1 overflow-y-auto p-4 custom-scrollbar bg-black/20">
+                                <table className="w-full text-left border-collapse">
+                                    <thead className="sticky top-0 bg-gray-900 z-10">
+                                        <tr className="text-[10px] font-black text-gray-500 uppercase tracking-wider border-b border-gray-800">
+                                            <th className="py-3 px-4 min-w-[120px]">니케 이름</th>
+                                            {(["2RL", "2_5RL", "3RL", "3_5RL", "4RL"] as RLStage[]).map(s => (
+                                                <th key={s} className="py-3 px-2 text-center border-l border-gray-800/50">
+                                                    <div className="text-amber-500 mb-1">{s.replace('_', '.')}</div>
+                                                    <div className="flex gap-1 justify-center font-normal text-[9px] text-gray-600">
+                                                        <span className="w-14">Value</span>
+                                                        <span className="w-16">Hits</span>
+                                                        <span className="w-16">Bonus</span>
+                                                    </div>
+                                                </th>
+                                            ))}
+                                        </tr>
+                                    </thead>
+                                    <tbody className="text-sm font-medium">
+                                        {filteredEditorNikkes.length > 0 ? (
+                                            filteredEditorNikkes.map(([name, stages]) => (
+                                                <tr key={name} className="border-b border-gray-800/50 hover:bg-gray-800/30 transition-colors">
+                                                    <td className="py-3 px-4 sticky left-0 bg-[#0f1115] z-10">
+                                                        <div 
+                                                            className="text-xs font-bold text-gray-300 cursor-pointer hover:text-white hover:underline transition-colors"
+                                                            onClick={() => {
+                                                                const info = getNikkeInfo(name);
+                                                                if (info) {
+                                                                    onSelectNikke?.(info);
+                                                                }
+                                                            }}
+                                                        >
+                                                            {name}
                                                         </div>
                                                     </td>
-                                                ))}
+                                                    {(["2RL", "2_5RL", "3RL", "3_5RL", "4RL"] as RLStage[]).map(s => (
+                                                        <td key={s} className="py-2 px-1 text-center border-l border-gray-800/30">
+                                                            <div className="flex flex-col gap-1 items-center">
+                                                                <input
+                                                                    type="number"
+                                                                    step="0.1"
+                                                                    value={stages[s].value}
+                                                                    onChange={(e) => {
+                                                                        const newVal = parseFloat(e.target.value) || 0;
+                                                                        const nextDB = { ...localBurstDB };
+                                                                        nextDB[name] = { ...nextDB[name], [s]: { ...nextDB[name][s], value: newVal } };
+                                                                        setLocalBurstDB(nextDB);
+                                                                    }}
+                                                                    className="w-14 bg-gray-800 border border-gray-700 rounded px-1 py-0.5 text-center text-[11px] text-amber-400 font-mono focus:border-amber-500 outline-none transition-all"
+                                                                    placeholder="Val"
+                                                                    title="Value"
+                                                                />
+                                                                <input
+                                                                    type="text"
+                                                                    value={stages[s].hits || "0-0"}
+                                                                    onChange={(e) => {
+                                                                        const nextDB = { ...localBurstDB };
+                                                                        nextDB[name] = { ...nextDB[name], [s]: { ...nextDB[name][s], hits: e.target.value } };
+                                                                        setLocalBurstDB(nextDB);
+                                                                    }}
+                                                                    className="w-16 bg-gray-800 border border-gray-700 rounded px-1 py-0.5 text-center text-[10px] text-blue-400 font-mono focus:border-blue-500 outline-none transition-all"
+                                                                    placeholder="Hits"
+                                                                    title="Hits (e.g. 2-4)"
+                                                                />
+                                                                <input
+                                                                    type="text"
+                                                                    value={stages[s].bonus || "0%-0%"}
+                                                                    onChange={(e) => {
+                                                                        const nextDB = { ...localBurstDB };
+                                                                        nextDB[name] = { ...nextDB[name], [s]: { ...nextDB[name][s], bonus: e.target.value } };
+                                                                        setLocalBurstDB(nextDB);
+                                                                    }}
+                                                                    className="w-16 bg-gray-800 border border-gray-700 rounded px-1 py-0.5 text-center text-[10px] text-green-400 font-mono focus:border-green-500 outline-none transition-all"
+                                                                    placeholder="Bonus"
+                                                                    title="Bonus (e.g. 0%-5%)"
+                                                                />
+                                                            </div>
+                                                        </td>
+                                                    ))}
+                                                </tr>
+                                            ))
+                                        ) : (
+                                            <tr>
+                                                <td colSpan={6} className="py-10 text-center text-gray-500 font-bold">
+                                                    검색 결과가 없습니다.
+                                                </td>
                                             </tr>
-                                        ))
-                                    ) : (
-                                        <tr>
-                                            <td colSpan={6} className="py-10 text-center text-gray-500 font-bold">
-                                                검색 결과가 없습니다.
-                                            </td>
-                                        </tr>
-                                    )}
-                                </tbody>
-                            </table>
-                        </div>
-                        
-                        <div className="p-4 border-t border-gray-800 flex justify-end gap-3 bg-gray-900/50">
-                            <button onClick={() => setShowBurstEditor(false)} className="px-6 py-2 rounded-lg bg-gray-800 text-gray-300 font-bold hover:bg-gray-700 transition-all">취소</button>
-                            <button 
-                                onClick={() => {
-                                    if (confirm("변경사항을 DB에 영구적으로 저장하시겠습니까?")) {
-                                        handleSaveBurstDB(localBurstDB);
-                                    }
-                                }} 
-                                className="px-8 py-2 rounded-lg bg-amber-600 text-white font-black hover:bg-amber-500 shadow-lg shadow-amber-900/20 transition-all"
-                            >
-                                DB 저장 및 적용
-                            </button>
+                                        )}
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div className="p-4 border-t border-gray-800 flex justify-end gap-3 bg-gray-900/50">
+                                <button onClick={() => setShowBurstEditor(false)} className="px-6 py-2 rounded-lg bg-gray-800 text-gray-300 font-bold hover:bg-gray-700 transition-all">취소</button>
+                                <button
+                                    onClick={() => {
+                                        if (confirm("변경사항을 DB에 영구적으로 저장하시겠습니까?")) {
+                                            handleSaveBurstDB(localBurstDB);
+                                        }
+                                    }}
+                                    className="px-8 py-2 rounded-lg bg-amber-600 text-white font-black hover:bg-amber-500 shadow-lg shadow-amber-900/20 transition-all"
+                                >
+                                    DB 저장 및 적용
+                                </button>
+                            </div>
                         </div>
                     </div>
-                </div>
-            )}
-        </div>
+                )
+            }
+        </div >
     );
 }

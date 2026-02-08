@@ -1,0 +1,68 @@
+{
+  "meta": {
+    "name": "마나",
+    "cv": "이명희",
+    "rarity": "SSR",
+    "squad": "M.M.R.",
+    "company": "미실리스",
+    "class": "화력형",
+    "burst": "III",
+    "code": "풍압",
+    "weapon": "소총 (AR)"
+  },
+  "stats": {
+    "combatPower": 29836,
+    "hp": 1026670,
+    "atk": 43769,
+    "def": 6828
+  },
+  "skills": {
+    "skill1": 3,
+    "skill2": 5,
+    "burst": 4
+  },
+  "cube": {
+    "level": 0
+  },
+  "collection": {
+    "rarity": "R",
+    "skillLv1": 3,
+    "skillLv2": 5
+  },
+  "equipment": [
+    {
+      "partIndex": 1,
+      "stats": {
+        "체력": 34375,
+        "공격": 4203
+      },
+      "options": []
+    },
+    {
+      "partIndex": 2,
+      "stats": {
+        "체력": 85937,
+        "공격": 588
+      },
+      "options": []
+    },
+    {
+      "partIndex": 3,
+      "stats": {
+        "공격": 2058,
+        "방어": 352
+      },
+      "options": []
+    },
+    {
+      "partIndex": 4,
+      "stats": {
+        "체력": 19832,
+        "방어": 527
+      },
+      "options": []
+    }
+  ],
+  "rawUrl": "https://www.blablalink.com/shiftyspad/nikke?from=list&nikke=290",
+  "timestamp": "2026-01-13T21:45:16.653Z"
+}

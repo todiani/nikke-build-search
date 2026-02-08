@@ -1,0 +1,68 @@
+{
+  "meta": {
+    "name": "노이즈",
+    "cv": "성예원",
+    "rarity": "SSR",
+    "squad": "프리마돈나",
+    "company": "테트라",
+    "class": "지원형",
+    "burst": "I",
+    "code": "전격",
+    "weapon": "런처 (RL)"
+  },
+  "stats": {
+    "combatPower": 35023,
+    "hp": 1225388,
+    "atk": 38839,
+    "def": 7967
+  },
+  "skills": {
+    "skill1": 6,
+    "skill2": 6,
+    "burst": 6
+  },
+  "cube": {
+    "level": 0
+  },
+  "collection": {
+    "rarity": "R",
+    "skillLv1": 6,
+    "skillLv2": 6
+  },
+  "equipment": [
+    {
+      "partIndex": 1,
+      "stats": {
+        "체력": 38194,
+        "공격": 3502
+      },
+      "options": []
+    },
+    {
+      "partIndex": 2,
+      "stats": {
+        "체력": 124131,
+        "공격": 637
+      },
+      "options": []
+    },
+    {
+      "partIndex": 3,
+      "stats": {
+        "공격": 1715,
+        "방어": 391
+      },
+      "options": []
+    },
+    {
+      "partIndex": 4,
+      "stats": {
+        "체력": 22035,
+        "방어": 586
+      },
+      "options": []
+    }
+  ],
+  "rawUrl": "https://www.blablalink.com/shiftyspad/nikke?from=list&nikke=430",
+  "timestamp": "2026-01-13T21:42:26.258Z"
+}

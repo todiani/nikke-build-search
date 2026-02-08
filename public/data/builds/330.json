@@ -1,0 +1,385 @@
+{
+  "id": "330",
+  "name": "크라운",
+  "name_en": "Crown",
+  "tier": "SSS",
+  "burst": 0,
+  "class": 0,
+  "weapon": 0,
+  "squad": "바이스리터",
+  "company": 0,
+  "role": "방어형",
+  "code": 0,
+  "skill_priority_comment": "[가성비] 7-7-7  /  [종결] 10-10-10",
+  "skills_detail": {
+    "skill1": {
+      "name": "원 포 올",
+      "desc": "풀 버스트 타임 시작 시 직전에 버스트 스킬을 사용한 아군 전체에게: [시전자 기준 공격력 64.51% ▲] [15초 유지]\n[재장전 속도 44.35% ▲] [15초 유지]\n풀 버스트 타임 시작 시 직전에 버스트 스킬을 사용하지 않은 아군 전체에게: [시전자 기준 방어력 37.44% ▲] [15초 유지]\n[재장전 속도 44.35% ▲] [15초 유지]\n",
+      "tags": [
+        "시작 시",
+        "풀 버스트 타임 시작 시",
+        "아군 전체",
+        "시전자 기준",
+        "공격력▲",
+        "방어력▲",
+        "재장전 속도▲",
+        "버스트",
+        "공격력▼",
+        "방어력▼"
+      ]
+    },
+    "skill2": {
+      "name": "로얄 에타이어",
+      "desc": "일반 공격 43회 공격 시 자신에게: [릴렉스 : 받는 체력 회복량 4.06% ▲] [20중첩] [지속]\n자신이 릴렉스 최대 중첩 상태라면 중첩 해제 후 자신에게: [무적] [5초 유지]\n[주목 : 적 전체 도발] [5초 유지]\n[시전자의 최종 최대 체력 비례 5.23% 회복]\n회복 효과 적용 시 아군 전체에게: [공격 대미지 20.99% ▲] [7초 유지]\n",
+      "tags": [
+        "공격 시",
+        "아군 전체",
+        "자신",
+        "자신에게",
+        "적 전체",
+        "최대 체력▲",
+        "체력 회복",
+        "무적",
+        "대미지",
+        "도발"
+      ]
+    },
+    "burst": {
+      "name": "라스트 킹덤",
+      "desc": "아군 전체에게: [공격 대미지 36.24% ▲] [15초 유지]\n[시전자의 최종 최대 체력 비례 10.45% 보호막] [15초 유지]\n",
+      "tags": [
+        "아군 전체",
+        "최대 체력▲",
+        "보호막",
+        "대미지"
+      ]
+    },
+    "normal": {
+      "name": "킹스메이커"
+    }
+  },
+  "overload_detail": {
+    "priority": "",
+    "options": [
+      "공격력",
+      "우월코드",
+      "장탄",
+      "차속"
+    ],
+    "recommended_cubes": [
+      "렐릭 베어 (차지 속도) or 택티컬 (장탄)"
+    ],
+    "notes": ""
+  },
+  "skill_priority": "[가성비] 7-7-7  /  [종결] 10-10-10",
+  "options": [],
+  "cube": "",
+  "desc": "【특징 및 활용 방법】\n- 아군 전체에게 강력한 공격력 증가, 재장전 속도 증가, 그리고 보호막을 제공하는 2버스트 방어형 니케입니다. (필그림)\n- 힐러와 함께 조합하여 크라운의 체력이 회복될 때마다 아군 전체에게 공격 대미지 버프를 상시 유지할 수 있는 기믹이 핵심입니다.\n- 현재 게임 내에서 대체 불가능한 0티어 서포터로 평가받으며, 캠페인, 보스전, PVP 등 모든 콘텐츠에서 유일신급 성능을 보여줍니다.\n- 추천 옵션: 최대 장탄 수 증가, 공격력 증가, 우월코드 대미지 증가를 추천합니다.",
+  "extra_info": "1.5주년",
+  "valid_options": [
+    "공격력 증가",
+    "최대 장탄 수 증가",
+    "우월코드 대미지 증가"
+  ],
+  "invalid_options": [
+    "차지 속도 증가",
+    "차지 대미지 증가",
+    "방어력 증가"
+  ],
+  "usage_stats": [
+    {
+      "name": "스테이지",
+      "stars": 5,
+      "desc": "일반 캠페인 및 타워"
+    },
+    {
+      "name": "이상개체요격전",
+      "stars": 5,
+      "desc": "특수 개체 보스 공략"
+    },
+    {
+      "name": "솔로레이드",
+      "stars": 5,
+      "desc": "철갑코드 보스 특화"
+    },
+    {
+      "name": "유니온레이드",
+      "stars": 5,
+      "desc": "철갑코드 보스"
+    },
+    {
+      "name": "타워",
+      "stars": 5,
+      "desc": "적극 활용 가능"
+    },
+    {
+      "name": "PVP",
+      "stars": 5,
+      "desc": "아레나 활용 가능"
+    },
+    {
+      "name": "기업타워",
+      "stars": 5,
+      "desc": ""
+    },
+    {
+      "name": "트라이브타워",
+      "stars": 5,
+      "desc": ""
+    }
+  ],
+  "_originalId": "330",
+  "rarity": "SSR",
+  "cv": "허예은",
+  "weapon_name": "유어 마제스티",
+  "weapon_info": {
+    "weapon_name": "",
+    "max_ammo": 0,
+    "reload_time": 0,
+    "control_type": ""
+  },
+  "burst_details": {
+    "2RL": {
+      "value": 0,
+      "hits": "-",
+      "bonus": "0%-0%"
+    },
+    "2_5RL": {
+      "value": 0,
+      "hits": "-",
+      "bonus": "0%-0%"
+    },
+    "3RL": {
+      "value": 0,
+      "hits": "-",
+      "bonus": "0%-0%"
+    },
+    "3_5RL": {
+      "value": 0,
+      "hits": "-",
+      "bonus": "0%-0%"
+    },
+    "4RL": {
+      "value": 0,
+      "hits": "-",
+      "bonus": "0%-0%"
+    }
+  },
+  "build": {
+    "stats": {
+      "hp": 1698673,
+      "atk": 43409,
+      "def": 9910
+    },
+    "skills": {
+      "skill1": 10,
+      "skill2": 9,
+      "burst": 10
+    },
+    "cube_level": 1,
+    "collection": {
+      "grade": "SR",
+      "skill1": 10,
+      "skill2": 9
+    },
+    "overload": {
+      "helmet": {
+        "option1": {
+          "type": "우월코드 대미지 증가",
+          "stage": 2075
+        },
+        "option2": {
+          "type": "공격력 증가",
+          "stage": 759
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 0
+        }
+      },
+      "armor": {
+        "option1": {
+          "type": "우월코드 대미지 증가",
+          "stage": 954
+        },
+        "option2": {
+          "type": "차지 대미지 증가",
+          "stage": 1040
+        },
+        "option3": {
+          "type": "명중률 증가",
+          "stage": 1040
+        }
+      },
+      "gloves": {
+        "option1": {
+          "type": "우월코드 대미지 증가",
+          "stage": 1795
+        },
+        "option2": {
+          "type": "공격력 증가",
+          "stage": 1040
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 0
+        }
+      },
+      "boots": {
+        "option1": {
+          "type": "우월코드 대미지 증가",
+          "stage": 1935
+        },
+        "option2": {
+          "type": "크리티컬 대미지 증가",
+          "stage": 1546
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 0
+        }
+      }
+    }
+  },
+  "compare_data": {
+    "buildA": {
+      "stats": {
+        "hp": 1000000,
+        "atk": 50000,
+        "def": 10000,
+        "s1": 10,
+        "s2": 10,
+        "burst": 10,
+        "cubeLvl": 7
+      },
+      "partOptions": {
+        "helmet": {
+          "option1": {
+            "type": "옵션없음",
+            "stage": 0
+          },
+          "option2": {
+            "type": "옵션없음",
+            "stage": 0
+          },
+          "option3": {
+            "type": "옵션없음",
+            "stage": 0
+          }
+        },
+        "armor": {
+          "option1": {
+            "type": "옵션없음",
+            "stage": 0
+          },
+          "option2": {
+            "type": "옵션없음",
+            "stage": 0
+          },
+          "option3": {
+            "type": "옵션없음",
+            "stage": 0
+          }
+        },
+        "gloves": {
+          "option1": {
+            "type": "옵션없음",
+            "stage": 0
+          },
+          "option2": {
+            "type": "옵션없음",
+            "stage": 0
+          },
+          "option3": {
+            "type": "옵션없음",
+            "stage": 0
+          }
+        },
+        "boots": {
+          "option1": {
+            "type": "옵션없음",
+            "stage": 0
+          },
+          "option2": {
+            "type": "옵션없음",
+            "stage": 0
+          },
+          "option3": {
+            "type": "옵션없음",
+            "stage": 0
+          }
+        }
+      }
+    },
+    "buildB": {
+      "stats": {
+        "hp": 1000000,
+        "atk": 50000,
+        "def": 10000,
+        "s1": 10,
+        "s2": 10,
+        "burst": 10,
+        "cubeLvl": 7
+      },
+      "partOptions": {
+        "helmet": {
+          "option1": {
+            "type": "옵션없음",
+            "stage": 0
+          },
+          "option2": {
+            "type": "옵션없음",
+            "stage": 0
+          },
+          "option3": {
+            "type": "옵션없음",
+            "stage": 0
+          }
+        },
+        "armor": {
+          "option1": {
+            "type": "옵션없음",
+            "stage": 0
+          },
+          "option2": {
+            "type": "옵션없음",
+            "stage": 0
+          },
+          "option3": {
+            "type": "옵션없음",
+            "stage": 0
+          }
+        },
+        "gloves": {
+          "option1": {
+            "type": "옵션없음",
+            "stage": 0
+          },
+          "option2": {
+            "type": "옵션없음",
+            "stage": 0
+          },
+          "option3": {
+            "type": "옵션없음",
+            "stage": 0
+          }
+        },
+        "boots": {
+          "option1": {
+            "type": "옵션없음",
+            "stage": 0
+          },
+          "option2": {
+            "type": "옵션없음",
+            "stage": 0
+          },
+          "option3": {
+            "type": "옵션없음",
+            "stage": 0
+          }
+        }
+      }
+    }
+  },
+  "_dbId": "330"
+}

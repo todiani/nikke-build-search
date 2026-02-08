@@ -1,0 +1,68 @@
+{
+  "meta": {
+    "name": "비스킷",
+    "cv": "정혜원",
+    "rarity": "SSR",
+    "squad": "해피 주",
+    "company": "테트라",
+    "class": "지원형",
+    "burst": "II",
+    "code": "전격",
+    "weapon": "런처 (RL)"
+  },
+  "stats": {
+    "combatPower": 30085,
+    "hp": 1131994,
+    "atk": 36694,
+    "def": 7381
+  },
+  "skills": {
+    "skill1": 4,
+    "skill2": 5,
+    "burst": 5
+  },
+  "cube": {
+    "level": 0
+  },
+  "collection": {
+    "rarity": "R",
+    "skillLv1": 4,
+    "skillLv2": 5
+  },
+  "equipment": [
+    {
+      "partIndex": 1,
+      "stats": {
+        "체력": 38194,
+        "공격": 3502
+      },
+      "options": []
+    },
+    {
+      "partIndex": 2,
+      "stats": {
+        "체력": 95485,
+        "공격": 490
+      },
+      "options": []
+    },
+    {
+      "partIndex": 3,
+      "stats": {
+        "공격": 1715,
+        "방어": 391
+      },
+      "options": []
+    },
+    {
+      "partIndex": 4,
+      "stats": {
+        "체력": 22035,
+        "방어": 586
+      },
+      "options": []
+    }
+  ],
+  "rawUrl": "https://www.blablalink.com/shiftyspad/nikke?from=list&nikke=381",
+  "timestamp": "2026-01-13T21:44:44.848Z"
+}

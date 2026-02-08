@@ -1,0 +1,168 @@
+{
+  "id": "390",
+  "name": "츠바이",
+  "name_en": "Zwei",
+  "tier": "A",
+  "burst": 0,
+  "class": 0,
+  "weapon": 0,
+  "squad": "스쿨 서클",
+  "company": 0,
+  "role": "지원형 / 샷건 보조",
+  "code": 0,
+  "skills_detail": {
+    "skill1": {
+      "name": "도시락",
+      "desc": "팀 전체 장탄 수 ▲ 및 재장전 속도 ▲",
+      "tags": [
+        "장탄수▲",
+        "재장전 속도▲"
+      ]
+    },
+    "skill2": {
+      "name": "반찬 공유",
+      "desc": "옆자리 아군에게 공격력 증가 버프",
+      "tags": [
+        "공격력▲"
+      ]
+    },
+    "burst": {
+      "name": "합창 연습",
+      "desc": "아군 전체 실드 부여 및 체력 회복",
+      "tags": [
+        "실드",
+        "회복"
+      ]
+    },
+    "normal": {
+      "name": "듀얼 피스톨"
+    }
+  },
+  "usage_stats": [
+    {
+      "name": "스테이지",
+      "stars": 3,
+      "desc": "초반 진행용"
+    },
+    {
+      "name": "이상개체요격전",
+      "stars": 3,
+      "desc": "샷건 파티 보조"
+    },
+    {
+      "name": "기업타워",
+      "stars": 4,
+      "desc": "미실리스 초반 필수"
+    },
+    {
+      "name": "솔로레이드",
+      "stars": 0,
+      "desc": ""
+    },
+    {
+      "name": "유니온레이드",
+      "stars": 0,
+      "desc": ""
+    },
+    {
+      "name": "PVP",
+      "stars": 1,
+      "desc": ""
+    },
+    {
+      "name": "트라이브타워",
+      "stars": 0,
+      "desc": ""
+    }
+  ],
+  "weapon_info": {
+    "weapon_name": "",
+    "max_ammo": 0,
+    "reload_time": 0,
+    "control_type": ""
+  },
+  "build": {
+    "stats": {
+      "hp": 98250,
+      "atk": 1775,
+      "def": 606,
+      "power": 1882,
+      "combatPower": 1950
+    },
+    "overload": {
+      "helmet": {
+        "option1": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option2": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 1
+        }
+      },
+      "armor": {
+        "option1": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option2": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 1
+        }
+      },
+      "gloves": {
+        "option1": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option2": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 1
+        }
+      },
+      "boots": {
+        "option1": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option2": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 1
+        }
+      }
+    },
+    "skills": {
+      "skill1": 10,
+      "skill2": 10,
+      "burst": 10
+    },
+    "cube_level": 7,
+    "collection": {
+      "grade": "None",
+      "skill1": 0,
+      "skill2": 0
+    }
+  },
+  "_originalId": "390",
+  "rarity": "SSR",
+  "cv": "김예령",
+  "weapon_name": "프레지던트",
+  "_dbId": "390",
+  "extra_info": ""
+}

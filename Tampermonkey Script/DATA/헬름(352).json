@@ -1,0 +1,104 @@
+{
+  "meta": {
+    "name": "헬름",
+    "cv": "사문영",
+    "rarity": "SSR",
+    "squad": "이지스",
+    "company": "엘리시온",
+    "class": "화력형",
+    "burst": "III",
+    "code": "수냉",
+    "weapon": "저격소총 (SR)"
+  },
+  "stats": {
+    "combatPower": 71844,
+    "hp": 1580609,
+    "atk": 64359,
+    "def": 9780
+  },
+  "skills": {
+    "skill1": 10,
+    "skill2": 10,
+    "burst": 8
+  },
+  "cube": {
+    "level": 0
+  },
+  "collection": {
+    "rarity": "SR",
+    "skillLv1": 10,
+    "skillLv2": 10
+  },
+  "equipment": [
+    {
+      "partIndex": 1,
+      "stats": {
+        "체력": 63935,
+        "공격": 7818
+      },
+      "options": [
+        {
+          "name": "우월코드 대미지 증가",
+          "value": "20.75%"
+        },
+        {
+          "name": "크리티컬 대미지 증가",
+          "value": "6.64%"
+        }
+      ]
+    },
+    {
+      "partIndex": 2,
+      "stats": {
+        "체력": 159840,
+        "공격": 1093
+      },
+      "options": [
+        {
+          "name": "차지 대미지 증가",
+          "value": "11.81%"
+        },
+        {
+          "name": "우월코드 대미지 증가",
+          "value": "23.56%"
+        }
+      ]
+    },
+    {
+      "partIndex": 3,
+      "stats": {
+        "공격": 3827,
+        "방어": 654
+      },
+      "options": [
+        {
+          "name": "차지 속도 증가",
+          "value": "3.16%"
+        },
+        {
+          "name": "공격력 증가",
+          "value": "8.29%"
+        }
+      ]
+    },
+    {
+      "partIndex": 4,
+      "stats": {
+        "체력": 36887,
+        "방어": 981
+      },
+      "options": [
+        {
+          "name": "크리티컬 확률 증가",
+          "value": "5.71%"
+        },
+        {
+          "name": "차지 대미지 증가",
+          "value": "11.81%"
+        }
+      ]
+    }
+  ],
+  "rawUrl": "https://www.blablalink.com/shiftyspad/nikke?from=list&nikke=352",
+  "timestamp": "2026-01-13T21:38:26.399Z"
+}

@@ -1,0 +1,77 @@
+{
+  "meta": {
+    "name": "누아르",
+    "cv": "곽규미",
+    "rarity": "SSR",
+    "squad": "-",
+    "company": "테트라",
+    "class": "화력형",
+    "burst": "III",
+    "code": "풍압",
+    "weapon": "샷건 (SG)"
+  },
+  "stats": {
+    "combatPower": 37332,
+    "hp": 1069724,
+    "atk": 46482,
+    "def": 6740
+  },
+  "skills": {
+    "skill1": 6,
+    "skill2": 5,
+    "burst": 6
+  },
+  "cube": {
+    "level": 0
+  },
+  "collection": {
+    "rarity": "R",
+    "skillLv1": 6,
+    "skillLv2": 5
+  },
+  "equipment": [
+    {
+      "partIndex": 1,
+      "stats": {
+        "체력": 49181,
+        "공격": 6014
+      },
+      "options": [
+        {
+          "name": "명중률 증가",
+          "value": "11.81%"
+        },
+        {
+          "name": "크리티컬 확률 증가",
+          "value": "5.71%"
+        }
+      ]
+    },
+    {
+      "partIndex": 2,
+      "stats": {
+        "체력": 111718,
+        "공격": 764
+      },
+      "options": []
+    },
+    {
+      "partIndex": 3,
+      "stats": {
+        "공격": 2675,
+        "방어": 458
+      },
+      "options": []
+    },
+    {
+      "partIndex": 4,
+      "stats": {
+        "체력": 19832,
+        "방어": 527
+      },
+      "options": []
+    }
+  ],
+  "rawUrl": "https://www.blablalink.com/shiftyspad/nikke?from=list&nikke=271",
+  "timestamp": "2026-01-13T21:42:00.449Z"
+}

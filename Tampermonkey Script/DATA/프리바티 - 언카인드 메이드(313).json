@@ -1,0 +1,86 @@
+{
+  "meta": {
+    "name": "프리바티 : 언카인드 메이드",
+    "cv": "방시우",
+    "rarity": "SSR",
+    "squad": "메이드 포 유",
+    "company": "엘리시온",
+    "class": "화력형",
+    "burst": "III",
+    "code": "전격",
+    "weapon": "샷건 (SG)"
+  },
+  "stats": {
+    "combatPower": 54744,
+    "hp": 1446964,
+    "atk": 57594,
+    "def": 9529
+  },
+  "skills": {
+    "skill1": 7,
+    "skill2": 7,
+    "burst": 7
+  },
+  "cube": {
+    "level": 0
+  },
+  "collection": {
+    "rarity": "SR",
+    "skillLv1": 7,
+    "skillLv2": 7
+  },
+  "equipment": [
+    {
+      "partIndex": 1,
+      "stats": {
+        "체력": 49181,
+        "공격": 6014
+      },
+      "options": [
+        {
+          "name": "우월코드 대미지 증가",
+          "value": "16.55%"
+        },
+        {
+          "name": "공격력 증가",
+          "value": "6.18%"
+        }
+      ]
+    },
+    {
+      "partIndex": 2,
+      "stats": {
+        "체력": 111718,
+        "공격": 764
+      },
+      "options": []
+    },
+    {
+      "partIndex": 3,
+      "stats": {
+        "공격": 2058,
+        "방어": 352
+      },
+      "options": []
+    },
+    {
+      "partIndex": 4,
+      "stats": {
+        "체력": 36887,
+        "방어": 981
+      },
+      "options": [
+        {
+          "name": "우월코드 대미지 증가",
+          "value": "10.94%"
+        },
+        {
+          "name": "크리티컬 확률 증가",
+          "value": "5.03%"
+        }
+      ]
+    }
+  ],
+  "rawUrl": "https://www.blablalink.com/shiftyspad/nikke?from=list&nikke=313",
+  "timestamp": "2026-01-13T21:39:20.322Z"
+}

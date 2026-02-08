@@ -1,0 +1,81 @@
+{
+  "meta": {
+    "name": "아인",
+    "cv": "원에스더",
+    "rarity": "SSR",
+    "squad": "스쿨 서클",
+    "company": "미실리스",
+    "class": "화력형",
+    "burst": "III",
+    "code": "전격",
+    "weapon": "저격소총 (SR)"
+  },
+  "stats": {
+    "combatPower": 46477,
+    "hp": 1267915,
+    "atk": 54482,
+    "def": 7411
+  },
+  "skills": {
+    "skill1": 7,
+    "skill2": 7,
+    "burst": 6
+  },
+  "cube": {
+    "level": 0
+  },
+  "collection": {
+    "rarity": "SR",
+    "skillLv1": 7,
+    "skillLv2": 7
+  },
+  "equipment": [
+    {
+      "partIndex": 1,
+      "stats": {
+        "체력": 63935,
+        "공격": 7818
+      },
+      "options": [
+        {
+          "name": "차지 속도 증가",
+          "value": "4.92%"
+        },
+        {
+          "name": "공격력 증가",
+          "value": "11.81%"
+        },
+        {
+          "name": "방어력 증가",
+          "value": "11.81%"
+        }
+      ]
+    },
+    {
+      "partIndex": 2,
+      "stats": {
+        "체력": 111718,
+        "공격": 764
+      },
+      "options": []
+    },
+    {
+      "partIndex": 3,
+      "stats": {
+        "공격": 2675,
+        "방어": 458
+      },
+      "options": []
+    },
+    {
+      "partIndex": 4,
+      "stats": {
+        "체력": 19832,
+        "방어": 527
+      },
+      "options": []
+    }
+  ],
+  "rawUrl": "https://www.blablalink.com/shiftyspad/nikke?from=list&nikke=391",
+  "timestamp": "2026-01-13T21:40:10.694Z"
+}

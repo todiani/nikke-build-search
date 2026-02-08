@@ -1,0 +1,68 @@
+{
+  "meta": {
+    "name": "로산나",
+    "cv": "이은조",
+    "rarity": "SSR",
+    "squad": "언더월드 퀸",
+    "company": "테트라",
+    "class": "화력형",
+    "burst": "I",
+    "code": "전격",
+    "weapon": "기관총 (MG)"
+  },
+  "stats": {
+    "combatPower": 30427,
+    "hp": 1064208,
+    "atk": 44467,
+    "def": 6044
+  },
+  "skills": {
+    "skill1": 7,
+    "skill2": 3,
+    "burst": 5
+  },
+  "cube": {
+    "level": 0
+  },
+  "collection": {
+    "rarity": "R",
+    "skillLv1": 7,
+    "skillLv2": 3
+  },
+  "equipment": [
+    {
+      "partIndex": 1,
+      "stats": {
+        "체력": 34375,
+        "공격": 4203
+      },
+      "options": []
+    },
+    {
+      "partIndex": 2,
+      "stats": {
+        "체력": 111718,
+        "공격": 764
+      },
+      "options": []
+    },
+    {
+      "partIndex": 3,
+      "stats": {
+        "공격": 2058,
+        "방어": 352
+      },
+      "options": []
+    },
+    {
+      "partIndex": 4,
+      "stats": {
+        "체력": 19832,
+        "방어": 527
+      },
+      "options": []
+    }
+  ],
+  "rawUrl": "https://www.blablalink.com/shiftyspad/nikke?from=list&nikke=280",
+  "timestamp": "2026-01-13T21:44:20.665Z"
+}

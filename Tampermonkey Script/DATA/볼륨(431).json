@@ -1,0 +1,68 @@
+{
+  "meta": {
+    "name": "볼륨",
+    "cv": "이지현",
+    "rarity": "SSR",
+    "squad": "프리마돈나",
+    "company": "테트라",
+    "class": "화력형",
+    "burst": "I",
+    "code": "풍압",
+    "weapon": "기관단총 (SMG)"
+  },
+  "stats": {
+    "combatPower": 29398,
+    "hp": 1030406,
+    "atk": 43935,
+    "def": 6121
+  },
+  "skills": {
+    "skill1": 4,
+    "skill2": 5,
+    "burst": 4
+  },
+  "cube": {
+    "level": 0
+  },
+  "collection": {
+    "rarity": "R",
+    "skillLv1": 4,
+    "skillLv2": 5
+  },
+  "equipment": [
+    {
+      "partIndex": 1,
+      "stats": {
+        "체력": 34375,
+        "공격": 4203
+      },
+      "options": []
+    },
+    {
+      "partIndex": 2,
+      "stats": {
+        "체력": 85937,
+        "공격": 588
+      },
+      "options": []
+    },
+    {
+      "partIndex": 3,
+      "stats": {
+        "공격": 2058,
+        "방어": 352
+      },
+      "options": []
+    },
+    {
+      "partIndex": 4,
+      "stats": {
+        "체력": 19832,
+        "방어": 527
+      },
+      "options": []
+    }
+  ],
+  "rawUrl": "https://www.blablalink.com/shiftyspad/nikke?from=list&nikke=431",
+  "timestamp": "2026-01-13T21:45:24.646Z"
+}

@@ -1,0 +1,82 @@
+{
+  "meta": {
+    "name": "리타",
+    "cv": "최정윤",
+    "rarity": "SSR",
+    "squad": "마이티 툴즈",
+    "company": "미실리스",
+    "class": "지원형",
+    "burst": "I",
+    "code": "철갑",
+    "weapon": "기관단총 (SMG)"
+  },
+  "stats": {
+    "combatPower": 51949,
+    "hp": 1453392,
+    "atk": 49396,
+    "def": 9242
+  },
+  "skills": {
+    "skill1": 10,
+    "skill2": 4,
+    "burst": 10
+  },
+  "cube": {
+    "level": 0
+  },
+  "collection": {
+    "rarity": "SR",
+    "skillLv1": 10,
+    "skillLv2": 4
+  },
+  "equipment": [
+    {
+      "partIndex": 1,
+      "stats": {
+        "체력": 54646,
+        "공격": 5012
+      },
+      "options": [
+        {
+          "name": "최대 장탄 수 증가",
+          "value": "68.93%"
+        }
+      ]
+    },
+    {
+      "partIndex": 2,
+      "stats": {
+        "체력": 95485,
+        "공격": 490
+      },
+      "options": []
+    },
+    {
+      "partIndex": 3,
+      "stats": {
+        "공격": 3189,
+        "방어": 727
+      },
+      "options": [
+        {
+          "name": "크리티컬 확률 증가",
+          "value": "5.71%"
+        },
+        {
+          "name": "명중률 증가",
+          "value": "11.81%"
+        }
+      ]
+    },
+    {
+      "partIndex": 4,
+      "stats": {
+        "체력": 22035,
+        "방어": 586
+      },
+      "options": []
+    }
+  ],
+  "rawUrl": "https://www.blablalink.com/shiftyspad/nikke?from=list&nikke=82",
+  "timestamp": "2026-01-13T21:39:28.538Z"
+}

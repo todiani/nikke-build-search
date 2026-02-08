@@ -1,0 +1,99 @@
+{
+  "meta": {
+    "name": "에이다",
+    "cv": "릴리 가오",
+    "rarity": "SSR",
+    "squad": "B.S.T.",
+    "company": "어브노멀",
+    "class": "화력형",
+    "burst": "II",
+    "code": "전격",
+    "weapon": "런처 (RL)"
+  },
+  "stats": {
+    "combatPower": 55381,
+    "hp": 1252220,
+    "atk": 53668,
+    "def": 8451
+  },
+  "skills": {
+    "skill1": 10,
+    "skill2": 7,
+    "burst": 5
+  },
+  "cube": {
+    "level": 0
+  },
+  "collection": {
+    "rarity": "SR",
+    "skillLv1": 10,
+    "skillLv2": 7
+  },
+  "equipment": [
+    {
+      "partIndex": 1,
+      "stats": {
+        "체력": 59017,
+        "공격": 7217
+      },
+      "options": [
+        {
+          "name": "차지 속도 증가",
+          "value": "4.92%"
+        },
+        {
+          "name": "차지 대미지 증가",
+          "value": "11.81%"
+        },
+        {
+          "name": "크리티컬 확률 증가",
+          "value": "5.71%"
+        }
+      ]
+    },
+    {
+      "partIndex": 2,
+      "stats": {
+        "체력": 111718,
+        "공격": 764
+      },
+      "options": []
+    },
+    {
+      "partIndex": 3,
+      "stats": {
+        "공격": 3827,
+        "방어": 654
+      },
+      "options": [
+        {
+          "name": "최대 장탄 수 증가",
+          "value": "68.93%"
+        },
+        {
+          "name": "차지 대미지 증가",
+          "value": "11.81%"
+        }
+      ]
+    },
+    {
+      "partIndex": 4,
+      "stats": {
+        "체력": 36887,
+        "방어": 981
+      },
+      "options": [
+        {
+          "name": "차지 대미지 증가",
+          "value": "14.63%"
+        },
+        {
+          "name": "크리티컬 대미지 증가",
+          "value": "13.50%"
+        }
+      ]
+    }
+  ],
+  "rawUrl": "https://www.blablalink.com/shiftyspad/nikke?from=list&nikke=840",
+  "timestamp": "2026-01-13T21:39:11.280Z"
+}

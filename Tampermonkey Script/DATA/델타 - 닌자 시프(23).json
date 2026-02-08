@@ -1,0 +1,94 @@
+{
+  "meta": {
+    "name": "델타 : 닌자 시프",
+    "cv": "이슬",
+    "rarity": "SSR",
+    "squad": "스카우팅",
+    "company": "엘리시온",
+    "class": "방어형",
+    "burst": "II",
+    "code": "수냉",
+    "weapon": "기관총 (MG)"
+  },
+  "stats": {
+    "combatPower": 42301,
+    "hp": 1344965,
+    "atk": 33800,
+    "def": 8062
+  },
+  "skills": {
+    "skill1": 6,
+    "skill2": 5,
+    "burst": 6
+  },
+  "cube": {
+    "level": 0
+  },
+  "collection": {
+    "rarity": "R",
+    "skillLv1": 6,
+    "skillLv2": 5
+  },
+  "equipment": [
+    {
+      "partIndex": 1,
+      "stats": {
+        "체력": 60111,
+        "공격": 4010
+      },
+      "options": [
+        {
+          "name": "크리티컬 확률 증가",
+          "value": "2.98%"
+        },
+        {
+          "name": "우월코드 대미지 증가",
+          "value": "19.35%"
+        },
+        {
+          "name": "명중률 증가",
+          "value": "9.00%"
+        }
+      ]
+    },
+    {
+      "partIndex": 2,
+      "stats": {
+        "체력": 136544,
+        "공격": 510
+      },
+      "options": []
+    },
+    {
+      "partIndex": 3,
+      "stats": {
+        "공격": 2551,
+        "방어": 800
+      },
+      "options": [
+        {
+          "name": "최대 장탄 수 증가",
+          "value": "60.71%"
+        },
+        {
+          "name": "크리티컬 대미지 증가",
+          "value": "11.54%"
+        },
+        {
+          "name": "공격력 증가",
+          "value": "4.77%"
+        }
+      ]
+    },
+    {
+      "partIndex": 4,
+      "stats": {
+        "체력": 31511,
+        "방어": 839
+      },
+      "options": []
+    }
+  ],
+  "rawUrl": "https://www.blablalink.com/shiftyspad/nikke?from=list&nikke=23",
+  "timestamp": "2026-01-13T21:40:28.313Z"
+}

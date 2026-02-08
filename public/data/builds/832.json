@@ -1,0 +1,172 @@
+{
+  "id": "832",
+  "name": "마리 : 마키나미",
+  "name_en": "Mari : Makinami Mari Illustrious",
+  "tier": "S",
+  "burst": "II",
+  "class": "지원형",
+  "weapon": "저격소총 (SR)",
+  "squad": "NERV",
+  "company": "어브노멀",
+  "role": "지원형 / 전격 공격력 ▲",
+  "code": "전격",
+  "desc": "【특징 및 활용 방법】\n- 관통 능력을 보유한 아군 전체를 강화시키는 2버스트 고성능 서브 딜러입니다.\n- 지원형임에도 불구하고 강력한 개인 딜링 능력을 갖추고 있어 '지원형의 탈을 쓴 화력형'으로 불립니다.\n- 레드 후드, 앨리스 등 관통 주력 딜러들과 최상의 시너지를 발휘하며, 레이드와 스테이지 모든 곳에서 활약합니다.\n- 추천 옵션: 공격력 증가, 우월코드 대미지 증가를 최우선으로 선택하세요.",
+  "skills_detail": {
+    "skill1": {
+      "name": "8호기 파일럿",
+      "desc": "전격 코드 아군에게 공격력 및 관통 대미지 ▲ 버프",
+      "tags": [
+        "전격",
+        "공격력▲"
+      ]
+    },
+    "skill2": {
+      "name": "조준 보조",
+      "desc": "명중률 ▲, 재장전 속도 ▲",
+      "tags": [
+        "명중률▲",
+        "재장전 속도▲"
+      ]
+    },
+    "burst": {
+      "name": "신나게 가보자고!",
+      "desc": "아군 전체 버스트 충전 및 큰 폭의 공격력 버프",
+      "tags": [
+        "버스트 충전",
+        "공격력▲"
+      ]
+    },
+    "normal": {
+      "name": "네메시스",
+      "desc": "",
+      "tags": []
+    }
+  },
+  "usage_stats": [
+    {
+      "name": "스테이지",
+      "stars": 4,
+      "desc": "전격 파티 핵심 2버"
+    },
+    {
+      "name": "이상개체요격전",
+      "stars": 4,
+      "desc": "전격 위주 보합"
+    },
+    {
+      "name": "솔로레이드",
+      "stars": 4,
+      "desc": "범용성 높은 서포터"
+    },
+    {
+      "name": "유니온레이드",
+      "stars": 4,
+      "desc": ""
+    },
+    {
+      "name": "PVP",
+      "stars": 3,
+      "desc": ""
+    },
+    {
+      "name": "기업타워",
+      "stars": 5,
+      "desc": ""
+    },
+    {
+      "name": "트라이브타워",
+      "stars": 0,
+      "desc": ""
+    }
+  ],
+  "weapon_info": {
+    "weapon_name": "",
+    "max_ammo": 0,
+    "reload_time": 0,
+    "control_type": "",
+    "name": "네메시스"
+  },
+  "build": {
+    "stats": {
+      "hp": 98250,
+      "atk": 1775,
+      "def": 594,
+      "power": 1870,
+      "combatPower": 1939
+    },
+    "overload": {
+      "helmet": {
+        "option1": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option2": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 1
+        }
+      },
+      "armor": {
+        "option1": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option2": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 1
+        }
+      },
+      "gloves": {
+        "option1": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option2": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 1
+        }
+      },
+      "boots": {
+        "option1": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option2": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 1
+        }
+      }
+    },
+    "skills": {
+      "skill1": 10,
+      "skill2": 10,
+      "burst": 10
+    },
+    "cube_level": 7,
+    "collection": {
+      "grade": "None",
+      "skill1": 0,
+      "skill2": 0
+    }
+  },
+  "_originalId": "832",
+  "rarity": "SSR",
+  "cv": "사카모토 마아야",
+  "weapon_name": "네메시스",
+  "_dbId": "832"
+}

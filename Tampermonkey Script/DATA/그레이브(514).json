@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "name": "그레이브",
+    "cv": "한미리",
+    "rarity": "SSR",
+    "squad": "올드 테일즈",
+    "company": "어브노멀",
+    "class": "화력형",
+    "burst": "II",
+    "code": "작열",
+    "weapon": "소총 (AR)"
+  },
+  "stats": {
+    "combatPower": 1932,
+    "hp": 98250,
+    "atk": 1725,
+    "def": 600
+  },
+  "skills": {
+    "skill1": 1,
+    "skill2": 1,
+    "burst": 1
+  },
+  "cube": {
+    "level": 0
+  },
+  "collection": {
+    "rarity": "R",
+    "skillLv1": 1,
+    "skillLv2": 1
+  },
+  "equipment": [],
+  "rawUrl": "https://www.blablalink.com/shiftyspad/nikke?from=list&nikke=514",
+  "timestamp": "2026-01-13T21:59:49.850Z"
+}

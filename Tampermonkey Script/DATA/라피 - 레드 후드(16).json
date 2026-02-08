@@ -1,0 +1,108 @@
+{
+  "meta": {
+    "name": "라피 : 레드 후드",
+    "cv": "김보나",
+    "rarity": "SSR",
+    "squad": "카운터스",
+    "company": "엘리시온",
+    "class": "화력형",
+    "burst": "III",
+    "code": "작열",
+    "weapon": "기관총 (MG)"
+  },
+  "stats": {
+    "combatPower": 73859,
+    "hp": 1556937,
+    "atk": 63481,
+    "def": 9777
+  },
+  "skills": {
+    "skill1": 10,
+    "skill2": 10,
+    "burst": 10
+  },
+  "cube": {
+    "level": 11
+  },
+  "collection": {
+    "rarity": "SR",
+    "skillLv1": 4,
+    "skillLv2": 4
+  },
+  "equipment": [
+    {
+      "partIndex": 1,
+      "stats": {
+        "체력": 73772,
+        "공격": 9021
+      },
+      "options": [
+        {
+          "name": "공격력 증가",
+          "value": "6.88%"
+        },
+        {
+          "name": "우월코드 대미지 증가",
+          "value": "27.76%"
+        }
+      ]
+    },
+    {
+      "partIndex": 2,
+      "stats": {
+        "체력": 191808,
+        "공격": 1312
+      },
+      "options": [
+        {
+          "name": "크리티컬 확률 증가",
+          "value": "4.69%"
+        },
+        {
+          "name": "최대 장탄 수 증가",
+          "value": "31.95%"
+        }
+      ]
+    },
+    {
+      "partIndex": 3,
+      "stats": {
+        "공격": 4975,
+        "방어": 850
+      },
+      "options": [
+        {
+          "name": "공격력 증가",
+          "value": "13.22%"
+        },
+        {
+          "name": "크리티컬 확률 증가",
+          "value": "5.03%"
+        }
+      ]
+    },
+    {
+      "partIndex": 4,
+      "stats": {
+        "체력": 55331,
+        "방어": 1472
+      },
+      "options": [
+        {
+          "name": "크리티컬 확률 증가",
+          "value": "5.71%"
+        },
+        {
+          "name": "크리티컬 대미지 증가",
+          "value": "12.52%"
+        },
+        {
+          "name": "우월코드 대미지 증가",
+          "value": "15.15%"
+        }
+      ]
+    }
+  ],
+  "rawUrl": "https://www.blablalink.com/shiftyspad/nikke?from=list&nikke=16",
+  "timestamp": "2026-01-14T03:49:43.380Z"
+}

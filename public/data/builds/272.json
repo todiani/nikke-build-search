@@ -1,0 +1,198 @@
+{
+  "id": "272",
+  "name": "루주",
+  "name_en": "Rouge",
+  "tier": "SS",
+  "burst": 0,
+  "class": 0,
+  "weapon": 0,
+  "squad": "777",
+  "company": 0,
+  "role": "지원형 / 실드 및 힐",
+  "code": 0,
+  "desc": "【특징 및 활용 방법】\n- 아군 전체의 버스트 스킬 재사용 시간을 감소시키고, 공격 대미지 및 최대 체력을 증가시키는 1버스트 고성능 서포터입니다.\n- 전격 코드 아군에게 추가적인 시너지를 제공하며, 아군의 생존력과 화력을 동시에 보강해줍니다.\n- 루주 단독으로도 훌륭한 성능을 발휘하지만, 777 스쿼드 멤버들과 조합 시 시너지가 더욱 좋아집니다.\n- 추천 옵션: 생존을 위한 체력 증가 및 유틸리티 옵션을 추천합니다.",
+  "skills_detail": {
+    "skill1": {
+      "name": "럭키 잭팟",
+      "desc": "실드 코인 상태에서 아군 전체 체력 대폭 증가",
+      "tags": [
+        "체력▲",
+        "실드",
+        "아군 전체"
+      ]
+    },
+    "skill2": {
+      "name": "베팅 타임",
+      "desc": "장탄 수 ▲, 치명타 확률 ▲",
+      "tags": [
+        "치명타"
+      ]
+    },
+    "burst": {
+      "name": "올인",
+      "desc": "아군 전체 체력 회복 및 디버프 해제",
+      "tags": [
+        "회복",
+        "정화",
+        "아군 전체",
+        "체력 회복"
+      ]
+    },
+    "normal": {
+      "name": "포춘 카드"
+    }
+  },
+  "usage_stats": [
+    {
+      "name": "스테이지",
+      "stars": 4,
+      "desc": "안정적인 생존 지원"
+    },
+    {
+      "name": "PVP",
+      "stars": 4,
+      "desc": "체력 뻥튀기 효율 좋음"
+    },
+    {
+      "name": "솔로레이드",
+      "stars": 5,
+      "desc": "신데렐라 조합 핵심"
+    },
+    {
+      "name": "유니온레이드",
+      "stars": 5,
+      "desc": ""
+    },
+    {
+      "name": "이상개체요격전",
+      "stars": 4,
+      "desc": ""
+    },
+    {
+      "name": "기업타워",
+      "stars": 5,
+      "desc": ""
+    },
+    {
+      "name": "트라이브타워",
+      "stars": 4,
+      "desc": ""
+    }
+  ],
+  "_originalId": "272",
+  "rarity": "SSR",
+  "cv": "권다예",
+  "weapon_name": "스칼렛 레이디",
+  "extra_info": "",
+  "weapon_info": {
+    "weapon_name": "",
+    "max_ammo": 0,
+    "reload_time": 0,
+    "control_type": ""
+  },
+  "burst_details": {
+    "2RL": {
+      "value": 0,
+      "hits": "-",
+      "bonus": "0%-0%"
+    },
+    "2_5RL": {
+      "value": 0,
+      "hits": "-",
+      "bonus": "0%-0%"
+    },
+    "3RL": {
+      "value": 0,
+      "hits": "-",
+      "bonus": "0%-0%"
+    },
+    "3_5RL": {
+      "value": 0,
+      "hits": "-",
+      "bonus": "0%-0%"
+    },
+    "4RL": {
+      "value": 0,
+      "hits": "-",
+      "bonus": "0%-0%"
+    }
+  },
+  "build": {
+    "stats": {
+      "hp": 1182676,
+      "atk": 40011,
+      "def": 6958,
+      "combatPower": 41009
+    },
+    "skills": {
+      "skill1": 10,
+      "skill2": 10,
+      "burst": 10
+    },
+    "cube_level": 9,
+    "collection": {
+      "grade": "SR",
+      "skill1": 3,
+      "skill2": 3
+    },
+    "overload": {
+      "helmet": {
+        "option1": {
+          "type": "우월코드 대미지 증가",
+          "stage": 4
+        },
+        "option2": {
+          "type": "명중률 증가",
+          "stage": 5
+        },
+        "option3": {
+          "type": "차지 속도 증가",
+          "stage": 3
+        }
+      },
+      "armor": {
+        "option1": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option2": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 1
+        }
+      },
+      "gloves": {
+        "option1": {
+          "type": "차지 속도 증가",
+          "stage": 11
+        },
+        "option2": {
+          "type": "공격력 증가",
+          "stage": 11
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 1
+        }
+      },
+      "boots": {
+        "option1": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option2": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 1
+        }
+      }
+    }
+  },
+  "_dbId": "272"
+}

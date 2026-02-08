@@ -1,0 +1,68 @@
+{
+  "meta": {
+    "name": "은화 : 택티컬 업",
+    "cv": "원에스더",
+    "rarity": "SSR",
+    "squad": "앱솔루트",
+    "company": "엘리시온",
+    "class": "화력형",
+    "burst": "II",
+    "code": "작열",
+    "weapon": "저격소총 (SR)"
+  },
+  "stats": {
+    "combatPower": 29085,
+    "hp": 1033923,
+    "atk": 43210,
+    "def": 5791
+  },
+  "skills": {
+    "skill1": 4,
+    "skill2": 4,
+    "burst": 5
+  },
+  "cube": {
+    "level": 0
+  },
+  "collection": {
+    "rarity": "R",
+    "skillLv1": 4,
+    "skillLv2": 4
+  },
+  "equipment": [
+    {
+      "partIndex": 1,
+      "stats": {
+        "체력": 34375,
+        "공격": 4203
+      },
+      "options": []
+    },
+    {
+      "partIndex": 2,
+      "stats": {
+        "체력": 111718,
+        "공격": 764
+      },
+      "options": []
+    },
+    {
+      "partIndex": 3,
+      "stats": {
+        "공격": 2058,
+        "방어": 352
+      },
+      "options": []
+    },
+    {
+      "partIndex": 4,
+      "stats": {
+        "체력": 19832,
+        "방어": 527
+      },
+      "options": []
+    }
+  ],
+  "rawUrl": "https://www.blablalink.com/shiftyspad/nikke?from=list&nikke=95",
+  "timestamp": "2026-01-13T21:45:48.649Z"
+}

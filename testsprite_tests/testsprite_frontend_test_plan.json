@@ -1,0 +1,393 @@
+[
+  {
+    "id": "TC001",
+    "title": "Initial data loading and display",
+    "description": "Verify that Nikke data is fully loaded from the local server API and displayed correctly on application start.",
+    "category": "functional",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Open the Nikke Build Search web application"
+      },
+      {
+        "type": "assertion",
+        "description": "Check that all Nikke characters are loaded with no missing entries"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify that the full list of Nikke data is displayed on the main page"
+      },
+      {
+        "type": "assertion",
+        "description": "Confirm no errors are shown during the loading process"
+      }
+    ]
+  },
+  {
+    "id": "TC002",
+    "title": "Smart tag search with AND condition",
+    "description": "Check the smart tag search functionality correctly filters Nikke data using AND conditions.",
+    "category": "functional",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Enter multiple tags combined with AND operator in the smart tag search input"
+      },
+      {
+        "type": "action",
+        "description": "Trigger the search or wait for auto-update"
+      },
+      {
+        "type": "assertion",
+        "description": "Confirm only Nikke characters matching all specified tags are displayed"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify that no Nikke with partial tag match appear in the results"
+      }
+    ]
+  },
+  {
+    "id": "TC003",
+    "title": "Smart tag search with OR condition",
+    "description": "Validate smart tag search returns results with any of the specified tags when using OR condition.",
+    "category": "functional",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Input multiple tags combined with OR operator in the search"
+      },
+      {
+        "type": "action",
+        "description": "Execute the search"
+      },
+      {
+        "type": "assertion",
+        "description": "Ensure that the displayed Nikke include any that match at least one tag"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify that Nikke without any tags from search are excluded"
+      }
+    ]
+  },
+  {
+    "id": "TC004",
+    "title": "Smart tag search with NOT condition",
+    "description": "Ensure smart tag search excludes Nikke containing tags specified with NOT operator.",
+    "category": "functional",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Set search input using NOT operator with specific tags to exclude"
+      },
+      {
+        "type": "action",
+        "description": "Run the search command"
+      },
+      {
+        "type": "assertion",
+        "description": "Validate that no Nikke containing the excluded tags appear in the results"
+      }
+    ]
+  },
+  {
+    "id": "TC005",
+    "title": "Open Nikke detail page and verify data display",
+    "description": "Check that selecting a Nikke from the list opens the detail page with accurate information displayed.",
+    "category": "functional",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Click on a specific Nikke entry from the main list"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify that the detail page loads with complete, precise data for the selected Nikke"
+      },
+      {
+        "type": "assertion",
+        "description": "Check all key fields (e.g., performance stats, tags) are present and correct"
+      }
+    ]
+  },
+  {
+    "id": "TC006",
+    "title": "Enable edit mode and modify Nikke details",
+    "description": "Verify that a user can enter edit mode, modify fields, and save changes that persist in data storage.",
+    "category": "functional",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to the detail page of a Nikke"
+      },
+      {
+        "type": "action",
+        "description": "Activate the edit mode"
+      },
+      {
+        "type": "action",
+        "description": "Change values in one or more editable fields"
+      },
+      {
+        "type": "action",
+        "description": "Save the changes"
+      },
+      {
+        "type": "assertion",
+        "description": "Confirm the detail page reflects the updated values"
+      },
+      {
+        "type": "assertion",
+        "description": "Reload application and verify changes persist in local storage and server data"
+      }
+    ]
+  },
+  {
+    "id": "TC007",
+    "title": "Invalid input handling in Nikke editor",
+    "description": "Check the system response and error handling when entering invalid data in the Nikke edit fields.",
+    "category": "error handling",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Open the edit mode for a Nikke detail"
+      },
+      {
+        "type": "action",
+        "description": "Enter invalid characters or out-of-range numbers in numeric fields"
+      },
+      {
+        "type": "action",
+        "description": "Attempt to save the changes"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the application prevents saving and shows appropriate validation error messages"
+      },
+      {
+        "type": "assertion",
+        "description": "Check that original data remains unchanged if save is aborted"
+      }
+    ]
+  },
+  {
+    "id": "TC008",
+    "title": "Create, edit, and delete a 5-person squad",
+    "description": "Test the Squad Manager functionality for adding a new squad, modifying its composition, and deleting it.",
+    "category": "functional",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "In Squad Manager, create a new squad with 5 Nikke characters"
+      },
+      {
+        "type": "assertion",
+        "description": "Confirm the squad is saved and appears in the squad list"
+      },
+      {
+        "type": "action",
+        "description": "Edit the squad by adding/removing Nikke members"
+      },
+      {
+        "type": "assertion",
+        "description": "Validate the squad reflects the updated members"
+      },
+      {
+        "type": "action",
+        "description": "Delete the created squad"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the squad is removed from the list and data storage"
+      }
+    ]
+  },
+  {
+    "id": "TC009",
+    "title": "Verify synergy analysis results in Squad Manager",
+    "description": "Ensure that synergy analysis for a constructed 5-person squad provides correct and consistent outputs.",
+    "category": "functional",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Create or select a 5-person squad"
+      },
+      {
+        "type": "assertion",
+        "description": "Check that synergy analysis is performed and displayed for the squad"
+      },
+      {
+        "type": "assertion",
+        "description": "Validate that synergy results match expected logic based on squad composition"
+      }
+    ]
+  },
+  {
+    "id": "TC010",
+    "title": "RL stage burst supply graphic simulation displays correctly",
+    "description": "Verify that the RL stage burst calculation graphic shows expected values visually and updates accordingly.",
+    "category": "functional",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to the burst calculator graphic interface"
+      },
+      {
+        "type": "action",
+        "description": "Input or select parameters for different RL stages"
+      },
+      {
+        "type": "assertion",
+        "description": "Confirm the graphical output updates to reflect burst supply amounts accurately"
+      },
+      {
+        "type": "assertion",
+        "description": "Check the visualization is clear, intuitive, and corresponds with calculated data"
+      }
+    ]
+  },
+  {
+    "id": "TC011",
+    "title": "Data synchronization between local cache and server after data update",
+    "description": "Ensure that when Nikke details are edited and saved, changes propagate properly to local server API and localstorage cache.",
+    "category": "functional",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Edit and save Nikke details"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify API call is made to update local server"
+      },
+      {
+        "type": "assertion",
+        "description": "Check localstorage cache is updated with edited Nikke data"
+      },
+      {
+        "type": "assertion",
+        "description": "Reload the app and confirm updated data persists"
+      }
+    ]
+  },
+  {
+    "id": "TC012",
+    "title": "Search filters correctly apply AND, OR, and NOT operators in combination",
+    "description": "Test complex search queries combining multiple AND, OR, NOT conditions to ensure search results match expected filtered set.",
+    "category": "functional",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Enter a combined query with AND, OR, NOT operators within the smart tag search"
+      },
+      {
+        "type": "action",
+        "description": "Execute the search"
+      },
+      {
+        "type": "assertion",
+        "description": "Confirm the results strictly follow the logical combination of conditions"
+      },
+      {
+        "type": "assertion",
+        "description": "Check edge case behavior such as empty sets or overlapping conditions"
+      }
+    ]
+  },
+  {
+    "id": "TC013",
+    "title": "Verify application code structure and performance with functional components and hooks",
+    "description": "Verify that codebase follows React best practices by using functional components and React hooks consistently, and that performance remains efficient.",
+    "category": "functional",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Review the main React components and utils for use of functional components and hooks"
+      },
+      {
+        "type": "assertion",
+        "description": "Ensure no class components are present unless justified"
+      },
+      {
+        "type": "assertion",
+        "description": "Check that hooks usage follows React guidelines without redundant re-renders"
+      },
+      {
+        "type": "action",
+        "description": "Perform performance profiling during interactions such as loading data, searching, editing, and squad managing"
+      },
+      {
+        "type": "assertion",
+        "description": "Confirm UI responsiveness and absence of memory leaks or lag"
+      }
+    ]
+  },
+  {
+    "id": "TC014",
+    "title": "Handle API failure and local server errors gracefully",
+    "description": "Validate that application handles failures of local server API or network errors by displaying appropriate error messages and maintaining stable state.",
+    "category": "error handling",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Simulate local server API failure or network disconnection when loading Nikke data"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify that user is notified with a clear error message or fallback UI"
+      },
+      {
+        "type": "action",
+        "description": "Attempt to save edited Nikke details during server failure"
+      },
+      {
+        "type": "assertion",
+        "description": "Confirm save failure is handled gracefully without app crash and user is informed"
+      }
+    ]
+  },
+  {
+    "id": "TC015",
+    "title": "Verify UI usability and accessibility across main features",
+    "description": "Check that UI components such as search bars, filters, detail views, editors, and graphics conform to usability and accessibility standards.",
+    "category": "ui",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Interact with search bars and smart tag inputs, verifying keyboard navigation and screen reader support"
+      },
+      {
+        "type": "action",
+        "description": "Open Nikke details and edit mode, ensure form elements are properly labeled and accessible"
+      },
+      {
+        "type": "action",
+        "description": "Use squad manager and check for intuitive UI and clear feedback"
+      },
+      {
+        "type": "action",
+        "description": "Review burst supply graphic for color contrast, labels, and readability"
+      },
+      {
+        "type": "assertion",
+        "description": "Confirm UI components are usable with keyboard only and comply with WCAG guidelines"
+      }
+    ]
+  }
+]

@@ -1,0 +1,68 @@
+{
+  "meta": {
+    "name": "브리드",
+    "cv": "김은아",
+    "rarity": "SSR",
+    "squad": "인피니티 레일",
+    "company": "엘리시온",
+    "class": "화력형",
+    "burst": "III",
+    "code": "수냉",
+    "weapon": "소총 (AR)"
+  },
+  "stats": {
+    "combatPower": 29302,
+    "hp": 1013100,
+    "atk": 42523,
+    "def": 6786
+  },
+  "skills": {
+    "skill1": 4,
+    "skill2": 4,
+    "burst": 4
+  },
+  "cube": {
+    "level": 0
+  },
+  "collection": {
+    "rarity": "R",
+    "skillLv1": 4,
+    "skillLv2": 4
+  },
+  "equipment": [
+    {
+      "partIndex": 1,
+      "stats": {
+        "체력": 26442,
+        "공격": 3233
+      },
+      "options": []
+    },
+    {
+      "partIndex": 2,
+      "stats": {
+        "체력": 85937,
+        "공격": 588
+      },
+      "options": []
+    },
+    {
+      "partIndex": 3,
+      "stats": {
+        "공격": 2058,
+        "방어": 352
+      },
+      "options": []
+    },
+    {
+      "partIndex": 4,
+      "stats": {
+        "체력": 19832,
+        "방어": 527
+      },
+      "options": []
+    }
+  ],
+  "rawUrl": "https://www.blablalink.com/shiftyspad/nikke?from=list&nikke=70",
+  "timestamp": "2026-01-13T21:45:40.914Z"
+}

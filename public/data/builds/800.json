@@ -1,0 +1,211 @@
+{
+  "id": "800",
+  "name": "마키마",
+  "name_en": "마키마",
+  "tier": "A",
+  "burst": 0,
+  "class": 0,
+  "weapon": 0,
+  "squad": "데블 헌터",
+  "company": 0,
+  "role": "방어형",
+  "code": 0,
+  "skill_priority_comment": "",
+  "skills_detail": {
+    "skill1": {
+      "name": "나에게 활약을 보여줄 수 있겠니?",
+      "desc": "20회 피격 시 아군 전체에게: [재장전 속도 36.96% ▲] [10초 유지] \n[방어력 14.78% ▲] [10초 유지]\n",
+      "tags": [
+        "아군 전체",
+        "방어력▼",
+        "피격 시",
+        "방어력▲",
+        "회 피격 시",
+        "재장전 속도▲"
+      ]
+    },
+    "skill2": {
+      "name": "발각된 모양이네",
+      "desc": "일반 공격 120회 공격 시 자신에게: [주목 : 적 전체 도발] [3초 유지]\n전투불능에 이르는 공격에 피격 시 자신에게: [불굴] [7초 유지] [전투 중 1회 발동]\n[버스트 스킬 쿨타임 11.58초]\n",
+      "tags": [
+        "자신",
+        "버스트",
+        "자신에게",
+        "적 전체",
+        "공격 시",
+        "피격 시",
+        "불굴",
+        "도발"
+      ]
+    },
+    "burst": {
+      "name": "조용히 해주겠니?",
+      "desc": "자신에게: [관통 특화] [10초 유지] \n[공격 대미지 비례 34.02% 회복] [10초 유지]\n자신이 불굴 상태라면 자신에게: [받는 체력 회복량 41.02% ▲] [10초 유지]\n",
+      "tags": [
+        "자신",
+        "자신에게",
+        "대미지",
+        "관통",
+        "체력 회복",
+        "불굴",
+        "관통 특화"
+      ]
+    },
+    "normal": {
+      "name": "일반 공격",
+      "desc": "",
+      "tags": []
+    }
+  },
+  "overload_detail": {
+    "priority": "",
+    "options": [],
+    "recommended_cubes": [],
+    "notes": ""
+  },
+  "skill_priority": "",
+  "options": [],
+  "cube": "",
+  "desc": "【특징 및 활용 방법】\n- '불굴'이라는 특수 기믹을 통해 죽지 않고 버티는 능력을 가진 2버스트 방어형 니케입니다.\n- 적 전체를 도발하여 아군을 보호하며, 특히 강력한 단일 타격이나 한방 대미지를 버텨야 하는 보스전에서 대체 불가능한 활약을 합니다.\n- 아레나 방어 덱에서도 상대의 화력을 받아내며 변수를 차단하는 용도로 자주 기용되는 콜라보 한정 캐릭터입니다.\n- 추천 옵션: 차지 속도 증가, 최대 장탄 수 증가를 추천합니다.",
+  "extra_info": "체인소맨",
+  "valid_options": [
+    "공격력 증가",
+    "우월코드 대미지 증가",
+    "명중률 증가"
+  ],
+  "invalid_options": [
+    "차지 속도 증가",
+    "차지 대미지 증가"
+  ],
+  "usage_stats": [
+    {
+      "name": "스테이지",
+      "stars": 2,
+      "desc": "일반 캠페인 및 타워"
+    },
+    {
+      "name": "이상개체요격전",
+      "stars": 3,
+      "desc": "특수 개체 보스 공략"
+    },
+    {
+      "name": "솔로레이드",
+      "stars": 3,
+      "desc": "수냉코드 보스 특화"
+    },
+    {
+      "name": "유니온레이드",
+      "stars": 3,
+      "desc": "수냉코드 보스"
+    },
+    {
+      "name": "타워",
+      "stars": 2,
+      "desc": "적극 활용 가능"
+    },
+    {
+      "name": "PVP",
+      "stars": 4,
+      "desc": "아레나 활용 가능"
+    },
+    {
+      "name": "기업타워",
+      "stars": 0,
+      "desc": ""
+    },
+    {
+      "name": "트라이브타워",
+      "stars": 0,
+      "desc": ""
+    }
+  ],
+  "weapon_info": {
+    "weapon_name": "",
+    "max_ammo": 0,
+    "reload_time": 0,
+    "control_type": ""
+  },
+  "build": {
+    "stats": {
+      "hp": 99000,
+      "atk": 1675,
+      "def": 600,
+      "power": 1857,
+      "combatPower": 1926
+    },
+    "overload": {
+      "helmet": {
+        "option1": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option2": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 1
+        }
+      },
+      "armor": {
+        "option1": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option2": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 1
+        }
+      },
+      "gloves": {
+        "option1": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option2": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 1
+        }
+      },
+      "boots": {
+        "option1": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option2": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 1
+        }
+      }
+    },
+    "skills": {
+      "skill1": 10,
+      "skill2": 10,
+      "burst": 10
+    },
+    "cube_level": 7,
+    "collection": {
+      "grade": "None",
+      "skill1": 0,
+      "skill2": 0
+    }
+  },
+  "_originalId": "800",
+  "rarity": "SSR",
+  "cv": "쿠스노키 토모리",
+  "weapon_name": "언노운",
+  "_dbId": "800"
+}

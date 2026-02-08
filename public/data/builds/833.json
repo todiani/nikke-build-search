@@ -1,0 +1,179 @@
+{
+  "id": "833",
+  "name": "미사토",
+  "name_en": "미사토",
+  "tier": "Unranked",
+  "burst": 0,
+  "class": 0,
+  "weapon": 0,
+  "squad": "NERV",
+  "company": 0,
+  "role": "화력형",
+  "code": 0,
+  "skill_priority_comment": "",
+  "skills_detail": {
+    "skill1": {
+      "name": "사격 매뉴얼",
+      "desc": "일반 공격 60회 공격 시 자신에게\n[사격 매뉴얼 : 명중률 5.04% ▲] [3 중첩] [5초 유지]\n일반 공격 120회 공격 시 남은 체력 비율이 가장 낮은 아군 1기에게\n[시전자 최종 최대 체력 비례 8.04% 회복]",
+      "tags": []
+    },
+    "skill2": {
+      "name": "회복 보조",
+      "desc": "자신이 사격 매뉴얼 상태일 때 한하여 아군 전체에게\n[보호막에 가하는 대미지 150% ▲] [지속]\n(랩쳐의 본체가 아닌 보호막에 적용되는 대미지에 한함)\n자신이 사격 매뉴얼 최대 중첩 상태일 때 한하여 자신에게\n[주는 회복량 30.05% ▲] [지속]",
+      "tags": []
+    },
+    "burst": {
+      "name": "휴식 명령",
+      "desc": "아군 전체에게\n[시전자 최종 최대 체력 비례 5.06% 회복] [1초 간격] [10초 유지]",
+      "tags": [],
+      "cooldown": "40.00초"
+    },
+    "normal": {
+      "name": "일반 공격",
+      "desc": "",
+      "tags": []
+    }
+  },
+  "overload_detail": {
+    "priority": "",
+    "options": [],
+    "recommended_cubes": [],
+    "notes": ""
+  },
+  "skill_priority": "",
+  "options": [],
+  "cube": "",
+  "desc": "1스킬: \n2스킬: \n버스트: ",
+  "extra_info": "",
+  "usage_stats": [
+    {
+      "name": "스테이지",
+      "stars": 1,
+      "desc": "일반 캠페인 및 타워"
+    },
+    {
+      "name": "이상개체요격전",
+      "stars": 0,
+      "desc": "특수 개체 보스 공략"
+    },
+    {
+      "name": "솔로레이드",
+      "stars": 1,
+      "desc": "철갑코드 보스 특화"
+    },
+    {
+      "name": "유니온레이드",
+      "stars": 0,
+      "desc": "철갑코드 보스"
+    },
+    {
+      "name": "타워",
+      "stars": 1,
+      "desc": "적극 활용 가능"
+    },
+    {
+      "name": "PVP",
+      "stars": 1,
+      "desc": "아레나 활용 가능"
+    },
+    {
+      "name": "기업타워",
+      "stars": 0,
+      "desc": ""
+    },
+    {
+      "name": "트라이브타워",
+      "stars": 0,
+      "desc": ""
+    }
+  ],
+  "weapon_info": {
+    "weapon_name": "",
+    "max_ammo": 0,
+    "reload_time": 0,
+    "control_type": ""
+  },
+  "build": {
+    "stats": {
+      "hp": 94750,
+      "atk": 1725,
+      "def": 588,
+      "power": 1819,
+      "combatPower": 1888
+    },
+    "overload": {
+      "helmet": {
+        "option1": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option2": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 1
+        }
+      },
+      "armor": {
+        "option1": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option2": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 1
+        }
+      },
+      "gloves": {
+        "option1": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option2": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 1
+        }
+      },
+      "boots": {
+        "option1": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option2": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 1
+        }
+      }
+    },
+    "skills": {
+      "skill1": 10,
+      "skill2": 10,
+      "burst": 10
+    },
+    "cube_level": 7,
+    "collection": {
+      "grade": "None",
+      "skill1": 0,
+      "skill2": 0
+    }
+  },
+  "_originalId": "833",
+  "rarity": "SR",
+  "cv": "미츠이시 코토노",
+  "weapon_name": "",
+  "_dbId": "833"
+}

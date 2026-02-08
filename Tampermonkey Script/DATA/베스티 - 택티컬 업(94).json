@@ -1,0 +1,86 @@
+{
+  "meta": {
+    "name": "베스티 : 택티컬 업",
+    "cv": "유보라",
+    "rarity": "SSR",
+    "squad": "앱솔루트",
+    "company": "엘리시온",
+    "class": "화력형",
+    "burst": "III",
+    "code": "작열",
+    "weapon": "런처 (RL)"
+  },
+  "stats": {
+    "combatPower": 40209,
+    "hp": 1125755,
+    "atk": 47138,
+    "def": 6869
+  },
+  "skills": {
+    "skill1": 6,
+    "skill2": 6,
+    "burst": 6
+  },
+  "cube": {
+    "level": 0
+  },
+  "collection": {
+    "rarity": "R",
+    "skillLv1": 6,
+    "skillLv2": 6
+  },
+  "equipment": [
+    {
+      "partIndex": 1,
+      "stats": {
+        "체력": 49181,
+        "공격": 6014
+      },
+      "options": [
+        {
+          "name": "명중률 증가",
+          "value": "11.81%"
+        },
+        {
+          "name": "차지 대미지 증가",
+          "value": "11.81%"
+        }
+      ]
+    },
+    {
+      "partIndex": 2,
+      "stats": {
+        "체력": 159840,
+        "공격": 1093
+      },
+      "options": [
+        {
+          "name": "크리티컬 대미지 증가",
+          "value": "16.44%"
+        },
+        {
+          "name": "차지 대미지 증가",
+          "value": "11.81%"
+        }
+      ]
+    },
+    {
+      "partIndex": 3,
+      "stats": {
+        "공격": 2675,
+        "방어": 458
+      },
+      "options": []
+    },
+    {
+      "partIndex": 4,
+      "stats": {
+        "체력": 19832,
+        "방어": 527
+      },
+      "options": []
+    }
+  ],
+  "rawUrl": "https://www.blablalink.com/shiftyspad/nikke?from=list&nikke=94",
+  "timestamp": "2026-01-13T21:40:52.646Z"
+}

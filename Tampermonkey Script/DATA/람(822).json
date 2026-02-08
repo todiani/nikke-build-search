@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "name": "람",
+    "cv": "가빈",
+    "rarity": "SR",
+    "squad": "에밀리아 진영",
+    "company": "어브노멀",
+    "class": "지원형",
+    "burst": "I",
+    "code": "풍압",
+    "weapon": "저격소총 (SR)"
+  },
+  "stats": {
+    "combatPower": 1868,
+    "hp": 95150,
+    "atk": 1635,
+    "def": 588
+  },
+  "skills": {
+    "skill1": 1,
+    "skill2": 1,
+    "burst": 1
+  },
+  "cube": {
+    "level": 0
+  },
+  "collection": {
+    "rarity": "R",
+    "skillLv1": 1,
+    "skillLv2": 1
+  },
+  "equipment": [],
+  "rawUrl": "https://www.blablalink.com/shiftyspad/nikke?from=list&nikke=822",
+  "timestamp": "2026-01-13T22:01:13.857Z"
+}

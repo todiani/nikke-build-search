@@ -1,0 +1,17 @@
+[
+  {
+    "projectId": "c64872a2-e6f8-4b4f-8813-04bd5ee8d039",
+    "testId": "0ffddd6a-c1b1-4226-95f2-490b85ec1ae9",
+    "userId": "e4182448-00e1-7002-5366-20ab74531414",
+    "title": "TC001-Initial data loading and display",
+    "description": "Verify that Nikke data is fully loaded from the local server API and displayed correctly on application start.",
+    "code": "import asyncio\nfrom playwright import async_api\nfrom playwright.async_api import expect\n\nasync def run_test():\n    pw = None\n    browser = None\n    context = None\n    \n    try:\n        # Start a Playwright session in asynchronous mode\n        pw = await async_api.async_playwright().start()\n        \n        # Launch a Chromium browser in headless mode with custom arguments\n        browser = await pw.chromium.launch(\n            headless=True,\n            args=[\n                \"--window-size=1280,720\",         # Set the browser window size\n                \"--disable-dev-shm-usage\",        # Avoid using /dev/shm which can cause issues in containers\n                \"--ipc=host\",                     # Use host-level IPC for better stability\n                \"--single-process\"                # Run the browser in a single process mode\n            ],\n        )\n        \n        # Create a new browser context (like an incognito window)\n        context = await browser.new_context()\n        context.set_default_timeout(5000)\n        \n        # Open a new page in the browser context\n        page = await context.new_page()\n        \n        # Navigate to your target URL and wait until the network request is committed\n        await page.goto(\"http://localhost:5173\", wait_until=\"commit\", timeout=10000)\n        \n        # Wait for the main page to reach DOMContentLoaded state (optional for stability)\n        try:\n            await page.wait_for_load_state(\"domcontentloaded\", timeout=3000)\n        except async_api.Error:\n            pass\n        \n        # Iterate through all iframes and wait for them to load as well\n        for frame in page.frames:\n            try:\n                await frame.wait_for_load_state(\"domcontentloaded\", timeout=3000)\n            except async_api.Error:\n                pass\n        \n        # Interact with the page elements to simulate user flow\n        # -> Try to reload the page to see if the app triggers any API calls or UI rendering on reload.\n        await page.goto('http://localhost:5173/', timeout=10000)\n        await asyncio.sleep(3)\n        \n\n        # -> Check if there are any interactive elements or buttons that might trigger data loading or UI rendering.\n        await page.mouse.wheel(0, await page.evaluate('() => window.innerHeight'))\n        \n\n        # --> Assertions to verify final state\n        frame = context.pages[-1]\n        await expect(frame.locator('text=nikke-build-search').first).to_be_visible(timeout=30000)\n        await asyncio.sleep(5)\n    \n    finally:\n        if context:\n            await context.close()\n        if browser:\n            await browser.close()\n        if pw:\n            await pw.stop()\n            \nasyncio.run(run_test())\n    ",
+    "testStatus": "PASSED",
+    "testError": "",
+    "testType": "FRONTEND",
+    "createFrom": "mcp",
+    "testVisualization": "https://testsprite-videos.s3.us-east-1.amazonaws.com/e4182448-00e1-7002-5366-20ab74531414/1766634677730447//tmp/test_task/result.webm",
+    "created": "2025-12-25T03:49:24.680Z",
+    "modified": "2025-12-25T03:51:17.844Z"
+  }
+]

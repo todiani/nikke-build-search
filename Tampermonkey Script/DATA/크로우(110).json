@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "name": "크로우",
+    "cv": "이명호",
+    "rarity": "SSR",
+    "squad": "이그조틱",
+    "company": "어브노멀",
+    "class": "방어형",
+    "burst": "III",
+    "code": "작열",
+    "weapon": "기관단총 (SMG)"
+  },
+  "stats": {
+    "combatPower": 1937,
+    "hp": 99000,
+    "atk": 1700,
+    "def": 605
+  },
+  "skills": {
+    "skill1": 1,
+    "skill2": 1,
+    "burst": 1
+  },
+  "cube": {
+    "level": 0
+  },
+  "collection": {
+    "rarity": "R",
+    "skillLv1": 1,
+    "skillLv2": 1
+  },
+  "equipment": [],
+  "rawUrl": "https://www.blablalink.com/shiftyspad/nikke?from=list&nikke=110",
+  "timestamp": "2026-01-13T21:56:12.850Z"
+}

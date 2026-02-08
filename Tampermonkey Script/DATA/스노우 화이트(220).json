@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "name": "스노우 화이트",
+    "cv": "소연",
+    "rarity": "SSR",
+    "squad": "파이오니아",
+    "company": "어브노멀",
+    "class": "화력형",
+    "burst": "III",
+    "code": "철갑",
+    "weapon": "소총 (AR)"
+  },
+  "stats": {
+    "combatPower": 1922,
+    "hp": 96000,
+    "atk": 1825,
+    "def": 585
+  },
+  "skills": {
+    "skill1": 1,
+    "skill2": 1,
+    "burst": 1
+  },
+  "cube": {
+    "level": 0
+  },
+  "collection": {
+    "rarity": "R",
+    "skillLv1": 1,
+    "skillLv2": 1
+  },
+  "equipment": [],
+  "rawUrl": "https://www.blablalink.com/shiftyspad/nikke?from=list&nikke=220",
+  "timestamp": "2026-01-13T21:59:22.006Z"
+}

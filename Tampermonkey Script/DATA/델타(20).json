@@ -1,0 +1,68 @@
+{
+  "meta": {
+    "name": "델타",
+    "cv": "이슬",
+    "rarity": "SR",
+    "squad": "스카우팅",
+    "company": "엘리시온",
+    "class": "방어형",
+    "burst": "II",
+    "code": "풍압",
+    "weapon": "저격소총 (SR)"
+  },
+  "stats": {
+    "combatPower": 25100,
+    "hp": 1019224,
+    "atk": 27512,
+    "def": 6763
+  },
+  "skills": {
+    "skill1": 4,
+    "skill2": 4,
+    "burst": 4
+  },
+  "cube": {
+    "level": 0
+  },
+  "collection": {
+    "rarity": "R",
+    "skillLv1": 4,
+    "skillLv2": 4
+  },
+  "equipment": [
+    {
+      "partIndex": 1,
+      "stats": {
+        "체력": 42013,
+        "공격": 2802
+      },
+      "options": []
+    },
+    {
+      "partIndex": 2,
+      "stats": {
+        "체력": 105034,
+        "공격": 392
+      },
+      "options": []
+    },
+    {
+      "partIndex": 3,
+      "stats": {
+        "공격": 1372,
+        "방어": 430
+      },
+      "options": []
+    },
+    {
+      "partIndex": 4,
+      "stats": {
+        "체력": 24239,
+        "방어": 645
+      },
+      "options": []
+    }
+  ],
+  "rawUrl": "https://www.blablalink.com/shiftyspad/nikke?from=list&nikke=20",
+  "timestamp": "2026-01-13T21:47:21.654Z"
+}

@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "name": "루드밀라 : 윈터 오너",
+    "cv": "비주언",
+    "rarity": "SSR",
+    "squad": "언리미티드",
+    "company": "어브노멀",
+    "class": "화력형",
+    "burst": "III",
+    "code": "수냉",
+    "weapon": "기관총 (MG)"
+  },
+  "stats": {
+    "combatPower": 1942,
+    "hp": 96000,
+    "atk": 1900,
+    "def": 585
+  },
+  "skills": {
+    "skill1": 1,
+    "skill2": 1,
+    "burst": 1
+  },
+  "cube": {
+    "level": 0
+  },
+  "collection": {
+    "rarity": "R",
+    "skillLv1": 1,
+    "skillLv2": 1
+  },
+  "equipment": [],
+  "rawUrl": "https://www.blablalink.com/shiftyspad/nikke?from=list&nikke=194",
+  "timestamp": "2026-01-13T21:58:11.855Z"
+}

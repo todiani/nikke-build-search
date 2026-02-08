@@ -1,0 +1,68 @@
+{
+  "meta": {
+    "name": "트리나",
+    "cv": "권다예",
+    "rarity": "SSR",
+    "squad": "보타닉 가든",
+    "company": "미실리스",
+    "class": "지원형",
+    "burst": "II",
+    "code": "전격",
+    "weapon": "런처 (RL)"
+  },
+  "stats": {
+    "combatPower": 38866,
+    "hp": 1284685,
+    "atk": 42121,
+    "def": 8536
+  },
+  "skills": {
+    "skill1": 7,
+    "skill2": 7,
+    "burst": 7
+  },
+  "cube": {
+    "level": 0
+  },
+  "collection": {
+    "rarity": "SR",
+    "skillLv1": 7,
+    "skillLv2": 7
+  },
+  "equipment": [
+    {
+      "partIndex": 1,
+      "stats": {
+        "체력": 38194,
+        "공격": 3502
+      },
+      "options": []
+    },
+    {
+      "partIndex": 2,
+      "stats": {
+        "체력": 95485,
+        "공격": 490
+      },
+      "options": []
+    },
+    {
+      "partIndex": 3,
+      "stats": {
+        "공격": 2230,
+        "방어": 508
+      },
+      "options": []
+    },
+    {
+      "partIndex": 4,
+      "stats": {
+        "체력": 22035,
+        "방어": 586
+      },
+      "options": []
+    }
+  ],
+  "rawUrl": "https://www.blablalink.com/shiftyspad/nikke?from=list&nikke=412",
+  "timestamp": "2026-01-13T21:41:09.454Z"
+}

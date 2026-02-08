@@ -1,0 +1,10 @@
+
+================================================================================
+Traceback (most recent call last):
+  File "R:\AI\nikke-build-search\validate_db.py", line 207, in <module>
+    current_issues = validate_db(DB_PATH, "현재 DB")
+                     ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "R:\AI\nikke-build-search\validate_db.py", line 19, in validate_db
+    print(f"\U0001f4ca {label} 검증 중...")
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'cp949' codec can't encode character '\U0001f4ca' in position 0: illegal multibyte sequence

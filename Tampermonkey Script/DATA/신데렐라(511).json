@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "name": "신데렐라",
+    "cv": "전해리",
+    "rarity": "SSR",
+    "squad": "올드 테일즈",
+    "company": "어브노멀",
+    "class": "화력형",
+    "burst": "III",
+    "code": "전격",
+    "weapon": "런처 (RL)"
+  },
+  "stats": {
+    "combatPower": 1915,
+    "hp": 99000,
+    "atk": 1625,
+    "def": 602
+  },
+  "skills": {
+    "skill1": 1,
+    "skill2": 1,
+    "burst": 1
+  },
+  "cube": {
+    "level": 0
+  },
+  "collection": {
+    "rarity": "R",
+    "skillLv1": 1,
+    "skillLv2": 1
+  },
+  "equipment": [],
+  "rawUrl": "https://www.blablalink.com/shiftyspad/nikke?from=list&nikke=511",
+  "timestamp": "2026-01-13T21:59:42.979Z"
+}

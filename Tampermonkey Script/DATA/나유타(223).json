@@ -1,0 +1,95 @@
+{
+  "meta": {
+    "name": "나유타",
+    "cv": "양정화",
+    "rarity": "SSR",
+    "squad": "파이오니아",
+    "company": "필그림",
+    "class": "지원형",
+    "burst": "II",
+    "code": "풍압",
+    "weapon": "기관단총 (SMG)"
+  },
+  "stats": {
+    "combatPower": 49344,
+    "hp": 1355432,
+    "atk": 46864,
+    "def": 8665
+  },
+  "skills": {
+    "skill1": 8,
+    "skill2": 8,
+    "burst": 8
+  },
+  "cube": {
+    "level": 0
+  },
+  "collection": {
+    "rarity": "SR",
+    "skillLv1": 8,
+    "skillLv2": 8
+  },
+  "equipment": [
+    {
+      "partIndex": 1,
+      "stats": {
+        "체력": 71040,
+        "공격": 6516
+      },
+      "options": [
+        {
+          "name": "공격력 증가",
+          "value": "11.81%"
+        },
+        {
+          "name": "크리티컬 대미지 증가",
+          "value": "7.62%"
+        }
+      ]
+    },
+    {
+      "partIndex": 2,
+      "stats": {
+        "체력": 124131,
+        "공격": 637
+      },
+      "options": []
+    },
+    {
+      "partIndex": 3,
+      "stats": {
+        "공격": 4146,
+        "방어": 945
+      },
+      "options": [
+        {
+          "name": "공격력 증가",
+          "value": "11.81%"
+        },
+        {
+          "name": "크리티컬 대미지 증가",
+          "value": "8.60%"
+        }
+      ]
+    },
+    {
+      "partIndex": 4,
+      "stats": {
+        "체력": 40985,
+        "방어": 1090
+      },
+      "options": [
+        {
+          "name": "크리티컬 확률 증가",
+          "value": "4.69%"
+        },
+        {
+          "name": "크리티컬 대미지 증가",
+          "value": "11.54%"
+        }
+      ]
+    }
+  ],
+  "rawUrl": "https://www.blablalink.com/shiftyspad/nikke?from=list&nikke=223",
+  "timestamp": "2026-01-13T21:39:36.493Z"
+}

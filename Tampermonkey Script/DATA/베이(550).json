@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "name": "베이",
+    "cv": "이보용",
+    "rarity": "SSR",
+    "squad": "리와인드",
+    "company": "어브노멀",
+    "class": "방어형",
+    "burst": "II",
+    "code": "작열",
+    "weapon": "런처 (RL)"
+  },
+  "stats": {
+    "combatPower": 1948,
+    "hp": 99000,
+    "atk": 1700,
+    "def": 617
+  },
+  "skills": {
+    "skill1": 1,
+    "skill2": 1,
+    "burst": 1
+  },
+  "cube": {
+    "level": 0
+  },
+  "collection": {
+    "rarity": "R",
+    "skillLv1": 1,
+    "skillLv2": 1
+  },
+  "equipment": [],
+  "rawUrl": "https://www.blablalink.com/shiftyspad/nikke?from=list&nikke=550",
+  "timestamp": "2026-01-13T21:58:39.849Z"
+}

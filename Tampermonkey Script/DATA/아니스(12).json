@@ -1,0 +1,68 @@
+{
+  "meta": {
+    "name": "아니스",
+    "cv": "김성희",
+    "rarity": "SR",
+    "squad": "카운터스",
+    "company": "테트라",
+    "class": "방어형",
+    "burst": "II",
+    "code": "철갑",
+    "weapon": "런처 (RL)"
+  },
+  "stats": {
+    "combatPower": 7945,
+    "hp": 309861,
+    "atk": 6559,
+    "def": 1910
+  },
+  "skills": {
+    "skill1": 5,
+    "skill2": 5,
+    "burst": 5
+  },
+  "cube": {
+    "level": 0
+  },
+  "collection": {
+    "rarity": "R",
+    "skillLv1": 5,
+    "skillLv2": 5
+  },
+  "equipment": [
+    {
+      "partIndex": 1,
+      "stats": {
+        "체력": 42013,
+        "공격": 2802
+      },
+      "options": []
+    },
+    {
+      "partIndex": 2,
+      "stats": {
+        "체력": 136544,
+        "공격": 510
+      },
+      "options": []
+    },
+    {
+      "partIndex": 3,
+      "stats": {
+        "공격": 1372,
+        "방어": 430
+      },
+      "options": []
+    },
+    {
+      "partIndex": 4,
+      "stats": {
+        "체력": 24239,
+        "방어": 645
+      },
+      "options": []
+    }
+  ],
+  "rawUrl": "https://www.blablalink.com/shiftyspad/nikke?from=list&nikke=12",
+  "timestamp": "2026-01-13T21:47:54.457Z"
+}

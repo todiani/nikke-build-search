@@ -1,0 +1,206 @@
+{
+  "id": "190",
+  "name": "루드밀라",
+  "name_en": "루드밀라",
+  "tier": "A",
+  "burst": 0,
+  "class": 0,
+  "weapon": 0,
+  "squad": "언리미티드",
+  "company": 0,
+  "role": "방어형",
+  "code": 0,
+  "skill_priority_comment": "",
+  "skills_detail": {
+    "skill1": {
+      "name": "노블레스 오블리주",
+      "desc": "마지막 탄환 명중 시 대상에게: [방어력 8.4%▼] [10초 유지] \n[공격력 8.4%▼] [10초 유지]",
+      "tags": [
+        "공격력▼",
+        "방어력▲",
+        "방어력▼",
+        "명중 시",
+        "마지막 탄환 명중 시",
+        "공격력▲"
+      ]
+    },
+    "skill2": {
+      "name": "여왕의 품격",
+      "desc": "풀 버스트 타임 시작 시 자신에게: [받는 대미지 57.86%▼][15초 유지]",
+      "tags": [
+        "받는 대미지▲",
+        "자신에게",
+        "풀 버스트 타임 시작 시",
+        "대미지",
+        "시작 시",
+        "자신",
+        "버스트"
+      ]
+    },
+    "burst": {
+      "name": "눈의 여왕",
+      "desc": "자신의 체력이 50% 이상이라면 아군 전체에게: [방어력 12.93% ▲] [10초 유지]",
+      "tags": [
+        "방어력▼",
+        "방어력▲",
+        "자신의 체력이",
+        "자신",
+        "아군 전체"
+      ]
+    },
+    "normal": {
+      "name": "눈사태의 망령"
+    }
+  },
+  "overload_detail": {
+    "priority": "",
+    "options": [],
+    "recommended_cubes": [],
+    "notes": ""
+  },
+  "skill_priority": "",
+  "options": [],
+  "cube": "",
+  "desc": "1스킬: 마지막 탄환 명중 시 대상에게: [방어력 8.4%▼] [10초 유지] \n[공격력 8.4%▼] [10초 유지]\n2스킬: 풀 버스트 타임 시작 시 자신에게: [받는 대미지 57.86%▼][15초 유지]\n버스트: 자신의 체력이 50% 이상이라면 아군 전체에게: [방어력 12.93% ▲] [10초 유지]",
+  "extra_info": "",
+  "valid_options": [
+    "공격력 증가",
+    "우월코드 대미지 증가",
+    "명중률 증가"
+  ],
+  "invalid_options": [
+    "차지 속도 증가",
+    "차지 대미지 증가"
+  ],
+  "usage_stats": [
+    {
+      "name": "스테이지",
+      "stars": 2,
+      "desc": "일반 캠페인 및 타워"
+    },
+    {
+      "name": "이상개체요격전",
+      "stars": 1,
+      "desc": "특수 개체 보스 공략"
+    },
+    {
+      "name": "솔로레이드",
+      "stars": 2,
+      "desc": "수냉코드 보스 특화"
+    },
+    {
+      "name": "유니온레이드",
+      "stars": 1,
+      "desc": "수냉코드 보스"
+    },
+    {
+      "name": "타워",
+      "stars": 2,
+      "desc": "적극 활용 가능"
+    },
+    {
+      "name": "PVP",
+      "stars": 2,
+      "desc": "아레나 활용 가능"
+    },
+    {
+      "name": "기업타워",
+      "stars": 0,
+      "desc": ""
+    },
+    {
+      "name": "트라이브타워",
+      "stars": 0,
+      "desc": ""
+    }
+  ],
+  "weapon_info": {
+    "weapon_name": "",
+    "max_ammo": 0,
+    "reload_time": 0,
+    "control_type": ""
+  },
+  "_originalId": "190",
+  "rarity": "SSR",
+  "build": {
+    "stats": {
+      "hp": 274472,
+      "atk": 6368,
+      "def": 1708,
+      "power": 5791,
+      "combatPower": 5871
+    },
+    "skills": {
+      "skill1": 1,
+      "skill2": 1,
+      "burst": 1
+    },
+    "cube_level": 1,
+    "collection": {
+      "grade": "None",
+      "skill1": 0,
+      "skill2": 0
+    },
+    "overload": {
+      "helmet": {
+        "option1": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option2": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 1
+        }
+      },
+      "armor": {
+        "option1": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option2": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 1
+        }
+      },
+      "gloves": {
+        "option1": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option2": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 1
+        }
+      },
+      "boots": {
+        "option1": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option2": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 1
+        }
+      }
+    }
+  },
+  "cv": "비주언",
+  "weapon_name": "눈사태의 망령",
+  "_dbId": "190"
+}

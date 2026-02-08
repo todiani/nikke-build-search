@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "name": "슈가",
+    "cv": "정유정",
+    "rarity": "SSR",
+    "squad": "카페 스위티",
+    "company": "어브노멀",
+    "class": "화력형",
+    "burst": "III",
+    "code": "철갑",
+    "weapon": "샷건 (SG)"
+  },
+  "stats": {
+    "combatPower": 1952,
+    "hp": 96000,
+    "atk": 1900,
+    "def": 596
+  },
+  "skills": {
+    "skill1": 1,
+    "skill2": 1,
+    "burst": 1
+  },
+  "cube": {
+    "level": 0
+  },
+  "collection": {
+    "rarity": "R",
+    "skillLv1": 1,
+    "skillLv2": 1
+  },
+  "equipment": [],
+  "rawUrl": "https://www.blablalink.com/shiftyspad/nikke?from=list&nikke=140",
+  "timestamp": "2026-01-13T21:57:29.846Z"
+}

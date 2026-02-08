@@ -1,0 +1,68 @@
+{
+  "meta": {
+    "name": "메이든 : 아이스 로즈",
+    "cv": "민아",
+    "rarity": "SSR",
+    "squad": "익스터너",
+    "company": "엘리시온",
+    "class": "방어형",
+    "burst": "II",
+    "code": "전격",
+    "weapon": "런처 (RL)"
+  },
+  "stats": {
+    "combatPower": 30259,
+    "hp": 1241083,
+    "atk": 29541,
+    "def": 7925
+  },
+  "skills": {
+    "skill1": 1,
+    "skill2": 7,
+    "burst": 3
+  },
+  "cube": {
+    "level": 0
+  },
+  "collection": {
+    "rarity": "R",
+    "skillLv1": 1,
+    "skillLv2": 7
+  },
+  "equipment": [
+    {
+      "partIndex": 1,
+      "stats": {
+        "체력": 42013,
+        "공격": 2802
+      },
+      "options": []
+    },
+    {
+      "partIndex": 2,
+      "stats": {
+        "체력": 136544,
+        "공격": 510
+      },
+      "options": []
+    },
+    {
+      "partIndex": 3,
+      "stats": {
+        "공격": 1784,
+        "방어": 559
+      },
+      "options": []
+    },
+    {
+      "partIndex": 4,
+      "stats": {
+        "체력": 24239,
+        "방어": 645
+      },
+      "options": []
+    }
+  ],
+  "rawUrl": "https://www.blablalink.com/shiftyspad/nikke?from=list&nikke=183",
+  "timestamp": "2026-01-13T21:44:29.461Z"
+}

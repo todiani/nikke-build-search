@@ -1,0 +1,18 @@
+{
+  "status": "commited",
+  "type": "frontend",
+  "scope": "codebase",
+  "localEndpoint": "http://localhost:5173",
+  "executionArgs": {
+    "projectName": "nikke-build-search",
+    "projectPath": "c:\\Users\\TODI\\.gemini\\antigravity\\playground\\ruby-blazar\\nikke-build-search",
+    "testIds": [
+      "TC001"
+    ],
+    "additionalInstruction": "Focus on TC001 only - we need to diagnose why the application shows a blank screen on startup. Capture all console errors and network failures.",
+    "envs": {
+      "API_KEY": "sk-user-L0bsEw_6hlDGCxwdmFLrrXtYvalT24pv_09U0Nh_pLHz85RAahZpQRlt-87vhLtoBhpILL3KqC03pENyJGI1f6Y5KQkOF1-iNRCd1RHmMXt37hfIEOK8VE9LBPbp9Lx2vSo"
+    }
+  },
+  "proxy": "http://ec81b26f-9128-4870-a6e1-4b196e16fe17:mN0oUurJqkVCGiAtfzahvTctD2lMfVHX@tun.testsprite.com:8080"
+}

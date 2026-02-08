@@ -1,0 +1,206 @@
+{
+  "id": "73",
+  "name": "브리드 : 사일런트 트랙",
+  "name_en": "Brid : Silent track",
+  "tier": "SS",
+  "burst": 0,
+  "class": 0,
+  "weapon": 0,
+  "skill_priority": "버스트 > 2스킬 > 1스킬",
+  "skills": {
+    "min": "7/7/7",
+    "efficient": "7/7(10)/7",
+    "max": "10/10/10"
+  },
+  "options": [],
+  "cube": "렐릭 베어 큐브(재장전 속도 증가)",
+  "desc": "",
+  "extra_info": "26년 크리스마스",
+  "company": 0,
+  "squad": "인피니티 레일",
+  "code": 0,
+  "weapon_info": {
+    "weapon_name": "",
+    "max_ammo": 0,
+    "reload_time": 0,
+    "control_type": ""
+  },
+  "valid_options": [
+    "우월코드 증가 >= 공격력 증가 > 장탄 증가\n\n오버로드 종결\n우월코드 증가 4",
+    "공격력 증가 4",
+    "장탄 증가 2 이상"
+  ],
+  "invalid_options": [],
+  "skills_detail": {
+    "normal": {
+      "name": "일반 공격",
+      "desc": "대상에게\n[공격력 201.5% 대미지]\n[코어 대미지 200%]"
+    },
+    "skill1": {
+      "name": "기동",
+      "desc": "풀 버스트 타임 시작 시 풍압 코드 적 전체에게\n[받는 대미지 15.12% ▲] [10초 유지]\n풀 버스트 타임 시작 시 적 전체에게\n[최종 공격력 636% 대미지]",
+      "tags": [
+        "시작 시",
+        "풀 버스트 타임 시작 시",
+        "적 전체",
+        "공격력▲",
+        "버스트",
+        "대미지",
+        "받는 대미지▲",
+        "공격력▼"
+      ],
+      "type": "패시브"
+    },
+    "skill2": {
+      "name": "전도",
+      "desc": "일반 공격 10회 공격 시 남은 체력 수치가 가장 낮은 풍압 코드 적 1기에게\n[받는 대미지 12.12% ▲] [10초 유지]\n일반 공격 5회 공격 시 남은 체력 수치가 가장 낮은 적 1기에게\n[최종 공격력 675% 대미지]",
+      "tags": [
+        "공격 시",
+        "공격력▲",
+        "대미지",
+        "받는 대미지▲",
+        "공격력▼"
+      ],
+      "type": "패시브"
+    },
+    "burst": {
+      "name": "풀 마스콘",
+      "desc": "자신을 제외한 아군 전체에게\n[시전자 기준 공격력 66.52% ▲] [10초 유지]",
+      "tags": [
+        "아군 전체",
+        "자신",
+        "시전자 기준",
+        "공격력▲",
+        "공격력▼"
+      ],
+      "type": "액티브",
+      "cooldown": "20"
+    }
+  },
+  "usage_stats": [
+    {
+      "name": "스테이지",
+      "stars": 1,
+      "desc": "일반 캠페인 및 타워"
+    },
+    {
+      "name": "이상개체요격전",
+      "stars": 0,
+      "desc": "특수 개체 보스 공략"
+    },
+    {
+      "name": "솔로레이드",
+      "stars": 5,
+      "desc": "고득점 핵심 유닛, 풍압코드 보스"
+    },
+    {
+      "name": "유니온레이드",
+      "stars": 3,
+      "desc": "길드 레이드 활용, 풍압코드 보스"
+    },
+    {
+      "name": "타워",
+      "stars": 1,
+      "desc": "적극 활용 가능"
+    },
+    {
+      "name": "PVP",
+      "stars": 1,
+      "desc": "아레나 활용 가능"
+    },
+    {
+      "name": "기업타워",
+      "stars": 0,
+      "desc": ""
+    },
+    {
+      "name": "트라이브타워",
+      "stars": 0,
+      "desc": ""
+    }
+  ],
+  "build": {
+    "stats": {
+      "hp": 1137764,
+      "atk": 36133,
+      "def": 7058,
+      "power": 31237,
+      "combatPower": 31798
+    },
+    "overload": {
+      "helmet": {
+        "option1": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option2": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 1
+        }
+      },
+      "armor": {
+        "option1": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option2": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 1
+        }
+      },
+      "gloves": {
+        "option1": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option2": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 1
+        }
+      },
+      "boots": {
+        "option1": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option2": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 1
+        }
+      }
+    },
+    "skills": {
+      "skill1": 10,
+      "skill2": 10,
+      "burst": 10
+    },
+    "cube_level": 7,
+    "collection": {
+      "grade": "None",
+      "skill1": 0,
+      "skill2": 0
+    }
+  },
+  "_originalId": "73",
+  "rarity": "SSR",
+  "cv": "김은아",
+  "weapon_name": "사일런트 스팀",
+  "_dbId": "73",
+  "role": "지원형"
+}

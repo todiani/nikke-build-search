@@ -1,0 +1,68 @@
+{
+  "meta": {
+    "name": "키리",
+    "cv": "천송이",
+    "rarity": "SSR",
+    "squad": "A.C.P.U.",
+    "company": "엘리시온",
+    "class": "지원형",
+    "burst": "III",
+    "code": "풍압",
+    "weapon": "런처 (RL)"
+  },
+  "stats": {
+    "combatPower": 6492,
+    "hp": 260154,
+    "atk": 7688,
+    "def": 1626
+  },
+  "skills": {
+    "skill1": 4,
+    "skill2": 4,
+    "burst": 4
+  },
+  "cube": {
+    "level": 0
+  },
+  "collection": {
+    "rarity": "R",
+    "skillLv1": 4,
+    "skillLv2": 4
+  },
+  "equipment": [
+    {
+      "partIndex": 1,
+      "stats": {
+        "체력": 38194,
+        "공격": 3502
+      },
+      "options": []
+    },
+    {
+      "partIndex": 2,
+      "stats": {
+        "체력": 95485,
+        "공격": 490
+      },
+      "options": []
+    },
+    {
+      "partIndex": 3,
+      "stats": {
+        "공격": 1715,
+        "방어": 391
+      },
+      "options": []
+    },
+    {
+      "partIndex": 4,
+      "stats": {
+        "체력": 22035,
+        "방어": 586
+      },
+      "options": []
+    }
+  ],
+  "rawUrl": "https://www.blablalink.com/shiftyspad/nikke?from=list&nikke=33",
+  "timestamp": "2026-01-13T21:49:54.650Z"
+}

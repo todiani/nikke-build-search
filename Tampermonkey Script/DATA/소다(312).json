@@ -1,0 +1,68 @@
+{
+  "meta": {
+    "name": "소다",
+    "cv": "박시윤",
+    "rarity": "SSR",
+    "squad": "메이드 포 유",
+    "company": "테트라",
+    "class": "지원형",
+    "burst": "I",
+    "code": "작열",
+    "weapon": "기관총 (MG)"
+  },
+  "stats": {
+    "combatPower": 5287,
+    "hp": 238516,
+    "atk": 6699,
+    "def": 1400
+  },
+  "skills": {
+    "skill1": 1,
+    "skill2": 1,
+    "burst": 1
+  },
+  "cube": {
+    "level": 0
+  },
+  "collection": {
+    "rarity": "R",
+    "skillLv1": 1,
+    "skillLv2": 1
+  },
+  "equipment": [
+    {
+      "partIndex": 1,
+      "stats": {
+        "체력": 29380,
+        "공격": 2694
+      },
+      "options": []
+    },
+    {
+      "partIndex": 2,
+      "stats": {
+        "체력": 95485,
+        "공격": 490
+      },
+      "options": []
+    },
+    {
+      "partIndex": 3,
+      "stats": {
+        "공격": 1715,
+        "방어": 391
+      },
+      "options": []
+    },
+    {
+      "partIndex": 4,
+      "stats": {
+        "체력": 15401,
+        "방어": 410
+      },
+      "options": []
+    }
+  ],
+  "rawUrl": "https://www.blablalink.com/shiftyspad/nikke?from=list&nikke=312",
+  "timestamp": "2026-01-13T21:54:34.647Z"
+}

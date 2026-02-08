@@ -1,0 +1,157 @@
+{
+  "id": "306",
+  "name": "솔져 O.W.",
+  "name_en": "솔져 O.W.",
+  "tier": "Unranked",
+  "company": 0,
+  "squad": "리플레이스",
+  "burst": 0,
+  "code": 0,
+  "weapon": 0,
+  "class": 0,
+  "build": {
+    "stats": {
+      "hp": 241650,
+      "atk": 6574,
+      "def": 1556,
+      "power": 5362,
+      "combatPower": 5431
+    },
+    "overload": {
+      "helmet": {
+        "option1": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option2": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 1
+        }
+      },
+      "armor": {
+        "option1": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option2": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 1
+        }
+      },
+      "gloves": {
+        "option1": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option2": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 1
+        }
+      },
+      "boots": {
+        "option1": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option2": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 1
+        }
+      }
+    },
+    "skills": {
+      "skill1": 10,
+      "skill2": 10,
+      "burst": 10
+    },
+    "cube_level": 7,
+    "collection": {
+      "grade": "None",
+      "skill1": 0,
+      "skill2": 0
+    }
+  },
+  "skills_detail": {
+    "burst": {
+      "name": "버스트 I",
+      "desc": "성우\n\t\n 이다은[1]\n 타카오 카논\n 애비 에스피리투",
+      "cooldown": ""
+    }
+  },
+  "aliases": [],
+  "usage_stats": [
+    {
+      "name": "스테이지",
+      "stars": 1,
+      "desc": "일반 캠페인 및 타워"
+    },
+    {
+      "name": "이상개체요격전",
+      "stars": 0,
+      "desc": "특수 개체 보스 공략"
+    },
+    {
+      "name": "솔로레이드",
+      "stars": 1,
+      "desc": "작열코드 보스 특화"
+    },
+    {
+      "name": "유니온레이드",
+      "stars": 0,
+      "desc": "작열코드 보스"
+    },
+    {
+      "name": "기업타워",
+      "stars": 1,
+      "desc": "적극 활용 가능"
+    },
+    {
+      "name": "트라이브타워",
+      "stars": 1,
+      "desc": "적극 활용 가능"
+    },
+    {
+      "name": "PVP",
+      "stars": 1,
+      "desc": "아레나 활용 가능"
+    }
+  ],
+  "rarity": "R",
+  "role": "지원형",
+  "cv": "이다은",
+  "overload_detail": {
+    "priority": "",
+    "options": [],
+    "recommended_cubes": [],
+    "notes": ""
+  },
+  "skill_priority": "",
+  "options": [],
+  "cube": "",
+  "desc": "",
+  "extra_info": "",
+  "weapon_name": "서치 아울",
+  "weapon_info": {
+    "weapon_name": "",
+    "max_ammo": 0,
+    "reload_time": 0,
+    "control_type": ""
+  },
+  "_dbId": "306"
+}

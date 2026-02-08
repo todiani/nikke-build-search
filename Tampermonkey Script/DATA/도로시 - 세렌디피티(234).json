@@ -1,0 +1,77 @@
+{
+  "meta": {
+    "name": "도로시 : 세렌디피티",
+    "cv": "김새해",
+    "rarity": "SSR",
+    "squad": "인헤르트",
+    "company": "필그림",
+    "class": "화력형",
+    "burst": "III",
+    "code": "수냉",
+    "weapon": "샷건 (SG)"
+  },
+  "stats": {
+    "combatPower": 46952,
+    "hp": 1324748,
+    "atk": 55100,
+    "def": 8567
+  },
+  "skills": {
+    "skill1": 5,
+    "skill2": 6,
+    "burst": 6
+  },
+  "cube": {
+    "level": 0
+  },
+  "collection": {
+    "rarity": "SR",
+    "skillLv1": 5,
+    "skillLv2": 6
+  },
+  "equipment": [
+    {
+      "partIndex": 1,
+      "stats": {
+        "체력": 49181,
+        "공격": 6014
+      },
+      "options": [
+        {
+          "name": "크리티컬 대미지 증가",
+          "value": "16.44%"
+        },
+        {
+          "name": "최대 장탄 수 증가",
+          "value": "68.93%"
+        }
+      ]
+    },
+    {
+      "partIndex": 2,
+      "stats": {
+        "체력": 85937,
+        "공격": 588
+      },
+      "options": []
+    },
+    {
+      "partIndex": 3,
+      "stats": {
+        "공격": 2675,
+        "방어": 458
+      },
+      "options": []
+    },
+    {
+      "partIndex": 4,
+      "stats": {
+        "체력": 19832,
+        "방어": 527
+      },
+      "options": []
+    }
+  ],
+  "rawUrl": "https://www.blablalink.com/shiftyspad/nikke?from=list&nikke=234",
+  "timestamp": "2026-01-13T21:40:02.450Z"
+}

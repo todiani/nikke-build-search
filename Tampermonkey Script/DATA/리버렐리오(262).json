@@ -1,0 +1,90 @@
+{
+  "meta": {
+    "name": "리버렐리오",
+    "cv": "여윤미",
+    "rarity": "SSR",
+    "squad": "헬레틱",
+    "company": "필그림",
+    "class": "화력형",
+    "burst": "III",
+    "code": "풍압",
+    "weapon": "저격소총 (SR)"
+  },
+  "stats": {
+    "combatPower": 48943,
+    "hp": 1223270,
+    "atk": 56099,
+    "def": 7365
+  },
+  "skills": {
+    "skill1": 8,
+    "skill2": 8,
+    "burst": 8
+  },
+  "cube": {
+    "level": 0
+  },
+  "collection": {
+    "rarity": "SR",
+    "skillLv1": 8,
+    "skillLv2": 8
+  },
+  "equipment": [
+    {
+      "partIndex": 1,
+      "stats": {
+        "체력": 73772,
+        "공격": 9021
+      },
+      "options": [
+        {
+          "name": "명중률 증가",
+          "value": "5.47%"
+        },
+        {
+          "name": "차지 대미지 증가",
+          "value": "13.22%"
+        }
+      ]
+    },
+    {
+      "partIndex": 2,
+      "stats": {
+        "체력": 111718,
+        "공격": 764
+      },
+      "options": []
+    },
+    {
+      "partIndex": 3,
+      "stats": {
+        "공격": 5358,
+        "방어": 916
+      },
+      "options": [
+        {
+          "name": "방어력 증가",
+          "value": "7.59%"
+        },
+        {
+          "name": "우월코드 대미지 증가",
+          "value": "23.56%"
+        },
+        {
+          "name": "차지 속도 증가",
+          "value": "3.45%"
+        }
+      ]
+    },
+    {
+      "partIndex": 4,
+      "stats": {
+        "체력": 19832,
+        "방어": 527
+      },
+      "options": []
+    }
+  ],
+  "rawUrl": "https://www.blablalink.com/shiftyspad/nikke?from=list&nikke=262",
+  "timestamp": "2026-01-13T21:39:45.269Z"
+}

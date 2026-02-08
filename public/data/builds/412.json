@@ -1,0 +1,201 @@
+{
+  "id": "412",
+  "name": "트리나",
+  "name_en": "트리나",
+  "tier": "A",
+  "burst": 0,
+  "class": 0,
+  "weapon": 0,
+  "squad": "보타닉 가든",
+  "company": 0,
+  "role": "지원형",
+  "code": 0,
+  "skill_priority_comment": "",
+  "skills_detail": {
+    "skill1": {
+      "name": "네이처 그레이스",
+      "desc": "풀 차지 공격 시 남은 체력 비율이 가장 낮은 아군 2기가 체력 50% 이하라면 대상에게: [시전자의 최종 최대 체력 비례 1.57% 회복]",
+      "tags": [
+        "최대 체력▲",
+        "체력 50% 이하",
+        "공격 시",
+        "풀 차지 공격 시"
+      ]
+    },
+    "skill2": {
+      "name": "피스풀 트리",
+      "desc": "버스트 스킬 사용 시 스쿼드에서 가장 왼쪽에 위치한 전격 코드 소총 아군 1기에게: [공격 대미지 94.15% ▲] [10초 유지]\n[재장전 속도 50.82% ▲] [10초 유지]",
+      "tags": [
+        "대미지",
+        "재장전 속도▲",
+        "버스트 스킬 사용 시",
+        "사용 시",
+        "버스트"
+      ]
+    },
+    "burst": {
+      "name": "머덜리 포레스트",
+      "desc": "전격 코드 소총 아군 전체에게: [명중률 45.3% ▲] [10초 유지]\n[최대 장탄 수 20발 ▲] [10초 유지]",
+      "tags": [
+        "명중률▲",
+        "아군 전체"
+      ]
+    },
+    "normal": {
+      "name": "일반 공격",
+      "desc": "",
+      "tags": []
+    }
+  },
+  "overload_detail": {
+    "priority": "",
+    "options": [],
+    "recommended_cubes": [],
+    "notes": ""
+  },
+  "skill_priority": "",
+  "options": [],
+  "cube": "",
+  "desc": "1스킬: 풀 차지 공격 시 남은 체력 비율이 가장 낮은 아군 2기가 체력 50% 이하라면 대상에게: [시전자의 최종 최대 체력 비례 1.57% 회복]\n2스킬: 버스트 스킬 사용 시 스쿼드에서 가장 왼쪽에 위치한 전격 코드 소총 아군 1기에게: [공격 대미지 94.15% ▲] [10초 유지]\n[재장전 속도 50.82% ▲] [10초 유지]\n버스트: 전격 코드 소총 아군 전체에게: [명중률 45.3% ▲] [10초 유지]\n[최대 장탄 수 20발 ▲] [10초 유지]",
+  "extra_info": "",
+  "valid_options": [
+    "공격력 증가",
+    "우월코드 대미지 증가",
+    "차지 속도 증가",
+    "차지 대미지 증가"
+  ],
+  "invalid_options": [
+    "명중률 증가"
+  ],
+  "usage_stats": [
+    {
+      "name": "스테이지",
+      "stars": 2,
+      "desc": "일반 캠페인 및 타워"
+    },
+    {
+      "name": "이상개체요격전",
+      "stars": 1,
+      "desc": "특수 개체 보스 공략"
+    },
+    {
+      "name": "솔로레이드",
+      "stars": 2,
+      "desc": "전격코드 보스 특화"
+    },
+    {
+      "name": "유니온레이드",
+      "stars": 1,
+      "desc": "전격코드 보스"
+    },
+    {
+      "name": "타워",
+      "stars": 2,
+      "desc": "적극 활용 가능"
+    },
+    {
+      "name": "PVP",
+      "stars": 4,
+      "desc": "아레나 활용 가능"
+    },
+    {
+      "name": "기업타워",
+      "stars": 0,
+      "desc": ""
+    },
+    {
+      "name": "트라이브타워",
+      "stars": 0,
+      "desc": ""
+    }
+  ],
+  "weapon_info": {
+    "weapon_name": "",
+    "max_ammo": 0,
+    "reload_time": 0,
+    "control_type": ""
+  },
+  "build": {
+    "stats": {
+      "hp": 1284685,
+      "atk": 42121,
+      "def": 8536,
+      "power": 38280,
+      "combatPower": 38866
+    },
+    "overload": {
+      "helmet": {
+        "option1": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option2": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 1
+        }
+      },
+      "armor": {
+        "option1": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option2": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 1
+        }
+      },
+      "gloves": {
+        "option1": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option2": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 1
+        }
+      },
+      "boots": {
+        "option1": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option2": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 1
+        }
+      }
+    },
+    "skills": {
+      "skill1": 10,
+      "skill2": 10,
+      "burst": 10
+    },
+    "cube_level": 7,
+    "collection": {
+      "grade": "None",
+      "skill1": 0,
+      "skill2": 0
+    }
+  },
+  "_originalId": "412",
+  "rarity": "SSR",
+  "cv": "권다예",
+  "weapon_name": "미드나잇 시프",
+  "_dbId": "412"
+}

@@ -1,0 +1,197 @@
+{
+  "id": "312",
+  "name": "소다",
+  "name_en": "소다",
+  "tier": "A",
+  "burst": 0,
+  "class": 0,
+  "weapon": 0,
+  "squad": "메이드 포 유",
+  "company": 0,
+  "role": "지원형",
+  "code": 0,
+  "skill_priority_comment": "",
+  "skills_detail": {
+    "skill1": {
+      "name": "자리 청소 메이드",
+      "desc": "일반 공격 180회 공격시 자기 자신에게: [메이드정신 : 최대 체력 13% ▲] [5중첩] [10초 유지]",
+      "tags": [
+        "자신에게",
+        "최대 체력▲",
+        "자신"
+      ]
+    },
+    "skill2": {
+      "name": "바닥 청소 메이드",
+      "desc": "자신이 메이드 정신 최대 중첩 상태라면 아군 전체에게: [시전자 최대 체력 비례 12.71% 회복]",
+      "tags": [
+        "최대 체력▲",
+        "아군 전체",
+        "자신"
+      ]
+    },
+    "burst": {
+      "name": "대청소 메이드",
+      "desc": "작열 코드 아군 전체에게: [중첩 가능 이로운 효과 중첩량 1개 ▲]",
+      "tags": [
+        "아군 전체"
+      ]
+    },
+    "normal": {
+      "name": "일반 공격",
+      "desc": "",
+      "tags": []
+    }
+  },
+  "overload_detail": {
+    "priority": "",
+    "options": [],
+    "recommended_cubes": [],
+    "notes": ""
+  },
+  "skill_priority": "",
+  "options": [],
+  "cube": "",
+  "desc": "1스킬: 일반 공격 180회 공격시 자기 자신에게: [메이드정신 : 최대 체력 13% ▲] [5중첩] [10초 유지]\n2스킬: 자신이 메이드 정신 최대 중첩 상태라면 아군 전체에게: [시전자 최대 체력 비례 12.71% 회복]\n버스트: 작열 코드 아군 전체에게: [중첩 가능 이로운 효과 중첩량 1개 ▲]",
+  "extra_info": "",
+  "valid_options": [
+    "공격력 증가",
+    "우월코드 대미지 증가",
+    "최대 장탄 수 증가"
+  ],
+  "invalid_options": [
+    "차지 속도 증가",
+    "차지 대미지 증가"
+  ],
+  "usage_stats": [
+    {
+      "name": "스테이지",
+      "stars": 2,
+      "desc": "일반 캠페인 및 타워"
+    },
+    {
+      "name": "이상개체요격전",
+      "stars": 1,
+      "desc": "특수 개체 보스 공략"
+    },
+    {
+      "name": "솔로레이드",
+      "stars": 2,
+      "desc": "작열코드 보스 특화"
+    },
+    {
+      "name": "유니온레이드",
+      "stars": 1,
+      "desc": "작열코드 보스"
+    },
+    {
+      "name": "타워",
+      "stars": 2,
+      "desc": "적극 활용 가능"
+    },
+    {
+      "name": "PVP",
+      "stars": 1,
+      "desc": "아레나 활용 가능"
+    },
+    {
+      "name": "기업타워",
+      "stars": 0,
+      "desc": ""
+    },
+    {
+      "name": "트라이브타워",
+      "stars": 0,
+      "desc": ""
+    }
+  ],
+  "weapon_info": {
+    "weapon_name": "",
+    "max_ammo": 0,
+    "reload_time": 0,
+    "control_type": ""
+  },
+  "build": {
+    "stats": {
+      "hp": 238516,
+      "atk": 6699,
+      "def": 1400,
+      "power": 1870,
+      "combatPower": 5287
+    },
+    "overload": {
+      "helmet": {
+        "option1": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option2": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 1
+        }
+      },
+      "armor": {
+        "option1": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option2": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 1
+        }
+      },
+      "gloves": {
+        "option1": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option2": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 1
+        }
+      },
+      "boots": {
+        "option1": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option2": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 1
+        }
+      }
+    },
+    "skills": {
+      "skill1": 10,
+      "skill2": 10,
+      "burst": 10
+    },
+    "cube_level": 7,
+    "collection": {
+      "grade": "None",
+      "skill1": 0,
+      "skill2": 0
+    }
+  },
+  "_originalId": "312",
+  "rarity": "SSR",
+  "cv": "박시윤",
+  "weapon_name": "브라이트 클리너",
+  "_dbId": "312"
+}

@@ -1,0 +1,393 @@
+{
+  "id": "16",
+  "name": "라피 : 레드 후드",
+  "name_en": "Red Hood",
+  "tier": "SSS",
+  "burst": "I",
+  "class": "화력형",
+  "weapon": "소총 (AR)",
+  "squad": "카운터스",
+  "company": "엘리시온",
+  "role": "화력형",
+  "code": "작열",
+  "skill_priority_comment": "[가성비] 7-7-7  /  [종결] 10-10-10",
+  "skills_detail": {
+    "skill1": {
+      "name": "전황 파악",
+      "desc": "풀 버스트 타임 시작 시 자신이 전투 보조 상태가 아니라면 자신에게: [공격력 95.04% ▲] [10초 유지]\n[저지 부위 공격 대미지 48% ▲] [10초 유지]",
+      "tags": [
+        "시작 시",
+        "풀 버스트 타임 시작 시",
+        "자신",
+        "자신에게",
+        "저지 부위 공격 대미지",
+        "공격력▲",
+        "버스트",
+        "대미지",
+        "공격력▼"
+      ]
+    },
+    "skill2": {
+      "name": "부착형 유탄",
+      "desc": "일반 공격 120회 공격 시 자신에게: [부착형 유탄]\n기능 : 부착형 발사체를 발사하여 적중된 위치에 부착. 풀 버스트 타임 지속 중 폭발.\n발사체 부착 대미지 : 최종 공격력 88.11% 대미지\n발사체 폭발 대미지 : 최종 공격력 88.11% 대미지\n최대 장탄 수 : 1발",
+      "tags": [
+        "공격 시",
+        "자신",
+        "자신에게",
+        "공격력▲",
+        "버스트",
+        "대미지",
+        "공격력▼"
+      ]
+    },
+    "burst": {
+      "name": "계승되는 힘",
+      "desc": "< Step 3 에서 사용 시 : 고기동 근접형 결전 병기 >\n자신에게: [폭발 범위 100.62% ▲] [10초 유지]\n[발사체 부착 대미지 421.2% ▲] [10초 유지]\n[스킬2 부착형 유탄 발동 횟수 조건 60회 ▼] [10초 유지]",
+      "tags": [
+        "사용 시",
+        "자신",
+        "자신에게",
+        "범위",
+        "대미지"
+      ]
+    },
+    "normal": {
+      "name": "세븐스 드워프 제로"
+    }
+  },
+  "overload_detail": {
+    "priority": "",
+    "options": [
+      "공격력",
+      "우월코드",
+      "장탄"
+    ],
+    "recommended_cubes": [
+      "렐릭 베어"
+    ],
+    "notes": "",
+    "valid_ops": [
+      "공격력 증가",
+      "우월코드 대미지 증가",
+      "최대 장탄 수 증가"
+    ],
+    "invalid_ops": [
+      "차지 속도 증가",
+      "차지 대미지 증가"
+    ]
+  },
+  "skill_priority": "[가성비] 7-7-7  /  [종결] 10-10-10",
+  "options": [
+    "최대 장탄 수 증가",
+    "우월코드 대미지 증가",
+    "공격력 증가"
+  ],
+  "cube": "렐릭 베어",
+  "desc": "1스킬: 풀 버스트 타임 시작 시 자신이 전투 보조 상태가 아니라면 자신에게: [공격력 95.04% ▲] [10초 유지]\n[저지 부위 공격 대미지 48% ▲] [10초 유지]\n2스킬: 일반 공격 120회 공격 시 자신에게: [부착형 유탄]\n기능 : 부착형 발사체를 발사하여 적중된 위치에 부착. 풀 버스트 타임 지속 중 폭발.\n발사체 부착 대미지 : 최종 공격력 88.11% 대미지\n발사체 폭발 대미지 : 최종 공격력 88.11% 대미지\n최대 장탄 수 : 1발\n버스트: < Step 3 에서 사용 시 : 고기동 근접형 결전 병기 >\n자신에게: [폭발 범위 100.62% ▲] [10초 유지]\n[발사체 부착 대미지 421.2% ▲] [10초 유지]\n[스킬2 부착형 유탄 발동 횟수 조건 60회 ▼] [10초 유지]",
+  "extra_info": "",
+  "valid_options": [
+    "공격력 증가",
+    "우월코드 대미지 증가",
+    "차지 속도 증가",
+    "최대 장탄 수 증가"
+  ],
+  "invalid_options": [
+    "방어력 증가"
+  ],
+  "usage_stats": [
+    {
+      "name": "스테이지",
+      "stars": 5,
+      "desc": "일반 캠페인 및 타워"
+    },
+    {
+      "name": "이상개체요격전",
+      "stars": 5,
+      "desc": "특수 개체 보스 공략"
+    },
+    {
+      "name": "솔로레이드",
+      "stars": 5,
+      "desc": "작열코드 보스 특화"
+    },
+    {
+      "name": "유니온레이드",
+      "stars": 5,
+      "desc": "작열코드 보스"
+    },
+    {
+      "name": "타워",
+      "stars": 5,
+      "desc": "적극 활용 가능"
+    },
+    {
+      "name": "PVP",
+      "stars": 5,
+      "desc": "아레나 활용 가능"
+    },
+    {
+      "name": "기업타워",
+      "stars": 5,
+      "desc": ""
+    },
+    {
+      "name": "트라이브타워",
+      "stars": 5,
+      "desc": ""
+    }
+  ],
+  "_originalId": "16",
+  "rarity": "SSR",
+  "cv": "김보나",
+  "weapon_name": "세븐스 드워프 제로",
+  "_buildFile": "16.json",
+  "weapon_info": {
+    "weapon_name": "",
+    "max_ammo": 0,
+    "reload_time": 0,
+    "control_type": ""
+  },
+  "compare_data": {
+    "buildA": {
+      "stats": {
+        "hp": 1556937,
+        "atk": 63481,
+        "def": 9777,
+        "s1": 10,
+        "s2": 10,
+        "burst": 10,
+        "cubeLvl": 11
+      },
+      "partOptions": {
+        "helmet": {
+          "option1": {
+            "type": "공격력 증가",
+            "stage": 4
+          },
+          "option2": {
+            "type": "우월코드 대미지 증가",
+            "stage": 14
+          },
+          "option3": {
+            "type": "옵션없음",
+            "stage": 0
+          }
+        },
+        "armor": {
+          "option1": {
+            "type": "크리티컬 확률 증가",
+            "stage": 8
+          },
+          "option2": {
+            "type": "최대 장탄 수 증가",
+            "stage": 2
+          },
+          "option3": {
+            "type": "옵션없음",
+            "stage": 0
+          }
+        },
+        "gloves": {
+          "option1": {
+            "type": "공격력 증가",
+            "stage": 13
+          },
+          "option2": {
+            "type": "크리티컬 확률 증가",
+            "stage": 9
+          },
+          "option3": {
+            "type": "옵션없음",
+            "stage": 0
+          }
+        },
+        "boots": {
+          "option1": {
+            "type": "크리티컬 확률 증가",
+            "stage": 11
+          },
+          "option2": {
+            "type": "크리티컬 대미지 증가",
+            "stage": 7
+          },
+          "option3": {
+            "type": "우월코드 대미지 증가",
+            "stage": 5
+          }
+        }
+      }
+    },
+    "buildB": {
+      "stats": {
+        "hp": 1556937,
+        "atk": 63481,
+        "def": 9777,
+        "s1": 10,
+        "s2": 10,
+        "burst": 10,
+        "cubeLvl": 11
+      },
+      "partOptions": {
+        "helmet": {
+          "option1": {
+            "type": "공격력 증가",
+            "stage": 4
+          },
+          "option2": {
+            "type": "우월코드 대미지 증가",
+            "stage": 14
+          },
+          "option3": {
+            "type": "옵션없음",
+            "stage": 0
+          }
+        },
+        "armor": {
+          "option1": {
+            "type": "크리티컬 확률 증가",
+            "stage": 8
+          },
+          "option2": {
+            "type": "최대 장탄 수 증가",
+            "stage": 2
+          },
+          "option3": {
+            "type": "옵션없음",
+            "stage": 0
+          }
+        },
+        "gloves": {
+          "option1": {
+            "type": "공격력 증가",
+            "stage": 13
+          },
+          "option2": {
+            "type": "크리티컬 확률 증가",
+            "stage": 9
+          },
+          "option3": {
+            "type": "옵션없음",
+            "stage": 0
+          }
+        },
+        "boots": {
+          "option1": {
+            "type": "크리티컬 확률 증가",
+            "stage": 11
+          },
+          "option2": {
+            "type": "크리티컬 대미지 증가",
+            "stage": 7
+          },
+          "option3": {
+            "type": "우월코드 대미지 증가",
+            "stage": 5
+          }
+        }
+      }
+    }
+  },
+  "build": {
+    "stats": {
+      "hp": 1556937,
+      "atk": 63481,
+      "def": 9777
+    },
+    "skills": {
+      "skill1": 10,
+      "skill2": 10,
+      "burst": 10
+    },
+    "cube_level": 11,
+    "collection": {
+      "grade": "SR",
+      "skill1": 4,
+      "skill2": 4
+    },
+    "overload": {
+      "helmet": {
+        "option1": {
+          "type": "공격력 증가",
+          "stage": 4
+        },
+        "option2": {
+          "type": "우월코드 대미지 증가",
+          "stage": 14
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 0
+        }
+      },
+      "armor": {
+        "option1": {
+          "type": "크리티컬 확률 증가",
+          "stage": 8
+        },
+        "option2": {
+          "type": "최대 장탄 수 증가",
+          "stage": 2
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 0
+        }
+      },
+      "gloves": {
+        "option1": {
+          "type": "공격력 증가",
+          "stage": 13
+        },
+        "option2": {
+          "type": "크리티컬 확률 증가",
+          "stage": 9
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 0
+        }
+      },
+      "boots": {
+        "option1": {
+          "type": "크리티컬 확률 증가",
+          "stage": 11
+        },
+        "option2": {
+          "type": "크리티컬 대미지 증가",
+          "stage": 7
+        },
+        "option3": {
+          "type": "우월코드 대미지 증가",
+          "stage": 5
+        }
+      }
+    }
+  },
+  "burst_details": {
+    "2RL": {
+      "value": 0,
+      "hits": "-",
+      "bonus": "0%-0%"
+    },
+    "2_5RL": {
+      "value": 0,
+      "hits": "-",
+      "bonus": "0%-0%"
+    },
+    "3RL": {
+      "value": 0,
+      "hits": "-",
+      "bonus": "0%-0%"
+    },
+    "3_5RL": {
+      "value": 0,
+      "hits": "-",
+      "bonus": "0%-0%"
+    },
+    "4RL": {
+      "value": 0,
+      "hits": "-",
+      "bonus": "0%-0%"
+    }
+  }
+}

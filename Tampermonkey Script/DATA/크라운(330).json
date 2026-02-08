@@ -1,0 +1,108 @@
+{
+  "meta": {
+    "name": "크라운",
+    "cv": "허예은",
+    "rarity": "SSR",
+    "squad": "바이스리터",
+    "company": "필그림",
+    "class": "방어형",
+    "burst": "II",
+    "code": "철갑",
+    "weapon": "기관총 (MG)"
+  },
+  "stats": {
+    "combatPower": 65427,
+    "hp": 1698673,
+    "atk": 43409,
+    "def": 9910
+  },
+  "skills": {
+    "skill1": 10,
+    "skill2": 9,
+    "burst": 10
+  },
+  "cube": {
+    "level": 0
+  },
+  "collection": {
+    "rarity": "SR",
+    "skillLv1": 10,
+    "skillLv2": 9
+  },
+  "equipment": [
+    {
+      "partIndex": 1,
+      "stats": {
+        "체력": 90167,
+        "공격": 6015
+      },
+      "options": [
+        {
+          "name": "우월코드 대미지 증가",
+          "value": "20.75%"
+        },
+        {
+          "name": "공격력 증가",
+          "value": "7.59%"
+        }
+      ]
+    },
+    {
+      "partIndex": 2,
+      "stats": {
+        "체력": 253968,
+        "공격": 948
+      },
+      "options": [
+        {
+          "name": "우월코드 대미지 증가",
+          "value": "9.54%"
+        },
+        {
+          "name": "차지 대미지 증가",
+          "value": "10.40%"
+        },
+        {
+          "name": "명중률 증가",
+          "value": "10.40%"
+        }
+      ]
+    },
+    {
+      "partIndex": 3,
+      "stats": {
+        "공격": 3316,
+        "방어": 1040
+      },
+      "options": [
+        {
+          "name": "우월코드 대미지 증가",
+          "value": "17.95%"
+        },
+        {
+          "name": "공격력 증가",
+          "value": "10.40%"
+        }
+      ]
+    },
+    {
+      "partIndex": 4,
+      "stats": {
+        "체력": 45084,
+        "방어": 1199
+      },
+      "options": [
+        {
+          "name": "우월코드 대미지 증가",
+          "value": "19.35%"
+        },
+        {
+          "name": "크리티컬 대미지 증가",
+          "value": "15.46%"
+        }
+      ]
+    }
+  ],
+  "rawUrl": "https://www.blablalink.com/shiftyspad/nikke?from=list&nikke=330",
+  "timestamp": "2026-01-13T21:38:53.251Z"
+}

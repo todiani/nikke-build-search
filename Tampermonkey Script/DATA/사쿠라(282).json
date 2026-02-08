@@ -1,0 +1,68 @@
+{
+  "meta": {
+    "name": "사쿠라",
+    "cv": "최정윤",
+    "rarity": "SSR",
+    "squad": "언더월드 퀸",
+    "company": "테트라",
+    "class": "지원형",
+    "burst": "I",
+    "code": "작열",
+    "weapon": "저격소총 (SR)"
+  },
+  "stats": {
+    "combatPower": 6533,
+    "hp": 255219,
+    "atk": 7035,
+    "def": 1643
+  },
+  "skills": {
+    "skill1": 6,
+    "skill2": 6,
+    "burst": 5
+  },
+  "cube": {
+    "level": 0
+  },
+  "collection": {
+    "rarity": "R",
+    "skillLv1": 6,
+    "skillLv2": 6
+  },
+  "equipment": [
+    {
+      "partIndex": 1,
+      "stats": {
+        "체력": 29380,
+        "공격": 2694
+      },
+      "options": []
+    },
+    {
+      "partIndex": 2,
+      "stats": {
+        "체력": 95485,
+        "공격": 490
+      },
+      "options": []
+    },
+    {
+      "partIndex": 3,
+      "stats": {
+        "공격": 1715,
+        "방어": 391
+      },
+      "options": []
+    },
+    {
+      "partIndex": 4,
+      "stats": {
+        "체력": 22035,
+        "방어": 586
+      },
+      "options": []
+    }
+  ],
+  "rawUrl": "https://www.blablalink.com/shiftyspad/nikke?from=list&nikke=282",
+  "timestamp": "2026-01-13T21:49:38.651Z"
+}

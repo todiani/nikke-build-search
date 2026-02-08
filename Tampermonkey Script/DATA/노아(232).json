@@ -1,0 +1,68 @@
+{
+  "meta": {
+    "name": "노아",
+    "cv": "조경이",
+    "rarity": "SSR",
+    "squad": "인헤르트",
+    "company": "필그림",
+    "class": "방어형",
+    "burst": "II",
+    "code": "풍압",
+    "weapon": "런처 (RL)"
+  },
+  "stats": {
+    "combatPower": 32261,
+    "hp": 1252622,
+    "atk": 29595,
+    "def": 8138
+  },
+  "skills": {
+    "skill1": 5,
+    "skill2": 5,
+    "burst": 6
+  },
+  "cube": {
+    "level": 0
+  },
+  "collection": {
+    "rarity": "R",
+    "skillLv1": 5,
+    "skillLv2": 5
+  },
+  "equipment": [
+    {
+      "partIndex": 1,
+      "stats": {
+        "체력": 42013,
+        "공격": 2802
+      },
+      "options": []
+    },
+    {
+      "partIndex": 2,
+      "stats": {
+        "체력": 136544,
+        "공격": 510
+      },
+      "options": []
+    },
+    {
+      "partIndex": 3,
+      "stats": {
+        "공격": 1784,
+        "방어": 559
+      },
+      "options": []
+    },
+    {
+      "partIndex": 4,
+      "stats": {
+        "체력": 31511,
+        "방어": 839
+      },
+      "options": []
+    }
+  ],
+  "rawUrl": "https://www.blablalink.com/shiftyspad/nikke?from=list&nikke=232",
+  "timestamp": "2026-01-13T21:43:16.271Z"
+}

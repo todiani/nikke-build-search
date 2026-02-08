@@ -1,0 +1,229 @@
+{
+  "id": "161",
+  "name": "미하라",
+  "name_en": "미하라",
+  "tier": "Unranked",
+  "burst": "III",
+  "class": "화력형",
+  "weapon": "소총 (AR)",
+  "squad": "워드리스",
+  "company": "미실리스",
+  "role": "화력형",
+  "code": "수냉",
+  "skill_priority_comment": "",
+  "skills_detail": {
+    "skill1": {
+      "name": "인듀어",
+      "desc": "마지막 탄환 명중 시 자신에게\n[크리티컬 대미지 18.7% ▲] [10초 유지]",
+      "tags": [
+        "명중 시",
+        "마지막 탄환 명중 시",
+        "자신",
+        "자신에게",
+        "크리티컬 대미지▲",
+        "대미지"
+      ]
+    },
+    "skill2": {
+      "name": "페인 로드",
+      "desc": "버스트 스킬 사용 시 자신에게\n[페인 로드 1: 공격력 15.56% ▲] [45초 유지]\n버스트 스킬 사용 시 자신이 페인로드 1 상태라면 자신에게\n[페인 로드 2: 크리티컬 확률 11.28% ▲] [45초 유지]",
+      "tags": [
+        "버스트 스킬 사용 시",
+        "사용 시",
+        "자신",
+        "자신에게",
+        "공격력▲",
+        "크리티컬 확률▲",
+        "버스트",
+        "공격력▼"
+      ]
+    },
+    "burst": {
+      "name": "[페인 로드 2: 크리티컬 확률 11.28% ▲] [45초 유지]",
+      "desc": "아군 전체에게\n[풀 버스트 타임 지속 시간 5초 ▼]\n적 전체에게\n[최종 공격력 399.6% 대미지]\n자신이 페인 로드 2 상태라면 적 전체에게\n[최종 공격력 266.4% 추가 대미지]",
+      "tags": [
+        "아군 전체",
+        "자신",
+        "적 전체",
+        "공격력▲",
+        "크리티컬 확률▲",
+        "버스트",
+        "대미지",
+        "추가 대미지",
+        "공격력▼"
+      ],
+      "cooldown": "40초"
+    },
+    "normal": {
+      "name": "페인풀 월드",
+      "desc": "대상에게\n[공격력 15.07% 대미지]\n[코어 대미지 200%]"
+    }
+  },
+  "overload_detail": {
+    "priority": "",
+    "options": [],
+    "recommended_cubes": [],
+    "notes": ""
+  },
+  "skill_priority": "",
+  "options": [],
+  "cube": "",
+  "desc": "1스킬: \n2스킬: \n버스트: ",
+  "extra_info": "",
+  "usage_stats": [
+    {
+      "name": "스테이지",
+      "stars": 1,
+      "desc": "일반 캠페인 및 타워"
+    },
+    {
+      "name": "이상개체요격전",
+      "stars": 0,
+      "desc": "특수 개체 보스 공략"
+    },
+    {
+      "name": "솔로레이드",
+      "stars": 1,
+      "desc": "수냉코드 보스 특화"
+    },
+    {
+      "name": "유니온레이드",
+      "stars": 0,
+      "desc": "수냉코드 보스"
+    },
+    {
+      "name": "타워",
+      "stars": 1,
+      "desc": "적극 활용 가능"
+    },
+    {
+      "name": "PVP",
+      "stars": 1,
+      "desc": "아레나 활용 가능"
+    },
+    {
+      "name": "기업타워",
+      "stars": 0,
+      "desc": ""
+    },
+    {
+      "name": "트라이브타워",
+      "stars": 0,
+      "desc": ""
+    }
+  ],
+  "_buildFile": "161.json",
+  "_originalId": "161",
+  "rarity": "SR",
+  "cv": "유보라",
+  "weapon_name": "페인풀 월드",
+  "weapon_info": {
+    "weapon_name": "페인풀 월드",
+    "max_ammo": 60,
+    "reload_time": 1.67,
+    "control_type": "일반형"
+  },
+  "burst_details": {
+    "2RL": {
+      "value": 0,
+      "hits": "-",
+      "bonus": "0%-0%"
+    },
+    "2_5RL": {
+      "value": 0,
+      "hits": "-",
+      "bonus": "0%-0%"
+    },
+    "3RL": {
+      "value": 0,
+      "hits": "-",
+      "bonus": "0%-0%"
+    },
+    "3_5RL": {
+      "value": 0,
+      "hits": "-",
+      "bonus": "0%-0%"
+    },
+    "4RL": {
+      "value": 0,
+      "hits": "-",
+      "bonus": "0%-0%"
+    }
+  },
+  "build": {
+    "stats": {
+      "hp": 241433,
+      "atk": 8898,
+      "def": 1676
+    },
+    "skills": {
+      "skill1": 1,
+      "skill2": 1,
+      "burst": 1
+    },
+    "cube_level": 1,
+    "collection": {
+      "grade": "None",
+      "skill1": 1,
+      "skill2": 1
+    },
+    "overload": {
+      "helmet": {
+        "option1": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option2": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 1
+        }
+      },
+      "armor": {
+        "option1": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option2": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 1
+        }
+      },
+      "gloves": {
+        "option1": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option2": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 1
+        }
+      },
+      "boots": {
+        "option1": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option2": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 1
+        }
+      }
+    }
+  }
+}

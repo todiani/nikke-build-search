@@ -1,0 +1,82 @@
+{
+  "meta": {
+    "name": "아니스 : 스파클링 서머",
+    "cv": "김성희",
+    "rarity": "SSR",
+    "squad": "카운터스",
+    "company": "테트라",
+    "class": "지원형",
+    "burst": "III",
+    "code": "전격",
+    "weapon": "샷건 (SG)"
+  },
+  "stats": {
+    "combatPower": 37527,
+    "hp": 1210307,
+    "atk": 38030,
+    "def": 7080
+  },
+  "skills": {
+    "skill1": 7,
+    "skill2": 7,
+    "burst": 7
+  },
+  "cube": {
+    "level": 0
+  },
+  "collection": {
+    "rarity": "R",
+    "skillLv1": 7,
+    "skillLv2": 7
+  },
+  "equipment": [
+    {
+      "partIndex": 1,
+      "stats": {
+        "체력": 54646,
+        "공격": 5012
+      },
+      "options": [
+        {
+          "name": "우월코드 대미지 증가",
+          "value": "15.15%"
+        }
+      ]
+    },
+    {
+      "partIndex": 2,
+      "stats": {
+        "체력": 177600,
+        "공격": 911
+      },
+      "options": [
+        {
+          "name": "차지 속도 증가",
+          "value": "2.57%"
+        },
+        {
+          "name": "공격력 증가",
+          "value": "12.52%"
+        }
+      ]
+    },
+    {
+      "partIndex": 3,
+      "stats": {
+        "공격": 1715,
+        "방어": 391
+      },
+      "options": []
+    },
+    {
+      "partIndex": 4,
+      "stats": {
+        "체력": 22035,
+        "방어": 586
+      },
+      "options": []
+    }
+  ],
+  "rawUrl": "https://www.blablalink.com/shiftyspad/nikke?from=list&nikke=15",
+  "timestamp": "2026-01-13T21:41:52.572Z"
+}

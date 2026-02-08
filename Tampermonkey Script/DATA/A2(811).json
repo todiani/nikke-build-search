@@ -1,0 +1,68 @@
+{
+  "meta": {
+    "name": "A2",
+    "cv": "스와 아야카",
+    "rarity": "SSR",
+    "squad": "요르하",
+    "company": "어브노멀",
+    "class": "화력형",
+    "burst": "III",
+    "code": "작열",
+    "weapon": "런처 (RL)"
+  },
+  "stats": {
+    "combatPower": 6980,
+    "hp": 245206,
+    "atk": 9744,
+    "def": 1638
+  },
+  "skills": {
+    "skill1": 5,
+    "skill2": 4,
+    "burst": 4
+  },
+  "cube": {
+    "level": 0
+  },
+  "collection": {
+    "rarity": "R",
+    "skillLv1": 5,
+    "skillLv2": 4
+  },
+  "equipment": [
+    {
+      "partIndex": 1,
+      "stats": {
+        "체력": 34375,
+        "공격": 4203
+      },
+      "options": []
+    },
+    {
+      "partIndex": 2,
+      "stats": {
+        "체력": 85937,
+        "공격": 588
+      },
+      "options": []
+    },
+    {
+      "partIndex": 3,
+      "stats": {
+        "공격": 2675,
+        "방어": 458
+      },
+      "options": []
+    },
+    {
+      "partIndex": 4,
+      "stats": {
+        "체력": 19832,
+        "방어": 527
+      },
+      "options": []
+    }
+  ],
+  "rawUrl": "https://www.blablalink.com/shiftyspad/nikke?from=list&nikke=811",
+  "timestamp": "2026-01-13T21:48:18.649Z"
+}

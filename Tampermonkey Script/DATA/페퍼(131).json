@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "name": "페퍼",
+    "cv": "윤아영",
+    "rarity": "SSR",
+    "squad": "세라핌",
+    "company": "어브노멀",
+    "class": "지원형",
+    "burst": "I",
+    "code": "풍압",
+    "weapon": "샷건 (SG)"
+  },
+  "stats": {
+    "combatPower": 1961,
+    "hp": 98250,
+    "atk": 1800,
+    "def": 611
+  },
+  "skills": {
+    "skill1": 1,
+    "skill2": 1,
+    "burst": 1
+  },
+  "cube": {
+    "level": 0
+  },
+  "collection": {
+    "rarity": "R",
+    "skillLv1": 1,
+    "skillLv2": 1
+  },
+  "equipment": [],
+  "rawUrl": "https://www.blablalink.com/shiftyspad/nikke?from=list&nikke=131",
+  "timestamp": "2026-01-13T21:56:19.841Z"
+}

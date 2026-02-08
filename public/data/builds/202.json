@@ -1,0 +1,212 @@
+{
+  "id": "202",
+  "name": "도라",
+  "name_en": "도라",
+  "tier": "A",
+  "burst": 0,
+  "class": 0,
+  "weapon": 0,
+  "squad": "달란트",
+  "company": 0,
+  "role": "지원형",
+  "code": 0,
+  "skill_priority_comment": "4-4-4",
+  "skills_detail": {
+    "skill1": {
+      "name": "기업가 정신",
+      "desc": "아군 전체에게: [공격력 16.16% ▲] [5초 유지]",
+      "tags": [
+        "공격력▼",
+        "공격력▲",
+        "아군 전체"
+      ]
+    },
+    "skill2": {
+      "name": "리스크 공유",
+      "desc": "버스트 스킬 사용 시 아군 전체에게: [사용 횟수별 효과] [하위 효과 중복 적용]:\n1회: [공격력 7.72% ▲] [5초 유지] \n2회: [크리티컬 확률 4.21% ▲] [5초 유지] \n3회: [크리티컬 대미지 13.22% ▲] [5초 유지]",
+      "tags": [
+        "크리티컬 확률▲",
+        "공격력▼",
+        "크리티컬 대미지▲",
+        "대미지",
+        "아군 전체",
+        "버스트 스킬 사용 시",
+        "버스트",
+        "사용 시",
+        "공격력▲"
+      ]
+    },
+    "burst": {
+      "name": "R&D 샷",
+      "desc": "최종 방어력이 가장 높은 적 1기에게: [최종 공격력 734.69% 버스트 스킬 대미지]",
+      "tags": [
+        "공격력▼",
+        "방어력▲",
+        "방어력이 가장 높은 적",
+        "방어력▼",
+        "대미지",
+        "버스트",
+        "공격력▲"
+      ]
+    },
+    "normal": {
+      "name": "일반 공격",
+      "desc": "",
+      "tags": []
+    }
+  },
+  "overload_detail": {
+    "priority": "",
+    "options": [
+      "장탄",
+      "방어력"
+    ],
+    "recommended_cubes": [
+      "택티컬 베어"
+    ],
+    "notes": ""
+  },
+  "skill_priority": "4-4-4",
+  "options": [],
+  "cube": "택티컬 베어",
+  "desc": "【특징 및 활용 방법】\n- 아군 전체의 버스트 스킬 재사용 시간을 감소시키고 공격력 및 크리티컬 버프를 제공하는 2버스트 핵심 서포터입니다.\n- 버스트 쿨타임 감소(버쿨감) 능력을 보유하고 있어 파티의 회전력을 크게 높여주며, 스테이지와 레이드 모두에서 범용성이 높습니다.\n- 공격적인 버프 위주의 구성으로 화력형 니케들과의 궁합이 매우 뛰어납니다.\n- 추천 옵션: 생존력 향상을 위한 옵션이나 우월코드 대미지 증가를 고려할 수 있습니다.",
+  "extra_info": "",
+  "valid_options": [
+    "공격력 증가",
+    "우월코드 대미지 증가",
+    "차지 속도 증가",
+    "차지 대미지 증가"
+  ],
+  "invalid_options": [],
+  "usage_stats": [
+    {
+      "name": "스테이지",
+      "stars": 2,
+      "desc": "일반 캠페인 및 타워"
+    },
+    {
+      "name": "이상개체요격전",
+      "stars": 1,
+      "desc": "특수 개체 보스 공략"
+    },
+    {
+      "name": "솔로레이드",
+      "stars": 2,
+      "desc": "풍압코드 보스 특화"
+    },
+    {
+      "name": "유니온레이드",
+      "stars": 1,
+      "desc": "풍압코드 보스"
+    },
+    {
+      "name": "타워",
+      "stars": 2,
+      "desc": "적극 활용 가능"
+    },
+    {
+      "name": "PVP",
+      "stars": 1,
+      "desc": "아레나 활용 가능"
+    },
+    {
+      "name": "기업타워",
+      "stars": 0,
+      "desc": ""
+    },
+    {
+      "name": "트라이브타워",
+      "stars": 0,
+      "desc": ""
+    }
+  ],
+  "weapon_info": {
+    "weapon_name": "",
+    "max_ammo": 0,
+    "reload_time": 0,
+    "control_type": ""
+  },
+  "build": {
+    "stats": {
+      "hp": 1111740,
+      "atk": 36099,
+      "def": 6389,
+      "power": 26469,
+      "combatPower": 26935
+    },
+    "overload": {
+      "helmet": {
+        "option1": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option2": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 1
+        }
+      },
+      "armor": {
+        "option1": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option2": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 1
+        }
+      },
+      "gloves": {
+        "option1": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option2": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 1
+        }
+      },
+      "boots": {
+        "option1": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option2": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 1
+        }
+      }
+    },
+    "skills": {
+      "skill1": 10,
+      "skill2": 10,
+      "burst": 10
+    },
+    "cube_level": 7,
+    "collection": {
+      "grade": "None",
+      "skill1": 0,
+      "skill2": 0
+    }
+  },
+  "_originalId": "202",
+  "rarity": "SSR",
+  "cv": "김가령",
+  "weapon_name": "리스크 테이커",
+  "_dbId": "202"
+}

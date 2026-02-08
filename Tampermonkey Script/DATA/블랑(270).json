@@ -1,0 +1,77 @@
+{
+  "meta": {
+    "name": "블랑",
+    "cv": "이보희",
+    "rarity": "SSR",
+    "squad": "-",
+    "company": "테트라",
+    "class": "방어형",
+    "burst": "II",
+    "code": "풍압",
+    "weapon": "소총 (AR)"
+  },
+  "stats": {
+    "combatPower": 38549,
+    "hp": 1324048,
+    "atk": 32065,
+    "def": 8823
+  },
+  "skills": {
+    "skill1": 5,
+    "skill2": 6,
+    "burst": 7
+  },
+  "cube": {
+    "level": 0
+  },
+  "collection": {
+    "rarity": "R",
+    "skillLv1": 5,
+    "skillLv2": 6
+  },
+  "equipment": [
+    {
+      "partIndex": 1,
+      "stats": {
+        "체력": 60111,
+        "공격": 4010
+      },
+      "options": [
+        {
+          "name": "최대 장탄 수 증가",
+          "value": "68.93%"
+        },
+        {
+          "name": "명중률 증가",
+          "value": "11.81%"
+        }
+      ]
+    },
+    {
+      "partIndex": 2,
+      "stats": {
+        "체력": 136544,
+        "공격": 510
+      },
+      "options": []
+    },
+    {
+      "partIndex": 3,
+      "stats": {
+        "공격": 1784,
+        "방어": 559
+      },
+      "options": []
+    },
+    {
+      "partIndex": 4,
+      "stats": {
+        "체력": 31511,
+        "방어": 839
+      },
+      "options": []
+    }
+  ],
+  "rawUrl": "https://www.blablalink.com/shiftyspad/nikke?from=list&nikke=270",
+  "timestamp": "2026-01-13T21:41:26.456Z"
+}

@@ -1,0 +1,68 @@
+{
+  "meta": {
+    "name": "코코아",
+    "cv": "이지현",
+    "rarity": "SSR",
+    "squad": "메이드 포 유",
+    "company": "테트라",
+    "class": "지원형",
+    "burst": "I",
+    "code": "작열",
+    "weapon": "저격소총 (SR)"
+  },
+  "stats": {
+    "combatPower": 5580,
+    "hp": 247844,
+    "atk": 6789,
+    "def": 1594
+  },
+  "skills": {
+    "skill1": 1,
+    "skill2": 1,
+    "burst": 1
+  },
+  "cube": {
+    "level": 0
+  },
+  "collection": {
+    "rarity": "R",
+    "skillLv1": 1,
+    "skillLv2": 1
+  },
+  "equipment": [
+    {
+      "partIndex": 1,
+      "stats": {
+        "체력": 29380,
+        "공격": 2694
+      },
+      "options": []
+    },
+    {
+      "partIndex": 2,
+      "stats": {
+        "체력": 95485,
+        "공격": 490
+      },
+      "options": []
+    },
+    {
+      "partIndex": 3,
+      "stats": {
+        "공격": 1715,
+        "방어": 391
+      },
+      "options": []
+    },
+    {
+      "partIndex": 4,
+      "stats": {
+        "체력": 22035,
+        "방어": 586
+      },
+      "options": []
+    }
+  ],
+  "rawUrl": "https://www.blablalink.com/shiftyspad/nikke?from=list&nikke=311",
+  "timestamp": "2026-01-13T21:53:14.651Z"
+}

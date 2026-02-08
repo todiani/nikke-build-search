@@ -1,0 +1,68 @@
+{
+  "meta": {
+    "name": "벨로타",
+    "cv": "손선영",
+    "rarity": "SR",
+    "squad": "리틀 캐논",
+    "company": "테트라",
+    "class": "화력형",
+    "burst": "II",
+    "code": "전격",
+    "weapon": "런처 (RL)"
+  },
+  "stats": {
+    "combatPower": 6337,
+    "hp": 233500,
+    "atk": 7928,
+    "def": 1674
+  },
+  "skills": {
+    "skill1": 4,
+    "skill2": 4,
+    "burst": 4
+  },
+  "cube": {
+    "level": 0
+  },
+  "collection": {
+    "rarity": "R",
+    "skillLv1": 4,
+    "skillLv2": 4
+  },
+  "equipment": [
+    {
+      "partIndex": 1,
+      "stats": {
+        "체력": 26442,
+        "공격": 3233
+      },
+      "options": []
+    },
+    {
+      "partIndex": 2,
+      "stats": {
+        "체력": 85937,
+        "공격": 588
+      },
+      "options": []
+    },
+    {
+      "partIndex": 3,
+      "stats": {
+        "공격": 2058,
+        "방어": 352
+      },
+      "options": []
+    },
+    {
+      "partIndex": 4,
+      "stats": {
+        "체력": 19832,
+        "방어": 527
+      },
+      "options": []
+    }
+  ],
+  "rawUrl": "https://www.blablalink.com/shiftyspad/nikke?from=list&nikke=60",
+  "timestamp": "2026-01-13T21:50:50.645Z"
+}

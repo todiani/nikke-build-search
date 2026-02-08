@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "name": "미사토",
+    "cv": "미츠이시 코토노",
+    "rarity": "SR",
+    "squad": "NERV",
+    "company": "어브노멀",
+    "class": "지원형",
+    "burst": "I",
+    "code": "철갑",
+    "weapon": "기관단총 (SMG)"
+  },
+  "stats": {
+    "combatPower": 1888,
+    "hp": 94750,
+    "atk": 1725,
+    "def": 588
+  },
+  "skills": {
+    "skill1": 1,
+    "skill2": 1,
+    "burst": 1
+  },
+  "cube": {
+    "level": 0
+  },
+  "collection": {
+    "rarity": "R",
+    "skillLv1": 1,
+    "skillLv2": 1
+  },
+  "equipment": [],
+  "rawUrl": "https://www.blablalink.com/shiftyspad/nikke?from=list&nikke=833",
+  "timestamp": "2026-01-13T22:01:20.847Z"
+}

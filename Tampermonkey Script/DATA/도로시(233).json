@@ -1,0 +1,68 @@
+{
+  "meta": {
+    "name": "도로시",
+    "cv": "김새해",
+    "rarity": "SSR",
+    "squad": "인헤르트",
+    "company": "필그림",
+    "class": "지원형",
+    "burst": "I",
+    "code": "수냉",
+    "weapon": "소총 (AR)"
+  },
+  "stats": {
+    "combatPower": 30061,
+    "hp": 1111740,
+    "atk": 36539,
+    "def": 7412
+  },
+  "skills": {
+    "skill1": 5,
+    "skill2": 5,
+    "burst": 5
+  },
+  "cube": {
+    "level": 0
+  },
+  "collection": {
+    "rarity": "R",
+    "skillLv1": 5,
+    "skillLv2": 5
+  },
+  "equipment": [
+    {
+      "partIndex": 1,
+      "stats": {
+        "체력": 38194,
+        "공격": 3502
+      },
+      "options": []
+    },
+    {
+      "partIndex": 2,
+      "stats": {
+        "체력": 95485,
+        "공격": 490
+      },
+      "options": []
+    },
+    {
+      "partIndex": 3,
+      "stats": {
+        "공격": 2230,
+        "방어": 508
+      },
+      "options": []
+    },
+    {
+      "partIndex": 4,
+      "stats": {
+        "체력": 22035,
+        "방어": 586
+      },
+      "options": []
+    }
+  ],
+  "rawUrl": "https://www.blablalink.com/shiftyspad/nikke?from=list&nikke=233",
+  "timestamp": "2026-01-13T21:44:52.678Z"
+}

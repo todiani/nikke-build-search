@@ -1,0 +1,203 @@
+{
+  "id": "33",
+  "name": "키리",
+  "name_en": "키리",
+  "tier": "A",
+  "burst": 0,
+  "class": 0,
+  "weapon": 0,
+  "squad": "A.C.P.U.",
+  "company": 0,
+  "role": "지원형",
+  "code": 0,
+  "skill_priority_comment": "",
+  "skills_detail": {
+    "skill1": {
+      "name": "곁눈질",
+      "desc": "풀 차지 공격 시 방어형 아군 2기에게: [시전자 기준 공격력 5.81% ▲] [3초 유지]",
+      "tags": [
+        "공격력▼",
+        "공격 시",
+        "풀 차지 공격 시",
+        "방어형 아군",
+        "공격력▲",
+        "시전자 기준"
+      ]
+    },
+    "skill2": {
+      "name": "훑어보기",
+      "desc": "전투 시작 시 방어형 아군 2기에게: [최대 체력 11.63% ▲] [지속]",
+      "tags": [
+        "방어형 아군",
+        "최대 체력▲",
+        "전투 시작 시",
+        "시작 시"
+      ]
+    },
+    "burst": {
+      "name": "꿰뚫어보기",
+      "desc": "방어형 아군 전체에게: [크리티컬 확률 19.9% ▲] [10초 유지]",
+      "tags": [
+        "방어형 아군",
+        "크리티컬 확률▲",
+        "아군 전체"
+      ]
+    },
+    "normal": {
+      "name": "일반 공격",
+      "desc": "",
+      "tags": []
+    }
+  },
+  "overload_detail": {
+    "priority": "",
+    "options": [],
+    "recommended_cubes": [],
+    "notes": ""
+  },
+  "skill_priority": "",
+  "options": [],
+  "cube": "",
+  "desc": "1스킬: 풀 차지 공격 시 방어형 아군 2기에게: [시전자 기준 공격력 5.81% ▲] [3초 유지]\n2스킬: 전투 시작 시 방어형 아군 2기에게: [최대 체력 11.63% ▲] [지속]\n버스트: 방어형 아군 전체에게: [크리티컬 확률 19.9% ▲] [10초 유지]",
+  "extra_info": "",
+  "valid_options": [
+    "공격력 증가",
+    "우월코드 대미지 증가",
+    "차지 속도 증가",
+    "차지 대미지 증가"
+  ],
+  "invalid_options": [
+    "명중률 증가"
+  ],
+  "usage_stats": [
+    {
+      "name": "스테이지",
+      "stars": 2,
+      "desc": "일반 캠페인 및 타워"
+    },
+    {
+      "name": "이상개체요격전",
+      "stars": 1,
+      "desc": "특수 개체 보스 공략"
+    },
+    {
+      "name": "솔로레이드",
+      "stars": 2,
+      "desc": "풍압코드 보스 특화"
+    },
+    {
+      "name": "유니온레이드",
+      "stars": 1,
+      "desc": "풍압코드 보스"
+    },
+    {
+      "name": "타워",
+      "stars": 2,
+      "desc": "적극 활용 가능"
+    },
+    {
+      "name": "PVP",
+      "stars": 3,
+      "desc": "아레나 활용 가능"
+    },
+    {
+      "name": "기업타워",
+      "stars": 0,
+      "desc": ""
+    },
+    {
+      "name": "트라이브타워",
+      "stars": 0,
+      "desc": ""
+    }
+  ],
+  "weapon_info": {
+    "weapon_name": "",
+    "max_ammo": 0,
+    "reload_time": 0,
+    "control_type": ""
+  },
+  "build": {
+    "stats": {
+      "hp": 260154,
+      "atk": 7688,
+      "def": 1626,
+      "power": 6418,
+      "combatPower": 6492
+    },
+    "overload": {
+      "helmet": {
+        "option1": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option2": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 1
+        }
+      },
+      "armor": {
+        "option1": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option2": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 1
+        }
+      },
+      "gloves": {
+        "option1": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option2": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 1
+        }
+      },
+      "boots": {
+        "option1": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option2": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 1
+        }
+      }
+    },
+    "skills": {
+      "skill1": 10,
+      "skill2": 10,
+      "burst": 10
+    },
+    "cube_level": 7,
+    "collection": {
+      "grade": "None",
+      "skill1": 0,
+      "skill2": 0
+    }
+  },
+  "_originalId": "33",
+  "rarity": "SSR",
+  "cv": "천송이",
+  "weapon_name": "클라우드 아이",
+  "_dbId": "33"
+}

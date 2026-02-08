@@ -1,0 +1,207 @@
+{
+  "id": "354",
+  "name": "마스트 : 로망틱 메이드",
+  "name_en": "마스트 : 로망틱 메이드",
+  "tier": "A",
+  "burst": 0,
+  "class": 0,
+  "weapon": 0,
+  "squad": "이지스",
+  "company": 0,
+  "role": "지원형",
+  "code": 0,
+  "skill_priority_comment": "",
+  "skills_detail": {
+    "skill1": {
+      "name": "파이레츠 하트",
+      "desc": "자신이 취기 상태에 한하여 아군 전체에게: [크리티컬 확률 20.05% ▲] [지속]\n[시전자 기준 공격력 35.02% ▲] [지속]",
+      "tags": [
+        "크리티컬 확률▲",
+        "공격력▼",
+        "아군 전체",
+        "자신",
+        "공격력▲",
+        "시전자 기준"
+      ]
+    },
+    "skill2": {
+      "name": "파이레츠 스피릿",
+      "desc": "풀 버스트 타임 종료 시 자신이 취기 최대 중첩 상태라면 중첩 해제 후 자신에게: [숙취 : 기절] [10초 유지]",
+      "tags": [
+        "자신에게",
+        "기절",
+        "종료 시",
+        "풀 버스트 타임 종료 시",
+        "자신",
+        "버스트"
+      ]
+    },
+    "burst": {
+      "name": "파이레츠 로망",
+      "desc": "자신이 취기 상태라면 아군 전체에게: [시전자 기준 공격력 20.06% X 취기 중첩 수 ▲] [10초 유지]",
+      "tags": [
+        "공격력▼",
+        "아군 전체",
+        "자신",
+        "공격력▲",
+        "시전자 기준"
+      ]
+    },
+    "normal": {
+      "name": "일반 공격",
+      "desc": "",
+      "tags": []
+    }
+  },
+  "overload_detail": {
+    "priority": "",
+    "options": [],
+    "recommended_cubes": [],
+    "notes": ""
+  },
+  "skill_priority": "",
+  "options": [],
+  "cube": "",
+  "desc": "1스킬: 자신이 취기 상태에 한하여 아군 전체에게: [크리티컬 확률 20.05% ▲] [지속]\n[시전자 기준 공격력 35.02% ▲] [지속]\n2스킬: 풀 버스트 타임 종료 시 자신이 취기 최대 중첩 상태라면 중첩 해제 후 자신에게: [숙취 : 기절] [10초 유지]\n버스트: 자신이 취기 상태라면 아군 전체에게: [시전자 기준 공격력 20.06% X 취기 중첩 수 ▲] [10초 유지]",
+  "extra_info": "",
+  "valid_options": [
+    "공격력 증가",
+    "우월코드 대미지 증가",
+    "최대 장탄 수 증가"
+  ],
+  "invalid_options": [
+    "차지 속도 증가",
+    "차지 대미지 증가"
+  ],
+  "usage_stats": [
+    {
+      "name": "스테이지",
+      "stars": 2,
+      "desc": "일반 캠페인 및 타워"
+    },
+    {
+      "name": "이상개체요격전",
+      "stars": 1,
+      "desc": "특수 개체 보스 공략"
+    },
+    {
+      "name": "솔로레이드",
+      "stars": 2,
+      "desc": "수냉코드 보스 특화"
+    },
+    {
+      "name": "유니온레이드",
+      "stars": 1,
+      "desc": "수냉코드 보스"
+    },
+    {
+      "name": "타워",
+      "stars": 2,
+      "desc": "적극 활용 가능"
+    },
+    {
+      "name": "PVP",
+      "stars": 1,
+      "desc": "아레나 활용 가능"
+    },
+    {
+      "name": "기업타워",
+      "stars": 0,
+      "desc": ""
+    },
+    {
+      "name": "트라이브타워",
+      "stars": 0,
+      "desc": ""
+    }
+  ],
+  "weapon_info": {
+    "weapon_name": "",
+    "max_ammo": 0,
+    "reload_time": 0,
+    "control_type": ""
+  },
+  "build": {
+    "stats": {
+      "hp": 1238347,
+      "atk": 39679,
+      "def": 7278,
+      "power": 33879,
+      "combatPower": 34399
+    },
+    "overload": {
+      "helmet": {
+        "option1": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option2": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 1
+        }
+      },
+      "armor": {
+        "option1": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option2": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 1
+        }
+      },
+      "gloves": {
+        "option1": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option2": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 1
+        }
+      },
+      "boots": {
+        "option1": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option2": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 1
+        }
+      }
+    },
+    "skills": {
+      "skill1": 10,
+      "skill2": 10,
+      "burst": 10
+    },
+    "cube_level": 7,
+    "collection": {
+      "grade": "None",
+      "skill1": 0,
+      "skill2": 0
+    }
+  },
+  "_originalId": "354",
+  "rarity": "SSR",
+  "cv": "신나리",
+  "weapon_name": "페로셔스",
+  "_dbId": "354"
+}

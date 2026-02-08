@@ -1,0 +1,179 @@
+{
+  "id": "852",
+  "name": "릴리",
+  "name_en": "릴리",
+  "tier": "Unranked",
+  "burst": 0,
+  "class": 0,
+  "weapon": 0,
+  "squad": "5",
+  "company": 0,
+  "role": "지원형",
+  "code": 0,
+  "skill_priority_comment": "",
+  "skills_detail": {
+    "skill1": {
+      "name": "정밀 조정",
+      "desc": "무작위 아군 1기에게\n[시전자 기준 공격력 20% ▲] [5초 유지]",
+      "tags": []
+    },
+    "skill2": {
+      "name": "긴급 보수",
+      "desc": "아군 전체에게\n[엄폐물 체력 회복 10%]",
+      "tags": []
+    },
+    "burst": {
+      "name": "버스트 II",
+      "desc": "성우\n\t\n 박리나[1]\n 마츠오카 미사토\n 로지 존스",
+      "tags": [],
+      "cooldown": ""
+    },
+    "normal": {
+      "name": "일반 공격",
+      "desc": "",
+      "tags": []
+    }
+  },
+  "overload_detail": {
+    "priority": "",
+    "options": [],
+    "recommended_cubes": [],
+    "notes": ""
+  },
+  "skill_priority": "",
+  "options": [],
+  "cube": "",
+  "desc": "1스킬: \n2스킬: \n버스트: ",
+  "extra_info": "",
+  "usage_stats": [
+    {
+      "name": "스테이지",
+      "stars": 1,
+      "desc": "일반 캠페인 및 타워"
+    },
+    {
+      "name": "이상개체요격전",
+      "stars": 0,
+      "desc": "특수 개체 보스 공략"
+    },
+    {
+      "name": "솔로레이드",
+      "stars": 1,
+      "desc": "풍압코드 보스 특화"
+    },
+    {
+      "name": "유니온레이드",
+      "stars": 0,
+      "desc": "풍압코드 보스"
+    },
+    {
+      "name": "타워",
+      "stars": 1,
+      "desc": "적극 활용 가능"
+    },
+    {
+      "name": "PVP",
+      "stars": 1,
+      "desc": "아레나 활용 가능"
+    },
+    {
+      "name": "기업타워",
+      "stars": 0,
+      "desc": ""
+    },
+    {
+      "name": "트라이브타워",
+      "stars": 0,
+      "desc": ""
+    }
+  ],
+  "weapon_info": {
+    "weapon_name": "",
+    "max_ammo": 0,
+    "reload_time": 0,
+    "control_type": ""
+  },
+  "build": {
+    "stats": {
+      "hp": 447073,
+      "atk": 13406,
+      "def": 2971,
+      "power": 12413,
+      "combatPower": 12495
+    },
+    "overload": {
+      "helmet": {
+        "option1": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option2": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 1
+        }
+      },
+      "armor": {
+        "option1": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option2": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 1
+        }
+      },
+      "gloves": {
+        "option1": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option2": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 1
+        }
+      },
+      "boots": {
+        "option1": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option2": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 1
+        }
+      }
+    },
+    "skills": {
+      "skill1": 10,
+      "skill2": 10,
+      "burst": 10
+    },
+    "cube_level": 7,
+    "collection": {
+      "grade": "None",
+      "skill1": 0,
+      "skill2": 0
+    }
+  },
+  "_originalId": "852",
+  "rarity": "SR",
+  "cv": "박리나",
+  "weapon_name": "",
+  "_dbId": "852"
+}

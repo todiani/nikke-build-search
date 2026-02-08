@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "name": "이사벨",
+    "cv": "이새아",
+    "rarity": "SSR",
+    "squad": "인헤르트",
+    "company": "어브노멀",
+    "class": "화력형",
+    "burst": "III",
+    "code": "전격",
+    "weapon": "샷건 (SG)"
+  },
+  "stats": {
+    "combatPower": 1919,
+    "hp": 96000,
+    "atk": 1825,
+    "def": 581
+  },
+  "skills": {
+    "skill1": 1,
+    "skill2": 1,
+    "burst": 1
+  },
+  "cube": {
+    "level": 0
+  },
+  "collection": {
+    "rarity": "R",
+    "skillLv1": 1,
+    "skillLv2": 1
+  },
+  "equipment": [],
+  "rawUrl": "https://www.blablalink.com/shiftyspad/nikke?from=list&nikke=231",
+  "timestamp": "2026-01-13T21:59:28.857Z"
+}

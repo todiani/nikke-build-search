@@ -1,0 +1,202 @@
+{
+  "id": "380",
+  "name": "네로",
+  "name_en": "Nero",
+  "tier": "PvP",
+  "burst": 0,
+  "class": 0,
+  "weapon": 0,
+  "squad": "해피 주",
+  "company": 0,
+  "role": "방어형",
+  "code": 0,
+  "skill_priority_comment": "",
+  "skills_detail": {
+    "skill1": {
+      "name": "고양이 보은",
+      "desc": "회복 효과 적용 시 자신에게: [고양이 보은: 받는 대미지 8.43% ▼] [5중첩] [5초 유지]",
+      "tags": [
+        "받는 대미지▲",
+        "자신에게",
+        "대미지",
+        "자신"
+      ]
+    },
+    "skill2": {
+      "name": "고양이 손",
+      "desc": "전투 시작 시 자신에게: [최대 체력 60.28% ▲] [지속]",
+      "tags": [
+        "자신에게",
+        "전투 시작 시",
+        "시작 시",
+        "자신",
+        "최대 체력▲"
+      ]
+    },
+    "burst": {
+      "name": "크고 난폭한 고양이",
+      "desc": "자신이 고양이 보은 최대 중첩 상태라면 자신에게: [큰 고양이: 최대 체력 60.08% ▲] [15초 유지]",
+      "tags": [
+        "자신에게",
+        "최대 체력▲",
+        "자신"
+      ]
+    },
+    "normal": {
+      "name": "일반 공격",
+      "desc": "",
+      "tags": []
+    }
+  },
+  "overload_detail": {
+    "priority": "",
+    "options": [],
+    "recommended_cubes": [],
+    "notes": ""
+  },
+  "skill_priority": "",
+  "options": [],
+  "cube": "",
+  "desc": "1스킬: 회복 효과 적용 시 자신에게: [고양이 보은: 받는 대미지 8.43% ▼] [5중첩] [5초 유지]\n2스킬: 전투 시작 시 자신에게: [최대 체력 60.28% ▲] [지속]\n버스트: 자신이 고양이 보은 최대 중첩 상태라면 자신에게: [큰 고양이: 최대 체력 60.08% ▲] [15초 유지]",
+  "extra_info": "",
+  "valid_options": [
+    "공격력 증가",
+    "우월코드 대미지 증가",
+    "명중률 증가"
+  ],
+  "invalid_options": [
+    "차지 속도 증가",
+    "차지 대미지 증가"
+  ],
+  "usage_stats": [
+    {
+      "name": "스테이지",
+      "stars": 4,
+      "desc": "일반 캠페인 및 타워"
+    },
+    {
+      "name": "이상개체요격전",
+      "stars": 3,
+      "desc": "특수 개체 보스 공략"
+    },
+    {
+      "name": "솔로레이드",
+      "stars": 4,
+      "desc": "작열코드 보스 특화"
+    },
+    {
+      "name": "유니온레이드",
+      "stars": 3,
+      "desc": "작열코드 보스"
+    },
+    {
+      "name": "타워",
+      "stars": 4,
+      "desc": "적극 활용 가능"
+    },
+    {
+      "name": "PVP",
+      "stars": 4,
+      "desc": "아레나 활용 가능"
+    },
+    {
+      "name": "기업타워",
+      "stars": 3,
+      "desc": ""
+    },
+    {
+      "name": "트라이브타워",
+      "stars": 0,
+      "desc": ""
+    }
+  ],
+  "weapon_info": {
+    "weapon_name": "",
+    "max_ammo": 0,
+    "reload_time": 0,
+    "control_type": ""
+  },
+  "build": {
+    "stats": {
+      "hp": 275756,
+      "atk": 6399,
+      "def": 1716,
+      "power": 6292,
+      "combatPower": 6379
+    },
+    "overload": {
+      "helmet": {
+        "option1": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option2": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 1
+        }
+      },
+      "armor": {
+        "option1": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option2": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 1
+        }
+      },
+      "gloves": {
+        "option1": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option2": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 1
+        }
+      },
+      "boots": {
+        "option1": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option2": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 1
+        }
+      }
+    },
+    "skills": {
+      "skill1": 10,
+      "skill2": 10,
+      "burst": 10
+    },
+    "cube_level": 7,
+    "collection": {
+      "grade": "None",
+      "skill1": 0,
+      "skill2": 0
+    }
+  },
+  "_originalId": "380",
+  "rarity": "SSR",
+  "cv": "유혜지",
+  "weapon_name": "야옹 야옹",
+  "_dbId": "380"
+}

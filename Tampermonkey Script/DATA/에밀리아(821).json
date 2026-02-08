@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "name": "에밀리아",
+    "cv": "유영",
+    "rarity": "SSR",
+    "squad": "에밀리아 진영",
+    "company": "어브노멀",
+    "class": "화력형",
+    "burst": "III",
+    "code": "수냉",
+    "weapon": "런처 (RL)"
+  },
+  "stats": {
+    "combatPower": 1943,
+    "hp": 96000,
+    "atk": 1875,
+    "def": 593
+  },
+  "skills": {
+    "skill1": 1,
+    "skill2": 1,
+    "burst": 1
+  },
+  "cube": {
+    "level": 0
+  },
+  "collection": {
+    "rarity": "R",
+    "skillLv1": 1,
+    "skillLv2": 1
+  },
+  "equipment": [],
+  "rawUrl": "https://www.blablalink.com/shiftyspad/nikke?from=list&nikke=821",
+  "timestamp": "2026-01-13T22:00:17.916Z"
+}

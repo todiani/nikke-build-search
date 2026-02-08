@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "name": "루피",
+    "cv": "윤은서",
+    "rarity": "SSR",
+    "squad": "달란트",
+    "company": "테트라",
+    "class": "화력형",
+    "burst": "II",
+    "code": "철갑",
+    "weapon": "소총 (AR)"
+  },
+  "stats": {
+    "combatPower": 22826,
+    "hp": 864507,
+    "atk": 36054,
+    "def": 5723
+  },
+  "skills": {
+    "skill1": 1,
+    "skill2": 1,
+    "burst": 1
+  },
+  "cube": {
+    "level": 0
+  },
+  "collection": {
+    "rarity": "R",
+    "skillLv1": 1,
+    "skillLv2": 1
+  },
+  "equipment": [],
+  "rawUrl": "https://www.blablalink.com/shiftyspad/nikke?from=list&nikke=200",
+  "timestamp": "2026-01-13T21:47:37.654Z"
+}

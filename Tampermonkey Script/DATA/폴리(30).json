@@ -1,0 +1,68 @@
+{
+  "meta": {
+    "name": "폴리",
+    "cv": "박리나",
+    "rarity": "SSR",
+    "squad": "A.C.P.U.",
+    "company": "엘리시온",
+    "class": "방어형",
+    "burst": "II",
+    "code": "수냉",
+    "weapon": "샷건 (SG)"
+  },
+  "stats": {
+    "combatPower": 27950,
+    "hp": 1199878,
+    "atk": 28364,
+    "def": 7698
+  },
+  "skills": {
+    "skill1": 4,
+    "skill2": 3,
+    "burst": 4
+  },
+  "cube": {
+    "level": 0
+  },
+  "collection": {
+    "rarity": "R",
+    "skillLv1": 4,
+    "skillLv2": 3
+  },
+  "equipment": [
+    {
+      "partIndex": 1,
+      "stats": {
+        "체력": 32318,
+        "공격": 2155
+      },
+      "options": []
+    },
+    {
+      "partIndex": 2,
+      "stats": {
+        "체력": 105034,
+        "공격": 392
+      },
+      "options": []
+    },
+    {
+      "partIndex": 3,
+      "stats": {
+        "공격": 1372,
+        "방어": 430
+      },
+      "options": []
+    },
+    {
+      "partIndex": 4,
+      "stats": {
+        "체력": 24239,
+        "방어": 645
+      },
+      "options": []
+    }
+  ],
+  "rawUrl": "https://www.blablalink.com/shiftyspad/nikke?from=list&nikke=30",
+  "timestamp": "2026-01-13T21:46:49.666Z"
+}

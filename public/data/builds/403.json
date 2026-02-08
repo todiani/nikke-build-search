@@ -1,0 +1,171 @@
+{
+  "id": "403",
+  "name": "퀀시 : 이스케이프 퀸",
+  "name_en": "Quency : Escape Queen",
+  "tier": "S",
+  "burst": 0,
+  "class": 0,
+  "weapon": 0,
+  "squad": "리얼 카인드니스",
+  "company": 0,
+  "role": "화력형 / 변수 창출",
+  "code": 0,
+  "desc": "【특징 및 활용 방법】\n- 방어력을 무시하는 강력한 공격을 퍼붓는 3버스트 메인 딜러로, 홍련에 비견되는 높은 화력을 보유하고 있습니다.\n- 신데렐라, 루주와 함께 전격 속성 덱의 핵심 딜러로 기용되며, 단일 및 광역 대미지 모두 우수한 성능을 보여줍니다.\n- 보스의 방어력이 높을수록 방어 무시 기믹을 통해 타 딜러 대비 압도적인 대미지 효율을 냅니다.\n- 추천 옵션: 공격력 증가, 우월코드 대미지 증가, 최대 장탄 수 증가를 추천합니다.",
+  "skills_detail": {
+    "skill1": {
+      "name": "탈옥 작전",
+      "desc": "공격 시 대상의 버프 1개 제거",
+      "tags": [
+        "버프 제거"
+      ]
+    },
+    "skill2": {
+      "name": "자유의 몸",
+      "desc": "자신에게 관통 특화 및 공격 속도 ▲",
+      "tags": [
+        "관통",
+        "공격 속도▲"
+      ]
+    },
+    "burst": {
+      "name": "퀸즈 이스케이프",
+      "desc": "단일 적에게 극딜 및 기절 부여",
+      "tags": [
+        "단일 극딜",
+        "기절"
+      ]
+    },
+    "normal": {
+      "name": "탈출구",
+      "desc": "",
+      "tags": []
+    }
+  },
+  "usage_stats": [
+    {
+      "name": "스테이지",
+      "stars": 4,
+      "desc": "특수 기믹 대처용"
+    },
+    {
+      "name": "PVP",
+      "stars": 4,
+      "desc": "버프 제거 및 기절 변수"
+    },
+    {
+      "name": "이상개체요격전",
+      "stars": 3,
+      "desc": "전격 파티 활용"
+    },
+    {
+      "name": "솔로레이드",
+      "stars": 0,
+      "desc": ""
+    },
+    {
+      "name": "유니온레이드",
+      "stars": 0,
+      "desc": ""
+    },
+    {
+      "name": "기업타워",
+      "stars": 0,
+      "desc": ""
+    },
+    {
+      "name": "트라이브타워",
+      "stars": 0,
+      "desc": ""
+    }
+  ],
+  "weapon_info": {
+    "weapon_name": "",
+    "max_ammo": 0,
+    "reload_time": 0,
+    "control_type": ""
+  },
+  "build": {
+    "stats": {
+      "hp": 1033923,
+      "atk": 43852,
+      "def": 6012,
+      "power": 31215,
+      "combatPower": 32663
+    },
+    "overload": {
+      "helmet": {
+        "option1": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option2": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 1
+        }
+      },
+      "armor": {
+        "option1": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option2": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 1
+        }
+      },
+      "gloves": {
+        "option1": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option2": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 1
+        }
+      },
+      "boots": {
+        "option1": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option2": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 1
+        }
+      }
+    },
+    "skills": {
+      "skill1": 10,
+      "skill2": 10,
+      "burst": 10
+    },
+    "cube_level": 7,
+    "collection": {
+      "grade": "None",
+      "skill1": 0,
+      "skill2": 0
+    }
+  },
+  "_originalId": "403",
+  "rarity": "SSR",
+  "cv": "김영은",
+  "weapon_name": "탈출구",
+  "_dbId": "403",
+  "extra_info": ""
+}

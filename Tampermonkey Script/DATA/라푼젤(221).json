@@ -1,0 +1,68 @@
+{
+  "meta": {
+    "name": "라푼젤",
+    "cv": "이슬",
+    "rarity": "SSR",
+    "squad": "파이오니아",
+    "company": "필그림",
+    "class": "지원형",
+    "burst": "I",
+    "code": "철갑",
+    "weapon": "런처 (RL)"
+  },
+  "stats": {
+    "combatPower": 30907,
+    "hp": 1118351,
+    "atk": 36539,
+    "def": 7447
+  },
+  "skills": {
+    "skill1": 4,
+    "skill2": 4,
+    "burst": 4
+  },
+  "cube": {
+    "level": 0
+  },
+  "collection": {
+    "rarity": "R",
+    "skillLv1": 4,
+    "skillLv2": 4
+  },
+  "equipment": [
+    {
+      "partIndex": 1,
+      "stats": {
+        "체력": 38194,
+        "공격": 3502
+      },
+      "options": []
+    },
+    {
+      "partIndex": 2,
+      "stats": {
+        "체력": 95485,
+        "공격": 490
+      },
+      "options": []
+    },
+    {
+      "partIndex": 3,
+      "stats": {
+        "공격": 2230,
+        "방어": 508
+      },
+      "options": []
+    },
+    {
+      "partIndex": 4,
+      "stats": {
+        "체력": 28646,
+        "방어": 762
+      },
+      "options": []
+    }
+  ],
+  "rawUrl": "https://www.blablalink.com/shiftyspad/nikke?from=list&nikke=221",
+  "timestamp": "2026-01-13T21:44:05.532Z"
+}

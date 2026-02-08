@@ -1,0 +1,68 @@
+{
+  "meta": {
+    "name": "마스트 : 로망틱 메이드",
+    "cv": "신나리",
+    "rarity": "SSR",
+    "squad": "이지스",
+    "company": "엘리시온",
+    "class": "지원형",
+    "burst": "II",
+    "code": "수냉",
+    "weapon": "기관총 (MG)"
+  },
+  "stats": {
+    "combatPower": 34399,
+    "hp": 1238347,
+    "atk": 39679,
+    "def": 7278
+  },
+  "skills": {
+    "skill1": 6,
+    "skill2": 6,
+    "burst": 6
+  },
+  "cube": {
+    "level": 0
+  },
+  "collection": {
+    "rarity": "R",
+    "skillLv1": 6,
+    "skillLv2": 6
+  },
+  "equipment": [
+    {
+      "partIndex": 1,
+      "stats": {
+        "체력": 38194,
+        "공격": 3502
+      },
+      "options": []
+    },
+    {
+      "partIndex": 2,
+      "stats": {
+        "체력": 124131,
+        "공격": 637
+      },
+      "options": []
+    },
+    {
+      "partIndex": 3,
+      "stats": {
+        "공격": 2230,
+        "방어": 508
+      },
+      "options": []
+    },
+    {
+      "partIndex": 4,
+      "stats": {
+        "체력": 28646,
+        "방어": 762
+      },
+      "options": []
+    }
+  ],
+  "rawUrl": "https://www.blablalink.com/shiftyspad/nikke?from=list&nikke=354",
+  "timestamp": "2026-01-13T21:42:34.452Z"
+}

@@ -1,0 +1,212 @@
+{
+  "id": "261",
+  "name": "니힐리스타",
+  "name_en": "니힐리스타 \n(탐색)",
+  "tier": "A",
+  "burst": 0,
+  "class": 0,
+  "weapon": 0,
+  "squad": "헬레틱",
+  "company": 0,
+  "role": "화력형",
+  "code": 0,
+  "skill_priority_comment": "",
+  "skills_detail": {
+    "skill1": {
+      "name": "버닝 샷",
+      "desc": "풀차지 공격 시 자신에게: [관통 특화] [1발 유지] \n[관통 범위 50% 확장] [1발 유지]\n2기 이상을 동시에 명중 시켰다면 대상에게: [공격력 50.33% 추가 대미지]",
+      "tags": [
+        "자신에게",
+        "범위",
+        "추가 대미지",
+        "공격력▼",
+        "관통",
+        "대미지",
+        "명중 시",
+        "공격 시",
+        "자신",
+        "관통 특화",
+        "공격력▲"
+      ]
+    },
+    "skill2": {
+      "name": "메기도 플레임",
+      "desc": "공격 범위 내 적들에게: [공격력 112.64% 대미지]",
+      "tags": [
+        "공격력▼",
+        "대미지",
+        "범위",
+        "공격력▲"
+      ]
+    },
+    "burst": {
+      "name": "번 아포칼립스",
+      "desc": "공격 범위 내 적들에게: [공격력 158.59% 대미지] \n[화상 : 공격력 13.19% 지속 대미지] [1초 간격] [10초 유지]\n자신에게: [최대 장탄수 6발 ▲] [15초 유지]",
+      "tags": [
+        "자신에게",
+        "장탄수▲",
+        "범위",
+        "공격력▼",
+        "대미지",
+        "지속 대미지",
+        "자신",
+        "공격력▲"
+      ]
+    },
+    "normal": {
+      "name": "낡은 세계의 종말"
+    }
+  },
+  "overload_detail": {
+    "priority": "",
+    "options": [],
+    "recommended_cubes": [],
+    "notes": ""
+  },
+  "skill_priority": "버스트 > 1스 = 2스",
+  "options": [],
+  "cube": "",
+  "desc": "1스킬: 풀차지 공격 시 자신에게: [관통 특화] [1발 유지] \n[관통 범위 50% 확장] [1발 유지]\n2기 이상을 동시에 명중 시켰다면 대상에게: [공격력 50.33% 추가 대미지]\n2스킬: 공격 범위 내 적들에게: [공격력 112.64% 대미지]\n버스트: 공격 범위 내 적들에게: [공격력 158.59% 대미지] \n[화상 : 공격력 13.19% 지속 대미지] [1초 간격] [10초 유지]\n자신에게: [최대 장탄수 6발 ▲] [15초 유지]",
+  "extra_info": "탐색",
+  "valid_options": [
+    "공격력 증가",
+    "우월코드 대미지 증가",
+    "차지 속도 증가",
+    "차지 대미지 증가"
+  ],
+  "invalid_options": [
+    "차지 속도 증가",
+    "차지 대미지 증가"
+  ],
+  "usage_stats": [
+    {
+      "name": "스테이지",
+      "stars": 2,
+      "desc": "일반 캠페인 및 타워"
+    },
+    {
+      "name": "이상개체요격전",
+      "stars": 1,
+      "desc": "특수 개체 보스 공략"
+    },
+    {
+      "name": "솔로레이드",
+      "stars": 2,
+      "desc": "작열코드 보스 특화"
+    },
+    {
+      "name": "유니온레이드",
+      "stars": 1,
+      "desc": "작열코드 보스"
+    },
+    {
+      "name": "타워",
+      "stars": 2,
+      "desc": "적극 활용 가능"
+    },
+    {
+      "name": "PVP",
+      "stars": 1,
+      "desc": "아레나 활용 가능"
+    },
+    {
+      "name": "기업타워",
+      "stars": 0,
+      "desc": ""
+    },
+    {
+      "name": "트라이브타워",
+      "stars": 0,
+      "desc": ""
+    }
+  ],
+  "weapon_info": {
+    "weapon_name": "",
+    "max_ammo": 0,
+    "reload_time": 0,
+    "control_type": ""
+  },
+  "build": {
+    "stats": {
+      "hp": 231636,
+      "atk": 7856,
+      "def": 1473,
+      "power": 5523,
+      "combatPower": 5591
+    },
+    "overload": {
+      "helmet": {
+        "option1": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option2": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 1
+        }
+      },
+      "armor": {
+        "option1": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option2": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 1
+        }
+      },
+      "gloves": {
+        "option1": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option2": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 1
+        }
+      },
+      "boots": {
+        "option1": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option2": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 1
+        }
+      }
+    },
+    "skills": {
+      "skill1": 10,
+      "skill2": 10,
+      "burst": 10
+    },
+    "cube_level": 7,
+    "collection": {
+      "grade": "None",
+      "skill1": 0,
+      "skill2": 0
+    }
+  },
+  "_originalId": "261",
+  "rarity": "SSR",
+  "cv": "김현심",
+  "weapon_name": "낡은 세계의 종말",
+  "_dbId": "261"
+}

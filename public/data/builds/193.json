@@ -1,0 +1,179 @@
+{
+  "id": "193",
+  "name": "네베",
+  "name_en": "네베",
+  "tier": "Unranked",
+  "burst": 0,
+  "class": 0,
+  "weapon": 0,
+  "squad": "언리미티드",
+  "company": 0,
+  "role": "화력형",
+  "code": 0,
+  "skill_priority_comment": "",
+  "skills_detail": {
+    "skill1": {
+      "name": "북극곰의 힘",
+      "desc": "체력이 가장 낮은 1기에게\n[최종 공격력 145.45% 대미지]",
+      "tags": []
+    },
+    "skill2": {
+      "name": "북극곰의 겨울잠",
+      "desc": "풀 버스트 타임 시작 시 자신에게\n[관통 특화] [2발 유지]\n[공격력 124.8%▲] [2발 유지]",
+      "tags": []
+    },
+    "burst": {
+      "name": "북극곰의 포효",
+      "desc": "자신에게\n[크리티컬 확률 31.95%▲] [20초 유지]\n[명중 22.04%▲] [20초 유지]",
+      "tags": [],
+      "cooldown": "40.00초"
+    },
+    "normal": {
+      "name": "일반 공격",
+      "desc": "",
+      "tags": []
+    }
+  },
+  "overload_detail": {
+    "priority": "",
+    "options": [],
+    "recommended_cubes": [],
+    "notes": ""
+  },
+  "skill_priority": "",
+  "options": [],
+  "cube": "",
+  "desc": "1스킬: \n2스킬: \n버스트: ",
+  "extra_info": "",
+  "usage_stats": [
+    {
+      "name": "스테이지",
+      "stars": 1,
+      "desc": "일반 캠페인 및 타워"
+    },
+    {
+      "name": "이상개체요격전",
+      "stars": 0,
+      "desc": "특수 개체 보스 공략"
+    },
+    {
+      "name": "솔로레이드",
+      "stars": 1,
+      "desc": "수냉코드 보스 특화"
+    },
+    {
+      "name": "유니온레이드",
+      "stars": 0,
+      "desc": "수냉코드 보스"
+    },
+    {
+      "name": "타워",
+      "stars": 1,
+      "desc": "적극 활용 가능"
+    },
+    {
+      "name": "PVP",
+      "stars": 1,
+      "desc": "아레나 활용 가능"
+    },
+    {
+      "name": "기업타워",
+      "stars": 0,
+      "desc": ""
+    },
+    {
+      "name": "트라이브타워",
+      "stars": 0,
+      "desc": ""
+    }
+  ],
+  "weapon_info": {
+    "weapon_name": "",
+    "max_ammo": 0,
+    "reload_time": 0,
+    "control_type": ""
+  },
+  "_originalId": "193",
+  "rarity": "SR",
+  "build": {
+    "stats": {
+      "hp": 225061,
+      "atk": 7719,
+      "def": 1467,
+      "power": 5409,
+      "combatPower": 5489
+    },
+    "skills": {
+      "skill1": 1,
+      "skill2": 1,
+      "burst": 1
+    },
+    "cube_level": 1,
+    "collection": {
+      "grade": "None",
+      "skill1": 0,
+      "skill2": 0
+    },
+    "overload": {
+      "helmet": {
+        "option1": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option2": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 1
+        }
+      },
+      "armor": {
+        "option1": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option2": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 1
+        }
+      },
+      "gloves": {
+        "option1": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option2": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 1
+        }
+      },
+      "boots": {
+        "option1": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option2": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 1
+        }
+      }
+    }
+  },
+  "cv": "이재현",
+  "weapon_name": "큰곰자리의 겨울",
+  "_dbId": "193"
+}

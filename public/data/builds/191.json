@@ -1,0 +1,379 @@
+{
+  "id": "191",
+  "name": "앨리스",
+  "name_en": "Alice",
+  "tier": "SS",
+  "burst": "III",
+  "class": "화력형",
+  "weapon": "저격소총 (SR)",
+  "squad": "언리미티드",
+  "company": "테트라",
+  "role": "화력형",
+  "code": "작열",
+  "skill_priority_comment": "[가성비] 7-4-7  /  [종결] 10-4-10",
+  "skills_detail": {
+    "skill1": {
+      "name": "힘나는 당근",
+      "desc": "풀 버스트 타임 시작 시 최종 공격력이 가장 높은 아군 2기에게: [시전자 기준 차지 속도 11.67% ▲] [10초 유지]\n[차지 대미지 7% ▲] [10초 유지]",
+      "tags": [
+        "공격력이 가장 높은 아군",
+        "풀 버스트 타임 시작 시",
+        "차지 속도▲",
+        "공격력▼",
+        "대미지",
+        "시작 시",
+        "버스트",
+        "차지 대미지▲",
+        "공격력▲",
+        "시전자 기준"
+      ]
+    },
+    "skill2": {
+      "name": "건강한 당근",
+      "desc": "자신의 체력이 80% 미만이라면 자신에게: [공격 대미지 비례 8.12% 회복] [지속]",
+      "tags": [
+        "자신에게",
+        "자신의 체력이",
+        "대미지",
+        "자신"
+      ]
+    },
+    "burst": {
+      "name": "신기하고 이상한 나라",
+      "desc": "자신에게: [차지 속도 80.15% ▲][10초 유지] \n[공격력 55.12% ▲][10초 유지]",
+      "tags": [
+        "자신에게",
+        "차지 속도▲",
+        "공격력▼",
+        "자신",
+        "공격력▲"
+      ]
+    },
+    "normal": {
+      "name": "어메이징 원더랜드"
+    }
+  },
+  "overload_detail": {
+    "priority": "",
+    "options": [
+      "차지 속도(필수 99%)",
+      "공격력",
+      "우월코드",
+      "장탄"
+    ],
+    "recommended_cubes": [
+      "렐릭 베어 (차지 속도)"
+    ],
+    "notes": ""
+  },
+  "skill_priority": "[가성비] 7-4-7  /  [종결] 10-4-10",
+  "options": [],
+  "cube": "렐릭 베어 (차지 속도)",
+  "desc": "1스킬: 풀 버스트 타임 시작 시 최종 공격력이 가장 높은 아군 2기에게: [시전자 기준 차지 속도 11.67% ▲] [10초 유지]\n[차지 대미지 7% ▲] [10초 유지]\n2스킬: 자신의 체력이 80% 미만이라면 자신에게: [공격 대미지 비례 8.12% 회복] [지속]\n버스트: 자신에게: [차지 속도 80.15% ▲][10초 유지] \n[공격력 55.12% ▲][10초 유지]",
+  "extra_info": "",
+  "valid_options": [
+    "차지 속도 증가",
+    "공격력 증가",
+    "최대 장탄 수 증가",
+    "우월코드 대미지 증가"
+  ],
+  "invalid_options": [
+    "방어력 증가"
+  ],
+  "usage_stats": [
+    {
+      "name": "스테이지",
+      "stars": 4,
+      "desc": "일반 캠페인 및 타워"
+    },
+    {
+      "name": "이상개체요격전",
+      "stars": 4,
+      "desc": "특수 개체 보스 공략"
+    },
+    {
+      "name": "솔로레이드",
+      "stars": 5,
+      "desc": "작열코드 보스 특화"
+    },
+    {
+      "name": "유니온레이드",
+      "stars": 4,
+      "desc": "작열코드 보스"
+    },
+    {
+      "name": "타워",
+      "stars": 4,
+      "desc": "적극 활용 가능"
+    },
+    {
+      "name": "PVP",
+      "stars": 3,
+      "desc": "아레나 활용 가능"
+    },
+    {
+      "name": "기업타워",
+      "stars": 5,
+      "desc": ""
+    },
+    {
+      "name": "트라이브타워",
+      "stars": 5,
+      "desc": ""
+    }
+  ],
+  "_buildFile": "191.json",
+  "_originalId": "191",
+  "rarity": "SSR",
+  "cv": "성예원",
+  "weapon_name": "큰곰자리의 겨울",
+  "weapon_info": {
+    "weapon_name": "",
+    "max_ammo": 0,
+    "reload_time": 0,
+    "control_type": ""
+  },
+  "build": {
+    "stats": {
+      "hp": 1623058,
+      "atk": 65265,
+      "def": 9118
+    },
+    "skills": {
+      "skill1": 1,
+      "skill2": 1,
+      "burst": 1
+    },
+    "cube_level": 1,
+    "collection": {
+      "grade": "None",
+      "skill1": 1,
+      "skill2": 1
+    },
+    "overload": {
+      "helmet": {
+        "option1": {
+          "type": "차지 대미지 증가",
+          "stage": 2
+        },
+        "option2": {
+          "type": "최대 장탄 수 증가",
+          "stage": 4
+        },
+        "option3": {
+          "type": "우월코드 대미지 증가",
+          "stage": 11
+        }
+      },
+      "armor": {
+        "option1": {
+          "type": "최대 장탄 수 증가",
+          "stage": 9
+        },
+        "option2": {
+          "type": "우월코드 대미지 증가",
+          "stage": 9
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 1
+        }
+      },
+      "gloves": {
+        "option1": {
+          "type": "차지 대미지 증가",
+          "stage": 11
+        },
+        "option2": {
+          "type": "크리티컬 대미지 증가",
+          "stage": 11
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 1
+        }
+      },
+      "boots": {
+        "option1": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option2": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 1
+        }
+      }
+    }
+  },
+  "burst_details": {
+    "2RL": {
+      "value": 0,
+      "hits": "-",
+      "bonus": "0%-0%"
+    },
+    "2_5RL": {
+      "value": 0,
+      "hits": "-",
+      "bonus": "0%-0%"
+    },
+    "3RL": {
+      "value": 0,
+      "hits": "-",
+      "bonus": "0%-0%"
+    },
+    "3_5RL": {
+      "value": 0,
+      "hits": "-",
+      "bonus": "0%-0%"
+    },
+    "4RL": {
+      "value": 0,
+      "hits": "-",
+      "bonus": "0%-0%"
+    }
+  },
+  "compare_data": {
+    "buildA": {
+      "stats": {
+        "hp": 1623058,
+        "atk": 65265,
+        "def": 9118,
+        "s1": 1,
+        "s2": 1,
+        "burst": 1,
+        "cubeLvl": 1
+      },
+      "partOptions": {
+        "helmet": {
+          "option1": {
+            "type": "차지 대미지 증가",
+            "stage": 2
+          },
+          "option2": {
+            "type": "최대 장탄 수 증가",
+            "stage": 4
+          },
+          "option3": {
+            "type": "우월코드 대미지 증가",
+            "stage": 11
+          }
+        },
+        "armor": {
+          "option1": {
+            "type": "최대 장탄 수 증가",
+            "stage": 9
+          },
+          "option2": {
+            "type": "우월코드 대미지 증가",
+            "stage": 9
+          },
+          "option3": {
+            "type": "옵션없음",
+            "stage": 1
+          }
+        },
+        "gloves": {
+          "option1": {
+            "type": "차지 대미지 증가",
+            "stage": 11
+          },
+          "option2": {
+            "type": "크리티컬 대미지 증가",
+            "stage": 11
+          },
+          "option3": {
+            "type": "옵션없음",
+            "stage": 1
+          }
+        },
+        "boots": {
+          "option1": {
+            "type": "옵션없음",
+            "stage": 1
+          },
+          "option2": {
+            "type": "옵션없음",
+            "stage": 1
+          },
+          "option3": {
+            "type": "옵션없음",
+            "stage": 1
+          }
+        }
+      }
+    },
+    "buildB": {
+      "stats": {
+        "hp": 1623058,
+        "atk": 65265,
+        "def": 9118,
+        "s1": 1,
+        "s2": 1,
+        "burst": 1,
+        "cubeLvl": 1
+      },
+      "partOptions": {
+        "helmet": {
+          "option1": {
+            "type": "차지 대미지 증가",
+            "stage": 2
+          },
+          "option2": {
+            "type": "최대 장탄 수 증가",
+            "stage": 4
+          },
+          "option3": {
+            "type": "우월코드 대미지 증가",
+            "stage": 11
+          }
+        },
+        "armor": {
+          "option1": {
+            "type": "최대 장탄 수 증가",
+            "stage": 9
+          },
+          "option2": {
+            "type": "우월코드 대미지 증가",
+            "stage": 9
+          },
+          "option3": {
+            "type": "옵션없음",
+            "stage": 1
+          }
+        },
+        "gloves": {
+          "option1": {
+            "type": "공격력 증가",
+            "stage": 1
+          },
+          "option2": {
+            "type": "옵션없음",
+            "stage": 11
+          },
+          "option3": {
+            "type": "크리티컬 대미지 증가",
+            "stage": 4
+          }
+        },
+        "boots": {
+          "option1": {
+            "type": "옵션없음",
+            "stage": 1
+          },
+          "option2": {
+            "type": "옵션없음",
+            "stage": 1
+          },
+          "option3": {
+            "type": "옵션없음",
+            "stage": 1
+          }
+        }
+      }
+    }
+  }
+}

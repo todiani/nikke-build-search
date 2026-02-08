@@ -1,0 +1,200 @@
+{
+  "id": "192",
+  "name": "토브",
+  "name_en": "토브",
+  "tier": "A",
+  "burst": 0,
+  "class": 0,
+  "weapon": 0,
+  "squad": "언리미티드",
+  "company": 0,
+  "role": "지원형",
+  "code": 0,
+  "skill_priority_comment": "",
+  "skills_detail": {
+    "skill1": {
+      "name": "급조 탄환\n\n[애장품 1단계]",
+      "desc": "급조 탄환이 적용될 때 아군 전체에게: [임시 개조 : 최대 장탄 수 2발 ▲] [3중첩] [5초 유지]\n[크리티컬 대미지 5.24% ▲] [5초 유지]",
+      "tags": [
+        "대미지",
+        "아군 전체",
+        "크리티컬 대미지▲"
+      ]
+    },
+    "skill2": {
+      "name": "개조 성공\n\n[애장품 3단계]",
+      "desc": "자신이 임시 개조가 최대 중첩 상태일 때 한하여 샷건 소지 아군 전체에게: [공격 속도 42.24% ▲] [지속]",
+      "tags": [
+        "자신",
+        "아군 전체",
+        "최대 중첩 상태일 때"
+      ]
+    },
+    "burst": {
+      "name": "급조품의 기적\n\n[애장품 2단계]",
+      "desc": "샷건 소지 아군 전체에게: [급조품의 기적: 시전자 기준 공격력 24.21% ▲] [임시 개조 중첩 복사] [10초 유지]",
+      "tags": [
+        "공격력▼",
+        "공격력▲",
+        "아군 전체",
+        "시전자 기준"
+      ]
+    },
+    "normal": {
+      "name": "일반 공격",
+      "desc": "",
+      "tags": []
+    }
+  },
+  "overload_detail": {
+    "priority": "",
+    "options": [],
+    "recommended_cubes": [],
+    "notes": ""
+  },
+  "skill_priority": "버스트 > 1스킬 = 2스킬",
+  "options": [],
+  "cube": "",
+  "desc": "【특징 및 활용 방법】\n- 샷건 캐릭터들에게 압도적인 공격 성능 향상을 제공하는 샷건 전용 1버스트 지원형 니케입니다.\n- 버스트 스킬을 통해 샷건 아군의 공격 속도를 비약적으로 높여주며, 패시브로 강력한 공격력 버프까지 제공하는 샷건 덱의 핵심 엔진입니다.\n- 수니스, 메이드 프리바티 등 강력한 샷건 딜러들과 조합 시 게임 내 최상위권의 순간 폭발력을 낼 수 있게 도와줍니다.\n- 추천 옵션: 최대 장탄 수 증가(필수), 공격력 증가를 추천합니다.",
+  "extra_info": "애장품",
+  "valid_options": [
+    "공격력 증가",
+    "우월코드 대미지 증가",
+    "명중률 증가"
+  ],
+  "invalid_options": [
+    "차지 속도 증가",
+    "차지 대미지 증가"
+  ],
+  "usage_stats": [
+    {
+      "name": "스테이지",
+      "stars": 4,
+      "desc": "일반 캠페인 및 타워"
+    },
+    {
+      "name": "이상개체요격전",
+      "stars": 4,
+      "desc": "특수 개체 보스 공략"
+    },
+    {
+      "name": "솔로레이드",
+      "stars": 4,
+      "desc": "수냉코드 보스 특화"
+    },
+    {
+      "name": "유니온레이드",
+      "stars": 4,
+      "desc": "수냉코드 보스"
+    },
+    {
+      "name": "타워",
+      "stars": 2,
+      "desc": "적극 활용 가능"
+    },
+    {
+      "name": "PVP",
+      "stars": 1,
+      "desc": "아레나 활용 가능"
+    },
+    {
+      "name": "기업타워",
+      "stars": 0,
+      "desc": ""
+    },
+    {
+      "name": "트라이브타워",
+      "stars": 0,
+      "desc": ""
+    }
+  ],
+  "weapon_info": {
+    "weapon_name": "",
+    "max_ammo": 0,
+    "reload_time": 0,
+    "control_type": ""
+  },
+  "build": {
+    "stats": {
+      "hp": 1365807,
+      "atk": 44737,
+      "def": 9234,
+      "power": 44565,
+      "combatPower": 41587
+    },
+    "overload": {
+      "helmet": {
+        "option1": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option2": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 1
+        }
+      },
+      "armor": {
+        "option1": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option2": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 1
+        }
+      },
+      "gloves": {
+        "option1": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option2": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 1
+        }
+      },
+      "boots": {
+        "option1": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option2": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 1
+        }
+      }
+    },
+    "skills": {
+      "skill1": 10,
+      "skill2": 10,
+      "burst": 10
+    },
+    "cube_level": 7,
+    "collection": {
+      "grade": "None",
+      "skill1": 0,
+      "skill2": 0
+    }
+  },
+  "_originalId": "192",
+  "rarity": "SSR",
+  "cv": "차영희",
+  "weapon_name": "에너제틱 서바이버",
+  "_dbId": "192"
+}

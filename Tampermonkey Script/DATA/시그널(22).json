@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "name": "시그널",
+    "cv": "김유림",
+    "rarity": "SSR",
+    "squad": "스카우팅",
+    "company": "어브노멀",
+    "class": "화력형",
+    "burst": "II",
+    "code": "작열",
+    "weapon": "기관단총 (SMG)"
+  },
+  "stats": {
+    "combatPower": 1933,
+    "hp": 96000,
+    "atk": 1875,
+    "def": 583
+  },
+  "skills": {
+    "skill1": 1,
+    "skill2": 1,
+    "burst": 1
+  },
+  "cube": {
+    "level": 0
+  },
+  "collection": {
+    "rarity": "R",
+    "skillLv1": 1,
+    "skillLv2": 1
+  },
+  "equipment": [],
+  "rawUrl": "https://www.blablalink.com/shiftyspad/nikke?from=list&nikke=22",
+  "timestamp": "2026-01-13T21:54:48.844Z"
+}

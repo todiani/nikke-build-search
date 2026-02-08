@@ -1,0 +1,344 @@
+{
+  "id": "223",
+  "name": "나유타",
+  "name_en": "Nayuta",
+  "tier": "SSS",
+  "burst": 0,
+  "class": 0,
+  "weapon": 0,
+  "squad": "파이오니어",
+  "company": 0,
+  "role": "지원형 / 고화력 유틸",
+  "code": 0,
+  "desc": "【특징 및 활용 방법】\n- 적 전체가 받는 대미지를 상시 증가시키고, 강력한 서브 딜링 능력을 보유한 1버스트 메타 체인저입니다.\n- 빠른 버스트 게이지 충전 능력과 아군 강화 능력을 겸비하여 레이드와 스테이지 등 모든 콘텐츠에서 0티어로 평가받습니다.\n- 올드테일즈 스쿼드 및 풍압 코드 니케들과 특히 좋은 궁합을 보여줍니다.\n- 추천 옵션: 공격력 증가, 우월코드 대미지 증가를 추천합니다.",
+  "skills_detail": {
+    "skill1": {
+      "name": "위선",
+      "desc": "코어 대미지 ▲, 공격력 ▲, 최종 최대 체력 비례 회복",
+      "tags": [
+        "코어 대미지▲",
+        "회복",
+        "공격력▲",
+        "최대 체력▲",
+        "대미지",
+        "공격력▼"
+      ]
+    },
+    "skill2": {
+      "name": "무상",
+      "desc": "중첩에 따라 공격력 및 코어 대미지 증가",
+      "tags": [
+        "코어 대미지▲",
+        "공격력▲",
+        "대미지",
+        "공격력▼"
+      ]
+    },
+    "burst": {
+      "name": "고행",
+      "desc": "무기 차징형 변경. 적 전체에게 강력한 버스트 대미지",
+      "tags": [
+        "무기 변경",
+        "광역 딜",
+        "적 전체",
+        "버스트",
+        "대미지"
+      ]
+    },
+    "normal": {
+      "name": "사일런트 나이트"
+    }
+  },
+  "usage_stats": [
+    {
+      "name": "스테이지",
+      "stars": 5,
+      "desc": "지원형 이상의 딜링"
+    },
+    {
+      "name": "이상개체요격전",
+      "stars": 5,
+      "desc": "풍압 약점 보스 킬러"
+    },
+    {
+      "name": "솔로레이드",
+      "stars": 5,
+      "desc": "고득점 핵심 유닛"
+    },
+    {
+      "name": "유니온레이드",
+      "stars": 5,
+      "desc": ""
+    },
+    {
+      "name": "PVP",
+      "stars": 3,
+      "desc": ""
+    },
+    {
+      "name": "기업타워",
+      "stars": 5,
+      "desc": ""
+    },
+    {
+      "name": "트라이브타워",
+      "stars": 0,
+      "desc": ""
+    }
+  ],
+  "_originalId": "223",
+  "rarity": "SSR",
+  "cv": "양정화",
+  "weapon_name": "니르바나",
+  "weapon_info": {
+    "weapon_name": "",
+    "max_ammo": 0,
+    "reload_time": 0,
+    "control_type": ""
+  },
+  "compare_data": {
+    "buildA": {
+      "stats": {
+        "hp": 1355432,
+        "atk": 46864,
+        "def": 8665,
+        "s1": 8,
+        "s2": 8,
+        "burst": 8,
+        "cubeLvl": 1
+      },
+      "partOptions": {
+        "helmet": {
+          "option1": {
+            "type": "공격력 증가",
+            "stage": 11
+          },
+          "option2": {
+            "type": "크리티컬 대미지 증가",
+            "stage": 2
+          },
+          "option3": {
+            "type": "옵션없음",
+            "stage": 0
+          }
+        },
+        "armor": {
+          "option1": {
+            "type": "방어력 증가",
+            "stage": 11
+          },
+          "option2": {
+            "type": "공격력 증가",
+            "stage": 11
+          },
+          "option3": {
+            "type": "크리티컬 확률 증가",
+            "stage": 11
+          }
+        },
+        "gloves": {
+          "option1": {
+            "type": "공격력 증가",
+            "stage": 11
+          },
+          "option2": {
+            "type": "크리티컬 대미지 증가",
+            "stage": 3
+          },
+          "option3": {
+            "type": "옵션없음",
+            "stage": 0
+          }
+        },
+        "boots": {
+          "option1": {
+            "type": "크리티컬 확률 증가",
+            "stage": 8
+          },
+          "option2": {
+            "type": "크리티컬 대미지 증가",
+            "stage": 6
+          },
+          "option3": {
+            "type": "옵션없음",
+            "stage": 0
+          }
+        }
+      }
+    },
+    "buildB": {
+      "stats": {
+        "hp": 1355432,
+        "atk": 46864,
+        "def": 8665,
+        "s1": 8,
+        "s2": 8,
+        "burst": 8,
+        "cubeLvl": 1
+      },
+      "partOptions": {
+        "helmet": {
+          "option1": {
+            "type": "공격력 증가",
+            "stage": 11
+          },
+          "option2": {
+            "type": "크리티컬 대미지 증가",
+            "stage": 2
+          },
+          "option3": {
+            "type": "옵션없음",
+            "stage": 0
+          }
+        },
+        "armor": {
+          "option1": {
+            "type": "방어력 증가",
+            "stage": 11
+          },
+          "option2": {
+            "type": "공격력 증가",
+            "stage": 11
+          },
+          "option3": {
+            "type": "크리티컬 확률 증가",
+            "stage": 11
+          }
+        },
+        "gloves": {
+          "option1": {
+            "type": "공격력 증가",
+            "stage": 11
+          },
+          "option2": {
+            "type": "크리티컬 대미지 증가",
+            "stage": 3
+          },
+          "option3": {
+            "type": "옵션없음",
+            "stage": 0
+          }
+        },
+        "boots": {
+          "option1": {
+            "type": "크리티컬 확률 증가",
+            "stage": 8
+          },
+          "option2": {
+            "type": "크리티컬 대미지 증가",
+            "stage": 6
+          },
+          "option3": {
+            "type": "옵션없음",
+            "stage": 0
+          }
+        }
+      }
+    }
+  },
+  "extra_info": "",
+  "burst_details": {
+    "2RL": {
+      "value": 0,
+      "hits": "-",
+      "bonus": "0%-0%"
+    },
+    "2_5RL": {
+      "value": 0,
+      "hits": "-",
+      "bonus": "0%-0%"
+    },
+    "3RL": {
+      "value": 0,
+      "hits": "-",
+      "bonus": "0%-0%"
+    },
+    "3_5RL": {
+      "value": 0,
+      "hits": "-",
+      "bonus": "0%-0%"
+    },
+    "4RL": {
+      "value": 0,
+      "hits": "-",
+      "bonus": "0%-0%"
+    }
+  },
+  "build": {
+    "stats": {
+      "hp": 1355432,
+      "atk": 46864,
+      "def": 8665
+    },
+    "skills": {
+      "skill1": 8,
+      "skill2": 8,
+      "burst": 8
+    },
+    "cube_level": 1,
+    "collection": {
+      "grade": "SR",
+      "skill1": 8,
+      "skill2": 8
+    },
+    "overload": {
+      "helmet": {
+        "option1": {
+          "type": "공격력 증가",
+          "stage": 11
+        },
+        "option2": {
+          "type": "크리티컬 대미지 증가",
+          "stage": 2
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 0
+        }
+      },
+      "armor": {
+        "option1": {
+          "type": "방어력 증가",
+          "stage": 11
+        },
+        "option2": {
+          "type": "공격력 증가",
+          "stage": 11
+        },
+        "option3": {
+          "type": "크리티컬 확률 증가",
+          "stage": 11
+        }
+      },
+      "gloves": {
+        "option1": {
+          "type": "공격력 증가",
+          "stage": 11
+        },
+        "option2": {
+          "type": "크리티컬 대미지 증가",
+          "stage": 3
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 0
+        }
+      },
+      "boots": {
+        "option1": {
+          "type": "크리티컬 확률 증가",
+          "stage": 8
+        },
+        "option2": {
+          "type": "크리티컬 대미지 증가",
+          "stage": 6
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 0
+        }
+      }
+    }
+  },
+  "_dbId": "223"
+}

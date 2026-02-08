@@ -1,0 +1,217 @@
+{
+  "id": "220",
+  "name": "스노우 화이트",
+  "name_en": "스노우 화이트",
+  "tier": "A",
+  "burst": 0,
+  "class": 0,
+  "weapon": 0,
+  "squad": "파이오니어",
+  "company": 0,
+  "role": "화력형",
+  "code": 0,
+  "desc": "1스킬: 일반 공격 30회 명중 시 자신에게: [공격력 8.28% ▲] [5초 유지]\n2스킬: 풀 버스트 타임 지속 시간 중 발동 시 자신에게: [크리티컬 확률 26.1% ▲] [10초 유지]\n버스트: 자신에게: [사용 무기 변경]:\n차지 시간: 5초\n대미지 : 공격력 499.5%\n풀차지 대미지 : 1000% 대미지\n최대 장탄수 : 1발\n추가 효과 : 관통 특화",
+  "skill_priority_comment": "[가성비] 1-1-4  /  [종결] 4-4-10",
+  "skills_detail": {
+    "skill1": {
+      "name": "순백의 의지",
+      "desc": "일반 공격 30회 명중 시 자신에게: [공격력 8.28% ▲] [5초 유지]",
+      "tags": [
+        "자신에게",
+        "공격력▼",
+        "명중 시",
+        "자신",
+        "공격력▲"
+      ]
+    },
+    "skill2": {
+      "name": "세븐스 드워프 : V&VI",
+      "desc": "풀 버스트 타임 지속 시간 중 발동 시 자신에게: [크리티컬 확률 26.1% ▲] [10초 유지]",
+      "tags": [
+        "자신에게",
+        "크리티컬 확률▲",
+        "버스트",
+        "자신"
+      ]
+    },
+    "burst": {
+      "name": "세븐스 드워프 : I",
+      "desc": "자신에게: [사용 무기 변경]:\n차지 시간: 5초\n대미지 : 공격력 499.5%\n풀차지 대미지 : 1000% 대미지\n최대 장탄수 : 1발\n추가 효과 : 관통 특화",
+      "tags": [
+        "자신에게",
+        "장탄수▲",
+        "공격력▼",
+        "관통",
+        "대미지",
+        "차지 시",
+        "자신",
+        "관통 특화",
+        "차지 대미지▲",
+        "공격력▲"
+      ]
+    },
+    "normal": {
+      "name": "세븐스 드워프"
+    }
+  },
+  "overload_detail": {
+    "priority": "",
+    "options": [
+      "공격력",
+      "우월코드",
+      "차지 대미지"
+    ],
+    "recommended_cubes": [
+      "렐릭 베어 (차지 속도)"
+    ],
+    "notes": ""
+  },
+  "skill_priority": "[가성비] 4-4-7  /  [종결] 4-4-10",
+  "options": [],
+  "cube": "렐릭 베어 (차지 속도)",
+  "extra_info": "",
+  "valid_options": [
+    "공격력 증가",
+    "우월코드 대미지 증가",
+    "차지 대미지 증가",
+    "크리티컬 확률 증가",
+    "크리티컬 대미지 증가"
+  ],
+  "invalid_options": [
+    "방어력 증가"
+  ],
+  "usage_stats": [
+    {
+      "name": "스테이지",
+      "stars": 2,
+      "desc": "일반 캠페인 및 타워"
+    },
+    {
+      "name": "이상개체요격전",
+      "stars": 1,
+      "desc": "특수 개체 보스 공략"
+    },
+    {
+      "name": "솔로레이드",
+      "stars": 2,
+      "desc": "철갑코드 보스 특화"
+    },
+    {
+      "name": "유니온레이드",
+      "stars": 1,
+      "desc": "철갑코드 보스"
+    },
+    {
+      "name": "타워",
+      "stars": 2,
+      "desc": "적극 활용 가능"
+    },
+    {
+      "name": "PVP",
+      "stars": 1,
+      "desc": "아레나 활용 가능"
+    },
+    {
+      "name": "기업타워",
+      "stars": 4,
+      "desc": ""
+    },
+    {
+      "name": "트라이브타워",
+      "stars": 0,
+      "desc": ""
+    }
+  ],
+  "weapon_info": {
+    "weapon_name": "",
+    "max_ammo": 0,
+    "reload_time": 0,
+    "control_type": ""
+  },
+  "_originalId": "220",
+  "rarity": "SSR",
+  "build": {
+    "stats": {
+      "hp": 96000,
+      "atk": 1825,
+      "def": 585,
+      "power": 1854,
+      "combatPower": 1922
+    },
+    "skills": {
+      "skill1": 1,
+      "skill2": 1,
+      "burst": 1
+    },
+    "cube_level": 1,
+    "collection": {
+      "grade": "None",
+      "skill1": 0,
+      "skill2": 0
+    },
+    "overload": {
+      "helmet": {
+        "option1": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option2": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 1
+        }
+      },
+      "armor": {
+        "option1": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option2": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 1
+        }
+      },
+      "gloves": {
+        "option1": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option2": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 1
+        }
+      },
+      "boots": {
+        "option1": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option2": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 1
+        }
+      }
+    }
+  },
+  "cv": "소연",
+  "weapon_name": "세븐스 드워프",
+  "aliases": [
+    "백설공주"
+  ],
+  "_dbId": "220"
+}

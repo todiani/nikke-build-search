@@ -1,0 +1,229 @@
+{
+  "id": "402",
+  "name": "퀀시",
+  "name_en": "Quency",
+  "tier": "Unranked",
+  "burst": 0,
+  "class": 0,
+  "weapon": 0,
+  "skill_priority": "버스트 > 1스킬 > 2스킬",
+  "skills": {
+    "min": "4/4/4",
+    "efficient": "7/4(7)/4",
+    "max": "10(2B 시너지 최대화)/4/4"
+  },
+  "options": [],
+  "cube": "렐릭 비고(최대 체력), 택티컬 베어(탄환 충전)",
+  "desc": "퀀시는 **\"2B 전용 맞춤형 버퍼 니케\"**로, 2B가 있어야만 가치가 있는 극도로 조건부 캐릭터입니다. 무료 해방 니케라는 장점과 2B 시너지라는 특수성으로 2B 보유자에게는 투자 가치가 있지만, 2B가 없으면 마스트/블랑 등 타 버퍼의 하위 호환이 되어버립니다. 특히 PVP에서는 거의 사용 불가능하므로, \"2B 중심 PVE 플레이어만 추천\" 정도의 평가가 적절",
+  "company": 0,
+  "code": 0,
+  "rarity": "SSR",
+  "squad": "리얼 카인드니스",
+  "skills_detail": {
+    "normal": {
+      "name": "",
+      "desc": "대상에게\n[공격력 4.47% 대미지]\n[코어 대미지 200%]",
+      "tags": []
+    },
+    "skill1": {
+      "name": "새로운 루트",
+      "desc": "일반 공격 60회 공격 시 자신에게\n[최대 체력이 가장 높은 니케의 최대 체력 12.42% 복제] [10초 유지]",
+      "tags": [
+        "공격 시",
+        "자신",
+        "자신에게",
+        "최대 체력▲"
+      ]
+    },
+    "skill2": {
+      "name": "은밀한 공범자",
+      "desc": "공격력이 가장 높은 아군 2기에게\n[공격력 16.11% ▲] [5초 유지]",
+      "tags": [
+        "공격력이 가장 높은 아군",
+        "공격력▲",
+        "공격력▼"
+      ],
+      "type": "액티브"
+    },
+    "burst": {
+      "name": "위대한 탈출",
+      "desc": "공격력이 가장 높은 아군 2기에게\n[최대 체력 43.87% ▲] [5초 유지]\n[크리티컬 대미지 29.9% ▲] [10초 유지]",
+      "tags": [
+        "공격력이 가장 높은 아군",
+        "공격력▲",
+        "최대 체력▲",
+        "크리티컬 대미지▲",
+        "대미지",
+        "공격력▼"
+      ],
+      "type": "액티브",
+      "cooldown": "20"
+    }
+  },
+  "usage_stats": [
+    {
+      "name": "스테이지",
+      "stars": 3,
+      "desc": "무료 해방 니케, 초중반 캐주얼용"
+    },
+    {
+      "name": "이상개체요격전",
+      "stars": 3,
+      "desc": "2B와의 시너지로 제한적 활용"
+    },
+    {
+      "name": "솔로레이드",
+      "stars": 3,
+      "desc": "2B 조합 시만 활용 가능"
+    },
+    {
+      "name": "유니온레이드",
+      "stars": 3,
+      "desc": "보조 역할, 마스트/블랑 등 타 힐러가 더 강력"
+    },
+    {
+      "name": "타워",
+      "stars": 3,
+      "desc": "필수는 아니나, 전격 딜러 시너지로 선택지, 전격 속성 보조, 마스트의 하위 호환"
+    },
+    {
+      "name": "PVP",
+      "stars": 2,
+      "desc": "PVP에서는 거의 사용 안 됨"
+    },
+    {
+      "name": "기업타워",
+      "stars": 0,
+      "desc": ""
+    },
+    {
+      "name": "트라이브타워",
+      "stars": 0,
+      "desc": ""
+    }
+  ],
+  "valid_options": [
+    "최대 체력 증가"
+  ],
+  "invalid_options": [
+    "공격력",
+    "우월코드",
+    "차지속도 증가"
+  ],
+  "build": {
+    "stats": {
+      "hp": 255620,
+      "atk": 7562,
+      "def": 1589,
+      "combatPower": 5849
+    },
+    "skills": {
+      "skill1": 10,
+      "skill2": 10,
+      "burst": 10
+    },
+    "cube_level": 7,
+    "collection": {
+      "grade": "None",
+      "skill1": 1,
+      "skill2": 1
+    },
+    "overload": {
+      "helmet": {
+        "option1": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option2": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 1
+        }
+      },
+      "armor": {
+        "option1": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option2": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 1
+        }
+      },
+      "gloves": {
+        "option1": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option2": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 1
+        }
+      },
+      "boots": {
+        "option1": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option2": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 1
+        }
+      }
+    }
+  },
+  "_originalId": "402",
+  "cv": "김영은",
+  "weapon_name": "리스트 제일",
+  "burst_details": {
+    "2RL": {
+      "value": 0,
+      "hits": "-",
+      "bonus": "0%-0%"
+    },
+    "2_5RL": {
+      "value": 0,
+      "hits": "-",
+      "bonus": "0%-0%"
+    },
+    "3RL": {
+      "value": 0,
+      "hits": "-",
+      "bonus": "0%-0%"
+    },
+    "3_5RL": {
+      "value": 0,
+      "hits": "-",
+      "bonus": "0%-0%"
+    },
+    "4RL": {
+      "value": 0,
+      "hits": "-",
+      "bonus": "0%-0%"
+    }
+  },
+  "weapon_info": {
+    "weapon_name": "",
+    "max_ammo": 0,
+    "reload_time": 0,
+    "control_type": ""
+  },
+  "role": "지원형",
+  "extra_info": "",
+  "_dbId": "402"
+}

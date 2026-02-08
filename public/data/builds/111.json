@@ -1,0 +1,212 @@
+{
+  "id": "111",
+  "name": "자칼",
+  "name_en": "Jackal",
+  "tier": "PvP",
+  "burst": 0,
+  "class": 0,
+  "weapon": 0,
+  "squad": "엑소틱",
+  "company": 0,
+  "role": "방어형",
+  "code": 0,
+  "skill_priority_comment": "",
+  "skills_detail": {
+    "skill1": {
+      "name": "해피 자칼",
+      "desc": "110회 피격 시 최대 남은 체력 수치가 가장 높은 적기에게: [받는 대미지 9.09% ▲] [10초 유지]\n[공격력 9.09%▼] [10초 유지]",
+      "tags": [
+        "피격 시",
+        "회 피격 시",
+        "공격력▲",
+        "대미지",
+        "받는 대미지▲",
+        "공격력▼"
+      ]
+    },
+    "skill2": {
+      "name": "치얼업 자칼",
+      "desc": "전투 시작 시 자신과 자신을 제외한 최종 공격력이 가장 높은 아군 2기에게: [받는 대미지 분배] [120초 유지]\n[방어력 8.27% ▲] [120초 유지]",
+      "tags": [
+        "시작 시",
+        "전투 시작 시",
+        "자신",
+        "공격력이 가장 높은 아군",
+        "공격력▲",
+        "방어력▲",
+        "대미지",
+        "받는 대미지▲",
+        "공격력▼",
+        "방어력▼"
+      ]
+    },
+    "burst": {
+      "name": "크레이지 자칼",
+      "desc": "아군 전체에게: [대상 설명이 '~적 1기에게'로 끝나는 버스트 스킬 공격 대미지 38.91% ▲][15초 유지] (추가 대미지 제외)\n[방어력 14.69% ▲] [10초 유지]",
+      "tags": [
+        "아군 전체",
+        "방어력▲",
+        "버스트",
+        "대미지",
+        "추가 대미지",
+        "방어력▼"
+      ]
+    },
+    "normal": {
+      "name": "일반 공격",
+      "desc": "",
+      "tags": []
+    }
+  },
+  "overload_detail": {
+    "priority": "",
+    "options": [],
+    "recommended_cubes": [],
+    "notes": ""
+  },
+  "skill_priority": "",
+  "options": [],
+  "cube": "",
+  "desc": "1스킬: 110회 피격 시 최대 남은 체력 수치가 가장 높은 적기에게: [받는 대미지 9.09% ▲] [10초 유지]\n[공격력 9.09%▼] [10초 유지]\n2스킬: 전투 시작 시 자신과 자신을 제외한 최종 공격력이 가장 높은 아군 2기에게: [받는 대미지 분배] [120초 유지]\n[방어력 8.27% ▲] [120초 유지]\n버스트: 아군 전체에게: [대상 설명이 '~적 1기에게'로 끝나는 버스트 스킬 공격 대미지 38.91% ▲][15초 유지] (추가 대미지 제외)\n[방어력 14.69% ▲] [10초 유지]",
+  "extra_info": "",
+  "valid_options": [
+    "공격력 증가",
+    "우월코드 대미지 증가",
+    "차지 속도 증가",
+    "차지 대미지 증가"
+  ],
+  "invalid_options": [
+    "명중률 증가"
+  ],
+  "usage_stats": [
+    {
+      "name": "스테이지",
+      "stars": 4,
+      "desc": "일반 캠페인 및 타워"
+    },
+    {
+      "name": "이상개체요격전",
+      "stars": 3,
+      "desc": "특수 개체 보스 공략"
+    },
+    {
+      "name": "솔로레이드",
+      "stars": 3,
+      "desc": "철갑코드 보스 특화"
+    },
+    {
+      "name": "유니온레이드",
+      "stars": 3,
+      "desc": "철갑코드 보스"
+    },
+    {
+      "name": "타워",
+      "stars": 4,
+      "desc": "적극 활용 가능"
+    },
+    {
+      "name": "PVP",
+      "stars": 5,
+      "desc": "아레나 필수 공무원"
+    },
+    {
+      "name": "기업타워",
+      "stars": 3,
+      "desc": ""
+    },
+    {
+      "name": "트라이브타워",
+      "stars": 0,
+      "desc": ""
+    }
+  ],
+  "weapon_info": {
+    "weapon_name": "",
+    "max_ammo": 0,
+    "reload_time": 0,
+    "control_type": ""
+  },
+  "_originalId": "111",
+  "build": {
+    "stats": {
+      "hp": 1245350,
+      "atk": 29258,
+      "def": 7830,
+      "power": 29140,
+      "combatPower": 29392
+    },
+    "overload": {
+      "helmet": {
+        "option1": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option2": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 1
+        }
+      },
+      "armor": {
+        "option1": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option2": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 1
+        }
+      },
+      "gloves": {
+        "option1": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option2": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 1
+        }
+      },
+      "boots": {
+        "option1": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option2": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 1
+        }
+      }
+    },
+    "skills": {
+      "skill1": 10,
+      "skill2": 10,
+      "burst": 10
+    },
+    "cube_level": 7,
+    "collection": {
+      "grade": "None",
+      "skill1": 0,
+      "skill2": 0
+    }
+  },
+  "rarity": "SSR",
+  "cv": "강은애",
+  "weapon_name": "T.O.P",
+  "_dbId": "111"
+}

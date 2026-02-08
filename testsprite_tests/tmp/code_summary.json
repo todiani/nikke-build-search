@@ -1,0 +1,53 @@
+{
+    "tech_stack": [
+        "TypeScript",
+        "React",
+        "Vite",
+        "TailwindCSS",
+        "Node.js",
+        "Express"
+    ],
+    "features": [
+        {
+            "name": "Main Application",
+            "description": "Entry point handling data loading and routing",
+            "files": [
+                "src/App.tsx",
+                "src/main.tsx"
+            ]
+        },
+        {
+            "name": "Nikke Data Management",
+            "description": "Handles data persistence, API calls to local server, and caching",
+            "files": [
+                "src/utils/nikkeDataManager.ts",
+                "server.js"
+            ]
+        },
+        {
+            "name": "Nikke Detail & Editor",
+            "description": "Components for viewing and editing Nikke details",
+            "files": [
+                "src/components/NikkeDetail.tsx",
+                "src/components/NikkeFieldsEditor.tsx",
+                "src/components/NikkeEditor.tsx"
+            ]
+        },
+        {
+            "name": "Squad Manager",
+            "description": "Manages creation, editing, and deletion of squads",
+            "files": [
+                "src/components/SquadManager.tsx"
+            ]
+        },
+        {
+            "name": "Search & Filters",
+            "description": "Search bars, smart tag search, and filters",
+            "files": [
+                "src/components/SearchBar.tsx",
+                "src/components/SearchFilters.tsx",
+                "src/components/SmartTagSearch.tsx"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,68 @@
+{
+  "meta": {
+    "name": "이브",
+    "cv": "윤은서",
+    "rarity": "SSR",
+    "squad": "7차 강하 부대",
+    "company": "어브노멀",
+    "class": "화력형",
+    "burst": "III",
+    "code": "철갑",
+    "weapon": "소총 (AR)"
+  },
+  "stats": {
+    "combatPower": 43399,
+    "hp": 1341673,
+    "atk": 53515,
+    "def": 8942
+  },
+  "skills": {
+    "skill1": 6,
+    "skill2": 6,
+    "burst": 6
+  },
+  "cube": {
+    "level": 0
+  },
+  "collection": {
+    "rarity": "SR",
+    "skillLv1": 6,
+    "skillLv2": 6
+  },
+  "equipment": [
+    {
+      "partIndex": 1,
+      "stats": {
+        "체력": 34375,
+        "공격": 4203
+      },
+      "options": []
+    },
+    {
+      "partIndex": 2,
+      "stats": {
+        "체력": 111718,
+        "공격": 764
+      },
+      "options": []
+    },
+    {
+      "partIndex": 3,
+      "stats": {
+        "공격": 2675,
+        "방어": 458
+      },
+      "options": []
+    },
+    {
+      "partIndex": 4,
+      "stats": {
+        "체력": 25782,
+        "방어": 685
+      },
+      "options": []
+    }
+  ],
+  "rawUrl": "https://www.blablalink.com/shiftyspad/nikke?from=list&nikke=850",
+  "timestamp": "2026-01-13T21:40:19.555Z"
+}

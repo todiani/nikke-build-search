@@ -1,0 +1,68 @@
+{
+  "meta": {
+    "name": "파스칼",
+    "cv": "유우키 아오이",
+    "rarity": "SR",
+    "squad": "기계생명체",
+    "company": "어브노멀",
+    "class": "지원형",
+    "burst": "I",
+    "code": "철갑",
+    "weapon": "런처 (RL)"
+  },
+  "stats": {
+    "combatPower": 6521,
+    "hp": 260533,
+    "atk": 8283,
+    "def": 1759
+  },
+  "skills": {
+    "skill1": 1,
+    "skill2": 1,
+    "burst": 4
+  },
+  "cube": {
+    "level": 0
+  },
+  "collection": {
+    "rarity": "R",
+    "skillLv1": 1,
+    "skillLv2": 1
+  },
+  "equipment": [
+    {
+      "partIndex": 1,
+      "stats": {
+        "체력": 38194,
+        "공격": 3502
+      },
+      "options": []
+    },
+    {
+      "partIndex": 2,
+      "stats": {
+        "체력": 95485,
+        "공격": 490
+      },
+      "options": []
+    },
+    {
+      "partIndex": 3,
+      "stats": {
+        "공격": 2230,
+        "방어": 508
+      },
+      "options": []
+    },
+    {
+      "partIndex": 4,
+      "stats": {
+        "체력": 22035,
+        "방어": 586
+      },
+      "options": []
+    }
+  ],
+  "rawUrl": "https://www.blablalink.com/shiftyspad/nikke?from=list&nikke=812",
+  "timestamp": "2026-01-13T21:49:46.647Z"
+}

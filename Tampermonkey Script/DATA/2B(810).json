@@ -1,0 +1,68 @@
+{
+  "meta": {
+    "name": "2B",
+    "cv": "이시카와 유이",
+    "rarity": "SSR",
+    "squad": "요르하",
+    "company": "어브노멀",
+    "class": "방어형",
+    "burst": "III",
+    "code": "작열",
+    "weapon": "소총 (AR)"
+  },
+  "stats": {
+    "combatPower": 7218,
+    "hp": 312872,
+    "atk": 7040,
+    "def": 1893
+  },
+  "skills": {
+    "skill1": 4,
+    "skill2": 4,
+    "burst": 5
+  },
+  "cube": {
+    "level": 0
+  },
+  "collection": {
+    "rarity": "R",
+    "skillLv1": 4,
+    "skillLv2": 4
+  },
+  "equipment": [
+    {
+      "partIndex": 1,
+      "stats": {
+        "체력": 42013,
+        "공격": 2802
+      },
+      "options": []
+    },
+    {
+      "partIndex": 2,
+      "stats": {
+        "체력": 136544,
+        "공격": 510
+      },
+      "options": []
+    },
+    {
+      "partIndex": 3,
+      "stats": {
+        "공격": 1784,
+        "방어": 559
+      },
+      "options": []
+    },
+    {
+      "partIndex": 4,
+      "stats": {
+        "체력": 24239,
+        "방어": 645
+      },
+      "options": []
+    }
+  ],
+  "rawUrl": "https://www.blablalink.com/shiftyspad/nikke?from=list&nikke=810",
+  "timestamp": "2026-01-13T21:48:10.677Z"
+}

@@ -1,0 +1,205 @@
+{
+  "id": "500",
+  "name": "일레그",
+  "name_en": "일레그",
+  "tier": "A",
+  "burst": 0,
+  "class": 0,
+  "weapon": 0,
+  "squad": "일렉트릭 쇼크",
+  "company": 0,
+  "role": "지원형",
+  "code": 0,
+  "skill_priority_comment": "",
+  "skills_detail": {
+    "skill1": {
+      "name": "쇼트",
+      "desc": "일반 공격 100회 명중 시 대상이 붐 인스톨 상태라면 대상과 주변의 적 2기에게: [최종 공격력 91.03% 분배 대미지]",
+      "tags": [
+        "분배 대미지",
+        "공격력▼",
+        "대미지",
+        "명중 시",
+        "공격력▲"
+      ]
+    },
+    "skill2": {
+      "name": "패스트 차지",
+      "desc": "타겟 출현 시 아군 전체에게: [버스트 게이지 충전 100% ▲] [전투 중 1회 발동]",
+      "tags": [
+        "버스트 게이지▲",
+        "아군 전체",
+        "버스트"
+      ]
+    },
+    "burst": {
+      "name": "붐 인스톨",
+      "desc": "조준선에 가장 가까운 적 1기에게: [최종 공격력 79.2% 버스트 스킬 대미지]\n[붐 인스톨 : 방어력 35.64% ▼] [10초 유지]",
+      "tags": [
+        "공격력▼",
+        "방어력▲",
+        "방어력▼",
+        "대미지",
+        "버스트",
+        "가장 가까운 적",
+        "공격력▲"
+      ]
+    },
+    "normal": {
+      "name": "일반 공격",
+      "desc": "",
+      "tags": []
+    }
+  },
+  "overload_detail": {
+    "priority": "",
+    "options": [],
+    "recommended_cubes": [],
+    "notes": ""
+  },
+  "skill_priority": "",
+  "options": [],
+  "cube": "",
+  "desc": "1스킬: 일반 공격 100회 명중 시 대상이 붐 인스톨 상태라면 대상과 주변의 적 2기에게: [최종 공격력 91.03% 분배 대미지]\n2스킬: 타겟 출현 시 아군 전체에게: [버스트 게이지 충전 100% ▲] [전투 중 1회 발동]\n버스트: 조준선에 가장 가까운 적 1기에게: [최종 공격력 79.2% 버스트 스킬 대미지]\n[붐 인스톨 : 방어력 35.64% ▼] [10초 유지]",
+  "extra_info": "",
+  "valid_options": [
+    "공격력 증가",
+    "우월코드 대미지 증가",
+    "최대 장탄 수 증가"
+  ],
+  "invalid_options": [
+    "차지 속도 증가",
+    "차지 대미지 증가"
+  ],
+  "usage_stats": [
+    {
+      "name": "스테이지",
+      "stars": 2,
+      "desc": "일반 캠페인 및 타워"
+    },
+    {
+      "name": "이상개체요격전",
+      "stars": 1,
+      "desc": "특수 개체 보스 공략"
+    },
+    {
+      "name": "솔로레이드",
+      "stars": 2,
+      "desc": "전격코드 보스 특화"
+    },
+    {
+      "name": "유니온레이드",
+      "stars": 1,
+      "desc": "전격코드 보스"
+    },
+    {
+      "name": "타워",
+      "stars": 2,
+      "desc": "적극 활용 가능"
+    },
+    {
+      "name": "PVP",
+      "stars": 3,
+      "desc": "아레나 활용 가능"
+    },
+    {
+      "name": "기업타워",
+      "stars": 4,
+      "desc": ""
+    },
+    {
+      "name": "트라이브타워",
+      "stars": 4,
+      "desc": ""
+    }
+  ],
+  "weapon_info": {
+    "weapon_name": "",
+    "max_ammo": 0,
+    "reload_time": 0,
+    "control_type": ""
+  },
+  "build": {
+    "stats": {
+      "hp": 1133351,
+      "atk": 36739,
+      "def": 6575,
+      "power": 29345,
+      "combatPower": 29860
+    },
+    "overload": {
+      "helmet": {
+        "option1": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option2": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 1
+        }
+      },
+      "armor": {
+        "option1": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option2": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 1
+        }
+      },
+      "gloves": {
+        "option1": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option2": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 1
+        }
+      },
+      "boots": {
+        "option1": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option2": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 1
+        }
+      }
+    },
+    "skills": {
+      "skill1": 10,
+      "skill2": 10,
+      "burst": 10
+    },
+    "cube_level": 7,
+    "collection": {
+      "grade": "None",
+      "skill1": 0,
+      "skill2": 0
+    }
+  },
+  "_originalId": "500",
+  "rarity": "SSR",
+  "cv": "김현지",
+  "weapon_name": "붐 건",
+  "_dbId": "500"
+}

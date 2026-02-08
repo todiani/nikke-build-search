@@ -1,0 +1,177 @@
+{
+  "id": "12",
+  "name": "아니스",
+  "name_en": "Anis",
+  "tier": "B",
+  "burst": 0,
+  "class": 0,
+  "weapon": 0,
+  "squad": "카운터스",
+  "company": 0,
+  "role": "방어형",
+  "code": 0,
+  "skills_detail": {
+    "skill1": {
+      "name": "CH.M.P.",
+      "desc": "피격 시 아군 전체에게: [방어력 8.16% ▲] [5초 유지]",
+      "tags": [
+        "피격 시",
+        "아군 전체",
+        "방어력▲"
+      ]
+    },
+    "skill2": {
+      "name": "아드레날린 고갈",
+      "desc": "풀 버스트 타임 시작 시 아군 전체에게: [최대 체력 21.6% ▲] [10초 유지]",
+      "tags": [
+        "풀 버스트 타임 시작 시",
+        "아군 전체",
+        "최대 체력▲"
+      ]
+    },
+    "burst": {
+      "name": "가라! 아니스",
+      "desc": "공격 범위 내 적들에게: [공격력 229.22% 대미지]",
+      "tags": [
+        "공격 범위",
+        "대미지"
+      ]
+    },
+    "normal": {
+      "name": "리버틴 테일"
+    }
+  },
+  "desc": "1스킬: 피격 시 아군 전체에게: [방어력 8.16% ▲] [5초 유지]\n2스킬: 풀 버스트 타임 시작 시 아군 전체에게: [최대 체력 21.6% ▲] [10초 유지]\n버스트: 공격 범위 내 적들에게: [공격력 229.22% 대미지]",
+  "usage_stats": [
+    {
+      "name": "스테이지",
+      "stars": 1,
+      "desc": "초반부 활용 가능"
+    },
+    {
+      "name": "이상개체요격전",
+      "stars": 0,
+      "desc": ""
+    },
+    {
+      "name": "솔로레이드",
+      "stars": 0,
+      "desc": ""
+    },
+    {
+      "name": "유니온레이드",
+      "stars": 0,
+      "desc": ""
+    },
+    {
+      "name": "타워",
+      "stars": 1,
+      "desc": "기업 타워 초반부"
+    },
+    {
+      "name": "PVP",
+      "stars": 4,
+      "desc": "버스트 수급용으로 가끔 사용"
+    },
+    {
+      "name": "기업타워",
+      "stars": 0,
+      "desc": ""
+    },
+    {
+      "name": "트라이브타워",
+      "stars": 0,
+      "desc": ""
+    }
+  ],
+  "weapon_info": {
+    "weapon_name": "",
+    "max_ammo": 0,
+    "reload_time": 0,
+    "control_type": ""
+  },
+  "_originalId": "12",
+  "build": {
+    "stats": {
+      "hp": 309861,
+      "atk": 6559,
+      "def": 1910,
+      "power": 7853,
+      "combatPower": 7945
+    },
+    "overload": {
+      "helmet": {
+        "option1": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option2": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 1
+        }
+      },
+      "armor": {
+        "option1": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option2": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 1
+        }
+      },
+      "gloves": {
+        "option1": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option2": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 1
+        }
+      },
+      "boots": {
+        "option1": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option2": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 1
+        }
+      }
+    },
+    "skills": {
+      "skill1": 10,
+      "skill2": 10,
+      "burst": 10
+    },
+    "cube_level": 7,
+    "collection": {
+      "grade": "None",
+      "skill1": 0,
+      "skill2": 0
+    }
+  },
+  "rarity": "SR",
+  "cv": "김성희",
+  "weapon_name": "리버틴 테일",
+  "_dbId": "12",
+  "extra_info": ""
+}

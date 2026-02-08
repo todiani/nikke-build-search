@@ -1,0 +1,68 @@
+{
+  "meta": {
+    "name": "프리바티",
+    "cv": "방시우",
+    "rarity": "SSR",
+    "squad": "트라이앵글",
+    "company": "엘리시온",
+    "class": "화력형",
+    "burst": "III",
+    "code": "수냉",
+    "weapon": "소총 (AR)"
+  },
+  "stats": {
+    "combatPower": 6390,
+    "hp": 241764,
+    "atk": 8243,
+    "def": 1643
+  },
+  "skills": {
+    "skill1": 5,
+    "skill2": 1,
+    "burst": 4
+  },
+  "cube": {
+    "level": 0
+  },
+  "collection": {
+    "rarity": "R",
+    "skillLv1": 5,
+    "skillLv2": 1
+  },
+  "equipment": [
+    {
+      "partIndex": 1,
+      "stats": {
+        "체력": 26442,
+        "공격": 3233
+      },
+      "options": []
+    },
+    {
+      "partIndex": 2,
+      "stats": {
+        "체력": 85937,
+        "공격": 588
+      },
+      "options": []
+    },
+    {
+      "partIndex": 3,
+      "stats": {
+        "공격": 2058,
+        "방어": 352
+      },
+      "options": []
+    },
+    {
+      "partIndex": 4,
+      "stats": {
+        "체력": 19832,
+        "방어": 527
+      },
+      "options": []
+    }
+  ],
+  "rawUrl": "https://www.blablalink.com/shiftyspad/nikke?from=list&nikke=170",
+  "timestamp": "2026-01-13T21:50:18.649Z"
+}

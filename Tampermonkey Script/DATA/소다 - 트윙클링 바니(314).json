@@ -1,0 +1,81 @@
+{
+  "meta": {
+    "name": "소다 : 트윙클링 바니",
+    "cv": "박시윤",
+    "rarity": "SSR",
+    "squad": "메이드 포 유",
+    "company": "테트라",
+    "class": "화력형",
+    "burst": "III",
+    "code": "철갑",
+    "weapon": "샷건 (SG)"
+  },
+  "stats": {
+    "combatPower": 38655,
+    "hp": 1048729,
+    "atk": 45458,
+    "def": 6488
+  },
+  "skills": {
+    "skill1": 7,
+    "skill2": 7,
+    "burst": 6
+  },
+  "cube": {
+    "level": 0
+  },
+  "collection": {
+    "rarity": "R",
+    "skillLv1": 7,
+    "skillLv2": 7
+  },
+  "equipment": [
+    {
+      "partIndex": 1,
+      "stats": {
+        "체력": 49181,
+        "공격": 6014
+      },
+      "options": [
+        {
+          "name": "차지 속도 증가",
+          "value": "4.92%"
+        },
+        {
+          "name": "명중률 증가",
+          "value": "11.81%"
+        },
+        {
+          "name": "공격력 증가",
+          "value": "11.81%"
+        }
+      ]
+    },
+    {
+      "partIndex": 2,
+      "stats": {
+        "체력": 111718,
+        "공격": 764
+      },
+      "options": []
+    },
+    {
+      "partIndex": 3,
+      "stats": {
+        "공격": 2470,
+        "방어": 422
+      },
+      "options": []
+    },
+    {
+      "partIndex": 4,
+      "stats": {
+        "체력": 19832,
+        "방어": 527
+      },
+      "options": []
+    }
+  ],
+  "rawUrl": "https://www.blablalink.com/shiftyspad/nikke?from=list&nikke=314",
+  "timestamp": "2026-01-13T21:41:17.672Z"
+}

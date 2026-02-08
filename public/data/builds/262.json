@@ -1,0 +1,195 @@
+{
+  "id": "262",
+  "name": "리버렐리오",
+  "name_en": "Liberelio",
+  "tier": "SSS",
+  "burst": 0,
+  "class": 0,
+  "weapon": 0,
+  "squad": "헬레틱",
+  "company": 0,
+  "role": "화력형 / 메인 딜러",
+  "code": 0,
+  "skills_detail": {
+    "skill1": {
+      "name": "차분한 수심",
+      "desc": "풀 버스트 시 공증. 풀 차지 시 공격 대미지 ▲ 및 추가 대미지",
+      "tags": [
+        "공격력▲",
+        "추가 대미지"
+      ]
+    },
+    "skill2": {
+      "name": "고요한 수평선",
+      "desc": "동료 3버스트 니케에게 차지 속도 버프 제공",
+      "tags": [
+        "차지 속도▲"
+      ]
+    },
+    "burst": {
+      "name": "잠기는 세계",
+      "desc": "적 전체 강력한 대미지 및 자신에게 공격 대미지 ▲",
+      "tags": [
+        "적 전체",
+        "공격 대미지▲"
+      ]
+    },
+    "normal": {
+      "name": "디재스터"
+    }
+  },
+  "usage_stats": [
+    {
+      "name": "스테이지",
+      "stars": 5,
+      "desc": "흑영 시너지 0티어"
+    },
+    {
+      "name": "이상개체요격전",
+      "stars": 5,
+      "desc": "파츠 파괴 특화"
+    },
+    {
+      "name": "솔로레이드",
+      "stars": 5,
+      "desc": "풍압 최고의 딜러"
+    },
+    {
+      "name": "유니온레이드",
+      "stars": 5,
+      "desc": ""
+    },
+    {
+      "name": "PVP",
+      "stars": 0,
+      "desc": ""
+    },
+    {
+      "name": "기업타워",
+      "stars": 5,
+      "desc": ""
+    },
+    {
+      "name": "트라이브타워",
+      "stars": 0,
+      "desc": ""
+    }
+  ],
+  "desc": "【특징 및 활용 방법】\n- 2026년 하반기에 추가된 풍압 코드의 강력한 화력형 니케로, 차지 속도 버프와 강력한 전체 공격을 보유한 3버스트 니케입니다.\n- 홍련 : 블랙 섀도우(흑영)와 함께 조합했을 때 엄청난 시너지를 발휘하며, 풍압 코드 덱의 고점을 한 단계 높여준 핵심 요원입니다.\n- 솔로 레이드 등 고난도 콘텐츠에서 풍압 약점 보스를 상대로 대체 불가능한 딜러로 활약하며, 화려한 스킬 이펙트와 높은 기본 스탯을 자랑합니다.\n- 추천 옵션: 공격력 증가, 우월코드 대미지 증가, 차지 속도 증가를 추천합니다.",
+  "build": {
+    "stats": {
+      "hp": 1223270,
+      "atk": 56099,
+      "def": 7365,
+      "combatPower": 48943
+    },
+    "skills": {
+      "skill1": 10,
+      "skill2": 10,
+      "burst": 10
+    },
+    "cube_level": 7,
+    "collection": {
+      "grade": "None",
+      "skill1": 1,
+      "skill2": 1
+    },
+    "overload": {
+      "helmet": {
+        "option1": {
+          "type": "명중률 증가",
+          "stage": 2
+        },
+        "option2": {
+          "type": "차지 대미지 증가",
+          "stage": 13
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 1
+        }
+      },
+      "armor": {
+        "option1": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option2": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 1
+        }
+      },
+      "gloves": {
+        "option1": {
+          "type": "방어력 증가",
+          "stage": 5
+        },
+        "option2": {
+          "type": "우월코드 대미지 증가",
+          "stage": 11
+        },
+        "option3": {
+          "type": "차지 속도 증가",
+          "stage": 6
+        }
+      },
+      "boots": {
+        "option1": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option2": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 1
+        }
+      }
+    }
+  },
+  "_originalId": "262",
+  "rarity": "SSR",
+  "cv": "여윤미",
+  "weapon_name": "엔드 오브 월드",
+  "burst_details": {
+    "2RL": {
+      "value": 0,
+      "hits": "-",
+      "bonus": "0%-0%"
+    },
+    "2_5RL": {
+      "value": 0,
+      "hits": "-",
+      "bonus": "0%-0%"
+    },
+    "3RL": {
+      "value": 0,
+      "hits": "-",
+      "bonus": "0%-0%"
+    },
+    "3_5RL": {
+      "value": 0,
+      "hits": "-",
+      "bonus": "0%-0%"
+    },
+    "4RL": {
+      "value": 0,
+      "hits": "-",
+      "bonus": "0%-0%"
+    }
+  },
+  "weapon_info": {
+    "weapon_name": "",
+    "max_ammo": 0,
+    "reload_time": 0,
+    "control_type": ""
+  },
+  "extra_info": "",
+  "_dbId": "262"
+}

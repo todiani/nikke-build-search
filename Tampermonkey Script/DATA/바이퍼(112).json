@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "name": "바이퍼",
+    "cv": "조경이",
+    "rarity": "SSR",
+    "squad": "이그조틱",
+    "company": "어브노멀",
+    "class": "화력형",
+    "burst": "II",
+    "code": "수냉",
+    "weapon": "샷건 (SG)"
+  },
+  "stats": {
+    "combatPower": 1952,
+    "hp": 96000,
+    "atk": 1900,
+    "def": 596
+  },
+  "skills": {
+    "skill1": 1,
+    "skill2": 1,
+    "burst": 1
+  },
+  "cube": {
+    "level": 0
+  },
+  "collection": {
+    "rarity": "R",
+    "skillLv1": 1,
+    "skillLv2": 1
+  },
+  "equipment": [],
+  "rawUrl": "https://www.blablalink.com/shiftyspad/nikke?from=list&nikke=112",
+  "timestamp": "2026-01-13T21:57:43.845Z"
+}

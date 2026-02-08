@@ -1,0 +1,204 @@
+{
+  "id": "231",
+  "name": "이사벨",
+  "name_en": "Isabel",
+  "tier": "A",
+  "burst": 0,
+  "class": 0,
+  "weapon": 0,
+  "squad": "인헤르트",
+  "company": 0,
+  "role": "화력형",
+  "code": 0,
+  "skill_priority_comment": "",
+  "skills_detail": {
+    "skill1": {
+      "name": "타겟 마킹",
+      "desc": "버스트 스킬 사용 시 자신이 타겟마킹 2 상태라면 자신에게: [타겟 마킹 3: 공격력 17.28% ▲] [하위 효과 중복 적용] [45초 유지]",
+      "tags": [
+        "자신에게",
+        "공격력▼",
+        "버스트",
+        "버스트 스킬 사용 시",
+        "자신",
+        "사용 시",
+        "공격력▲"
+      ]
+    },
+    "skill2": {
+      "name": "페더 이젝션",
+      "desc": "최종 방어력이 가장 높은 적기에게: [공격력 170.58% 대미지]",
+      "tags": [
+        "공격력▼",
+        "방어력▲",
+        "방어력이 가장 높은 적",
+        "방어력▼",
+        "대미지",
+        "공격력▲"
+      ]
+    },
+    "burst": {
+      "name": "소닉 체이서",
+      "desc": "아군 전체에게: [풀 버스트 타임 지속 시간 5초 ▼]",
+      "tags": [
+        "아군 전체",
+        "버스트"
+      ]
+    },
+    "normal": {
+      "name": "익스트림 옵세서"
+    }
+  },
+  "overload_detail": {
+    "priority": "",
+    "options": [],
+    "recommended_cubes": [],
+    "notes": ""
+  },
+  "skill_priority": "",
+  "options": [],
+  "cube": "",
+  "desc": "1스킬: 버스트 스킬 사용 시 자신이 타겟마킹 2 상태라면 자신에게: [타겟 마킹 3: 공격력 17.28% ▲] [하위 효과 중복 적용] [45초 유지]\n2스킬: 최종 방어력이 가장 높은 적기에게: [공격력 170.58% 대미지]\n버스트: 아군 전체에게: [풀 버스트 타임 지속 시간 5초 ▼]",
+  "extra_info": "",
+  "valid_options": [
+    "공격력 증가",
+    "우월코드 대미지 증가",
+    "명중률 증가",
+    "최대 장탄 수 증가"
+  ],
+  "invalid_options": [
+    "차지 속도 증가",
+    "차지 대미지 증가"
+  ],
+  "usage_stats": [
+    {
+      "name": "스테이지",
+      "stars": 2,
+      "desc": "일반 캠페인 및 타워"
+    },
+    {
+      "name": "이상개체요격전",
+      "stars": 1,
+      "desc": "특수 개체 보스 공략"
+    },
+    {
+      "name": "솔로레이드",
+      "stars": 2,
+      "desc": "전격코드 보스 특화"
+    },
+    {
+      "name": "유니온레이드",
+      "stars": 1,
+      "desc": "전격코드 보스"
+    },
+    {
+      "name": "타워",
+      "stars": 2,
+      "desc": "적극 활용 가능"
+    },
+    {
+      "name": "PVP",
+      "stars": 1,
+      "desc": "아레나 활용 가능"
+    },
+    {
+      "name": "기업타워",
+      "stars": 3,
+      "desc": ""
+    },
+    {
+      "name": "트라이브타워",
+      "stars": 0,
+      "desc": ""
+    }
+  ],
+  "weapon_info": {
+    "weapon_name": "",
+    "max_ammo": 0,
+    "reload_time": 0,
+    "control_type": ""
+  },
+  "build": {
+    "stats": {
+      "hp": 96000,
+      "atk": 1825,
+      "def": 581,
+      "power": 1850,
+      "combatPower": 1919
+    },
+    "overload": {
+      "helmet": {
+        "option1": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option2": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 1
+        }
+      },
+      "armor": {
+        "option1": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option2": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 1
+        }
+      },
+      "gloves": {
+        "option1": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option2": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 1
+        }
+      },
+      "boots": {
+        "option1": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option2": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 1
+        }
+      }
+    },
+    "skills": {
+      "skill1": 10,
+      "skill2": 10,
+      "burst": 10
+    },
+    "cube_level": 7,
+    "collection": {
+      "grade": "None",
+      "skill1": 0,
+      "skill2": 0
+    }
+  },
+  "_originalId": "231",
+  "rarity": "SSR",
+  "cv": "이새아",
+  "weapon_name": "익스트림 옵세서",
+  "_dbId": "231"
+}

@@ -1,0 +1,68 @@
+{
+  "meta": {
+    "name": "iDoll 플라워",
+    "cv": "최정윤",
+    "rarity": "R",
+    "squad": "리플레이스",
+    "company": "테트라",
+    "class": "방어형",
+    "burst": "I",
+    "code": "풍압",
+    "weapon": "런처 (RL)"
+  },
+  "stats": {
+    "combatPower": 5670,
+    "hp": 266436,
+    "atk": 6186,
+    "def": 1671
+  },
+  "skills": {
+    "skill1": 1,
+    "skill2": 1,
+    "burst": 1
+  },
+  "cube": {
+    "level": 0
+  },
+  "collection": {
+    "rarity": "R",
+    "skillLv1": 1,
+    "skillLv2": 1
+  },
+  "equipment": [
+    {
+      "partIndex": 1,
+      "stats": {
+        "체력": 42013,
+        "공격": 2802
+      },
+      "options": []
+    },
+    {
+      "partIndex": 2,
+      "stats": {
+        "체력": 105034,
+        "공격": 392
+      },
+      "options": []
+    },
+    {
+      "partIndex": 3,
+      "stats": {
+        "공격": 1372,
+        "방어": 430
+      },
+      "options": []
+    },
+    {
+      "partIndex": 4,
+      "stats": {
+        "체력": 24239,
+        "방어": 645
+      },
+      "options": []
+    }
+  ],
+  "rawUrl": "https://www.blablalink.com/shiftyspad/nikke?from=list&nikke=304",
+  "timestamp": "2026-01-13T21:52:42.651Z"
+}

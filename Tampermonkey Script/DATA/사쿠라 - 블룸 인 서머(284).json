@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "name": "사쿠라 : 블룸 인 서머",
+    "cv": "최정윤",
+    "rarity": "SSR",
+    "squad": "언더월드 퀸",
+    "company": "어브노멀",
+    "class": "화력형",
+    "burst": "III",
+    "code": "풍압",
+    "weapon": "소총 (AR)"
+  },
+  "stats": {
+    "combatPower": 1956,
+    "hp": 96000,
+    "atk": 1900,
+    "def": 600
+  },
+  "skills": {
+    "skill1": 1,
+    "skill2": 1,
+    "burst": 1
+  },
+  "cube": {
+    "level": 0
+  },
+  "collection": {
+    "rarity": "R",
+    "skillLv1": 1,
+    "skillLv2": 1
+  },
+  "equipment": [],
+  "rawUrl": "https://www.blablalink.com/shiftyspad/nikke?from=list&nikke=284",
+  "timestamp": "2026-01-13T21:58:53.845Z"
+}

@@ -1,0 +1,68 @@
+{
+  "meta": {
+    "name": "센티",
+    "cv": "김은아",
+    "rarity": "SSR",
+    "squad": "마이티 툴즈",
+    "company": "미실리스",
+    "class": "방어형",
+    "burst": "II",
+    "code": "철갑",
+    "weapon": "런처 (RL)"
+  },
+  "stats": {
+    "combatPower": 28519,
+    "hp": 1244509,
+    "atk": 29473,
+    "def": 8099
+  },
+  "skills": {
+    "skill1": 4,
+    "skill2": 2,
+    "burst": 3
+  },
+  "cube": {
+    "level": 0
+  },
+  "collection": {
+    "rarity": "R",
+    "skillLv1": 4,
+    "skillLv2": 2
+  },
+  "equipment": [
+    {
+      "partIndex": 1,
+      "stats": {
+        "체력": 42013,
+        "공격": 2802
+      },
+      "options": []
+    },
+    {
+      "partIndex": 2,
+      "stats": {
+        "체력": 136544,
+        "공격": 510
+      },
+      "options": []
+    },
+    {
+      "partIndex": 3,
+      "stats": {
+        "공격": 1784,
+        "방어": 559
+      },
+      "options": []
+    },
+    {
+      "partIndex": 4,
+      "stats": {
+        "체력": 31511,
+        "방어": 839
+      },
+      "options": []
+    }
+  ],
+  "rawUrl": "https://www.blablalink.com/shiftyspad/nikke?from=list&nikke=80",
+  "timestamp": "2026-01-13T21:45:56.653Z"
+}

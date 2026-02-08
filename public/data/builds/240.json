@@ -1,0 +1,168 @@
+{
+  "id": "240",
+  "name": "루마니",
+  "name_en": "Rumani",
+  "tier": "S",
+  "burst": 0,
+  "class": 0,
+  "weapon": 0,
+  "squad": "라이프 토닉",
+  "company": 0,
+  "role": "방어형 / 탱커 및 힐",
+  "code": 0,
+  "skills_detail": {
+    "skill1": {
+      "name": "트레이닝",
+      "desc": "피격 시 아군 전체 방어력 ▲. 도발 활성화",
+      "tags": [
+        "도발",
+        "방어력▲"
+      ]
+    },
+    "skill2": {
+      "name": "프로틴 셰이크",
+      "desc": "체력 낮은 아군 지속 회복",
+      "tags": [
+        "지속 회복"
+      ]
+    },
+    "burst": {
+      "name": "맥스 리랩스",
+      "desc": "아군 전체에게 보호막 생성 및 자신의 체력 대폭 회복",
+      "tags": [
+        "보호막",
+        "회복"
+      ]
+    },
+    "normal": {
+      "name": "바디 임팩트"
+    }
+  },
+  "usage_stats": [
+    {
+      "name": "스테이지",
+      "stars": 3,
+      "desc": "생존 위주 스테이지용"
+    },
+    {
+      "name": "PVP",
+      "stars": 4,
+      "desc": "단단한 몸으로 버티기 가능"
+    },
+    {
+      "name": "기업타워",
+      "stars": 3,
+      "desc": "테트라 생존 핵심"
+    },
+    {
+      "name": "솔로레이드",
+      "stars": 0,
+      "desc": ""
+    },
+    {
+      "name": "유니온레이드",
+      "stars": 0,
+      "desc": ""
+    },
+    {
+      "name": "이상개체요격전",
+      "stars": 0,
+      "desc": ""
+    },
+    {
+      "name": "트라이브타워",
+      "stars": 0,
+      "desc": ""
+    }
+  ],
+  "weapon_info": {
+    "weapon_name": "",
+    "max_ammo": 0,
+    "reload_time": 0,
+    "control_type": ""
+  },
+  "build": {
+    "stats": {
+      "hp": 99000,
+      "atk": 1700,
+      "def": 617,
+      "power": 1868,
+      "combatPower": 1948
+    },
+    "overload": {
+      "helmet": {
+        "option1": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option2": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 1
+        }
+      },
+      "armor": {
+        "option1": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option2": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 1
+        }
+      },
+      "gloves": {
+        "option1": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option2": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 1
+        }
+      },
+      "boots": {
+        "option1": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option2": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 1
+        }
+      }
+    },
+    "skills": {
+      "skill1": 10,
+      "skill2": 10,
+      "burst": 10
+    },
+    "cube_level": 7,
+    "collection": {
+      "grade": "None",
+      "skill1": 0,
+      "skill2": 0
+    }
+  },
+  "_originalId": "240",
+  "rarity": "SSR",
+  "cv": "손선영",
+  "weapon_name": "어너러블",
+  "_dbId": "240",
+  "extra_info": ""
+}

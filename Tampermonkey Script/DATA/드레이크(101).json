@@ -1,0 +1,116 @@
+{
+  "meta": {
+    "name": "드레이크",
+    "cv": "김연우",
+    "rarity": "SSR",
+    "squad": "메티스",
+    "company": "미실리스",
+    "class": "화력형",
+    "burst": "III",
+    "code": "작열",
+    "weapon": "샷건 (SG)"
+  },
+  "stats": {
+    "combatPower": 74086,
+    "hp": 1671789,
+    "atk": 66128,
+    "def": 10689
+  },
+  "skills": {
+    "skill1": 10,
+    "skill2": 8,
+    "burst": 8
+  },
+  "cube": {
+    "level": 3
+  },
+  "collection": {
+    "rarity": "SSR",
+    "skillLv1": 4,
+    "skillLv2": 4
+  },
+  "equipment": [
+    {
+      "partIndex": 1,
+      "stats": {
+        "체력": 73772,
+        "공격": 9021
+      },
+      "options": [
+        {
+          "name": "크리티컬 확률 증가",
+          "value": "2.30%"
+        },
+        {
+          "name": "우월코드 대미지 증가",
+          "value": "27.76%"
+        },
+        {
+          "name": "최대 장탄 수 증가",
+          "value": "60.71%"
+        }
+      ]
+    },
+    {
+      "partIndex": 2,
+      "stats": {
+        "체력": 239760,
+        "공격": 1640
+      },
+      "options": [
+        {
+          "name": "명중률 증가",
+          "value": "6.18%"
+        },
+        {
+          "name": "공격력 증가",
+          "value": "9.00%"
+        },
+        {
+          "name": "최대 장탄 수 증가",
+          "value": "44.28%"
+        }
+      ]
+    },
+    {
+      "partIndex": 3,
+      "stats": {
+        "공격": 3827,
+        "방어": 654
+      },
+      "options": [
+        {
+          "name": "크리티컬 대미지 증가",
+          "value": "16.44%"
+        },
+        {
+          "name": "우월코드 대미지 증가",
+          "value": "12.34%"
+        }
+      ]
+    },
+    {
+      "partIndex": 4,
+      "stats": {
+        "체력": 47953,
+        "방어": 1275
+      },
+      "options": [
+        {
+          "name": "명중률 증가",
+          "value": "10.40%"
+        },
+        {
+          "name": "우월코드 대미지 증가",
+          "value": "22.15%"
+        },
+        {
+          "name": "최대 장탄 수 증가",
+          "value": "31.95%"
+        }
+      ]
+    }
+  ],
+  "rawUrl": "https://www.blablalink.com/shiftyspad/nikke?from=list&nikke=101",
+  "timestamp": "2026-01-14T03:49:09.506Z"
+}

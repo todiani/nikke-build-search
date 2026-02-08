@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "name": "사쿠라",
+    "cv": "사와시로 미유키",
+    "rarity": "SR",
+    "squad": "WILLE",
+    "company": "어브노멀",
+    "class": "지원형",
+    "burst": "I",
+    "code": "수냉",
+    "weapon": "기관단총 (SMG)"
+  },
+  "stats": {
+    "combatPower": 1888,
+    "hp": 94750,
+    "atk": 1725,
+    "def": 588
+  },
+  "skills": {
+    "skill1": 1,
+    "skill2": 1,
+    "burst": 1
+  },
+  "cube": {
+    "level": 0
+  },
+  "collection": {
+    "rarity": "R",
+    "skillLv1": 1,
+    "skillLv2": 1
+  },
+  "equipment": [],
+  "rawUrl": "https://www.blablalink.com/shiftyspad/nikke?from=list&nikke=836",
+  "timestamp": "2026-01-13T22:01:27.847Z"
+}

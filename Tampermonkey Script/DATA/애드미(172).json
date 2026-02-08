@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "name": "애드미",
+    "cv": "곽규미",
+    "rarity": "SSR",
+    "squad": "트라이앵글",
+    "company": "어브노멀",
+    "class": "지원형",
+    "burst": "II",
+    "code": "풍압",
+    "weapon": "저격소총 (SR)"
+  },
+  "stats": {
+    "combatPower": 1950,
+    "hp": 98250,
+    "atk": 1800,
+    "def": 599
+  },
+  "skills": {
+    "skill1": 1,
+    "skill2": 1,
+    "burst": 1
+  },
+  "cube": {
+    "level": 0
+  },
+  "collection": {
+    "rarity": "R",
+    "skillLv1": 1,
+    "skillLv2": 1
+  },
+  "equipment": [],
+  "rawUrl": "https://www.blablalink.com/shiftyspad/nikke?from=list&nikke=172",
+  "timestamp": "2026-01-13T21:56:26.850Z"
+}

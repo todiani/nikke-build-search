@@ -1,0 +1,77 @@
+{
+  "meta": {
+    "name": "맥스웰",
+    "cv": "김율",
+    "rarity": "SSR",
+    "squad": "메티스",
+    "company": "미실리스",
+    "class": "화력형",
+    "burst": "III",
+    "code": "철갑",
+    "weapon": "저격소총 (SR)"
+  },
+  "stats": {
+    "combatPower": 39877,
+    "hp": 1164670,
+    "atk": 50996,
+    "def": 6416
+  },
+  "skills": {
+    "skill1": 7,
+    "skill2": 5,
+    "burst": 6
+  },
+  "cube": {
+    "level": 0
+  },
+  "collection": {
+    "rarity": "R",
+    "skillLv1": 7,
+    "skillLv2": 5
+  },
+  "equipment": [
+    {
+      "partIndex": 1,
+      "stats": {
+        "체력": 73772,
+        "공격": 9021
+      },
+      "options": [
+        {
+          "name": "우월코드 대미지 증가",
+          "value": "23.56%"
+        },
+        {
+          "name": "크리티컬 확률 증가",
+          "value": "5.71%"
+        }
+      ]
+    },
+    {
+      "partIndex": 2,
+      "stats": {
+        "체력": 111718,
+        "공격": 764
+      },
+      "options": []
+    },
+    {
+      "partIndex": 3,
+      "stats": {
+        "공격": 2058,
+        "방어": 352
+      },
+      "options": []
+    },
+    {
+      "partIndex": 4,
+      "stats": {
+        "체력": 19832,
+        "방어": 527
+      },
+      "options": []
+    }
+  ],
+  "rawUrl": "https://www.blablalink.com/shiftyspad/nikke?from=list&nikke=102",
+  "timestamp": "2026-01-13T21:41:01.455Z"
+}

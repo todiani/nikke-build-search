@@ -1,0 +1,116 @@
+{
+  "meta": {
+    "name": "스노우 화이트 : 헤비암즈",
+    "cv": "소연",
+    "rarity": "SSR",
+    "squad": "갓데스",
+    "company": "필그림",
+    "class": "화력형",
+    "burst": "III",
+    "code": "수냉",
+    "weapon": "저격소총 (SR)"
+  },
+  "stats": {
+    "combatPower": 63307,
+    "hp": 1403070,
+    "atk": 56576,
+    "def": 8559
+  },
+  "skills": {
+    "skill1": 7,
+    "skill2": 6,
+    "burst": 7
+  },
+  "cube": {
+    "level": 0
+  },
+  "collection": {
+    "rarity": "SR",
+    "skillLv1": 7,
+    "skillLv2": 6
+  },
+  "equipment": [
+    {
+      "partIndex": 1,
+      "stats": {
+        "체력": 49181,
+        "공격": 6014
+      },
+      "options": [
+        {
+          "name": "크리티컬 대미지 증가",
+          "value": "16.44%"
+        },
+        {
+          "name": "우월코드 대미지 증가",
+          "value": "23.56%"
+        }
+      ]
+    },
+    {
+      "partIndex": 2,
+      "stats": {
+        "체력": 159840,
+        "공격": 1093
+      },
+      "options": [
+        {
+          "name": "차지 대미지 증가",
+          "value": "9.00%"
+        },
+        {
+          "name": "우월코드 대미지 증가",
+          "value": "12.34%"
+        },
+        {
+          "name": "최대 장탄 수 증가",
+          "value": "68.93%"
+        }
+      ]
+    },
+    {
+      "partIndex": 3,
+      "stats": {
+        "공격": 3827,
+        "방어": 654
+      },
+      "options": [
+        {
+          "name": "우월코드 대미지 증가",
+          "value": "12.34%"
+        },
+        {
+          "name": "공격력 증가",
+          "value": "6.88%"
+        },
+        {
+          "name": "최대 장탄 수 증가",
+          "value": "40.17%"
+        }
+      ]
+    },
+    {
+      "partIndex": 4,
+      "stats": {
+        "체력": 36887,
+        "방어": 981
+      },
+      "options": [
+        {
+          "name": "우월코드 대미지 증가",
+          "value": "19.35%"
+        },
+        {
+          "name": "크리티컬 확률 증가",
+          "value": "4.35%"
+        },
+        {
+          "name": "차지 대미지 증가",
+          "value": "11.11%"
+        }
+      ]
+    }
+  ],
+  "rawUrl": "https://www.blablalink.com/shiftyspad/nikke?from=list&nikke=471",
+  "timestamp": "2026-01-13T21:39:02.354Z"
+}

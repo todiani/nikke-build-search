@@ -1,0 +1,171 @@
+{
+  "id": "831",
+  "name": "레이 : 아야나미",
+  "name_en": "Rei : Ayanami Rei",
+  "tier": "S",
+  "burst": 0,
+  "class": 0,
+  "weapon": 0,
+  "squad": "NERV",
+  "company": 0,
+  "role": "방어형 / 작열 시너지",
+  "code": 0,
+  "skills_detail": {
+    "skill1": {
+      "name": "영호기 파일럿",
+      "desc": "아군 전체 보호막 생성 및 작열 코드 아군 버프",
+      "tags": [
+        "보호막",
+        "작열"
+      ]
+    },
+    "skill2": {
+      "name": "명령 이행",
+      "desc": "옆자리 아군 방어력 ▲ 및 체력 회복",
+      "tags": [
+        "방어력▲",
+        "회복"
+      ]
+    },
+    "burst": {
+      "name": "내가 지킬 거야",
+      "desc": "아군 전체 무적 부여(3초) 및 체력 비례 회복",
+      "tags": [
+        "무적",
+        "회복"
+      ]
+    },
+    "normal": {
+      "name": "ESR",
+      "desc": "",
+      "tags": []
+    }
+  },
+  "usage_stats": [
+    {
+      "name": "스테이지",
+      "stars": 4,
+      "desc": "최상급 생존 지원"
+    },
+    {
+      "name": "PVP",
+      "stars": 2,
+      "desc": "무적 타임으로 변수 창출"
+    },
+    {
+      "name": "솔로레이드",
+      "stars": 3,
+      "desc": "작열 파티 서포터"
+    },
+    {
+      "name": "유니온레이드",
+      "stars": 0,
+      "desc": ""
+    },
+    {
+      "name": "이상개체요격전",
+      "stars": 0,
+      "desc": ""
+    },
+    {
+      "name": "기업타워",
+      "stars": 0,
+      "desc": ""
+    },
+    {
+      "name": "트라이브타워",
+      "stars": 0,
+      "desc": ""
+    }
+  ],
+  "weapon_info": {
+    "weapon_name": "",
+    "max_ammo": 0,
+    "reload_time": 0,
+    "control_type": ""
+  },
+  "build": {
+    "stats": {
+      "hp": 96000,
+      "atk": 1875,
+      "def": 580,
+      "power": 1862,
+      "combatPower": 1931
+    },
+    "overload": {
+      "helmet": {
+        "option1": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option2": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 1
+        }
+      },
+      "armor": {
+        "option1": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option2": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 1
+        }
+      },
+      "gloves": {
+        "option1": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option2": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 1
+        }
+      },
+      "boots": {
+        "option1": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option2": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 1
+        }
+      }
+    },
+    "skills": {
+      "skill1": 10,
+      "skill2": 10,
+      "burst": 10
+    },
+    "cube_level": 7,
+    "collection": {
+      "grade": "None",
+      "skill1": 0,
+      "skill2": 0
+    }
+  },
+  "_originalId": "831",
+  "rarity": "SSR",
+  "cv": "하야시바라 메구미",
+  "weapon_name": "ESR",
+  "_dbId": "831",
+  "extra_info": ""
+}

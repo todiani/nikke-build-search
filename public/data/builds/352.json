@@ -1,0 +1,203 @@
+{
+  "id": "352",
+  "name": "헬름",
+  "name_en": "헬름",
+  "tier": "S",
+  "burst": 0,
+  "class": 0,
+  "weapon": 0,
+  "squad": "이지스",
+  "company": 0,
+  "role": "화력형",
+  "code": 0,
+  "desc": "【특징 및 활용 방법】\n- 버스트 스킬 사용 시 아군 전체에게 강력한 흡혈 효과를 부여하여 파티의 안정성을 책임지는 3버스트 서포터입니다.\n- 일반 공격 크리티컬 확률 증가와 풀 버스트 시 공격 대미지 증가 버프를 통해 딜 서포팅 능력도 준수합니다.\n- 보스전 부위 파괴 대미지 증가 효과도 있어 특정 보스 공략 시 유용하게 사용됩니다.\n- 추천 옵션: 저격소총 특성상 차지 속도 증가와 공격력 증가를 우선시하세요.",
+  "skill_priority_comment": "[가성비] 4-4-4  /  [종결] 7-7-7",
+  "skills_detail": {
+    "skill1": {
+      "name": "진두지휘\n\n[애장품 1단계]",
+      "desc": "마지막 탄환 명중 시아군 전체에게: [일반 공격 크리티컬 확률 14.64% 증가] [5초 유지]",
+      "tags": [
+        "마지막 탄환 명중 시",
+        "크리티컬 확률▲",
+        "명중 시",
+        "아군 전체"
+      ]
+    },
+    "skill2": {
+      "name": "포문 개방\n\n[애장품 2단계]",
+      "desc": "풀 버스트 타임 시작 시 아군 전체에게: [공격 대미지 11.85% ▲] [10초 유지]",
+      "tags": [
+        "풀 버스트 타임 시작 시",
+        "대미지",
+        "시작 시",
+        "버스트",
+        "아군 전체"
+      ]
+    },
+    "burst": {
+      "name": "이지스 캐논\n\n[애장품 3단계]",
+      "desc": "아군 전체에게: [공격 대미지 비례 54.45% 회복] [10초 유지]",
+      "tags": [
+        "대미지",
+        "아군 전체"
+      ]
+    },
+    "normal": {
+      "name": "어너러블"
+    }
+  },
+  "overload_detail": {
+    "priority": "",
+    "options": [
+      "공격력",
+      "우월코드"
+    ],
+    "recommended_cubes": [
+      "렐릭 베어"
+    ],
+    "notes": ""
+  },
+  "skill_priority": "[가성비] 4-4-4  /  [종결] 7-7-7",
+  "options": [],
+  "cube": "렐릭 베어",
+  "extra_info": "애장품",
+  "valid_options": [
+    "공격력 증가",
+    "우월코드 대미지 증가",
+    "차지 속도 증가"
+  ],
+  "invalid_options": [
+    "방어력 증가"
+  ],
+  "usage_stats": [
+    {
+      "name": "스테이지",
+      "stars": 4,
+      "desc": "일반 캠페인 및 타워"
+    },
+    {
+      "name": "이상개체요격전",
+      "stars": 5,
+      "desc": "특수 개체 보스 공략"
+    },
+    {
+      "name": "솔로레이드",
+      "stars": 4,
+      "desc": "수냉코드 보스 특화"
+    },
+    {
+      "name": "유니온레이드",
+      "stars": 5,
+      "desc": "수냉코드 보스"
+    },
+    {
+      "name": "타워",
+      "stars": 3,
+      "desc": "적극 활용 가능"
+    },
+    {
+      "name": "PVP",
+      "stars": 1,
+      "desc": "아레나 활용 가능"
+    },
+    {
+      "name": "기업타워",
+      "stars": 5,
+      "desc": ""
+    },
+    {
+      "name": "트라이브타워",
+      "stars": 3,
+      "desc": ""
+    }
+  ],
+  "weapon_info": {
+    "weapon_name": "",
+    "max_ammo": 0,
+    "reload_time": 0,
+    "control_type": ""
+  },
+  "build": {
+    "stats": {
+      "hp": 1580609,
+      "atk": 64359,
+      "def": 9780,
+      "power": 63021,
+      "combatPower": 71844
+    },
+    "overload": {
+      "helmet": {
+        "option1": {
+          "type": "우월코드 대미지 증가",
+          "stage": 9
+        },
+        "option2": {
+          "type": "크리티컬 대미지 증가",
+          "stage": 1
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 1
+        }
+      },
+      "armor": {
+        "option1": {
+          "type": "차지 대미지 증가",
+          "stage": 11
+        },
+        "option2": {
+          "type": "우월코드 대미지 증가",
+          "stage": 11
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 1
+        }
+      },
+      "gloves": {
+        "option1": {
+          "type": "차지 속도 증가",
+          "stage": 5
+        },
+        "option2": {
+          "type": "공격력 증가",
+          "stage": 6
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 1
+        }
+      },
+      "boots": {
+        "option1": {
+          "type": "크리티컬 확률 증가",
+          "stage": 11
+        },
+        "option2": {
+          "type": "차지 대미지 증가",
+          "stage": 11
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 1
+        }
+      }
+    },
+    "skills": {
+      "skill1": 10,
+      "skill2": 10,
+      "burst": 10
+    },
+    "cube_level": 7,
+    "collection": {
+      "grade": "None",
+      "skill1": 0,
+      "skill2": 0
+    }
+  },
+  "_originalId": "352",
+  "rarity": "SSR",
+  "cv": "사문영",
+  "weapon_name": "어너러블",
+  "_dbId": "352"
+}

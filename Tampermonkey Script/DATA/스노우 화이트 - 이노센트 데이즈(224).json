@@ -1,0 +1,68 @@
+{
+  "meta": {
+    "name": "스노우 화이트 : 이노센트 데이즈",
+    "cv": "소연",
+    "rarity": "SSR",
+    "squad": "갓데스",
+    "company": "필그림",
+    "class": "화력형",
+    "burst": "III",
+    "code": "철갑",
+    "weapon": "소총 (AR)"
+  },
+  "stats": {
+    "combatPower": 5577,
+    "hp": 230636,
+    "atk": 7812,
+    "def": 1480
+  },
+  "skills": {
+    "skill1": 1,
+    "skill2": 1,
+    "burst": 1
+  },
+  "cube": {
+    "level": 0
+  },
+  "collection": {
+    "rarity": "R",
+    "skillLv1": 1,
+    "skillLv2": 1
+  },
+  "equipment": [
+    {
+      "partIndex": 1,
+      "stats": {
+        "체력": 26442,
+        "공격": 3233
+      },
+      "options": []
+    },
+    {
+      "partIndex": 2,
+      "stats": {
+        "체력": 85937,
+        "공격": 588
+      },
+      "options": []
+    },
+    {
+      "partIndex": 3,
+      "stats": {
+        "공격": 2058,
+        "방어": 352
+      },
+      "options": []
+    },
+    {
+      "partIndex": 4,
+      "stats": {
+        "체력": 19832,
+        "방어": 527
+      },
+      "options": []
+    }
+  ],
+  "rawUrl": "https://www.blablalink.com/shiftyspad/nikke?from=list&nikke=224",
+  "timestamp": "2026-01-13T21:53:22.666Z"
+}

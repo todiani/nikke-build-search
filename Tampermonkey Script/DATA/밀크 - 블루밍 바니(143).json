@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "name": "밀크 : 블루밍 바니",
+    "cv": "김나율",
+    "rarity": "SSR",
+    "squad": "카페 스위티",
+    "company": "어브노멀",
+    "class": "화력형",
+    "burst": "III",
+    "code": "철갑",
+    "weapon": "저격소총 (SR)"
+  },
+  "stats": {
+    "combatPower": 1943,
+    "hp": 96000,
+    "atk": 1900,
+    "def": 586
+  },
+  "skills": {
+    "skill1": 1,
+    "skill2": 1,
+    "burst": 1
+  },
+  "cube": {
+    "level": 0
+  },
+  "collection": {
+    "rarity": "R",
+    "skillLv1": 1,
+    "skillLv2": 1
+  },
+  "equipment": [],
+  "rawUrl": "https://www.blablalink.com/shiftyspad/nikke?from=list&nikke=143",
+  "timestamp": "2026-01-13T21:59:15.032Z"
+}

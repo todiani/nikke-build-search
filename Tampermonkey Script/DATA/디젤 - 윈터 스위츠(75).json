@@ -1,0 +1,73 @@
+{
+  "meta": {
+    "name": "디젤 : 윈터 스위츠",
+    "cv": "김유림",
+    "rarity": "SSR",
+    "squad": "인피니티 레일",
+    "company": "엘리시온",
+    "class": "화력형",
+    "burst": "III",
+    "code": "작열",
+    "weapon": "런처 (RL)"
+  },
+  "stats": {
+    "combatPower": 34070,
+    "hp": 1048729,
+    "atk": 45021,
+    "def": 6493
+  },
+  "skills": {
+    "skill1": 5,
+    "skill2": 5,
+    "burst": 5
+  },
+  "cube": {
+    "level": 0
+  },
+  "collection": {
+    "rarity": "R",
+    "skillLv1": 5,
+    "skillLv2": 5
+  },
+  "equipment": [
+    {
+      "partIndex": 1,
+      "stats": {
+        "체력": 49181,
+        "공격": 6014
+      },
+      "options": [
+        {
+          "name": "방어력 증가",
+          "value": "11.81%"
+        }
+      ]
+    },
+    {
+      "partIndex": 2,
+      "stats": {
+        "체력": 111718,
+        "공격": 764
+      },
+      "options": []
+    },
+    {
+      "partIndex": 3,
+      "stats": {
+        "공격": 2058,
+        "방어": 352
+      },
+      "options": []
+    },
+    {
+      "partIndex": 4,
+      "stats": {
+        "체력": 19832,
+        "방어": 527
+      },
+      "options": []
+    }
+  ],
+  "rawUrl": "https://www.blablalink.com/shiftyspad/nikke?from=list&nikke=75",
+  "timestamp": "2026-01-13T21:42:51.464Z"
+}

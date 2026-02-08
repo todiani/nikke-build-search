@@ -1,0 +1,99 @@
+{
+  "meta": {
+    "name": "앨리스",
+    "cv": "성예원",
+    "rarity": "SSR",
+    "squad": "언리미티드",
+    "company": "테트라",
+    "class": "화력형",
+    "burst": "III",
+    "code": "작열",
+    "weapon": "저격소총 (SR)"
+  },
+  "stats": {
+    "combatPower": 66507,
+    "hp": 1623058,
+    "atk": 65265,
+    "def": 9118
+  },
+  "skills": {
+    "skill1": 10,
+    "skill2": 4,
+    "burst": 10
+  },
+  "cube": {
+    "level": 0
+  },
+  "collection": {
+    "rarity": "SR",
+    "skillLv1": 10,
+    "skillLv2": 4
+  },
+  "equipment": [
+    {
+      "partIndex": 1,
+      "stats": {
+        "체력": 73772,
+        "공격": 9021
+      },
+      "options": [
+        {
+          "name": "차지 대미지 증가",
+          "value": "5.47%"
+        },
+        {
+          "name": "최대 장탄 수 증가",
+          "value": "40.17%"
+        },
+        {
+          "name": "우월코드 대미지 증가",
+          "value": "23.56%"
+        }
+      ]
+    },
+    {
+      "partIndex": 2,
+      "stats": {
+        "체력": 239760,
+        "공격": 1640
+      },
+      "options": [
+        {
+          "name": "최대 장탄 수 증가",
+          "value": "60.71%"
+        },
+        {
+          "name": "우월코드 대미지 증가",
+          "value": "20.75%"
+        }
+      ]
+    },
+    {
+      "partIndex": 3,
+      "stats": {
+        "공격": 3827,
+        "방어": 654
+      },
+      "options": [
+        {
+          "name": "차지 대미지 증가",
+          "value": "11.81%"
+        },
+        {
+          "name": "크리티컬 대미지 증가",
+          "value": "16.44%"
+        }
+      ]
+    },
+    {
+      "partIndex": 4,
+      "stats": {
+        "체력": 19832,
+        "방어": 527
+      },
+      "options": []
+    }
+  ],
+  "rawUrl": "https://www.blablalink.com/shiftyspad/nikke?from=list&nikke=191",
+  "timestamp": "2026-01-13T21:38:43.681Z"
+}

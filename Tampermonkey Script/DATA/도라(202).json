@@ -1,0 +1,68 @@
+{
+  "meta": {
+    "name": "도라",
+    "cv": "김가령",
+    "rarity": "SSR",
+    "squad": "달란트",
+    "company": "테트라",
+    "class": "지원형",
+    "burst": "II",
+    "code": "풍압",
+    "weapon": "저격소총 (SR)"
+  },
+  "stats": {
+    "combatPower": 26935,
+    "hp": 1111740,
+    "atk": 36099,
+    "def": 6389
+  },
+  "skills": {
+    "skill1": 4,
+    "skill2": 2,
+    "burst": 2
+  },
+  "cube": {
+    "level": 0
+  },
+  "collection": {
+    "rarity": "R",
+    "skillLv1": 4,
+    "skillLv2": 2
+  },
+  "equipment": [
+    {
+      "partIndex": 1,
+      "stats": {
+        "체력": 38194,
+        "공격": 3502
+      },
+      "options": []
+    },
+    {
+      "partIndex": 2,
+      "stats": {
+        "체력": 95485,
+        "공격": 490
+      },
+      "options": []
+    },
+    {
+      "partIndex": 3,
+      "stats": {
+        "공격": 1715,
+        "방어": 391
+      },
+      "options": []
+    },
+    {
+      "partIndex": 4,
+      "stats": {
+        "체력": 22035,
+        "방어": 586
+      },
+      "options": []
+    }
+  ],
+  "rawUrl": "https://www.blablalink.com/shiftyspad/nikke?from=list&nikke=202",
+  "timestamp": "2026-01-13T21:47:05.650Z"
+}

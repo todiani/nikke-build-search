@@ -1,0 +1,171 @@
+{
+  "id": "830",
+  "name": "아스카 : 시키나미",
+  "name_en": "Asuka : Shikinami Asuka Langley",
+  "tier": "S",
+  "burst": "III",
+  "class": "화력형",
+  "weapon": "소총 (AR)",
+  "squad": "NERV",
+  "company": "어브노멀",
+  "role": "화력형 / 작열 코드 딜러",
+  "code": "작열",
+  "skills_detail": {
+    "skill1": {
+      "name": "A.T. 필드 중화",
+      "desc": "작열 속성 공격력 ▲. 우월 코드 대미지 ▲",
+      "tags": [
+        "작열",
+        "공격력▲"
+      ]
+    },
+    "skill2": {
+      "name": "2호기 파일럿",
+      "desc": "자신에게 관통 특화 및 명중률 ▲",
+      "tags": [
+        "관통",
+        "명중률▲"
+      ]
+    },
+    "burst": {
+      "name": "모두 죽어버려!!",
+      "desc": "적 전체에게 광역 작열 대미지. 자신에게 극딜 버프",
+      "tags": [
+        "광역 딜",
+        "작열"
+      ]
+    },
+    "normal": {
+      "name": "프로그레시브 나이프",
+      "desc": "",
+      "tags": []
+    }
+  },
+  "usage_stats": [
+    {
+      "name": "스테이지",
+      "stars": 4,
+      "desc": "작열 파티 메인 딜러"
+    },
+    {
+      "name": "이상개체요격전",
+      "stars": 3,
+      "desc": "작열 약점 보스 킬러"
+    },
+    {
+      "name": "솔로레이드",
+      "stars": 4,
+      "desc": "콜라보 한정 0티어"
+    },
+    {
+      "name": "유니온레이드",
+      "stars": 0,
+      "desc": ""
+    },
+    {
+      "name": "PVP",
+      "stars": 2,
+      "desc": ""
+    },
+    {
+      "name": "기업타워",
+      "stars": 0,
+      "desc": ""
+    },
+    {
+      "name": "트라이브타워",
+      "stars": 0,
+      "desc": ""
+    }
+  ],
+  "weapon_info": {
+    "weapon_name": "",
+    "max_ammo": 0,
+    "reload_time": 0,
+    "control_type": "",
+    "name": "프로그레시브 나이프"
+  },
+  "build": {
+    "stats": {
+      "hp": 96000,
+      "atk": 1875,
+      "def": 595,
+      "power": 1876,
+      "combatPower": 1945
+    },
+    "overload": {
+      "helmet": {
+        "option1": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option2": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 1
+        }
+      },
+      "armor": {
+        "option1": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option2": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 1
+        }
+      },
+      "gloves": {
+        "option1": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option2": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 1
+        }
+      },
+      "boots": {
+        "option1": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option2": {
+          "type": "옵션없음",
+          "stage": 1
+        },
+        "option3": {
+          "type": "옵션없음",
+          "stage": 1
+        }
+      }
+    },
+    "skills": {
+      "skill1": 10,
+      "skill2": 10,
+      "burst": 10
+    },
+    "cube_level": 7,
+    "collection": {
+      "grade": "None",
+      "skill1": 0,
+      "skill2": 0
+    }
+  },
+  "_originalId": "830",
+  "rarity": "SSR",
+  "cv": "미야무라 유코",
+  "weapon_name": "프로그레시브 나이프",
+  "_dbId": "830"
+}
